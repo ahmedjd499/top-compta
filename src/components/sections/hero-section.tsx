@@ -1,15 +1,20 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+  type Variants,
+} from "motion/react";
 import {
   ShieldCheck,
   ExternalLink,
-  Cloud,
-  FileCheck2,
   Inbox,
   Send,
   Lock,
+  Sparkles,
 } from "lucide-react";
 import { heroContent } from "@/content/home";
 
@@ -22,8 +27,39 @@ export function HeroSection() {
     offset: ["start end", "end start"],
   });
 
-  const card1Y = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-12, 12]);
-  const card2Y = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [12, -12]);
+  const card1Y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? [0, 0] : [-16, 16]
+  );
+  const card2Y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? [0, 0] : [16, -16]
+  );
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
+    },
+  };
 
   return (
     <section
@@ -32,110 +68,186 @@ export function HeroSection() {
       className="relative w-full py-12 lg:py-20 bg-surface-bright overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden">
-          {/* Ambient decorative drifting glow elements */}
+        <div className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/5">
+          {/* Luminous dynamic breathing glow meshes */}
           <motion.div
             animate={
               shouldReduceMotion
                 ? undefined
                 : {
-                    x: [0, 25, 0],
-                    y: [0, -20, 0],
-                    scale: [1, 1.08, 1],
+                    x: [0, 30, -10, 0],
+                    y: [0, -25, 10, 0],
+                    scale: [1, 1.15, 0.95, 1],
+                    opacity: [0.25, 0.4, 0.25],
                   }
             }
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-24 -top-24 w-96 h-96 bg-secondary/25 rounded-full blur-3xl pointer-events-none"
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -right-20 -top-20 w-[420px] h-[420px] bg-secondary/30 rounded-full blur-[90px] pointer-events-none"
           />
           <motion.div
             animate={
               shouldReduceMotion
                 ? undefined
                 : {
-                    x: [0, -20, 0],
-                    y: [0, 20, 0],
-                    scale: [1, 1.1, 1],
+                    x: [0, -25, 15, 0],
+                    y: [0, 20, -15, 0],
+                    scale: [1, 1.1, 0.9, 1],
+                    opacity: [0.2, 0.35, 0.2],
                   }
             }
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute right-1/3 -bottom-20 w-80 h-80 bg-tertiary-fixed-dim/15 rounded-full blur-2xl pointer-events-none"
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.5,
+            }}
+            className="absolute right-1/3 -bottom-24 w-[380px] h-[380px] bg-tertiary-fixed-dim/20 rounded-full blur-[80px] pointer-events-none"
           />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: Key Messaging */}
+            {/* Left Column: Key Messaging with Staggered Entrance */}
             <motion.div
-              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
               className="lg:col-span-7 flex flex-col gap-6"
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low/10 text-tertiary-fixed text-xs font-semibold w-fit backdrop-blur-md border border-white/10">
-                <ShieldCheck className="w-4 h-4" />
-                <span>{heroContent.badge}</span>
-              </div>
+              {/* Shimmering Badge */}
+              <motion.div
+                variants={itemVariants}
+                className="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low/10 text-tertiary-fixed text-xs font-semibold w-fit backdrop-blur-md border border-white/10 overflow-hidden group shadow-xs"
+              >
+                <motion.div
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : { x: ["-100%", "200%"] }
+                  }
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    repeatDelay: 2,
+                  }}
+                  className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+                />
+                <ShieldCheck className="w-4 h-4 text-tertiary-fixed shrink-0" />
+                <span className="relative z-10">{heroContent.badge}</span>
+              </motion.div>
 
-              <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-on-primary leading-tight">
+              <motion.h1
+                variants={itemVariants}
+                className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-on-primary leading-tight"
+              >
                 {heroContent.title}
-              </h1>
+              </motion.h1>
 
-              <p className="text-base sm:text-lg text-inverse-on-surface/90 max-w-2xl leading-relaxed">
+              <motion.p
+                variants={itemVariants}
+                className="text-base sm:text-lg text-inverse-on-surface/90 max-w-2xl leading-relaxed"
+              >
                 {heroContent.description}
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-wrap items-center gap-4 pt-2"
+              >
+                <motion.a
+                  whileHover={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          scale: 1.03,
+                          boxShadow: "0 12px 24px -6px rgba(217, 119, 6, 0.4)",
+                        }
+                  }
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
                   href={heroContent.partnerCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed text-sm font-bold shadow-lg hover:brightness-110 active:scale-[0.97] transition-all"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed text-sm font-bold shadow-lg hover:brightness-110 transition-all cursor-pointer"
                 >
-                  <ShieldCheck className="w-5 h-5 text-on-tertiary-fixed" />
+                  <Sparkles className="w-4 h-4 text-on-tertiary-fixed" />
                   <span>{heroContent.partnerCta.text}</span>
                   <ExternalLink className="w-4 h-4 ml-0.5 opacity-80" />
-                </a>
+                </motion.a>
 
-                <a
+                <motion.a
+                  whileHover={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          scale: 1.03,
+                          backgroundColor: "rgba(255, 255, 255, 0.15)",
+                        }
+                  }
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
                   href={heroContent.clientCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface-variant/20 hover:bg-surface-variant/30 text-on-primary text-sm font-semibold transition-all backdrop-blur-sm border border-white/10 active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface-variant/20 text-on-primary text-sm font-semibold transition-all backdrop-blur-sm border border-white/10 cursor-pointer"
                 >
                   <Lock className="w-4 h-4 text-secondary-fixed" />
                   <span>{heroContent.clientCta.text}</span>
-                </a>
-              </div>
+                </motion.a>
+              </motion.div>
 
               {/* Integrated pipeline indicators */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 text-inverse-on-surface/75 text-xs font-medium border-t border-white/10">
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-wrap items-center gap-3 pt-4 text-inverse-on-surface/75 text-xs font-medium border-t border-white/10"
+              >
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-secondary-fixed" />
+                  <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse" />
                   {heroContent.indicators[0]}
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-tertiary-fixed" />
+                  <span className="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse" />
                   {heroContent.indicators[1]}
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-secondary-container" />
+                  <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
                   {heroContent.indicators[2]}
                 </span>
-              </div>
+              </motion.div>
             </motion.div>
 
-            {/* Right Column: 2 High-Tech Legal Milestones Cards */}
+            {/* Right Column: 2 Interactive High-Tech Milestone Cards */}
             <div className="lg:col-span-5 flex flex-col gap-5">
               {/* Milestone 1: 2026 */}
               <motion.div
                 style={{ y: card1Y }}
-                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-                className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md hover:bg-surface-container-lowest/15 transition-all"
+                transition={{
+                  duration: 0.7,
+                  delay: 0.2,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        scale: 1.025,
+                        y: -4,
+                        boxShadow: "0 20px 30px -10px rgba(55, 85, 195, 0.3)",
+                      }
+                }
+                className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md transition-colors hover:bg-surface-container-lowest/15 cursor-default relative group overflow-hidden"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex flex-col items-center justify-center shrink-0 w-20 h-20 rounded-xl bg-secondary text-on-secondary p-2 text-center shadow-inner">
+                  <motion.div
+                    whileHover={
+                      shouldReduceMotion ? undefined : { rotate: [0, -3, 3, 0] }
+                    }
+                    transition={{ duration: 0.4 }}
+                    className="flex flex-col items-center justify-center shrink-0 w-20 h-20 rounded-xl bg-secondary text-on-secondary p-2 text-center shadow-inner"
+                  >
                     <span className="font-space-grotesk text-xs uppercase font-bold leading-none">
                       {heroContent.milestones[0].day}
                     </span>
@@ -145,7 +257,7 @@ export function HeroSection() {
                     <span className="font-space-grotesk text-lg font-bold leading-none mt-1">
                       {heroContent.milestones[0].year}
                     </span>
-                  </div>
+                  </motion.div>
                   <div className="flex flex-col gap-1">
                     <div className="inline-flex items-center gap-1.5 text-tertiary-fixed text-xs font-bold uppercase tracking-wider">
                       <Inbox className="w-4 h-4" />
@@ -164,13 +276,32 @@ export function HeroSection() {
               {/* Milestone 2: 2027 */}
               <motion.div
                 style={{ y: card2Y }}
-                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md hover:bg-surface-container-lowest/15 transition-all"
+                transition={{
+                  duration: 0.7,
+                  delay: 0.35,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        scale: 1.025,
+                        y: -4,
+                        boxShadow: "0 20px 30px -10px rgba(15, 23, 42, 0.5)",
+                      }
+                }
+                className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md transition-colors hover:bg-surface-container-lowest/15 cursor-default relative group overflow-hidden"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex flex-col items-center justify-center shrink-0 w-20 h-20 rounded-xl bg-primary-container border border-tertiary-fixed/30 text-tertiary-fixed p-2 text-center shadow-inner">
+                  <motion.div
+                    whileHover={
+                      shouldReduceMotion ? undefined : { rotate: [0, -3, 3, 0] }
+                    }
+                    transition={{ duration: 0.4 }}
+                    className="flex flex-col items-center justify-center shrink-0 w-20 h-20 rounded-xl bg-primary-container border border-tertiary-fixed/30 text-tertiary-fixed p-2 text-center shadow-inner"
+                  >
                     <span className="font-space-grotesk text-xs uppercase font-bold leading-none">
                       {heroContent.milestones[1].day}
                     </span>
@@ -180,7 +311,7 @@ export function HeroSection() {
                     <span className="font-space-grotesk text-lg font-bold leading-none mt-1">
                       {heroContent.milestones[1].year}
                     </span>
-                  </div>
+                  </motion.div>
                   <div className="flex flex-col gap-1">
                     <div className="inline-flex items-center gap-1.5 text-secondary-fixed text-xs font-bold uppercase tracking-wider">
                       <Send className="w-4 h-4" />

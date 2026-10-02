@@ -32,9 +32,22 @@ export function FaqSection() {
             const isOpen = openIndex === index;
 
             return (
-              <div
+              <motion.div
                 key={item.question}
-                className="bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/30 overflow-hidden transition-all duration-200"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className={cn(
+                  "bg-surface-container-lowest rounded-2xl shadow-xs border transition-all duration-300 overflow-hidden",
+                  isOpen
+                    ? "border-secondary/40 ring-2 ring-secondary/10 shadow-sm"
+                    : "border-outline-variant/30 hover:border-secondary/30"
+                )}
               >
                 <button
                   type="button"
@@ -42,11 +55,17 @@ export function FaqSection() {
                   className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-space-grotesk text-base sm:text-lg font-bold text-on-surface hover:text-secondary transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span>{item.question}</span>
+                  <span className="leading-snug">{item.question}</span>
                   <motion.div
-                    animate={{ rotate: isOpen ? 45 : 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                    className="shrink-0 w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary"
+                    animate={{
+                      rotate: isOpen ? 45 : 0,
+                      backgroundColor: isOpen
+                        ? "var(--color-secondary)"
+                        : "var(--color-surface-container)",
+                      color: isOpen ? "#ffffff" : "var(--color-secondary)",
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 24 }}
+                    className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors"
                   >
                     <Plus className="w-4 h-4" />
                   </motion.div>
@@ -59,16 +78,22 @@ export function FaqSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 sm:px-6 pb-6 pt-0 text-xs sm:text-sm text-on-surface-variant leading-relaxed border-l-2 border-secondary ml-5 sm:ml-6 my-1">
+                      <motion.div
+                        initial={{ y: -8 }}
+                        animate={{ y: 0 }}
+                        exit={{ y: -8 }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="px-5 sm:px-6 pb-6 pt-0 text-xs sm:text-sm text-on-surface-variant leading-relaxed border-l-2 border-secondary ml-5 sm:ml-6 my-1"
+                      >
                         <div className="pl-3">{item.answer}</div>
-                      </div>
+                      </motion.div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,13 +1,35 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import { Star, ShieldCheck, ExternalLink } from "lucide-react";
 import { trustpilotContent } from "@/content/home";
 import { CountUp } from "@/components/ui/count-up";
 
 export function TrustpilotSection() {
   const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
+    },
+  };
 
   return (
     <section className="w-full py-16 lg:py-24 bg-surface-container-low border-y border-outline-variant/20">
@@ -28,11 +50,20 @@ export function TrustpilotSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Trustpilot Score Showcase Card */}
           <motion.div
-            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="lg:col-span-4 bg-primary-container text-on-primary rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl"
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    scale: 1.015,
+                    y: -4,
+                    transition: { type: "spring", stiffness: 350, damping: 22 },
+                  }
+            }
+            className="lg:col-span-4 bg-primary-container text-on-primary rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl cursor-default relative overflow-hidden group"
           >
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
@@ -53,22 +84,52 @@ export function TrustpilotSection() {
 
               {/* Trustpilot Stars in Green Box Representation */}
               <div className="flex items-center gap-1.5 pt-3">
-                {[1, 2, 3, 4].map((star) => (
-                  <span
+                {[1, 2, 3, 4].map((star, sIdx) => (
+                  <motion.span
                     key={star}
-                    className="bg-[#00b67a] text-white p-1 rounded flex items-center justify-center"
+                    initial={
+                      shouldReduceMotion
+                        ? undefined
+                        : { scale: 0.5, opacity: 0 }
+                    }
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: 0.2 + sIdx * 0.08,
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 15,
+                    }}
+                    className="bg-[#00b67a] text-white p-1 rounded flex items-center justify-center shadow-xs"
                   >
                     <Star className="w-4 h-4 fill-current" />
-                  </span>
+                  </motion.span>
                 ))}
-                <span className="bg-[#00b67a] text-white p-1 rounded flex items-center justify-center">
+                <motion.span
+                  initial={
+                    shouldReduceMotion
+                      ? undefined
+                      : { scale: 0.5, opacity: 0 }
+                  }
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.2 + 4 * 0.08,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 15,
+                  }}
+                  className="bg-[#00b67a] text-white p-1 rounded flex items-center justify-center shadow-xs"
+                >
                   <Star className="w-4 h-4 fill-current opacity-80" />
-                </span>
+                </motion.span>
               </div>
             </div>
 
             <div className="pt-8">
-              <a
+              <motion.a
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                 href={trustpilotContent.trustpilotUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -76,23 +137,39 @@ export function TrustpilotSection() {
               >
                 <span>Consulter tous les avis</span>
                 <ExternalLink className="w-4 h-4" />
-              </a>
+              </motion.a>
             </div>
           </motion.div>
 
           {/* 4 Reviews Grid */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {trustpilotContent.reviews.map((review, i) => (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5"
+          >
+            {trustpilotContent.reviews.map((review) => (
               <motion.div
                 key={review.id}
-                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-                className="bg-surface-container-lowest rounded-2xl p-6 shadow-xs border border-outline-variant/30 flex flex-col justify-between hover:shadow-md transition-shadow"
+                variants={cardVariants}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        y: -6,
+                        scale: 1.015,
+                        transition: {
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 22,
+                        },
+                      }
+                }
+                className="bg-surface-container-lowest rounded-2xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 border border-outline-variant/30 hover:border-secondary/40 flex flex-col justify-between group"
               >
                 <div className="flex flex-col gap-2">
-                  <span className="text-secondary text-4xl font-space-grotesk leading-none select-none">
+                  <span className="text-secondary text-4xl font-space-grotesk leading-none select-none group-hover:scale-110 transition-transform origin-left">
                     &ldquo;
                   </span>
                   <p className="text-sm sm:text-base text-on-surface font-medium leading-relaxed">
@@ -108,7 +185,7 @@ export function TrustpilotSection() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ export function StepsSection() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 80%", "end 50%"],
+    offset: ["start 75%", "end 60%"],
   });
 
   const lineWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -35,11 +35,11 @@ export function StepsSection() {
 
         {/* Steps Timeline Grid with scroll-drawn line */}
         <div className="relative">
-          {/* Desktop background connecting line */}
-          <div className="hidden lg:block absolute top-14 left-8 right-8 h-0.5 bg-outline-variant/30 -z-0">
+          {/* Desktop background connecting line with gradient shimmer */}
+          <div className="hidden lg:block absolute top-14 left-10 right-10 h-1 bg-outline-variant/20 -z-0 rounded-full overflow-hidden">
             <motion.div
               style={{ width: shouldReduceMotion ? "100%" : lineWidth }}
-              className="h-full bg-secondary"
+              className="h-full bg-gradient-to-r from-secondary via-secondary-container to-secondary shadow-[0_0_10px_rgba(55,85,195,0.5)]"
             />
           </div>
 
@@ -50,39 +50,57 @@ export function StepsSection() {
               return (
                 <motion.div
                   key={step.stepNumber}
-                  initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+                  initial={shouldReduceMotion ? undefined : { opacity: 0, y: 28 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 0.5,
-                    delay: index * 0.08,
-                    ease: "easeOut",
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="bg-surface-container-lowest rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col gap-4 relative"
+                  whileHover={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          y: -6,
+                          scale: 1.015,
+                          transition: {
+                            type: "spring",
+                            stiffness: 350,
+                            damping: 22,
+                          },
+                        }
+                  }
+                  className="bg-surface-container-lowest rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-xl transition-all duration-300 border border-outline-variant/30 hover:border-secondary/40 flex flex-col gap-4 relative group"
                 >
-                  {/* Badge with scale-in animation */}
+                  {/* Badge with scale-in animation and hover rotation */}
                   <motion.div
-                    initial={shouldReduceMotion ? undefined : { scale: 0.6, opacity: 0 }}
+                    initial={
+                      shouldReduceMotion ? undefined : { scale: 0.6, opacity: 0 }
+                    }
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{
-                      duration: 0.4,
-                      delay: index * 0.1 + 0.2,
+                      duration: 0.5,
+                      delay: index * 0.12 + 0.15,
                       type: "spring",
-                      stiffness: 260,
-                      damping: 20,
+                      stiffness: 300,
+                      damping: 18,
                     }}
+                    whileHover={
+                      shouldReduceMotion ? undefined : { rotate: [0, -6, 6, 0] }
+                    }
                     className={cn(
-                      "w-12 h-12 rounded-xl flex items-center justify-center font-space-grotesk text-xl font-bold",
+                      "w-12 h-12 rounded-xl flex items-center justify-center font-space-grotesk text-xl font-bold transition-all shadow-xs",
                       isLast
-                        ? "bg-secondary text-on-secondary shadow-md"
-                        : "bg-primary-container text-on-primary"
+                        ? "bg-secondary text-on-secondary shadow-md group-hover:bg-on-secondary-container"
+                        : "bg-primary-container text-on-primary group-hover:bg-secondary group-hover:text-on-secondary"
                     )}
                   >
                     {step.stepNumber}
                   </motion.div>
 
-                  <h3 className="font-space-grotesk text-base sm:text-lg font-bold text-on-surface">
+                  <h3 className="font-space-grotesk text-base sm:text-lg font-bold text-on-surface group-hover:text-secondary transition-colors">
                     {step.title}
                   </h3>
 

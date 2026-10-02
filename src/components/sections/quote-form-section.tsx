@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -392,7 +393,7 @@ export function QuoteFormSection() {
                   <span className="text-xs sm:text-sm font-semibold text-on-surface">
                     Mode de contact souhaité
                   </span>
-                  <div className="grid grid-cols-3 gap-2.5">
+                  <div className="grid grid-cols-3 gap-1.5 p-1.5 bg-surface-container-low rounded-2xl border border-outline-variant/30">
                     {[
                       { value: "phone", label: "Téléphone", icon: Phone },
                       { value: "email", label: "Email", icon: Mail },
@@ -409,12 +410,23 @@ export function QuoteFormSection() {
                             setValue("contactMode", mode.value as any)
                           }
                           className={cn(
-                            "flex items-center justify-center gap-2 p-2.5 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer",
+                            "relative flex items-center justify-center gap-2 p-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors cursor-pointer z-10",
                             isSelected
-                              ? "bg-secondary text-on-secondary border-secondary shadow-sm"
-                              : "bg-surface-container-low text-on-surface border-outline-variant/30 hover:bg-surface-container"
+                              ? "text-on-secondary"
+                              : "text-on-surface hover:text-secondary"
                           )}
                         >
+                          {isSelected && (
+                            <motion.div
+                              layoutId="activeContactPill"
+                              className="absolute inset-0 bg-secondary rounded-xl shadow-sm -z-10"
+                              transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 30,
+                              }}
+                            />
+                          )}
                           <Icon className="w-4 h-4" />
                           <span>{mode.label}</span>
                         </button>

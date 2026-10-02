@@ -22,24 +22,61 @@ export function TestimonialSection() {
 
         {/* Extended Testimonial Card */}
         <motion.div
-          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden"
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 28, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ type: "spring", stiffness: 260, damping: 24 }}
+          className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/5"
         >
-          {/* Subtle gold accent stars */}
-          <div className="flex items-center gap-1 text-tertiary-fixed mb-4 sm:mb-6">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star key={star} className="w-5 h-5 fill-current" />
+          {/* Subtle ambient light beam */}
+          <motion.div
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    x: [0, 20, -20, 0],
+                    y: [0, -15, 15, 0],
+                    scale: [1, 1.1, 0.95, 1],
+                    opacity: [0.15, 0.25, 0.15],
+                  }
+            }
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -right-16 -top-16 w-80 h-80 bg-secondary/25 rounded-full blur-[80px] pointer-events-none"
+          />
+
+          {/* Staggered Pop Stars */}
+          <div className="flex items-center gap-1.5 text-tertiary-fixed mb-4 sm:mb-6">
+            {[1, 2, 3, 4, 5].map((star, i) => (
+              <motion.div
+                key={star}
+                initial={shouldReduceMotion ? undefined : { scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  type: "spring",
+                  stiffness: 450,
+                  damping: 18,
+                  delay: 0.15 + i * 0.08,
+                }}
+              >
+                <Star className="w-5 h-5 fill-current drop-shadow-xs" />
+              </motion.div>
             ))}
           </div>
 
-          <div className="font-space-grotesk text-tertiary-fixed/30 text-5xl sm:text-6xl leading-none mb-2 select-none">
+          <motion.div
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : { y: [0, -4, 0] }
+            }
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="font-space-grotesk text-tertiary-fixed/30 text-5xl sm:text-6xl leading-none mb-2 select-none"
+          >
             &ldquo;
-          </div>
+          </motion.div>
 
-          <div className="text-sm sm:text-base lg:text-lg text-inverse-on-surface space-y-4 leading-relaxed">
+          <div className="text-sm sm:text-base lg:text-lg text-inverse-on-surface space-y-4 leading-relaxed relative z-10">
             {testimonialContent.quoteParagraphs.map((paragraph, index) => {
               const isLast =
                 index === testimonialContent.quoteParagraphs.length - 1;
@@ -54,7 +91,7 @@ export function TestimonialSection() {
             })}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-surface-variant/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="mt-8 pt-6 border-t border-surface-variant/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
             <div>
               <div className="font-space-grotesk text-base sm:text-lg font-bold text-on-primary">
                 {testimonialContent.author}
@@ -64,9 +101,13 @@ export function TestimonialSection() {
               </div>
             </div>
 
-            <div className="text-xs text-secondary-fixed bg-surface-variant/20 px-3 py-1.5 rounded-lg max-w-fit font-medium">
+            <motion.div
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20 }}
+              className="text-xs text-secondary-fixed bg-surface-variant/20 px-3.5 py-1.5 rounded-lg max-w-fit font-medium border border-white/5"
+            >
               {testimonialContent.companies}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

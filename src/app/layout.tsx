@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Footer } from "@/components/layout/footer";
 import { MobileNavBar } from "@/components/layout/mobile-nav-bar";
 
@@ -39,6 +40,15 @@ export const metadata: Metadata = {
     title: "TOP-COMPTA.FR | Externalisation Comptable & Conseil",
     description:
       "Gestion comptable et administrative de confiance. GED Cloud ISO-27001, facturation électronique 2026/2027 et accompagnement sur mesure sans engagement.",
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-icon.svg", type: "image/svg+xml" },
+    ],
   },
   alternates: {
     canonical: "https://www.top-compta.fr",
@@ -93,6 +103,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-surface font-sans text-on-surface antialiased flex flex-col selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+        <ScrollProgress />
         <Header />
         <main className="flex-1 w-full pt-[132px] sm:pt-[136px] lg:pt-[140px] pb-16 lg:pb-0">
           {children}
