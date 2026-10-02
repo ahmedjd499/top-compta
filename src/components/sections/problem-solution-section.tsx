@@ -74,19 +74,6 @@ export function ProblemSolutionSection() {
               {problemSolutionContent.description}
             </p>
 
-            <motion.div
-              whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.01 }}
-              transition={{ type: "spring", stiffness: 350, damping: 20 }}
-              className="p-5 sm:p-6 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/30 mt-2 hover:border-secondary/40 transition-colors"
-            >
-              <div className="flex items-center gap-2.5 mb-2 text-secondary font-space-grotesk text-base font-bold">
-                <CheckCircle className="w-5 h-5 text-secondary" />
-                <span>{problemSolutionContent.guaranteeTitle}</span>
-              </div>
-              <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                {problemSolutionContent.guaranteeText}
-              </p>
-            </motion.div>
           </motion.div>
 
           {/* Right Side: 2x2 Solutions Cards */}

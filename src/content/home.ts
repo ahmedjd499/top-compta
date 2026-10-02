@@ -233,18 +233,14 @@ export const problemSolutionContent: {
   badge: string;
   title: string;
   description: string;
-  guaranteeTitle: string;
-  guaranteeText: string;
+
   cards: ProblemSolutionCard[];
 } = {
   badge: "Méthode & Clarté",
   title: "Moins de tâches dispersées. Plus de visibilité.",
   description:
     "Quand les documents arrivent par plusieurs canaux et que les échéances se cumulent, le suivi devient vite chronophage. TOP-COMPTA.FR remet de l’ordre dans les flux et prend en charge les opérations définies avec votre entreprise.",
-  guaranteeTitle: "Garantie Sérénité",
-  guaranteeText:
-    "Zéro justificatif égaré, des délais scrupuleusement respectés et une traçabilité intégrale de chaque pièce comptable.",
-  cards: [
+ cards: [
     {
       title: "Des pièces éparpillées",
       description:
