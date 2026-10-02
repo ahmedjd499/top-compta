@@ -30,7 +30,7 @@ export function TrustPartnersBar() {
               <span className="font-space-grotesk text-sm font-bold text-on-surface">
                 {partner.name}
               </span>
-              <span className="text-[10px] bg-surface-container px-2 py-0.5 rounded font-medium text-on-surface-variant border border-outline-variant/30">
+              <span className="text-xs bg-surface-container px-2 py-0.5 rounded font-medium text-on-surface-variant border border-outline-variant/30">
                 {partner.tag}
               </span>
             </div>

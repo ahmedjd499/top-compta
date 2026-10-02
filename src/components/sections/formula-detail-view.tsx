@@ -81,7 +81,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
               </Link>
             </div>
 
-            <span className="text-[11px] text-on-surface-variant">
+            <span className="text-xs text-on-surface-variant">
               Sans engagement • Résiliation libre 30j
             </span>
           </div>

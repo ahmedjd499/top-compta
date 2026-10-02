@@ -148,7 +148,7 @@ export function OffersSection() {
                   >
                     <span
                       className={cn(
-                        "font-extrabold tracking-wider px-1.5 py-0.2 rounded text-[11px]",
+                        "font-extrabold tracking-wider px-1.5 py-0.2 rounded text-xs",
                         isFeatured
                           ? "text-[#003087]"
                           : "text-[#0079C1] bg-white"

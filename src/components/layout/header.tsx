@@ -53,14 +53,14 @@ export function Header() {
           <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-tertiary-fixed shrink-0" />
-              <span className="font-semibold text-tertiary-fixed uppercase tracking-wider text-[11px]">
+              <span className="font-semibold text-tertiary-fixed uppercase tracking-wider text-xs">
                 {topBannerContent.tag}
               </span>
               <span className="line-clamp-1">{topBannerContent.message}</span>
             </div>
             <Link
               href={topBannerContent.linkHref}
-              className="inline-flex items-center gap-1 text-[11px] font-semibold text-tertiary-fixed hover:text-on-primary transition-colors underline underline-offset-2 shrink-0"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-tertiary-fixed hover:text-on-primary transition-colors underline underline-offset-2 shrink-0"
             >
               {topBannerContent.linkText}
             </Link>
@@ -155,7 +155,7 @@ export function Header() {
                         >
                           <span>{item.title}</span>
                           {item.badge && (
-                            <span className="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-1.5 py-0.5 rounded">
+                            <span className="bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold px-1.5 py-0.5 rounded">
                               {item.badge}
                             </span>
                           )}

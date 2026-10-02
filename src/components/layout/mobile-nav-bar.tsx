@@ -68,7 +68,7 @@ export function MobileNavBar() {
                 className={className}
               >
                 <Icon className="w-5 h-5" />
-                <span className="text-[11px] font-medium">{item.label}</span>
+                <span className="text-xs font-medium">{item.label}</span>
               </a>
             );
           }
@@ -76,7 +76,7 @@ export function MobileNavBar() {
           return (
             <Link key={item.label} href={item.href} className={className}>
               <Icon className="w-5 h-5" />
-              <span className="text-[11px] font-medium">{item.label}</span>
+              <span className="text-xs font-medium">{item.label}</span>
             </Link>
           );
         })}

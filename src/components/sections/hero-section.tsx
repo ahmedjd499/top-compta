@@ -139,7 +139,7 @@ export function HeroSection() {
                     <span className="font-space-grotesk text-xs uppercase font-bold leading-none">
                       {heroContent.milestones[0].day}
                     </span>
-                    <span className="text-[11px] leading-tight mt-1 opacity-90">
+                    <span className="text-xs leading-tight mt-1 opacity-90">
                       {heroContent.milestones[0].month}
                     </span>
                     <span className="font-space-grotesk text-lg font-bold leading-none mt-1">
@@ -174,7 +174,7 @@ export function HeroSection() {
                     <span className="font-space-grotesk text-xs uppercase font-bold leading-none">
                       {heroContent.milestones[1].day}
                     </span>
-                    <span className="text-[11px] leading-tight mt-1 opacity-90">
+                    <span className="text-xs leading-tight mt-1 opacity-90">
                       {heroContent.milestones[1].month}
                     </span>
                     <span className="font-space-grotesk text-lg font-bold leading-none mt-1">
