@@ -33,7 +33,7 @@ export const headerContactInfo: HeaderContactInfo = {
   email: "info@top-compta.fr",
   schedule: "Lun-Ven 9h-18h",
   trustpilotScore: "Trustpilot 4.6/5",
-  certifications: "Plateforme Agréée (PA) • GED ISO-27001",
+  certifications: "Plateforme Agréée (PA) • GED ",
 };
 
 export const mainNavItems: NavItem[] = [

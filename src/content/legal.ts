@@ -16,7 +16,7 @@ export const legalContent = {
       title: "2. Hébergement",
       content: [
         "Le site est hébergé sur des infrastructures cloud conformes aux normes européennes de protection des données (RGPD).",
-        "Espace GED opéré par MyCompanyFiles - Certification ISO-27001.",
+        "Espace GED opéré par MyCompanyFiles.",
       ],
     },
     {

@@ -97,12 +97,19 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-on-surface font-semibold hover:text-secondary transition-colors"
               >
-                <div className="flex text-amber-500">
+                <div className="flex items-center text-amber-500">
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
-                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <div className="relative w-3.5 h-3.5">
+                    {/* Background unfilled star */}
+                    <Star className="w-3.5 h-3.5 text-amber-500/25 fill-amber-500/20" />
+                    {/* 60% filled overlay star for 4.6/5 rating */}
+                    <div className="absolute inset-0 w-[60%] overflow-hidden">
+                      <Star className="w-3.5 h-3.5 fill-current text-amber-500 min-w-[14px]" />
+                    </div>
+                  </div>
                 </div>
                 <span>{headerContactInfo.trustpilotScore}</span>
               </a>
@@ -211,23 +218,23 @@ export function Header() {
 
           {/* Right Action Anchors */}
           <div className="flex items-center gap-2.5 sm:gap-3">
-            <a
-              href={siteConfig.clientPortalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold shadow-sm transition-colors"
-            >
-              <Lock className="w-3.5 h-3.5 text-secondary" />
-              <span>Espace Client</span>
-            </a>
-
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-secondary text-on-secondary hover:bg-on-secondary-container text-xs sm:text-sm font-bold shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all"
+              className="h-9 sm:h-10 inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 rounded-lg bg-secondary text-on-secondary hover:bg-on-secondary-container text-xs sm:text-sm font-bold shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all"
             >
               <FileText className="w-4 h-4" />
               <span>Demander un devis</span>
             </Link>
+
+            <a
+              href={siteConfig.clientPortalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex h-9 sm:h-10 items-center justify-center gap-1.5 px-4 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs sm:text-sm font-semibold shadow-xs border border-outline-variant/30 hover:border-secondary/40 transition-colors"
+            >
+              <User className="w-3.5 h-3.5 text-secondary" />
+              <span>Espace Client</span>
+            </a>
 
             {/* Mobile Hamburger Button */}
             <button
@@ -237,17 +244,6 @@ export function Header() {
             >
               <Menu className="w-5 h-5" />
             </button>
-
-            {/* User icon indicator */}
-            <a
-              href={siteConfig.clientPortalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex w-8 h-8 rounded-full bg-primary-sovereign items-center justify-center text-on-primary hover:opacity-90 transition-opacity"
-              aria-label="Connexion GED"
-            >
-              <User className="w-4 h-4" />
-            </a>
           </div>
         </div>
       </header>

@@ -126,7 +126,14 @@ export function TrustpilotSection() {
                   }}
                   className="bg-[#00b67a] text-white p-1 rounded flex items-center justify-center shadow-xs"
                 >
-                  <Star className="w-4 h-4 fill-current opacity-80" />
+                  <div className="relative w-4 h-4">
+                    {/* Background faint unfilled star */}
+                    <Star className="w-4 h-4 text-white/30 fill-white/20" />
+                    {/* 60% filled overlay star for 4.6/5 rating */}
+                    <div className="absolute inset-0 w-[60%] overflow-hidden">
+                      <Star className="w-4 h-4 fill-current text-white min-w-[16px]" />
+                    </div>
+                  </div>
                 </motion.span>
               </div>
             </div>
