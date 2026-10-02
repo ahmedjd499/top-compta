@@ -43,8 +43,12 @@ export function TrustpilotSection() {
             </h2>
           </div>
           <p className="text-sm sm:text-base text-on-surface-variant max-w-lg">
-            Les extraits ci-dessous reprennent des avis publiés sur la page
-            Trustpilot de TOP-COMPTA.FR.
+            Les extraits ci-dessous reprennent des avis publiés sur 
+             <a className="hover:underline  font-bold transition-all cursor-pointer ms-1"   href={trustpilotContent.trustpilotUrl}
+                target="_blank"
+                rel="noopener noreferrer">
+                  la page Trustpilot de TOP-COMPTA.FR.
+              </a>
           </p>
         </div>
 

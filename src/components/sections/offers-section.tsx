@@ -63,9 +63,9 @@ export function OffersSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs"
+          className="mb-10 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col sm:flex-row items-center justify-center gap-4 shadow-xs"
         >
-          <div className="flex items-center gap-3">
+          <div className=" w-full flex items-center justify-between gap-3">
             <motion.div
               animate={
                 shouldReduceMotion
@@ -80,23 +80,33 @@ export function OffersSection() {
             <span className="text-xs sm:text-sm text-on-surface font-medium">
               {offersContent.fastActionNotice}
             </span>
-          </div>
-          <div className="flex items-center gap-1.5 text-on-surface-variant text-xs font-medium shrink-0">
+             <motion.div
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : { scale: [1, 1.1, 1] }
+              }
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0"
+            >
             <Lock className="w-4 h-4 text-secondary" />
-            <span>{offersContent.securityNotice}</span>
+            </motion.div>
+
           </div>
+     
         </motion.div>
 
-        {/* 4 Cards Grid with Spring Stagger */}
+        {/* Cards Grid with Spring Stagger */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
         >
           {offersContent.plans.map((plan) => {
             const isFeatured = plan.recommended;
+            const isNumericPrice = typeof plan.price === "number";
 
             return (
               <motion.div
@@ -106,7 +116,7 @@ export function OffersSection() {
                   shouldReduceMotion
                     ? undefined
                     : {
-                        y: -8,
+                        y: -6,
                         scale: 1.015,
                         transition: {
                           type: "spring",
@@ -118,7 +128,7 @@ export function OffersSection() {
                 className={cn(
                   "bg-surface-container-lowest rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative border group",
                   isFeatured
-                    ? "border-secondary/50 shadow-lg ring-2 ring-secondary/20 lg:-translate-y-2"
+                    ? "border-secondary/50 shadow-lg ring-2 ring-secondary/20 lg:-translate-y-1"
                     : "border-outline-variant/30"
                 )}
               >
@@ -126,95 +136,132 @@ export function OffersSection() {
                 {isFeatured && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-tertiary-fixed text-on-tertiary-fixed text-xs px-3.5 py-1 rounded-full shadow-md font-bold tracking-wider uppercase flex items-center gap-1 ring-4 ring-tertiary-fixed/30 animate-pulse">
                     <Star className="w-3.5 h-3.5 fill-current" />
-                    <span>Recommandée</span>
+                    <span>Recommandé</span>
                   </div>
                 )}
 
                 <div className="flex flex-col gap-3.5">
-                  <span
-                    className={cn(
-                      "text-xs uppercase tracking-wider font-bold",
-                      isFeatured ? "text-secondary" : "text-on-surface-variant"
-                    )}
-                  >
-                    {plan.tag}
-                  </span>
-
-                  <h3 className="font-space-grotesk text-xl font-bold text-on-surface group-hover:text-secondary transition-colors">
-                    {plan.name}
-                  </h3>
-
-                  <div className="flex items-baseline gap-1 my-1">
-                    <span
-                      className={cn(
-                        "font-space-grotesk text-4xl font-bold tracking-tight",
-                        isFeatured ? "text-secondary" : "text-on-surface"
-                      )}
-                    >
-                      <CountUp value={plan.price} suffix="€" />
-                    </span>
-                    <span className="text-xs text-on-surface-variant">
-                      {plan.pricePeriod}
-                    </span>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-space-grotesk text-xl font-bold text-on-surface group-hover:text-secondary transition-colors">
+                        {plan.name}
+                      </h3>
+                      <div className="mt-2.5 h-0.5 w-8 rounded-full bg-secondary/70"></div>
+                    </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-on-surface-variant min-h-[38px] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-on-surface-variant min-h-[44px] leading-relaxed">
                     {plan.description}
                   </p>
 
-                  <ul className="flex flex-col gap-2.5 pt-3 text-xs sm:text-sm text-on-surface">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="my-2 h-px bg-outline-variant/20" />
+
+                  <div className="min-h-[50px] flex items-baseline gap-1.5">
+                    {isNumericPrice ? (
+                      <>
+                        <span
+                          className={cn(
+                            "font-space-grotesk text-4xl font-extrabold tracking-tight",
+                            isFeatured ? "text-secondary" : "text-on-surface"
+                          )}
+                        >
+                          <CountUp value={plan.price as number} suffix="€" />
+                        </span>
+                        {plan.pricePeriod && (
+                          <span className="text-sm font-medium text-on-surface-variant">
+                            {plan.pricePeriod}
+                          </span>
+                        )}
+                      </>
+                    ) : (
+                      <span
+                        className={cn(
+                          "font-space-grotesk text-3xl font-extrabold tracking-tight",
+                          isFeatured ? "text-secondary" : "text-on-surface"
+                        )}
+                      >
+                        {plan.price}
+                      </span>
+                    )}
+                  </div>
+
+                  {plan.features && plan.features.length > 0 && (
+                    <ul className="flex flex-col gap-2 pt-2 text-xs sm:text-sm text-on-surface">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2.5 pt-6 mt-4 border-t border-outline-variant/20">
                   <motion.div
                     whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
                   >
-                    <Link
-                      href={plan.href}
-                      className={cn(
-                        "w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold text-center inline-flex items-center justify-center gap-1.5 transition-colors cursor-pointer",
-                        isFeatured
-                          ? "bg-secondary text-on-secondary hover:bg-on-secondary-container shadow-md"
-                          : "bg-surface-container text-on-surface hover:bg-surface-container-high"
-                      )}
-                    >
-                      <span>Voir les détails</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    {plan.isExternal ? (
+                      <a
+                        href={plan.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={cn(
+                          "w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold text-center inline-flex items-center justify-center gap-1.5 transition-colors cursor-pointer",
+                          isFeatured
+                            ? "bg-secondary text-on-secondary hover:bg-on-secondary-container shadow-md"
+                            : "bg-surface-container text-on-surface hover:bg-surface-container-high"
+                        )}
+                      >
+                        <span>{plan.ctaText || "Choisir ce plan"}</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    ) : (
+                      <Link
+                        href={plan.href}
+                        className={cn(
+                          "w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold text-center inline-flex items-center justify-center gap-1.5 transition-colors cursor-pointer",
+                          isFeatured
+                            ? "bg-secondary text-on-secondary hover:bg-on-secondary-container shadow-md"
+                            : "bg-surface-container text-on-surface hover:bg-surface-container-high"
+                        )}
+                      >
+                        <span>{plan.ctaText || "Choisir ce plan"}</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    )}
                   </motion.div>
 
-                  {/* PayPal Instant Checkout Button */}
-                  <motion.button
-                    whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
-                    onClick={() =>
-                      setSelectedOffer({ name: plan.name, amount: plan.price })
-                    }
-                    className={cn(
-                      "w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer",
-                      isFeatured
-                        ? "bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A]"
-                        : "bg-[#003087] text-white hover:bg-[#00215c]"
-                    )}
-                  >
-                    <span
+                  {/* PayPal Instant Checkout Button (for plans with numeric price) */}
+                  {isNumericPrice && (
+                    <motion.button
+                      whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
+                      onClick={() =>
+                        setSelectedOffer({
+                          name: plan.name,
+                          amount: plan.price as number,
+                        })
+                      }
                       className={cn(
-                        "font-extrabold tracking-wider px-1.5 py-0.2 rounded text-xs",
+                        "w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer",
                         isFeatured
-                          ? "text-[#003087]"
-                          : "text-[#0079C1] bg-white"
+                          ? "bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A]"
+                          : "bg-[#003087] text-white hover:bg-[#00215c]"
                       )}
                     >
-                      Pay<span className="text-[#00457C]">Pal</span>
-                    </span>
-                    <span>Régler par PayPal ({plan.price}€)</span>
-                  </motion.button>
+                      <span
+                        className={cn(
+                          "font-extrabold tracking-wider px-1.5 py-0.2 rounded text-xs",
+                          isFeatured
+                            ? "text-[#003087]"
+                            : "text-[#0079C1] bg-white"
+                        )}
+                      >
+                        Pay<span className="text-[#00457C]">Pal</span>
+                      </span>
+                      <span>Régler par PayPal ({plan.price}€)</span>
+                    </motion.button>
+                  )}
                 </div>
               </motion.div>
             );

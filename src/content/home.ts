@@ -26,9 +26,9 @@ export const heroContent: HeroContent = {
     href: "https://customer.mycompanyfiles.fr/auth/login",
   },
   indicators: [
-    "GED Cloud ISO-27001",
-    "Flux Factur-X & UBL",
-    "Synchronisation Banques",
+    "GED",
+    "Facturation Électronique",
+    "Plateforme Agréée",
   ],
   milestones: [
     {
@@ -54,56 +54,27 @@ export const heroContent: HeroContent = {
   ],
 };
 
-export const partnersContent: {
-  headline: string;
-  items: PartnerItem[];
-} = {
-  headline: "Écosystème technologique certifié et agréé :",
-  items: [
-    {
-      name: "MyCompanyFiles",
-      tag: "GED Sécurisée",
-      iconName: "folder_shared",
-    },
-    {
-      name: "Habile Solutions",
-      tag: "CRM & PA Agréée",
-      iconName: "hub",
-    },
-    {
-      name: "PayPal",
-      tag: "Paiement Garanti",
-      iconName: "payments",
-    },
-    {
-      name: "ISO-27001 Cloud",
-      tag: "Données Sécurisées UE",
-      iconName: "verified",
-    },
-  ],
-};
+
 
 export const offersContent: {
   badge: string;
   title: string;
   subtitle: string;
   fastActionNotice: string;
-  securityNotice: string;
   plans: OfferPlan[];
 } = {
-  badge: "Tarifs forfaitaires sans engagement",
+  badge: "Formules mensuelles au forfait",
   title: "Le bon niveau d'externalisation, sans prestation inutile.",
   subtitle: "Chaque formule pensée selon votre spécificité et besoins.",
   fastActionNotice:
-    "Souscrire en 1 clic : Choisissez votre formule et réglez en toute sécurité avec PayPal ou activez votre compte GED.",
-  securityNotice: "Cryptage SSL 256-bit",
+    "Souscrire en 1 clic : Choisissez votre formule et réglez en toute sécurité avec PayPal.",
   plans: [
     {
       id: "essentiel",
       tag: "Pack Débutant",
       name: "Formule Essentiel",
       price: 124,
-      pricePeriod: "/mois HT",
+      pricePeriod: "/mois",
       description: "La gestion comptable de base pour démarrer sereinement.",
       features: [
         "Saisie & pointage réguliers",
@@ -111,6 +82,7 @@ export const offersContent: {
         "Gestion documentaire centralisée",
       ],
       href: "/offres/formule-essentiel",
+      ctaText: "Choisir ce plan",
       paypalButtonColor: "#003087",
     },
     {
@@ -118,7 +90,7 @@ export const offersContent: {
       tag: "Délégation Totale",
       name: "Formule Confort",
       price: 184,
-      pricePeriod: "/mois HT",
+      pricePeriod: "/mois",
       description:
         "Une offre complète pour déléguer toute votre comptabilité de manière fluide.",
       features: [
@@ -129,6 +101,7 @@ export const offersContent: {
       ],
       recommended: true,
       href: "/offres/formule-confort",
+      ctaText: "Choisir ce plan",
       paypalButtonColor: "#FFC439",
     },
     {
@@ -136,7 +109,7 @@ export const offersContent: {
       tag: "Freelances & TNS",
       name: "Formule Indépendant",
       price: 204,
-      pricePeriod: "/mois HT",
+      pricePeriod: "/mois",
       description: "Spécifique pour les travailleurs indépendants TNS.",
       features: [
         "Déclarations sociales TNS & URSSAF",
@@ -144,6 +117,7 @@ export const offersContent: {
         "Espace mobile pour notes de frais",
       ],
       href: "/offres/formule-independant",
+      ctaText: "Choisir ce plan",
       paypalButtonColor: "#003087",
     },
     {
@@ -151,7 +125,7 @@ export const offersContent: {
       tag: "Gestion Immobilière",
       name: "Formule SCI",
       price: 124,
-      pricePeriod: "/mois HT",
+      pricePeriod: "/mois",
       description:
         "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
       features: [
@@ -160,7 +134,43 @@ export const offersContent: {
         "Archivage baux et quittances sécurisé",
       ],
       href: "/offres/formule-sci",
+      ctaText: "Choisir ce plan",
       paypalButtonColor: "#003087",
+    },
+    {
+      id: "sos-compta",
+      tag: "Rattrapage",
+      name: "Formule SOS Compta",
+      price: "Forfait Annuel",
+      pricePeriod: "",
+      description:
+        "Une assistance ponctuelle pour régulariser ou rattraper votre retard comptable.",
+      features: [
+        "Rattrapage des exercices en retard",
+        "Reconstitution des livres comptables",
+        "Bilan de régularisation & télétransmission",
+      ],
+      href: "/offres/formule-sos-compta",
+      ctaText: "Choisir ce plan",
+      paypalButtonColor: "#003087",
+    },
+    {
+      id: "speed-bilan",
+      tag: "Bilan Express",
+      name: "Speed Bilan",
+      price: "Sur devis",
+      pricePeriod: "",
+      description:
+        "Votre bilan annuel réalisé rapidement, simplement et en toute fiabilité.",
+      features: [
+        "Bilan annuel rapide et fiable",
+        "Déclarations & liasse fiscale Bercy",
+        "Accompagnement par des professionnels",
+      ],
+      recommended: true,
+      href: "https://speedbilan.fr",
+      ctaText: "VOIR PLUS",
+      isExternal: true,
     },
   ],
 };

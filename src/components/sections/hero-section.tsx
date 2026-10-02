@@ -148,23 +148,108 @@ export function HeroSection() {
                 </motion.a>
               </motion.div>
 
-              {/* Integrated pipeline indicators */}
+              {/* Integrated pipeline indicators with vivid pulsing glow */}
               <motion.div
                 variants={itemVariants}
-                className="flex flex-wrap items-center gap-3 pt-4 text-inverse-on-surface/75 text-xs font-medium border-t border-white/10"
+                className="flex flex-wrap items-center gap-4 pt-4 text-inverse-on-surface/80 text-xs font-medium border-t border-white/10"
               >
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse" />
+                <span className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                    <motion.span
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : { scale: [1, 2.2, 2.2], opacity: [0.9, 0, 0] }
+                      }
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                      }}
+                      className="absolute h-full w-full rounded-full bg-secondary-fixed"
+                    />
+                    <motion.span
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : { scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }
+                      }
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="relative h-2 w-2 rounded-full bg-secondary-fixed shadow-[0_0_8px_rgba(221,225,255,0.9)]"
+                    />
+                  </span>
                   {heroContent.indicators[0]}
                 </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse" />
+
+                <span className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                    <motion.span
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : { scale: [1, 2.2, 2.2], opacity: [0.9, 0, 0] }
+                      }
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                        delay: 0.7,
+                      }}
+                      className="absolute h-full w-full rounded-full bg-tertiary-fixed"
+                    />
+                    <motion.span
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : { scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }
+                      }
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.7,
+                      }}
+                      className="relative h-2 w-2 rounded-full bg-tertiary-fixed shadow-[0_0_8px_rgba(255,220,195,0.9)]"
+                    />
+                  </span>
                   {heroContent.indicators[1]}
                 </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
+
+                <span className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                    <motion.span
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : { scale: [1, 2.2, 2.2], opacity: [0.9, 0, 0] }
+                      }
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                        delay: 1.4,
+                      }}
+                      className="absolute h-full w-full rounded-full bg-emerald-400"
+                    />
+                    <motion.span
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : { scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }
+                      }
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1.4,
+                      }}
+                      className="relative h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]"
+                    />
+                  </span>
                   {heroContent.indicators[2]}
                 </span>
               </motion.div>

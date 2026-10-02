@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "TOP-COMPTA.FR",
     title: "TOP-COMPTA.FR | Externalisation Comptable & Conseil",
     description:
-      "Gestion comptable et administrative de confiance. GED Cloud ISO-27001, facturation électronique 2026/2027 et accompagnement sur mesure sans engagement.",
+      "Gestion comptable et administrative de confiance. gestion documentaire GED, facturation électronique 2026/2027 et accompagnement sur mesure sans engagement.",
   },
   icons: {
     icon: [

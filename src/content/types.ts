@@ -60,12 +60,14 @@ export interface OfferPlan {
   id: string;
   tag: string;
   name: string;
-  price: number;
-  pricePeriod: string;
+  price: number | string;
+  pricePeriod?: string;
   description: string;
-  features: string[];
+  features?: string[];
   recommended?: boolean;
   href: string;
+  ctaText?: string;
+  isExternal?: boolean;
   paypalButtonColor?: string;
 }
 

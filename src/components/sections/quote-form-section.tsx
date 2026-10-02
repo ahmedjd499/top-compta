@@ -96,82 +96,84 @@ export function QuoteFormSection() {
     <section id="contact" className="w-full py-16 lg:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* Reassurance & Direct Contact Details (Left Column) */}
-          <motion.div
-            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-4 bg-primary-container text-on-primary rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between"
-          >
-            <div className="flex flex-col gap-6">
-              <span className="px-3 py-1 rounded-md bg-secondary text-on-secondary text-xs font-bold uppercase tracking-wider w-fit">
-                {quoteReassurance.badge}
-              </span>
+          {/* Reassurance & Direct Contact Details (Left Column - Sticky until end of form) */}
+          <div className="lg:col-span-4 lg:sticky lg:top-36 self-start">
+            <motion.div
+              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full bg-primary-container text-on-primary rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between"
+            >
+              <div className="flex flex-col gap-6">
+                <span className="px-3 py-1 rounded-md bg-secondary text-on-secondary text-xs font-bold uppercase tracking-wider w-fit">
+                  {quoteReassurance.badge}
+                </span>
 
-              <h2 className="font-space-grotesk text-2xl sm:text-3xl font-bold text-on-primary tracking-tight leading-tight">
-                {quoteReassurance.title}
-              </h2>
+                <h2 className="font-space-grotesk text-2xl sm:text-3xl font-bold text-on-primary tracking-tight leading-tight">
+                  {quoteReassurance.title}
+                </h2>
 
-              <p className="text-sm text-on-primary-container leading-relaxed">
-                {quoteReassurance.description}
-              </p>
+                <p className="text-sm text-on-primary-container leading-relaxed">
+                  {quoteReassurance.description}
+                </p>
 
-              <div className="flex flex-col gap-5 pt-6 border-t border-surface-variant/20">
-                <a
-                  href={`tel:${quoteReassurance.phoneRaw}`}
-                  className="flex items-start gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
-                >
-                  <Phone className="w-5 h-5 text-secondary-fixed shrink-0 mt-0.5" />
-                  <div>
-                    <div className="font-space-grotesk text-base font-bold">
-                      {quoteReassurance.phone}
+                <div className="flex flex-col gap-5 pt-6 border-t border-surface-variant/20">
+                  <a
+                    href={`tel:${quoteReassurance.phoneRaw}`}
+                    className="flex items-start gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
+                  >
+                    <Phone className="w-5 h-5 text-secondary-fixed shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-space-grotesk text-base font-bold">
+                        {quoteReassurance.phone}
+                      </div>
+                      <div className="text-xs text-on-primary-container">
+                        {quoteReassurance.schedule}
+                      </div>
                     </div>
-                    <div className="text-xs text-on-primary-container">
-                      {quoteReassurance.schedule}
-                    </div>
-                  </div>
-                </a>
+                  </a>
 
-                <a
-                  href={`mailto:${quoteReassurance.email}`}
-                  className="flex items-center gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
-                >
-                  <Mail className="w-5 h-5 text-secondary-fixed shrink-0" />
-                  <div>
-                    <div className="font-space-grotesk text-sm sm:text-base font-bold">
-                      {quoteReassurance.email}
+                  <a
+                    href={`mailto:${quoteReassurance.email}`}
+                    className="flex items-center gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
+                  >
+                    <Mail className="w-5 h-5 text-secondary-fixed shrink-0" />
+                    <div>
+                      <div className="font-space-grotesk text-sm sm:text-base font-bold">
+                        {quoteReassurance.email}
+                      </div>
+                      <div className="text-xs text-on-primary-container">
+                        {quoteReassurance.responseGuarantee}
+                      </div>
                     </div>
-                    <div className="text-xs text-on-primary-container">
-                      {quoteReassurance.responseGuarantee}
-                    </div>
-                  </div>
-                </a>
+                  </a>
 
-                <a
-                  href={quoteReassurance.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
-                >
-                  <MessageCircle className="w-5 h-5 text-[#25D366] shrink-0" />
-                  <div>
-                    <div className="font-space-grotesk text-sm sm:text-base font-bold">
-                      {quoteReassurance.whatsappLabel}
+                  <a
+                    href={quoteReassurance.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
+                  >
+                    <MessageCircle className="w-5 h-5 text-[#25D366] shrink-0" />
+                    <div>
+                      <div className="font-space-grotesk text-sm sm:text-base font-bold">
+                        {quoteReassurance.whatsappLabel}
+                      </div>
+                      <div className="text-xs text-on-primary-container">
+                        Échangez en direct avec un conseiller
+                      </div>
                     </div>
-                    <div className="text-xs text-on-primary-container">
-                      Échangez en direct avec un conseiller
-                    </div>
-                  </div>
-                </a>
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div className="mt-8 pt-6 border-t border-surface-variant/20 text-xs text-on-primary-container flex items-center gap-2">
-              <Lock className="w-4 h-4 text-tertiary-fixed shrink-0" />
-              <span>{quoteReassurance.rgpdNote}</span>
-            </div>
-          </motion.div>
+              <div className="mt-8 pt-6 border-t border-surface-variant/20 text-xs text-on-primary-container flex items-center gap-2">
+                <Lock className="w-4 h-4 text-tertiary-fixed shrink-0" />
+                <span>{quoteReassurance.rgpdNote}</span>
+              </div>
+            </motion.div>
+          </div>
 
           {/* Lead Generation Form (Right Column) */}
           <motion.div

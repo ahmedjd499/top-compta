@@ -69,33 +69,47 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
           >
             <div>
               <span className="text-xs text-on-surface-variant uppercase font-bold tracking-wider">
-                Tarif Forfaitaire
+                {typeof formula.price === "number" ? "Tarif Forfaitaire" : "Tarification"}
               </span>
               <div className="font-space-grotesk text-4xl font-bold text-secondary mt-1">
-                {formula.price}€
+                {typeof formula.price === "number" ? `${formula.price}€` : formula.price}
               </div>
-              <span className="text-xs text-on-surface-variant font-medium">
-                {formula.period}
-              </span>
+              {formula.period && (
+                <span className="text-xs text-on-surface-variant font-medium">
+                  {formula.period}
+                </span>
+              )}
             </div>
 
             <div className="flex flex-col gap-2 pt-2">
-              <button
-                type="button"
-                onClick={() => setPaypalOpen(true)}
-                className="w-full py-2.5 px-4 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer"
-              >
-                <Lock className="w-3.5 h-3.5 text-[#003087]" />
-                <span>Régler par PayPal ({formula.price}€)</span>
-              </button>
+              {typeof formula.price === "number" ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => setPaypalOpen(true)}
+                    className="w-full py-2.5 px-4 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                  >
+                    <Lock className="w-3.5 h-3.5 text-[#003087]" />
+                    <span>Régler par PayPal ({formula.price}€)</span>
+                  </button>
 
-              <Link
-                href="/#contact"
-                className="w-full py-2.5 px-4 rounded-xl bg-secondary text-on-secondary hover:bg-on-secondary-container font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-colors"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Demander un devis</span>
-              </Link>
+                  <Link
+                    href="/#contact"
+                    className="w-full py-2.5 px-4 rounded-xl bg-secondary text-on-secondary hover:bg-on-secondary-container font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-colors"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Demander un devis</span>
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  href="/#contact"
+                  className="w-full py-2.5 px-4 rounded-xl bg-secondary text-on-secondary hover:bg-on-secondary-container font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-colors"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>Demander un devis</span>
+                </Link>
+              )}
             </div>
 
             <span className="text-xs text-on-surface-variant">
@@ -181,7 +195,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
         </motion.div>
       </div>
 
-      {paypalOpen && (
+      {paypalOpen && typeof formula.price === "number" && (
         <PayPalModal
           isOpen={true}
           offerName={formula.name}
