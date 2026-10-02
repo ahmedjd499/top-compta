@@ -49,7 +49,7 @@ export function HeroSection() {
     <section
       ref={containerRef}
       id="facturation-electronique"
-      className="relative w-full py-12 lg:py-20 bg-surface-bright overflow-hidden"
+      className="relative w-full py-12 lg:py-20 bg-surface-container-low overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/5">
@@ -111,9 +111,9 @@ export function HeroSection() {
                     shouldReduceMotion
                       ? undefined
                       : {
-                          scale: 1.03,
-                          boxShadow: "0 12px 24px -6px rgba(217, 119, 6, 0.4)",
-                        }
+                        scale: 1.03,
+                        boxShadow: "0 12px 24px -6px rgba(217, 119, 6, 0.4)",
+                      }
                   }
                   whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 350, damping: 20 }}
@@ -132,9 +132,9 @@ export function HeroSection() {
                     shouldReduceMotion
                       ? undefined
                       : {
-                          scale: 1.03,
-                          backgroundColor: "rgba(255, 255, 255, 0.15)",
-                        }
+                        scale: 1.03,
+                        backgroundColor: "rgba(255, 255, 255, 0.15)",
+                      }
                   }
                   whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 350, damping: 20 }}
@@ -271,10 +271,10 @@ export function HeroSection() {
                   shouldReduceMotion
                     ? undefined
                     : {
-                        scale: 1.02,
-                        y: -3,
-                        boxShadow: "0 20px 30px -10px rgba(55, 85, 195, 0.3)",
-                      }
+                      scale: 1.02,
+                      y: -3,
+                      boxShadow: "0 20px 30px -10px rgba(55, 85, 195, 0.3)",
+                    }
                 }
                 className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md transition-colors hover:bg-surface-container-lowest/15 cursor-default relative group overflow-hidden"
               >
@@ -325,10 +325,10 @@ export function HeroSection() {
                   shouldReduceMotion
                     ? undefined
                     : {
-                        scale: 1.02,
-                        y: -3,
-                        boxShadow: "0 20px 30px -10px rgba(15, 23, 42, 0.5)",
-                      }
+                      scale: 1.02,
+                      y: -3,
+                      boxShadow: "0 20px 30px -10px rgba(15, 23, 42, 0.5)",
+                    }
                 }
                 className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md transition-colors hover:bg-surface-container-lowest/15 cursor-default relative group overflow-hidden"
               >

@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Footer } from "@/components/layout/footer";
 import { MobileNavBar } from "@/components/layout/mobile-nav-bar";
+import { FloatingCallButton } from "@/components/ui/floating-call-button";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -110,6 +111,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <MobileNavBar />
+        <FloatingCallButton />
       </body>
     </html>
   );
