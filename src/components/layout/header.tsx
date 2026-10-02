@@ -170,7 +170,7 @@ export function Header() {
                       ))}
                       <div className="h-px bg-surface-container my-1" />
                       <Link
-                        href="/#offres"
+                        href="/offres/comparatif"
                         className="px-3 py-2 rounded-lg text-xs font-bold text-secondary hover:bg-secondary/10 transition-colors"
                       >
                         Comparez nos formules →

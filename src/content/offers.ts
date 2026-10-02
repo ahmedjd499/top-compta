@@ -1,3 +1,13 @@
+export interface PricingTier {
+  durationMonths: number; // 1, 3, 6, 12
+  label: string; // "1 mois", "3 mois", "6 mois", "1 an"
+  priceTotal: number;
+  monthlyEquivalent: number;
+  savings?: string; // "Soit 17€ d'économies"
+  savingsAmount?: number;
+  popular?: boolean;
+}
+
 export interface DetailedFormula {
   slug: string;
   name: string;
@@ -5,12 +15,14 @@ export interface DetailedFormula {
   price: number | string;
   period?: string;
   summary: string;
-  targetAudience: string[];
+  pricingTiers?: PricingTier[];
   deliverables: {
     title: string;
     items: string[];
   }[];
   advantages: string[];
+  reassurance?: string;
+  phoneContact?: string;
   recommended?: boolean;
   ctaText?: string;
   ctaHref?: string;
@@ -26,6 +38,7 @@ export interface OffresMonthlyPlan {
   description: string;
   href: string;
   ctaText: string;
+  pricingTiers?: PricingTier[];
   recommended?: boolean;
   isExternal?: boolean;
 }
@@ -46,23 +59,38 @@ export interface OffresFaqItem {
   answer: string;
 }
 
+export interface ComparisonFeature {
+  name: string;
+  tooltip?: string;
+  essentiel: boolean | string;
+  confort: boolean | string;
+  independant: boolean | string;
+  sci: boolean | string;
+  sosCompta: boolean | string;
+}
+
+export interface ComparisonCategory {
+  category: string;
+  features: ComparisonFeature[];
+}
+
 export const offresHeroContent = {
   title: "Choisissez le niveau d’accompagnement",
   titleHighlight: "qui vous correspond le mieux.",
   subtitle:
-    "De la tenue comptable aux formalités administratives, choisissez le niveau d'accompagnement qui vous correspond.",
+    "De la tenue comptable aux formalités administratives, découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
   trustItems: [
     {
       title: "Dès 124 €/mois",
-      subtitle: "Sans frais cachés et PA incluse",
+      subtitle: "Tarifs dégressifs & PA native incluse",
     },
     {
       title: "Sans engagement",
-      subtitle: "Résiliation sans préavis",
+      subtitle: "Résiliation libre à tout moment",
     },
     {
-      title: "Avec assistance dédiée",
-      subtitle: "Tel & whatsapp",
+      title: "Assistance dédiée",
+      subtitle: "Tél 01 70 60 00 82 & WhatsApp",
     },
   ],
 };
@@ -74,9 +102,42 @@ export const monthlyOffers: OffresMonthlyPlan[] = [
     tag: "Pack Débutant",
     price: 124,
     pricePeriod: "/mois",
-    description: "La gestion comptable de base pour démarrer sereinement.",
+    description: "La gestion comptable de base pour démarrer sereinement. Idéal créateurs & franchise en base de TVA.",
     href: "/offres/formule-essentiel",
     ctaText: "Choisir ce plan",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 124,
+        monthlyEquivalent: 124,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 355,
+        monthlyEquivalent: 118.33,
+        savings: "Soit 17€ d'économies",
+        savingsAmount: 17,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 685,
+        monthlyEquivalent: 114.17,
+        savings: "Soit 59€ d'économies",
+        savingsAmount: 59,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 1310,
+        monthlyEquivalent: 109.17,
+        savings: "Soit 178€ d'économies",
+        savingsAmount: 178,
+        popular: true,
+      },
+    ],
   },
   {
     id: "formule-confort",
@@ -85,10 +146,43 @@ export const monthlyOffers: OffresMonthlyPlan[] = [
     price: 184,
     pricePeriod: "/mois",
     description:
-      "Une offre complète pour déléguer toute votre comptabilité de manière fluide.",
+      "Une offre complète pour déléguer toute votre comptabilité et vos déclarations avec sérénité.",
     href: "/offres/formule-confort",
     ctaText: "Choisir ce plan",
     recommended: true,
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 184,
+        monthlyEquivalent: 184,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 525,
+        monthlyEquivalent: 175,
+        savings: "Soit 27€ d'économies",
+        savingsAmount: 27,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 1008,
+        monthlyEquivalent: 168,
+        savings: "Soit 96€ d'économies",
+        savingsAmount: 96,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 1826,
+        monthlyEquivalent: 152.17,
+        savings: "Soit 382€ d'économies",
+        savingsAmount: 382,
+        popular: true,
+      },
+    ],
   },
   {
     id: "formule-independant",
@@ -96,9 +190,42 @@ export const monthlyOffers: OffresMonthlyPlan[] = [
     tag: "Freelances & TNS",
     price: 204,
     pricePeriod: "/mois",
-    description: "Spécifique pour les travailleurs indépendants TNS.",
+    description: "Spécifique pour les travailleurs indépendants TNS, professions libérales et gérants majoritaires.",
     href: "/offres/formule-independant",
     ctaText: "Choisir ce plan",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 204,
+        monthlyEquivalent: 204,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 585,
+        monthlyEquivalent: 195,
+        savings: "Soit 27€ d'économies",
+        savingsAmount: 27,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 1116,
+        monthlyEquivalent: 186,
+        savings: "Soit 108€ d'économies",
+        savingsAmount: 108,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 2018,
+        monthlyEquivalent: 168.17,
+        savings: "Soit 430€ d'économies",
+        savingsAmount: 430,
+        popular: true,
+      },
+    ],
   },
   {
     id: "formule-sci",
@@ -107,19 +234,63 @@ export const monthlyOffers: OffresMonthlyPlan[] = [
     price: 124,
     pricePeriod: "/mois",
     description:
-      "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
+      "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier (IR déclaration 2072 ou IS).",
     href: "/offres/formule-sci",
     ctaText: "Choisir ce plan",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 124,
+        monthlyEquivalent: 124,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 355,
+        monthlyEquivalent: 118.33,
+        savings: "Soit 17€ d'économies",
+        savingsAmount: 17,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 685,
+        monthlyEquivalent: 114.17,
+        savings: "Soit 59€ d'économies",
+        savingsAmount: 59,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 1310,
+        monthlyEquivalent: 109.17,
+        savings: "Soit 178€ d'économies",
+        savingsAmount: 178,
+        popular: true,
+      },
+    ],
   },
   {
     id: "formule-sos-compta",
     name: "Formule SOS Compta",
     tag: "Rattrapage & Régularisation",
-    price: "Forfait Annuel",
+    price: 990,
+    pricePeriod: " / an",
     description:
-      "Une assistance ponctuelle pour régulariser ou rattraper votre retard comptable.",
+      "Assistance ponctuelle urgente pour régulariser ou rattraper vos exercices comptables en retard.",
     href: "/offres/formule-sos-compta",
     ctaText: "Choisir ce plan",
+    pricingTiers: [
+      {
+        durationMonths: 12,
+        label: "1 an (Forfait Annuel)",
+        priceTotal: 990,
+        monthlyEquivalent: 82.5,
+        savings: "Tarif Forfaitaire Annuel Garanti",
+        popular: true,
+      },
+    ],
   },
   {
     id: "speed-bilan",
@@ -127,133 +298,11 @@ export const monthlyOffers: OffresMonthlyPlan[] = [
     tag: "Bilan Express",
     price: "Sur devis",
     description:
-      "Votre bilan annuel réalisé rapidement, simplement et en toute fiabilité.",
+      "Votre bilan annuel réalisé rapidement, simplement et en toute conformité légale.",
     href: "https://speedbilan.fr",
     ctaText: "VOIR PLUS",
-    recommended: true,
+    recommended: false,
     isExternal: true,
-  },
-];
-
-export const whyChooseForfaits = {
-  title: "Pourquoi nos forfaits ?",
-  subtitle:
-    "Un tarif fixe, des délais garantis et une équipe dédiée à Tunis. Vous ne payez que ce dont vous avez besoin.",
-  badges: [
-    "Compte CRM + PA + GED sécurisé et en ligne",
-    "Sans engagement",
-  ],
-  steps: [
-    {
-      time: "Jour 1",
-      title: "Premier contact",
-      description: "Étude de vos besoins .",
-    },
-    {
-      time: "Jour 2-3",
-      title: "Forfait sur mesure",
-      description: "Devis détaillé avec le niveau de service adapté.",
-    },
-    {
-      time: "Jour 5",
-      title: "Activation de votre espace client, CRM et PA",
-      description: "Accès à l'espace client et début du traitement.",
-    },
-  ],
-};
-
-export const servicesALaCarteContent = {
-  title: "Service à la carte",
-  subtitle: "Prestations à la carte et accompagnement spécialisé.",
-  services: [
-    {
-      id: "service-en-social",
-      name: "La Paie",
-      tag: "Social & Salariés",
-      price: "À la carte",
-      pricePeriod: "",
-      description:
-        "Gestion externalisée de vos salariés et de vos obligations d'employeur.",
-      href: "/offres/service-en-social",
-      ctaText: "Demander un devis",
-    },
-    {
-      id: "services-associes-a-la-paie",
-      name: "Services associés à la Paie",
-      tag: "Conseil RH & Social",
-      price: "À la carte",
-      pricePeriod: "",
-      description:
-        "Accompagnement dédié sur mesure pour sécuriser vos relations de travail.",
-      href: "/offres/services-associes-a-la-paie",
-      ctaText: "Demander un devis",
-    },
-    {
-      id: "creation-societe",
-      name: "Création Société",
-      tag: "Formalités Juridiques",
-      price: 790,
-      pricePeriod: " au forfait",
-      description:
-        "De l'idée au Kbis, nous prenons en charge toutes les formalités administratives de création.",
-      href: "/offres/creation-societe",
-      ctaText: "Choisir ce plan",
-    },
-    {
-      id: "transformations-societe",
-      name: "Transformations Société",
-      tag: "Évolution Structurelle",
-      price: 950,
-      pricePeriod: " au forfait",
-      description:
-        "Faites évoluer la structure ou le capital de votre entreprise existante.",
-      href: "/offres/transformations-societe",
-      ctaText: "Choisir ce plan",
-    },
-    {
-      id: "cessation-et-liquidation",
-      name: "Cessation & Liquidation",
-      tag: "Fermeture & Dissolution",
-      price: 1150,
-      pricePeriod: " au forfait",
-      description:
-        "Fermez proprement votre structure en totale conformité légale.",
-      href: "/offres/cessation-et-liquidation",
-      ctaText: "Choisir ce plan",
-    },
-    {
-      id: "crm-pa-native",
-      name: "CRM + PA native",
-      tag: "Facturation Électronique",
-      price: 30,
-      pricePeriod: "/mois",
-      description:
-        "Votre outil de facturation avec Plateforme agréée native.",
-      href: "/offres/crm-pa-native",
-      ctaText: "Choisir ce plan",
-    },
-  ],
-};
-
-export const offresFaqList: OffresFaqItem[] = [
-  {
-    question: "Puis-je changer de formule en cours de contrat ?",
-    answer: "Oui, vous pouvez upgrader ou downgrader à tout moment.",
-  },
-  {
-    question: "Qu'est-ce qui est inclus dans la saisie comptable ?",
-    answer:
-      "Enregistrement de vos achats, ventes, banques et OD. Pièces traitées une fois déposées dans votre espace GED via le PC ou le smartphone.",
-  },
-  {
-    question: "Les fiches de paie sont-elles incluses dans les formules ?",
-    answer:
-      "Les services à la carte et prestations associées sont facturées séparément et ne sont pas incluses dans les forfaits mensuels.",
-  },
-  {
-    question: "Y a-t-il un engagement de durée ?",
-    answer:
-      "Non. Tous nos contrats sont sans engagement. Vous pouvez résilier sans préavis et sans pénalité.",
   },
 ];
 
@@ -265,34 +314,103 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     price: 124,
     period: "/mois",
     summary:
-      "La gestion comptable de base pour démarrer sereinement. Vous êtes en lancement d'entreprise ou en franchise en base de TVA et souhaitez faire des économies en assurant une partie de vos flux.",
-    targetAudience: [
-      "Créateurs d'entreprise et jeunes structures",
-      "Entreprises en franchise en base de TVA",
-      "Dirigeants prenant une partie des obligations en charge",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. La formule essentielle pour piloter votre activité en toute conformité.",
+    phoneContact: "01 70 60 00 82",
+    reassurance:
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 124,
+        monthlyEquivalent: 124,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 355,
+        monthlyEquivalent: 118.33,
+        savings: "Soit 17€ d'économies",
+        savingsAmount: 17,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 685,
+        monthlyEquivalent: 114.17,
+        savings: "Soit 59€ d'économies",
+        savingsAmount: 59,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 1310,
+        monthlyEquivalent: 109.17,
+        savings: "Soit 178€ d'économies",
+        savingsAmount: 178,
+        popular: true,
+      },
     ],
+    
     deliverables: [
       {
-        title: "Comptabilité & Saisie",
+        title: "Services & Outils Connectés",
         items: [
-          "Saisie courante et pointage régulier des écritures",
-          "Rapprochement bancaire mensuel",
-          "Vérification de la cohérence des flux",
+          "Application smartphone disponible sur Play Store ou Apple Store",
+          "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
+          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
+          "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Outils & Services",
+        title: "Comptabilité Complète",
         items: [
-          "Accès complet GED MyCompanyFiles (Web & Mobile)",
-          "Classement documentaire sécurisé cloud ISO-27001",
-          "Assistance téléphonique aux heures ouvrées",
+          "Saisie courante",
+          "Situations trimestrielles",
+          "Reportings et Tableaux de bord mensuels",
+          "Bilan de fin d'exercice",
+          "Télétransmission de la liasse fiscale",
+          "Plaquette des comptes pour le Greffe du TC",
+        ],
+      },
+      {
+        title: "Fiscalité & Déclarations",
+        items: [
+          "CA12 TVA annuelle",
+          "Cadrage annuel de TVA pour les régimes réels",
+          "DAS2",
+          "CVAE",
+          "Relevé de solde IS",
+        ],
+      },
+      {
+        title: "CRM Commercial & Facturation",
+        items: [
+          "Fiches clients & Base articles",
+          "Devis et factures automatiques",
+          "Envoi des documents automatiquement depuis l'interface",
+          "Génération automatique des écritures de ventes",
+          "Gestion des relances",
+          "Personnalisation des documents",
+        ],
+      },
+      {
+        title: "PA (Plateforme Agréée Native)",
+        items: [
+          "Facturation électronique 100% conforme à la réforme 2026",
+          "Réception factures fournisseurs",
+          "Flux de banque et caisse intégrés",
+          "E-Reporting vers l'administration fiscale",
+          "Transmission directe Bercy (PPF)",
+          "Archivage sécurisé à valeur probante",
         ],
       },
     ],
     advantages: [
-      "Tarif forfaitaire accessible sans frais cachés",
-      "Zéro engagement de durée",
-      "Évolution fluide vers la formule Confort dès que l'activité grandit",
+      "Tarifs dégressifs clairs avec jusqu'à 178€ d'économies",
+      "Assistance contrôle fiscal ou URSSAF incluse",
+      "Interface tout-en-un avec GED et PA intégrée nativement",
     ],
   },
   "formule-confort": {
@@ -302,35 +420,111 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     price: 184,
     period: "/mois",
     summary:
-      "Une offre complète pour déléguer toute votre comptabilité de manière fluide. Vous êtes gérant minoritaire ou égalitaire de SARL, ou président de SAS, et souhaitez vous consacrer à votre développement.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Une formule tout inclus pour déléguer 100% de votre comptabilité, TVA mensuelle et formalités juridiques.",
+    phoneContact: "01 70 60 00 82",
     recommended: true,
-    targetAudience: [
-      "Présidents de SAS et SASU",
-      "Gérants minoritaires ou égalitaires de SARL",
-      "PME et TPE avec flux réguliers souhaitant une sérénité totale",
+    reassurance:
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 184,
+        monthlyEquivalent: 184,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 525,
+        monthlyEquivalent: 175,
+        savings: "Soit 27€ d'économies",
+        savingsAmount: 27,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 1008,
+        monthlyEquivalent: 168,
+        savings: "Soit 96€ d'économies",
+        savingsAmount: 96,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 1826,
+        monthlyEquivalent: 152.17,
+        savings: "Soit 382€ d'économies",
+        savingsAmount: 382,
+        popular: true,
+      },
     ],
+   
     deliverables: [
       {
-        title: "Comptabilité & Fiscalité Complète",
+        title: "Services & Outils Connectés",
         items: [
-          "Saisie intégrale de toutes les pièces comptables",
-          "Déclarations fiscales périodiques (TVA, CFE, IS)",
-          "Préparation de la liasse fiscale et plaquette des comptes annuels",
+          "Application smartphone disponible sur Play Store ou Apple Store",
+          "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
+          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
+          "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Pilotage & GED Avancée",
+        title: "Comptabilité Complète",
         items: [
-          "Accès GED Cloud + intégration CRM / Plateforme Agréée Habile Solutions",
-          "Tableaux de bord mensuels et reportings trimestriels consultables",
-          "Accompagnateur dédié disponible par téléphone, email et WhatsApp",
+          "Saisie courante de toutes les écritures",
+          "Situations trimestrielles",
+          "Reportings et Tableaux de bord mensuels",
+          "Bilan de fin d'exercice",
+          "Télétransmission de la liasse fiscale",
+          "Plaquette des comptes pour le Greffe du TC",
+        ],
+      },
+      {
+        title: "Fiscalité Complète & Mensuelle",
+        items: [
+          "TVA mensuelles ou trimestrielles",
+          "Cadrage annuel de TVA pour les régimes réels",
+          "DAS2",
+          "CVAE",
+          "Relevé de solde IS",
+        ],
+      },
+      {
+        title: "Juridique Associé Inclus",
+        items: [
+          "PV approbation des comptes annuels pour le Greffe du TC",
+          "Dépôt officiel des comptes auprès du tribunal de commerce",
+        ],
+      },
+      {
+        title: "CRM Commercial & Facturation",
+        items: [
+          "Fiches clients & Base articles",
+          "Devis et factures automatiques",
+          "Envoi des documents automatiquement depuis l'interface",
+          "Génération automatique des écritures de ventes",
+          "Gestion des relances",
+          "Personnalisation des documents",
+        ],
+      },
+      {
+        title: "PA (Plateforme Agréée Native)",
+        items: [
+          "Facturation électronique 100% conforme à la réforme 2026",
+          "Réception factures fournisseurs",
+          "Flux de banque et caisse intégrés",
+          "E-Reporting vers l'administration fiscale",
+          "Transmission directe Bercy (PPF)",
+          "Archivage sécurisé à valeur probante",
         ],
       },
     ],
     advantages: [
-      "Délégation administrative et comptable 100% sans anxiété",
-      "Plateforme agréée en natif pour la facturation électronique 2026",
-      "Pilotage en temps réel avec indicateurs clés",
+      "Jusqu'à 382€ d'économies sur la formule annuelle",
+      "PV d'approbation des comptes greffe inclus",
+      "TVA mensuelle ou trimestrielle prise en charge",
     ],
   },
   "formule-independant": {
@@ -340,34 +534,117 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     price: 204,
     period: "/mois",
     summary:
-      "Spécifique pour les travailleurs indépendants TNS. Vous voulez déléguer la gestion du RSI / Urssaf anxiogène et avoir l'esprit tranquille pour développer votre business et optimiser vos revenus.",
-    targetAudience: [
-      "Professions libérales et indépendants au régime réel",
-      "Travailleurs non-salariés (TNS) et gérants majoritaires de SARL/EURL",
-      "Consultants, freelances et artisans prestataires",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Spécifique pour les indépendants TNS, intégrant la gestion SSI (ex-RSI) et CIPAV.",
+    phoneContact: "01 70 60 00 82",
+    reassurance:
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 204,
+        monthlyEquivalent: 204,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 585,
+        monthlyEquivalent: 195,
+        savings: "Soit 27€ d'économies",
+        savingsAmount: 27,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 1116,
+        monthlyEquivalent: 186,
+        savings: "Soit 108€ d'économies",
+        savingsAmount: 108,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 2018,
+        monthlyEquivalent: 168.17,
+        savings: "Soit 430€ d'économies",
+        savingsAmount: 430,
+        popular: true,
+      },
     ],
+  
     deliverables: [
       {
-        title: "Déclarations Sociales & Fiscales TNS",
+        title: "Services & Outils Connectés",
         items: [
-          "Déclarations sociales TNS & déclarations URSSAF",
-          "Déclaration 2042 C Pro et intégration des revenus professionnels",
-          "Optimisation des cotisations sociales et suivi de régularisation",
+          "Application smartphone disponible sur Play Store ou Apple Store",
+          "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
+          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
+          "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Outils Dédiés & Mobilité",
+        title: "Comptabilité Complète",
         items: [
-          "Espace mobile dédié pour capture et notes de frais",
-          "Accès GED MyCompanyFiles 24/7",
-          "Reportings adaptés aux revenus d'indépendants",
+          "Saisie courante",
+          "Situations trimestrielles",
+          "Reportings et Tableaux de bord mensuels",
+          "Bilan de fin d'exercice",
+          "Télétransmission de la liasse fiscale",
+          "Plaquette des comptes pour le Greffe du TC",
+        ],
+      },
+      {
+        title: "Fiscalité Dédiée TNS",
+        items: [
+          "CA12 TVA annuelle",
+          "Cadrage annuel de TVA pour les régimes réels",
+          "DAS2",
+          "CVAE",
+          "Relevé de solde IS",
+        ],
+      },
+      {
+        title: "Volet Social & Déclarations TNS",
+        items: [
+          "Gestion SSI (ex-RSI)",
+          "Gestion CIPAV (professions libérales)",
+          "Optimisation des cotisations sociales et régularisations",
+        ],
+      },
+      {
+        title: "Juridique Associé Inclus",
+        items: [
+          "PV approbation des comptes annuels pour le Greffe du TC",
+        ],
+      },
+      {
+        title: "CRM Commercial & Facturation",
+        items: [
+          "Fiches clients & Base articles",
+          "Devis et factures automatiques",
+          "Envoi des documents automatiquement depuis l'interface",
+          "Génération automatique des écritures de ventes",
+          "Gestion des relances",
+          "Personnalisation des documents",
+        ],
+      },
+      {
+        title: "PA (Plateforme Agréée Native)",
+        items: [
+          "Facturation électronique 100% conforme à la réforme 2026",
+          "Réception factures fournisseurs",
+          "Flux de banque et caisse intégrés",
+          "E-Reporting vers l'administration fiscale",
+          "Transmission directe Bercy (PPF)",
+          "Archivage sécurisé à valeur probante",
         ],
       },
     ],
     advantages: [
-      "Gestion experte des subtilités du régime des indépendants",
-      "Zéro pénalité de retard sur les échéances URSSAF",
-      "Accompagnement humain et réactif",
+      "Jusqu'à 430€ d'économies en paiement annuel",
+      "Prise en charge intégrale SSI / CIPAV / URSSAF",
+      "Zéro risque d'erreur ou pénalité déclarative",
     ],
   },
   "formule-sci": {
@@ -377,50 +654,140 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     price: 124,
     period: "/mois",
     summary:
-      "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier (SCI à l'IR ou à l'IS). Assurez la rigueur de vos comptes d'associés et le respect des obligations déclaratives.",
-    targetAudience: [
-      "SCI familiales de détention immobilière",
-      "SCI assujetties à l'impôt sur le revenu (IR - déclaration 2072)",
-      "SCI assujetties à l'impôt sur les sociétés (IS - liasse 2065)",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
+    phoneContact: "01 70 60 00 82",
+    reassurance:
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 124,
+        monthlyEquivalent: 124,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 355,
+        monthlyEquivalent: 118.33,
+        savings: "Soit 17€ d'économies",
+        savingsAmount: 17,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 685,
+        monthlyEquivalent: 114.17,
+        savings: "Soit 59€ d'économies",
+        savingsAmount: 59,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 1310,
+        monthlyEquivalent: 109.17,
+        savings: "Soit 178€ d'économies",
+        savingsAmount: 178,
+        popular: true,
+      },
     ],
+   
     deliverables: [
       {
-        title: "Déclarations Spécifiques SCI",
+        title: "Services & Outils Connectés",
         items: [
-          "Déclarations 2072 (IR) ou 2065 (IS) complètes",
-          "Suivi et répartition des comptes courants d'associés",
-          "Calcul des quotes-parts de chaque associé",
+          "Application smartphone disponible sur Play Store ou Apple Store",
+          "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
+          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
+          "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Archivage & Justificatifs",
+        title: "Comptabilité Spécifique SCI",
         items: [
-          "Archivage sécurisé des baux, quittances et factures de travaux",
-          "Mise à disposition des éléments pour les assemblées générales",
-          "Assistance téléphonique dédiée",
+          "Saisie courante et suivi des flux",
+          "Situations trimestrielles",
+          "Reportings et Tableaux de bord mensuels",
+          "Bilan de fin d'exercice",
+          "Télétransmission de la liasse fiscale",
+          "Plaquette des comptes pour le Greffe du TC",
+          "Suivi et répartition des comptes courants d'associés",
+        ],
+      },
+      {
+        title: "Fiscalité Immobilière",
+        items: [
+          "Déclarations 2072 (IR) ou 2065 (IS) complètes",
+          "CA12 TVA annuelle (si option TVA immobilière)",
+          "Cadrage annuel de TVA pour les régimes réels",
+          "DAS2",
+          "CVAE",
+          "Relevé de solde IS (pour SCI à l'IS)",
+        ],
+      },
+      {
+        title: "CRM & Gestion Locative",
+        items: [
+          "Fiches locataires & Base biens",
+          "Appels de loyers et quittances automatisés",
+          "Envoi des documents automatiquement depuis l'interface",
+          "Génération automatique des écritures comptables",
+          "Gestion des relances impayés",
+          "Personnalisation des documents",
+        ],
+      },
+      {
+        title: "PA (Plateforme Agréée Native)",
+        items: [
+          "Facturation électronique conforme",
+          "Réception factures fournisseurs de travaux",
+          "Flux de banque et caisse intégrés",
+          "E-Reporting",
+          "Transmission Bercy",
+          "Archivage sécurisé des baux et factures",
         ],
       },
     ],
     advantages: [
-      "Tarif compétitif adapté aux structures patrimoniales",
-      "Dossier conforme prêt pour vos banques et notaires",
-      "Simplicité de transmission documentaire",
+      "Formule de gestion immobilière à 124,00 € / mois",
+      "Économisez jusqu'à 178€ sur le paiement annuel",
+      "Archivage sécurisé de tous les baux et justificatifs",
     ],
   },
   "formule-sos-compta": {
     slug: "formule-sos-compta",
     name: "Formule SOS Compta",
     tag: "Rattrapage & Régularisation",
-    price: "Forfait Annuel",
-    period: "",
+    price: 990,
+    period: " / an",
     summary:
-      "Une assistance ponctuelle pour régulariser ou rattraper votre retard comptable. Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
-    targetAudience: [
-      "Entreprises avec des retards d'un ou plusieurs exercices",
-      "Dirigeants confrontés à des relances fiscales ou URSSAF",
-      "Entreprises ayant besoin d'une régularisation urgente des livres comptables",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Une assistance ponctuelle pour régulariser ou rattraper votre retard comptable et vos exercices non déclarés.",
+    phoneContact: "01 70 60 00 82",
+    reassurance:
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+    pricingTiers: [
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 990,
+        monthlyEquivalent: 82.5,
+        savings: "Forfait Annuel Intégral",
+        popular: true,
+      },
     ],
+   
     deliverables: [
+      {
+        title: "Services & Outils Inclus",
+        items: [
+          "Application smartphone disponible sur Play Store ou Apple Store",
+          "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
+          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
+          "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
+        ],
+      },
       {
         title: "Comptabilité de Rattrapage",
         items: [
@@ -438,39 +805,70 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
           "Négociation avec l'administration fiscale",
         ],
       },
-      {
-        title: "Outils & Services Inclus",
-        items: [
-          "Application smartphone disponible sur Play Store ou Apple Store",
-          "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
-          "Assistance téléphonique & WhatsApp dédiée",
-          "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
-          "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
-        ],
-      },
     ],
     advantages: [
-      "Rattrapage comptable complet et sérénité retrouvée",
-      "Accompagnement direct face à l'administration",
-      "Reprise en main immédiate de votre situation financière",
+      "Forfait annuel transparent à 990,00 €",
+      "Sérénité totale face aux mises en demeure",
+      "Mise en conformité rapide et irréprochable",
     ],
   },
   "service-en-social": {
     slug: "service-en-social",
     name: "La Paie",
     tag: "Social & Salariés",
-    price: "À la carte",
-    period: "",
+    price: 159,
+    period: "/mois",
     summary:
-      "Gestion externalisée de vos salariés et de vos obligations d'employeur. Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
-    targetAudience: [
-      "TPE et PME employant de 1 à 50 salariés",
-      "Entreprises souhaitant sécuriser l'émission de leurs bulletins de salaire",
-      "Dirigeants souhaitant déléguer les déclarations sociales et DSN",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
+    phoneContact: "01 70 60 00 82",
+    reassurance:
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 159,
+        monthlyEquivalent: 159,
+      },
+      {
+        durationMonths: 3,
+        label: "3 mois",
+        priceTotal: 450,
+        monthlyEquivalent: 150,
+        savings: "Soit 28€ d'économies",
+        savingsAmount: 28,
+      },
+      {
+        durationMonths: 6,
+        label: "6 mois",
+        priceTotal: 858,
+        monthlyEquivalent: 143,
+        savings: "Soit 96€ d'économies",
+        savingsAmount: 96,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 1526,
+        monthlyEquivalent: 127.17,
+        savings: "Soit 382€ d'économies",
+        savingsAmount: 382,
+        popular: true,
+      },
     ],
     deliverables: [
       {
-        title: "Comptabilité & Déclarations",
+        title: "Services",
+        items: [
+          "Application smartphone disponible sur Play Store ou Apple Store",
+          "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
+          "Assistance téléphonique & whatsapp dédiée",
+          "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
+          "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
+        ],
+      },
+      {
+        title: "Comptabilité",
         items: [
           "Saisie courante",
           "Situations trimestrielles",
@@ -481,45 +879,49 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Fiscalité & Social",
+        title: "Fiscal",
         items: [
-          "TVA annuelles & Cadrage annuel de TVA pour régimes réels",
+          "TVA annuelles",
+          "Cadrage annuel de TVA pour les régimes réels",
           "DAS2",
           "CVAE",
           "Relevé de solde IS",
+        ],
+      },
+      {
+        title: "Juridique associé",
+        items: [
           "PV approbation des comptes annuels pour le Greffe du TC",
         ],
       },
       {
-        title: "CRM & Outils",
+        title: "CRM",
         items: [
-          "Fiches clients et base articles",
-          "Devis et factures automatiques",
+          "Fiches clients",
+          "Base articles",
+          "Devis",
+          "Factures automatiques",
           "Envoi des documents automatiquement depuis l'interface",
-          "Application smartphone et GED sécurisée",
-          "Assistance téléphonique & WhatsApp dédiée",
+          "Génération des écritures de ventes",
+          "Gestion des relances",
+          "Personnalisation des documents",
         ],
       },
     ],
     advantages: [
-      "Conformité sociale rigoureuse garantie",
-      "Télétransmissions DSN sans retard",
-      "Assistance dédiée en droit social",
+      "Jusqu'à 382€ d'économies en paiement annuel",
+      "Gestion complète de la paie et déclarations sociales",
+      "Assistance contrôle fiscal ou URSSAF incluse",
     ],
   },
   "services-associes-a-la-paie": {
     slug: "services-associes-a-la-paie",
     name: "Services associés à la Paie",
-    tag: "Conseil RH & Juridique Social",
+    tag: "Conseil RH & Social",
     price: "À la carte",
     period: "",
     summary:
-      "Accompagnement dédié sur mesure pour sécuriser vos relations de travail. Découvrez l'ensemble des modules de gestion et de conseil RH avec nos consultants RH spécialisés basés en France.",
-    targetAudience: [
-      "Employeurs recherchant un accompagnement juridique et RH sur mesure",
-      "Entreprises lors de recrutements, contrats de travail et ruptures",
-      "Dirigeants voulant une réponse rapide sous 24h à leurs questions sociales",
-    ],
+      "Accompagnement dédié sur mesure pour sécuriser vos relations de travail. Consultants RH spécialisés basés en France.",
     deliverables: [
       {
         title: "Plan de Paie & Fiches de Paie",
@@ -552,7 +954,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
     advantages: [
       "Consultants RH spécialisés basés en France",
-      "Sécurité juridique face aux contentieux prud'homaux",
+      "Sécurité juridique face aux contentieux",
       "Tarifs transparents à l'acte",
     ],
   },
@@ -563,58 +965,61 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     price: 790,
     period: " au forfait",
     summary:
-      "De l'idée au Kbis, nous prenons en charge toutes les formalités administratives de création. Comprend les frais de JAL et Greffe du TC.",
-    targetAudience: [
-      "Créateurs d'entreprises (SAS, SASU, SARL, EURL, SCI)",
-      "Porteurs de projet souhaitant un accompagnement juridique clef en main",
-      "Entrepreneurs souhaitant optimiser le statut social du dirigeant dès le départ",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
+    phoneContact: "01 70 60 00 82",
+    reassurance:
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "Forfait Création",
+        priceTotal: 790,
+        monthlyEquivalent: 790,
+        savings: "Comprend les frais de JAL et Greffe du TC",
+        popular: true,
+      },
     ],
     deliverables: [
       {
-        title: "Formalités Juridiques Complètes",
+        title: "Création de Société",
         items: [
           "Interview du créateur",
           "Définition des options juridiques, fiscales et sociales (statut du dirigeant)",
-          "Rédaction personnalisée des statuts",
+          "Rédaction des statuts",
           "Liste des souscripteurs d'actions (SAS et SASU)",
-          "Texte d'insertion Journal d'Annonces Légales (JAL)",
+          "Texte insertion Journal Annonces Légales",
           "Formulaire M0",
           "PV de création (délégation de signature bancaire, rémunération dirigeant)",
           "Demande d'ACCRE",
-          "Rescrit fiscal (ZFU si applicable)",
-          "Frais de JAL et Greffe du TC inclus",
+          "Rescrit fiscal (ZFU)",
+          "Comprend les frais de JAL et Greffe du TC",
         ],
       },
     ],
     advantages: [
-      "Obtention rapide du Kbis",
-      "Frais d'annonces légales et Greffe inclus dans le forfait",
-      "Conseils personnalisés sur le statut juridique et fiscal",
+      "Forfait création complet à 790,00 €",
+      "Frais de JAL et Greffe du Tribunal de Commerce inclus",
+      "Accompagnement personnalisé de l'idée au Kbis",
     ],
   },
   "transformations-societe": {
     slug: "transformations-societe",
     name: "Transformations Société",
-    tag: "Évolution de Structure",
+    tag: "Évolution Structurelle",
     price: 950,
     period: " au forfait",
     summary:
       "Faites évoluer la structure ou le capital de votre entreprise existante. Comprend les frais de JAL et Greffe du TC.",
-    targetAudience: [
-      "Entreprises changeant de forme (SARL vers SAS, etc.)",
-      "Sociétés procédant à des augmentations de capital ou transferts de siège",
-      "Cessions de parts sociales et changements de gérance",
-    ],
+   
     deliverables: [
       {
         title: "Actes & Formalités de Transformation",
         items: [
-          "Définition des options juridiques, fiscales et sociales (statut du dirigeant)",
+          "Définition des options juridiques, fiscales et sociales",
           "Mise à jour des statuts",
           "Liste des souscripteurs d'actions (SAS et SASU)",
           "Texte insertion Journal Annonces Légales",
-          "PV de modification",
-          "Document de cession des parts",
+          "PV de modification et document de cession des parts",
           "Attestation de dépôt d'actes",
           "Frais de JAL et Greffe du TC inclus",
         ],
@@ -634,18 +1039,13 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     period: " au forfait",
     summary:
       "Fermez proprement votre structure en totale conformité légale. PV de cessation d'activité, bilan de liquidation et rapport de liquidation.",
-    targetAudience: [
-      "Dirigeants clôturant l'activité de leur société",
-      "Entreprises procédant à une dissolution amiable et liquidation",
-      "Sociétés arrivant au terme de leur mandat d'activité",
-    ],
+   
     deliverables: [
       {
         title: "Formalités de Dissolution & Liquidation",
         items: [
           "Texte insertion Journal Annonces Légales",
-          "Formulaire M2 (dissolution)",
-          "Formulaire M4 (radiation)",
+          "Formulaire M2 (dissolution) et M4 (radiation)",
           "PV de cessation d'activité",
           "Bilan de liquidation",
           "PV de liquidation et quitus au liquidateur",
@@ -654,24 +1054,20 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       },
     ],
     advantages: [
-      "Clôture juridique rigoureuse sans risque de contentieux futur",
-      "Radiation officielle auprès du Registre du Commerce et des Sociétés",
+      "Clôture juridique rigoureuse sans risque de contentieux",
+      "Radiation officielle auprès du RCS",
       "Accompagnement par une équipe spécialisée",
     ],
   },
   "crm-pa-native": {
     slug: "crm-pa-native",
     name: "CRM + PA native",
-    tag: "Facturation & Plateforme Agréée",
+    tag: "Facturation Électronique",
     price: 30,
     period: "/mois",
     summary:
       "Votre outil de facturation avec Plateforme agréée native. Découvrez l'ensemble des modules de facturation, suivi client et conformité facturation électronique 2026.",
-    targetAudience: [
-      "Toutes entreprises soumises à la facturation électronique 2026",
-      "TPE/PME recherchant un CRM facturation simple et connecté",
-      "Entrepreneurs souhaitant automatiser leurs devis et relances",
-    ],
+   
     deliverables: [
       {
         title: "Module CRM Facturation",
@@ -704,3 +1100,503 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
 };
+
+export const comparisonCategories: ComparisonCategory[] = [
+  {
+    category: "Tarification & Économies Dégressives",
+    features: [
+      {
+        name: "Tarif 1 mois",
+        tooltip: "Paiement mensuel sans engagement",
+        essentiel: "124 €",
+        confort: "184 €",
+        independant: "204 €",
+        sci: "124 €",
+        sosCompta: "-",
+      },
+      {
+        name: "Tarif 3 mois",
+        tooltip: "Paiement trimestriel avec économie",
+        essentiel: "355 € (-17€)",
+        confort: "525 € (-27€)",
+        independant: "585 € (-27€)",
+        sci: "355 € (-17€)",
+        sosCompta: "-",
+      },
+      {
+        name: "Tarif 6 mois",
+        tooltip: "Paiement semestriel avec économie",
+        essentiel: "685 € (-59€)",
+        confort: "1 008 € (-96€)",
+        independant: "1 116 € (-108€)",
+        sci: "685 € (-59€)",
+        sosCompta: "-",
+      },
+      {
+        name: "Tarif 1 an (Meilleure Offre)",
+        tooltip: "Paiement annuel avec économie maximale",
+        essentiel: "1 310 € (-178€)",
+        confort: "1 826 € (-382€)",
+        independant: "2 018 € (-430€)",
+        sci: "1 310 € (-178€)",
+        sosCompta: "990 € (Forfait)",
+      },
+      {
+        name: "Sans engagement / Résiliation libre",
+        tooltip: "Vous êtes libre d'arrêter sans pénalité",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: "Forfait",
+      },
+    ],
+  },
+  {
+    category: "Services & Outils Inclus",
+    features: [
+      {
+        name: "Application smartphone (Play Store & App Store)",
+        tooltip: "Accès mobile 24h/24",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: true,
+      },
+      {
+        name: "Interface en ligne sécurisée (GED, Outils, CRM, PA)",
+        tooltip: "Portail sécurisé centralisé",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: true,
+      },
+      {
+        name: "Assistance téléphonique & WhatsApp (01 70 60 00 82)",
+        tooltip: "Interlocuteur dédié",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: true,
+      },
+      {
+        name: "Accompagnement Plateforme Agréée (PA)",
+        tooltip: "Aide à la mise en œuvre de la facturation 2026",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: true,
+      },
+      {
+        name: "Assistance contrôle fiscal ou URSSAF à distance",
+        tooltip: "Prestation complète sur les années traitées",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: true,
+      },
+    ],
+  },
+  {
+    category: "Comptabilité & Bilan",
+    features: [
+      {
+        name: "Saisie courante des pièces comptables",
+        tooltip: "Achats, ventes, relevés bancaires",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: "Retards",
+      },
+      {
+        name: "Situations trimestrielles",
+        tooltip: "Points intermédiaires de gestion",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Reportings et Tableaux de bord mensuels",
+        tooltip: "Visibilité de trésorerie et rentabilité",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Bilan de fin d'exercice",
+        tooltip: "Établissement des comptes annuels",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: "Régularisation",
+      },
+      {
+        name: "Télétransmission de la liasse fiscale",
+        tooltip: "Envoi officiel à l'administration fiscale",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: true,
+      },
+      {
+        name: "Plaquette des comptes pour le Greffe du TC",
+        tooltip: "Dossier conforme prêt pour dépôt",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Rattrapage & reconstitution des exercices en retard",
+        tooltip: "Reprise des années non clôturées",
+        essentiel: false,
+        confort: false,
+        independant: false,
+        sci: false,
+        sosCompta: true,
+      },
+    ],
+  },
+  {
+    category: "Fiscalité & Déclarations",
+    features: [
+      {
+        name: "CA12 TVA annuelle",
+        tooltip: "Déclaration annuelle de TVA",
+        essentiel: true,
+        confort: false,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "TVA mensuelles ou trimestrielles",
+        tooltip: "Déclarations récurrentes pour régimes réels",
+        essentiel: false,
+        confort: true,
+        independant: false,
+        sci: false,
+        sosCompta: false,
+      },
+      {
+        name: "Cadrage annuel de TVA (régimes réels)",
+        tooltip: "Rapprochement TVA CA3 et balance",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Déclarations DAS2 & CVAE",
+        tooltip: "Honoraires et taxes annexes",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Relevé de solde IS",
+        tooltip: "Impôt sur les sociétés",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Déclarations 2072 (IR) ou 2065 (IS) spécifiques SCI",
+        tooltip: "Répartition quotes-parts d'associés",
+        essentiel: false,
+        confort: false,
+        independant: false,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Audit de conformité & négociation administration",
+        tooltip: "Régularisation des anomalies fiscales",
+        essentiel: false,
+        confort: false,
+        independant: false,
+        sci: false,
+        sosCompta: true,
+      },
+    ],
+  },
+  {
+    category: "Volet Social & Juridique",
+    features: [
+      {
+        name: "Gestion SSI (ex-RSI)",
+        tooltip: "Sécurité sociale des indépendants",
+        essentiel: false,
+        confort: false,
+        independant: true,
+        sci: false,
+        sosCompta: false,
+      },
+      {
+        name: "Gestion CIPAV (professions libérales)",
+        tooltip: "Caisse interprofessionnelle",
+        essentiel: false,
+        confort: false,
+        independant: true,
+        sci: false,
+        sosCompta: false,
+      },
+      {
+        name: "PV approbation comptes annuels pour le Greffe du TC",
+        tooltip: "Procès-verbal d'assemblée générale",
+        essentiel: false,
+        confort: true,
+        independant: true,
+        sci: false,
+        sosCompta: false,
+      },
+    ],
+  },
+  {
+    category: "CRM Facturation Commerciale",
+    features: [
+      {
+        name: "Fiches clients & Base articles",
+        tooltip: "Gestion centralisée du catalogue et clients",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Devis & Factures automatiques",
+        tooltip: "Création et suivi",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Envoi des documents directement depuis l'interface",
+        tooltip: "Emailing natif des factures",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Génération automatique des écritures de ventes",
+        tooltip: "Passerelle directe vers la comptabilité",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Gestion des relances & Personnalisation",
+        tooltip: "Suivi des impayés et charte visuelle",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+    ],
+  },
+  {
+    category: "Plateforme Agréée Native (PA 2026)",
+    features: [
+      {
+        name: "Facturation électronique conforme réforme 2026",
+        tooltip: "Conformité légale anticipée",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Réception des factures fournisseurs",
+        tooltip: "Collecte et rapprochement",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Flux de banque et caisse intégrés",
+        tooltip: "Synchronisation bancaire automatique",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "E-Reporting & Transmission Bercy (PPF)",
+        tooltip: "Flux obligatoires vers l'administration",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Archivage sécurisé à valeur probante",
+        tooltip: "Conservation légale 10 ans",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+    ],
+  },
+];
+
+export const whyChooseForfaits = {
+  title: "Pourquoi nos forfaits ?",
+  subtitle:
+    "Un tarif fixe, des délais garantis et une équipe dédiée. Vous bénéficiez de tous les outils réunis : CRM, Plateforme Agréée et GED sécurisée.",
+  badges: [
+    "Compte CRM + PA + GED sécurisé et en ligne",
+    "Sans engagement de durée",
+    "Tarifs dégressifs clairs",
+  ],
+  steps: [
+    {
+      time: "Jour 1",
+      title: "Premier contact & Diagnostic",
+      description: "Étude de votre situation et sélection de la formule idéale.",
+    },
+    {
+      time: "Jour 2-3",
+      title: "Activation & Paramétrage",
+      description: "Ouverture de votre espace GED sécurisé, CRM et module PA 2026.",
+    },
+    {
+      time: "Jour 5",
+      title: "Prise en charge comptable",
+      description: "Liaison bancaire, début du traitement des pièces et suivi dédié.",
+    },
+  ],
+};
+
+export const servicesALaCarteContent = {
+  title: "Services à la carte & Formalités",
+  subtitle: "Des prestations spécialisées au forfait pour vos démarches juridiques et RH.",
+  services: [
+    {
+      id: "service-en-social",
+      name: "La Paie",
+      tag: "Social & Salariés",
+      price: 159,
+      pricePeriod: "/mois",
+      description:
+        "Gestion externalisée de vos salariés et de vos obligations d'employeur (bulletins, DSN, charges).",
+      href: "/offres/service-en-social",
+      ctaText: "Choisir ce plan",
+    },
+    {
+      id: "services-associes-a-la-paie",
+      name: "Services associés à la Paie",
+      tag: "Conseil RH & Social",
+      price: "À la carte",
+      pricePeriod: "",
+      description:
+        "Accompagnement dédié sur mesure pour sécuriser vos relations de travail (contrats, ruptures, contentieux).",
+      href: "/offres/services-associes-a-la-paie",
+      ctaText: "Demander un devis",
+    },
+    {
+      id: "creation-societe",
+      name: "Création Société",
+      tag: "Formalités Juridiques",
+      price: 790,
+      pricePeriod: " au forfait",
+      description:
+        "De l'idée au Kbis, prise en charge intégrale de la rédaction des statuts, JAL et Greffe inclus.",
+      href: "/offres/creation-societe",
+      ctaText: "Choisir ce plan",
+    },
+    {
+      id: "transformations-societe",
+      name: "Transformations Société",
+      tag: "Évolution Structurelle",
+      price: 950,
+      pricePeriod: " au forfait",
+      description:
+        "Faites évoluer la forme sociale, transférez le siège ou augmentez le capital en toute légalité.",
+      href: "/offres/transformations-societe",
+      ctaText: "Choisir ce plan",
+    },
+    {
+      id: "cessation-et-liquidation",
+      name: "Cessation & Liquidation",
+      tag: "Fermeture & Dissolution",
+      price: 1150,
+      pricePeriod: " au forfait",
+      description:
+        "Clôturez rigoureusement votre société sans litige ultérieur : PV, bilan de liquidation et radiation.",
+      href: "/offres/cessation-et-liquidation",
+      ctaText: "Choisir ce plan",
+    },
+    {
+      id: "crm-pa-native",
+      name: "CRM + PA native",
+      tag: "Facturation Électronique",
+      price: 30,
+      pricePeriod: "/mois",
+      description:
+        "Votre logiciel de facturation avec Plateforme agréée native et télétransmission Bercy.",
+      href: "/offres/crm-pa-native",
+      ctaText: "Choisir ce plan",
+    },
+  ],
+};
+
+export const offresFaqList: OffresFaqItem[] = [
+  {
+    question: "Comment fonctionnent les tarifs dégressifs ?",
+    answer:
+      "Plus vous prévoyez votre trésorerie à l'avance (3 mois, 6 mois ou 1 an), plus le coût mensuel équivalent baisse. Par exemple, sur la Formule Confort, le paiement annuel vous fait économiser 382 € HT !",
+  },
+  {
+    question: "Puis-je changer de formule en cours de route ?",
+    answer:
+      "Oui absolument. Toutes nos formules sont flexibles : vous pouvez ajuster votre formule selon la croissance de votre entreprise sans frais cachés.",
+  },
+  {
+    question: "L'assistance en cas de contrôle fiscal ou URSSAF est-elle vraiment incluse ?",
+    answer:
+      "Oui ! Toutes nos formules incluent l'assistance à distance complète en cas de contrôle fiscal ou URSSAF sur les années traitées par TOP-COMPTA.FR. Vous n'êtes jamais seul face à l'Administration.",
+  },
+  {
+    question: "La facturation électronique 2026 est-elle déjà comprise ?",
+    answer:
+      "Oui. Nos formules intègrent nativement le CRM connecté à une Plateforme Agréée (PA), prête pour l'émission, la réception et l'E-Reporting obligatoire auprès de Bercy.",
+  },
+  {
+    question: "Y a-t-il un engagement de durée ?",
+    answer:
+      "Non. Nos forfaits sont sans engagement. La résiliation est libre et sans pénalité.",
+  },
+];

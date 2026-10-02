@@ -54,7 +54,6 @@ export const mainNavItems: NavItem[] = [
       { title: "Fiches de paie et services associés", href: "/offres/service-en-social" },
       { title: "Création Transformation Liquidation", href: "/offres/creation-societe" },
       { title: "CRM + PA", href: "https://habile-solutions.com" },
-      { title: "Comparez nos formules", href: "/#offres" },
     ],
   },
   {

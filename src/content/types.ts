@@ -64,6 +64,15 @@ export interface OfferPlan {
   pricePeriod?: string;
   description: string;
   features?: string[];
+  pricingTiers?: {
+    durationMonths: number;
+    label: string;
+    priceTotal: number;
+    monthlyEquivalent: number;
+    savings?: string;
+    savingsAmount?: number;
+    popular?: boolean;
+  }[];
   recommended?: boolean;
   href: string;
   ctaText?: string;
