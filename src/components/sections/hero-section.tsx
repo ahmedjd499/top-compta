@@ -22,41 +22,25 @@ export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const card1Y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    shouldReduceMotion ? [0, 0] : [-16, 16]
-  );
-  const card2Y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    shouldReduceMotion ? [0, 0] : [16, -16]
-  );
-
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.12,
         delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1] as const,
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -69,47 +53,16 @@ export function HeroSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/5">
-          {/* Luminous dynamic breathing glow meshes */}
-          <motion.div
-            animate={
-              shouldReduceMotion
-                ? undefined
-                : {
-                    x: [0, 30, -10, 0],
-                    y: [0, -25, 10, 0],
-                    scale: [1, 1.15, 0.95, 1],
-                    opacity: [0.25, 0.4, 0.25],
-                  }
-            }
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-20 -top-20 w-[420px] h-[420px] bg-secondary/30 rounded-full blur-[90px] pointer-events-none"
-          />
-          <motion.div
-            animate={
-              shouldReduceMotion
-                ? undefined
-                : {
-                    x: [0, -25, 15, 0],
-                    y: [0, 20, -15, 0],
-                    scale: [1, 1.1, 0.9, 1],
-                    opacity: [0.2, 0.35, 0.2],
-                  }
-            }
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.5,
-            }}
-            className="absolute right-1/3 -bottom-24 w-[380px] h-[380px] bg-tertiary-fixed-dim/20 rounded-full blur-[80px] pointer-events-none"
-          />
+          {/* Luminous sovereign ambient glow - hardware accelerated static gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(0,102,153,0.3),transparent_55%),radial-gradient(circle_at_20%_90%,rgba(217,119,6,0.18),transparent_50%)] pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Key Messaging with Staggered Entrance */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               className="lg:col-span-7 flex flex-col gap-6"
             >
               {/* Shimmering Badge */}
@@ -221,20 +174,20 @@ export function HeroSection() {
             <div className="lg:col-span-5 flex flex-col gap-5">
               {/* Milestone 1: 2026 */}
               <motion.div
-                style={{ y: card1Y }}
-                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
-                  duration: 0.7,
-                  delay: 0.2,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: 0.85,
+                  delay: 0.15,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
                 whileHover={
                   shouldReduceMotion
                     ? undefined
                     : {
-                        scale: 1.025,
-                        y: -4,
+                        scale: 1.02,
+                        y: -3,
                         boxShadow: "0 20px 30px -10px rgba(55, 85, 195, 0.3)",
                       }
                 }
@@ -275,20 +228,20 @@ export function HeroSection() {
 
               {/* Milestone 2: 2027 */}
               <motion.div
-                style={{ y: card2Y }}
-                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
-                  duration: 0.7,
-                  delay: 0.35,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: 0.85,
+                  delay: 0.3,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
                 whileHover={
                   shouldReduceMotion
                     ? undefined
                     : {
-                        scale: 1.025,
-                        y: -4,
+                        scale: 1.02,
+                        y: -3,
                         boxShadow: "0 20px 30px -10px rgba(15, 23, 42, 0.5)",
                       }
                 }

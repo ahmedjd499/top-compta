@@ -22,41 +22,27 @@ export function TestimonialSection() {
 
         {/* Extended Testimonial Card */}
         <motion.div
-          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 28, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ type: "spring", stiffness: 260, damping: 24 }}
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/5"
         >
-          {/* Subtle ambient light beam */}
-          <motion.div
-            animate={
-              shouldReduceMotion
-                ? undefined
-                : {
-                    x: [0, 20, -20, 0],
-                    y: [0, -15, 15, 0],
-                    scale: [1, 1.1, 0.95, 1],
-                    opacity: [0.15, 0.25, 0.15],
-                  }
-            }
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-16 -top-16 w-80 h-80 bg-secondary/25 rounded-full blur-[80px] pointer-events-none"
-          />
+          {/* Subtle static ambient light gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(0,102,153,0.25),transparent_65%)] pointer-events-none" />
 
           {/* Staggered Pop Stars */}
-          <div className="flex items-center gap-1.5 text-tertiary-fixed mb-4 sm:mb-6">
+          <div className="flex items-center gap-1.5 text-tertiary-fixed mb-4 sm:mb-6 relative z-10">
             {[1, 2, 3, 4, 5].map((star, i) => (
               <motion.div
                 key={star}
                 initial={shouldReduceMotion ? undefined : { scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.25 }}
                 transition={{
-                  type: "spring",
-                  stiffness: 450,
-                  damping: 18,
-                  delay: 0.15 + i * 0.08,
+                  duration: 0.4,
+                  delay: 0.2 + i * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
               >
                 <Star className="w-5 h-5 fill-current drop-shadow-xs" />

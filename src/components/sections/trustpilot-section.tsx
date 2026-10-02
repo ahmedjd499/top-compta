@@ -14,19 +14,20 @@ export function TrustpilotSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
       },
     },
   };
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1] as const,
+        duration: 0.75,
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -146,7 +147,7 @@ export function TrustpilotSection() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5"
           >
             {trustpilotContent.reviews.map((review) => (

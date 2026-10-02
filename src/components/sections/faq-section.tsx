@@ -34,13 +34,13 @@ export function FaqSection() {
             return (
               <motion.div
                 key={item.question}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
-                  duration: 0.4,
-                  delay: index * 0.05,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: 0.7,
+                  delay: index * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
                 className={cn(
                   "bg-surface-container-lowest rounded-2xl shadow-xs border transition-all duration-300 overflow-hidden",

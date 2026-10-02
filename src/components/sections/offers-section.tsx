@@ -21,19 +21,20 @@ export function OffersSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
       },
     },
   };
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 28 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 35 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1] as const,
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -91,7 +92,7 @@ export function OffersSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
         >
           {offersContent.plans.map((plan) => {

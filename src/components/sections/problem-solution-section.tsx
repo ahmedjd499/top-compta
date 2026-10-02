@@ -32,21 +32,20 @@ export function ProblemSolutionSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.09,
+        staggerChildren: 0.12,
         delayChildren: 0.1,
       },
     },
   };
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 35 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring" as const,
-        stiffness: 300,
-        damping: 24,
+        duration: 0.75,
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -57,10 +56,10 @@ export function ProblemSolutionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Left Side: Context & Problem statement */}
           <motion.div
-            initial={shouldReduceMotion ? undefined : { opacity: 0, x: -20 }}
+            initial={shouldReduceMotion ? undefined : { opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ type: "spring", stiffness: 280, damping: 25 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-28"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-high text-secondary text-xs font-bold uppercase tracking-wider w-fit">
@@ -95,7 +94,7 @@ export function ProblemSolutionSection() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, amount: 0.2 }}
             className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"
           >
             {problemSolutionContent.cards.map((card) => (

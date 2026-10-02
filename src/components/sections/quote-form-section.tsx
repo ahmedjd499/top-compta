@@ -19,6 +19,7 @@ import { quoteReassurance } from "@/content/home";
 import { cn } from "@/lib/utils";
 
 export function QuoteFormSection() {
+  const shouldReduceMotion = useReducedMotion();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -96,7 +97,13 @@ export function QuoteFormSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Reassurance & Direct Contact Details (Left Column) */}
-          <div className="lg:col-span-4 bg-primary-container text-on-primary rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between">
+          <motion.div
+            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-4 bg-primary-container text-on-primary rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between"
+          >
             <div className="flex flex-col gap-6">
               <span className="px-3 py-1 rounded-md bg-secondary text-on-secondary text-xs font-bold uppercase tracking-wider w-fit">
                 {quoteReassurance.badge}
@@ -164,10 +171,20 @@ export function QuoteFormSection() {
               <Lock className="w-4 h-4 text-tertiary-fixed shrink-0" />
               <span>{quoteReassurance.rgpdNote}</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Lead Generation Form (Right Column) */}
-          <div className="lg:col-span-8 bg-surface-container-lowest rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xs border border-outline-variant/30">
+          <motion.div
+            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: 0.85,
+              delay: 0.15,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="lg:col-span-8 bg-surface-container-lowest rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xs border border-outline-variant/30"
+          >
             {submitStatus.type === "success" ? (
               <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center flex flex-col items-center gap-4 animate-in fade-in duration-300">
                 <CheckCircle2 className="w-12 h-12 text-emerald-600" />
@@ -507,7 +524,7 @@ export function QuoteFormSection() {
                 </div>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

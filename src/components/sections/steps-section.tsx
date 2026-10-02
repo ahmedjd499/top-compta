@@ -50,13 +50,13 @@ export function StepsSection() {
               return (
                 <motion.div
                   key={step.stepNumber}
-                  initial={shouldReduceMotion ? undefined : { opacity: 0, y: 28 }}
+                  initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.25 }}
                   transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
-                    ease: [0.16, 1, 0.3, 1],
+                    duration: 0.8,
+                    delay: index * 0.12,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={
                     shouldReduceMotion
@@ -79,13 +79,11 @@ export function StepsSection() {
                       shouldReduceMotion ? undefined : { scale: 0.6, opacity: 0 }
                     }
                     whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.25 }}
                     transition={{
-                      duration: 0.5,
+                      duration: 0.6,
                       delay: index * 0.12 + 0.15,
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 18,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                     whileHover={
                       shouldReduceMotion ? undefined : { rotate: [0, -6, 6, 0] }
