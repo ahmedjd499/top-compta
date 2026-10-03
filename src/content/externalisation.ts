@@ -1,6 +1,6 @@
 export const externalisationContent = {
   badge: "EXTERNALISATION COMPTABLE EN 2 MOTS",
-  title: "L'externalisation comptable au service de la gestion d’entreprise",
+  title: "L'externalisation comptable au service de la gestion d'entreprise",
   subtitle:
     "Pourquoi et comment externaliser votre gestion administrative et comptable avec sérénité.",
   intro:

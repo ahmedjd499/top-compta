@@ -12,7 +12,7 @@ import {
 import { monthlyOffers, OffresMonthlyPlan } from "./offers";
 
 export const heroContent: HeroContent = {
-  badge: "Plateforme Agréée (PA) en natif • Certification 2026",
+  badge: "Plateforme Agréée (PA) en natif",
   title: "Préparez vos flux à la facturation électronique.",
   description:
     "TOP-COMPTA.FR vous aide à structurer la collecte des pièces, organiser les circuits de traitement et préparer vos outils internes. TOP-COMPTA.FR propose une PA (Plateforme agréée) en natif via son CRM inclus dans ses services. Le parcours GED > Gestion > CRM > PA est unifié et fluide.",
@@ -37,7 +37,7 @@ export const heroContent: HeroContent = {
       tag: "Obligation Réception",
       title: "Réception pour toutes les entreprises concernées",
       description:
-        "Chaque entreprise doit être en capacité de recevoir les factures électroniques. Les grandes entreprises et les ETI passent également à l’émission.",
+        "Chaque entreprise doit être en capacité de recevoir les factures électroniques. Les grandes entreprises et les ETI passent également à l'émission.",
       accentClass: "secondary",
     },
     {
@@ -62,7 +62,7 @@ export const offersContent: {
   fastActionNotice: string;
   plans: OffresMonthlyPlan[];
 } = {
-  badge: "Formules mensuelles au forfait",
+  badge: "Formules au forfait & Tarifs dégressifs",
   title: "Le bon niveau d'externalisation, sans prestation inutile.",
   subtitle: "Chaque formule pensée selon votre spécificité et besoins.",
   fastActionNotice:
@@ -134,8 +134,8 @@ export const problemSolutionContent: {
   badge: "Méthode & Clarté",
   title: "Moins de tâches dispersées. Plus de visibilité.",
   description:
-    "Quand les documents arrivent par plusieurs canaux et que les échéances se cumulent, le suivi devient vite chronophage. TOP-COMPTA.FR remet de l’ordre dans les flux et prend en charge les opérations définies avec votre entreprise.",
- cards: [
+    "Quand les documents arrivent par plusieurs canaux et que les échéances se cumulent, le suivi devient vite chronophage. TOP-COMPTA.FR remet de l'ordre dans les flux et prend en charge les opérations définies avec votre entreprise.",
+  cards: [
     {
       title: "Des pièces éparpillées",
       description:
@@ -176,7 +176,7 @@ export const stepsContent: {
   badge: "Fonctionnement Transparent",
   title: "Quatre étapes pour garder votre dossier sous contrôle.",
   description:
-    "Chaque entreprise conserve une vision claire de ce qu’elle transmet, de ce qui est traité et des actions restant à effectuer.",
+    "Chaque entreprise conserve une vision claire de ce qu'elle transmet, de ce qui est traité et des actions restant à effectuer.",
   steps: [
     {
       stepNumber: 1,
@@ -188,13 +188,13 @@ export const stepsContent: {
       stepNumber: 2,
       title: "Le périmètre est défini",
       description:
-        "Le devis et le contrat précisent les opérations prises en charge, les responsabilités et les modalités d’échange.",
+        "Le devis et le contrat précisent les opérations prises en charge, les responsabilités et les modalités d'échange.",
     },
     {
       stepNumber: 3,
       title: "Vous déposez vos pièces",
       description:
-        "Les documents sont transmis dans votre espace afin d’être classés, suivis et traités selon le calendrier convenu.",
+        "Les documents sont transmis dans votre espace afin d'être classés, suivis et traités selon le calendrier convenu.",
     },
     {
       stepNumber: 4,
@@ -210,39 +210,39 @@ export const faqContent: {
   subtitle: string;
   items: FaqItem[];
 } = {
-  title: "Ce qu’il faut savoir avant de demander un devis.",
+  title: "Ce qu'il faut savoir avant de demander un devis.",
   subtitle:
     "Le fonctionnement exact dépend du périmètre confié, de votre organisation et des outils déjà utilisés dans votre entreprise.",
   items: [
     {
-      question: "TOP-COMPTA.FR est-il un service d’outsourcing ?",
+      question: "TOP-COMPTA.FR est-il un service d'outsourcing ?",
       answer:
         "Oui. TOP-COMPTA.FR prend en charge à distance des tâches administratives, documentaires, de saisie et de suivi. Le périmètre exact de nos prestations est défini dans votre devis et contrat de services.",
     },
     {
       question: "Comment transmettre mes documents ?",
       answer:
-        "Vos pièces peuvent être déposées simplement et en temps réel sur votre Espace Client GED sécurisé (MyCompanyFiles) accessible 24/7 sur ordinateur ou via notre application smartphone dédiée.",
+        "Vos pièces peuvent être déposées très simplement dans votre espace client sécurisé afin de centraliser vos documents, suivre leur traitement par nos équipes et les retrouver facilement 24h/24.",
     },
     {
       question: "Puis-je suivre mon activité en ligne ?",
       answer:
-        "Absolument. Vos tableaux de bord, reportings mensuels et trimestriels, ainsi que l'ensemble de vos pièces comptables et justificatifs sont consultables et téléchargeables en toute autonomie.",
+        "Oui. Selon la formule retenue, des tableaux de bord, reportings synthétiques et documents de suivi sont mis à disposition dans votre espace client pour conserver une visibilité totale sur vos chiffres.",
     },
     {
       question: "Que reste-t-il à la charge de mon entreprise ?",
       answer:
-        "Votre seule responsabilité consiste à déposer vos pièces justificatives et factures au fil de l'eau. Nos collaborateurs prennent en charge l'ensemble de la saisie, de l'organisation et du suivi administratif. Votre entreprise conserve la validation commerciale, la signature des paiements bancaires et l'approbation définitive des comptes préparés par nos soins.",
+        "Votre entreprise reste responsable de la transmission de pièces complètes et exactes, de la validation des documents qui lui sont soumis et des actions expressément conservées en interne. Le contrat précise la répartition des tâches.",
     },
     {
       question: "La facturation électronique est-elle prise en compte ?",
       answer:
-        "Oui, nous anticipons dès aujourd'hui les obligations 2026/2027. TOP-COMPTA intègre une Plateforme Agréée (PA) en natif via son outil de gestion et CRM Habile Solutions.",
+        "Le forfait intègre l'adhésion à une PA native dans un CRM pour pouvoir émettre vos factures.",
     },
     {
       question: "Comment le tarif est-il déterminé ?",
       answer:
-        "Nos tarifs sont transparents, forfaitaires et sans surprise (dès 124€/mois HT), ajustés en fonction du volume réel de pièces de votre activité et de la formule sélectionnée.",
+        "Le tarif est fixé au forfait sur la formule qui convient le mieux à vos besoins et spécificités.",
     },
   ],
 };

@@ -92,7 +92,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
-      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.",
     pricingTiers: [
       {
         durationMonths: 1,
@@ -126,7 +126,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-    
+
     deliverables: [
       {
         title: "Services",
@@ -184,7 +184,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-   
+
   },
   "formule-confort": {
     id: "formule-confort",
@@ -203,7 +203,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     phoneContact: "01 70 60 00 82",
     recommended: true,
     reassurance:
-      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.",
     pricingTiers: [
       {
         durationMonths: 1,
@@ -237,7 +237,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-   
+
     deliverables: [
       {
         title: "Services",
@@ -250,7 +250,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Comptabilité" ,
+        title: "Comptabilité",
         items: [
           "Saisie courante de toutes les écritures",
           "Situations trimestrielles",
@@ -301,7 +301,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-   
+
   },
   "formule-independant": {
     id: "formule-independant",
@@ -318,7 +318,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
-      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.",
     pricingTiers: [
       {
         durationMonths: 1,
@@ -352,7 +352,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-  
+
     deliverables: [
       {
         title: "Services",
@@ -365,7 +365,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Comptabilité" ,
+        title: "Comptabilité",
         items: [
           "Saisie courante",
           "Situations trimestrielles",
@@ -423,7 +423,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-  
+
   },
   "formule-sci": {
     id: "formule-sci",
@@ -441,7 +441,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
-      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.",
     pricingTiers: [
       {
         durationMonths: 1,
@@ -475,7 +475,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-   
+
     deliverables: [
       {
         title: "Services",
@@ -501,7 +501,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       {
         title: "Fiscal",
         items: [
-          
+
           "CA12 TVA annuelle",
           "Cadrage annuel de TVA pour les régimes réels",
           "DAS2",
@@ -513,9 +513,9 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         title: "CRM",
         items: [
           "Fiches clients ",
-           "Base biens",
-           "Devis",
-           "Factures automatiques",
+          "Base biens",
+          "Devis",
+          "Factures automatiques",
           "Envoi des documents automatiquement depuis l'interface",
           "Génération des écritures de ventes",
           "Gestion des relances",
@@ -534,7 +534,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-    
+
   },
   "formule-sos-compta": {
     id: "formule-sos-compta",
@@ -552,7 +552,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
-      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.",
     pricingTiers: [
       {
         durationMonths: 12,
@@ -563,7 +563,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-   
+
     deliverables: [
       {
         title: "Services",
@@ -593,7 +593,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-  
+
   },
   "service-en-social": {
     id: "service-en-social",
@@ -611,7 +611,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
-      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.",
     pricingTiers: [
       {
         durationMonths: 1,
@@ -697,7 +697,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-  
+
   },
   "services-associes-a-la-paie": {
     id: "services-associes-a-la-paie",
@@ -760,7 +760,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
-      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
+      "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.",
     pricingTiers: [
       {
         durationMonths: 1,
@@ -788,7 +788,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-   
+
   },
   "transformations-societe": {
     id: "transformations-societe",
@@ -814,7 +814,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-   
+
     deliverables: [
       {
         title: "Actes & Formalités de Transformation",
@@ -830,7 +830,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-  
+
   },
   "cessation-et-liquidation": {
     id: "cessation-et-liquidation",
@@ -856,7 +856,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-   
+
     deliverables: [
       {
         title: "Cessation d'Activité et Liquidation de Société",
@@ -872,7 +872,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-   
+
   },
   "crm-pa-native": {
     id: "crm-pa-native",
@@ -905,7 +905,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         popular: true,
       },
     ],
-   
+
     deliverables: [
       {
         title: "CRM ",
@@ -932,7 +932,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
- 
+
   },
   "speed-bilan": {
     id: "speed-bilan",
@@ -1357,27 +1357,26 @@ export const comparisonCategories: ComparisonCategory[] = [
 export const whyChooseForfaits = {
   title: "Pourquoi nos forfaits ?",
   subtitle:
-    "Un tarif fixe, des délais garantis et une équipe dédiée. Vous bénéficiez de tous les outils réunis : CRM, Plateforme Agréée et GED sécurisée.",
+    "Un tarif fixe, des délais garantis et une équipe dédiée à Tunis. Vous ne payez que ce dont vous avez besoin.",
   badges: [
     "Compte CRM + PA + GED sécurisé et en ligne",
     "Sans engagement de durée",
-    "Tarifs dégressifs clairs",
   ],
   steps: [
     {
       time: "Jour 1",
-      title: "Premier contact & Diagnostic",
-      description: "Étude de votre situation et sélection de la formule idéale.",
+      title: "Premier contact",
+      description: "Étude de vos besoins.",
     },
     {
       time: "Jour 2-3",
-      title: "Activation & Paramétrage",
-      description: "Ouverture de votre espace GED sécurisé, CRM et module PA 2026.",
+      title: "Forfait sur mesure",
+      description: "Devis détaillé avec le niveau de service adapté.",
     },
     {
       time: "Jour 5",
-      title: "Prise en charge comptable",
-      description: "Liaison bancaire, début du traitement des pièces et suivi dédié.",
+      title: "Activation de votre espace client, CRM et PA",
+      description: "Accès à l'espace client et début du traitement.",
     },
   ],
 };
@@ -1397,28 +1396,22 @@ export const servicesALaCarteContent = {
 
 export const offresFaqList: OffresFaqItem[] = [
   {
-    question: "Comment fonctionnent les tarifs dégressifs ?",
-    answer:
-      "Plus vous prévoyez votre trésorerie à l'avance (3 mois, 6 mois ou 1 an), plus le coût mensuel équivalent baisse. Par exemple, sur la Formule Confort, le paiement annuel vous fait économiser 382 € HT !",
+    question: "Puis-je changer de formule en cours de contrat ?",
+    answer: "Oui, vous pouvez upgrader ou downgrader à tout moment.",
   },
   {
-    question: "Puis-je changer de formule en cours de route ?",
+    question: "Qu'est-ce qui est inclus dans la saisie comptable ?",
     answer:
-      "Oui absolument. Toutes nos formules sont flexibles : vous pouvez ajuster votre formule selon la croissance de votre entreprise sans frais cachés.",
+      "Enregistrement de vos achats, ventes, banques et OD. Pièces traitées une fois déposées dans votre espace GED via le PC ou le smartphone.",
   },
   {
-    question: "L'assistance en cas de contrôle fiscal ou URSSAF est-elle vraiment incluse ?",
+    question: "Les fiches de paie sont-elles incluses dans les formules ?",
     answer:
-      "Oui ! Toutes nos formules incluent l'assistance à distance complète en cas de contrôle fiscal ou URSSAF sur les années traitées par TOP-COMPTA.FR. Vous n'êtes jamais seul face à l'Administration.",
-  },
-  {
-    question: "La facturation électronique 2026 est-elle déjà comprise ?",
-    answer:
-      "Oui. Nos formules intègrent nativement le CRM connecté à une Plateforme Agréée (PA), prête pour l'émission, la réception et l'E-Reporting obligatoire auprès de Bercy.",
+      "Les services à la carte et prestations associées sont facturées séparément et ne sont pas incluses dans les forfaits mensuels.",
   },
   {
     question: "Y a-t-il un engagement de durée ?",
     answer:
-      "Non. Nos forfaits sont sans engagement. La résiliation est libre et sans pénalité.",
+      "Non. Tous nos contrats sont sans engagement. Vous pouvez résilier sans préavis et sans pénalité.",
   },
 ];

@@ -203,8 +203,8 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
   const activePriceTotal = activeTier
     ? activeTier.priceTotal
     : typeof formula.price === "number"
-    ? formula.price
-    : 0;
+      ? formula.price
+      : 0;
 
   const isNumericFormula = typeof formula.price === "number" || tiers.length > 0;
 
@@ -300,8 +300,8 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                   tiers.length === 1
                     ? "grid-cols-1 max-w-sm"
                     : tiers.length === 2
-                    ? "grid-cols-1 sm:grid-cols-2 max-w-xl"
-                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+                      ? "grid-cols-1 sm:grid-cols-2 max-w-xl"
+                      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
                 )}
               >
                 {tiers.map((tier) => {
@@ -527,17 +527,17 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>Assistance contrôle fiscal ou URSSAF incluse • Sans engagement • Paiement 100% sécurisé via SSL</span>
             </div>
-          
+
           </div>
         </motion.div>
 
         {/* 2. THE DETAILS SECTION (All Modules & Prestations) */}
         <section id="details-section" className="flex flex-col gap-8">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-2">
-                <Layers className="w-3.5 h-3.5" />
-                <span>Modules &amp; Prestations Incluses</span>
-              </div>
-            
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-2">
+            <Layers className="w-3.5 h-3.5" />
+            <span>Modules &amp; Prestations Incluses</span>
+          </div>
+
 
           {/* Cards Grid: Rich, Distinctive, Highly Stylized Module Deliverables */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -588,7 +588,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                         </div>
                       </div>
 
-                      
+
                     </div>
 
                     <div className="h-px bg-outline-variant/20 mb-4" />
@@ -606,7 +606,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                     </ul>
                   </div>
 
-                  
+
                 </motion.div>
               );
             })}
@@ -623,7 +623,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                   Garantie &amp; Assistance incluses
                 </strong>
                 <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                  Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.
+                  Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n'êtes jamais seul face à l'Administration.
                 </p>
               </div>
             </div>
