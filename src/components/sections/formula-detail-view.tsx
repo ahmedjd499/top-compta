@@ -277,7 +277,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
           </div>
 
           {/* ALL OPTIONS DISPLAYED DIRECTLY IN THE TOP CARD */}
-          {isNumericFormula && tiers.length > 0 && (
+          {isNumericFormula && tiers.length > 0 ? (
             <div className="flex flex-col gap-5 relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
@@ -469,6 +469,56 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                 </div>
               </div>
             </div>
+          ) : (
+            <div className="flex flex-col gap-5 relative z-10">
+              <div className="rounded-2xl bg-surface-container-lowest text-on-surface p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-5 shadow-lg border border-outline-variant/30">
+                <div className="flex flex-col gap-1 text-center md:text-left">
+                  <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                    Tarif de la prestation
+                  </span>
+                  <div className="flex flex-wrap items-baseline gap-2 justify-center md:justify-start">
+                    <span className="font-space-grotesk text-3xl sm:text-4xl font-extrabold text-secondary">
+                      {typeof formula.price === "number" ? `${formula.price} €` : formula.price}
+                    </span>
+                    <span className="text-sm font-semibold text-on-surface-variant">
+                      {typeof formula.price === "number" ? (formula.period ? `${formula.period} HT` : "HT au forfait") : ""}
+                    </span>
+                  </div>
+                  <p className="text-xs text-on-surface-variant mt-0.5">
+                    Tarif clair et garanti sans aucun surcoût caché.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+                  {typeof formula.price === "number" ? (
+                    <button
+                      type="button"
+                      onClick={() => setPaypalOpen(true)}
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                    >
+                      <Lock className="w-4 h-4 text-[#003087]" />
+                      <span>Régler {formula.price} € via PayPal</span>
+                    </button>
+                  ) : (
+                    <Link
+                      href="/#contact"
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-secondary text-on-secondary hover:bg-on-secondary-container font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                    >
+                      <FileText className="w-4 h-4" />
+                      <span>Demander un devis gratuit</span>
+                    </Link>
+                  )}
+
+                  <a
+                    href="#details-section"
+                    className="w-full sm:w-auto px-4 py-3.5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors text-xs font-bold text-on-surface flex items-center justify-center gap-1.5"
+                  >
+                    <span>Voir les détails des prestations</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
           )}
 
           {/* Bottom strip inside hero */}
@@ -615,13 +665,13 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
 
                 <div className="flex flex-wrap items-baseline gap-3">
                   <h3 className="font-space-grotesk text-2xl sm:text-3xl font-bold text-on-surface">
-                    Formule mensuelle de gestion :
+                    {formula.name} :
                   </h3>
                   <span className="font-space-grotesk text-3xl sm:text-4xl font-extrabold text-secondary">
                     {activePriceTotal} € HT
                   </span>
                   <span className="text-xs font-semibold text-on-surface-variant">
-                    ({activeTier ? activeTier.label : "Forfait"})
+                    ({activeTier ? activeTier.label : formula.period || "Forfait"})
                   </span>
                 </div>
 

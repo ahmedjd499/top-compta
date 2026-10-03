@@ -178,7 +178,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
           "Facturation électronique conforme",
           "Réception factures fournisseurs",
           "Flux de banque et caisse",
-          "E-Reporting vers",
+          "E-Reporting",
           "Transmission Bercy",
           "Archivage sécurisé",
         ],
@@ -804,6 +804,16 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/transformations-societe",
     ctaText: "Choisir ce plan",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "Forfait Transformation",
+        priceTotal: 950,
+        monthlyEquivalent: 950,
+        savings: "Comprend les frais de JAL et Greffe du TC",
+        popular: true,
+      },
+    ],
    
     deliverables: [
       {
@@ -836,6 +846,16 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/cessation-et-liquidation",
     ctaText: "Choisir ce plan",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "Forfait Cessation & Liquidation",
+        priceTotal: 1150,
+        monthlyEquivalent: 1150,
+        savings: "Dossier complet jusqu'à la radiation",
+        popular: true,
+      },
+    ],
    
     deliverables: [
       {
@@ -868,6 +888,23 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/crm-pa-native",
     ctaText: "Choisir ce plan",
+    pricingTiers: [
+      {
+        durationMonths: 1,
+        label: "1 mois",
+        priceTotal: 30,
+        monthlyEquivalent: 30,
+      },
+      {
+        durationMonths: 12,
+        label: "1 an",
+        priceTotal: 300,
+        monthlyEquivalent: 25,
+        savings: "Soit 60€ d'économies (2 mois offerts)",
+        savingsAmount: 60,
+        popular: true,
+      },
+    ],
    
     deliverables: [
       {
@@ -980,10 +1017,10 @@ export const comparisonCategories: ComparisonCategory[] = [
     ],
   },
   {
-    category: "Services & Outils Inclus",
+    category: "Services",
     features: [
       {
-        name: "Application smartphone (Play Store & App Store)",
+        name: "Application smartphone disponible sur Play Store ou Apple Store",
         tooltip: "Accès mobile 24h/24",
         essentiel: true,
         confort: true,
@@ -992,8 +1029,8 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: true,
       },
       {
-        name: "Interface en ligne sécurisée (GED, Outils, CRM, PA)",
-        tooltip: "Portail sécurisé centralisé",
+        name: "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native)",
+        tooltip: "Tout au même endroit",
         essentiel: true,
         confort: true,
         independant: true,
@@ -1001,8 +1038,8 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: true,
       },
       {
-        name: "Assistance téléphonique & WhatsApp ",
-        tooltip: "Interlocuteur dédié",
+        name: "Assistance téléphonique & WhatsApp dédiée",
+        tooltip: "Interlocuteur dédié (01 70 60 00 82)",
         essentiel: true,
         confort: true,
         independant: true,
@@ -1010,7 +1047,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: true,
       },
       {
-        name: "Accompagnement Plateforme Agréée (PA)",
+        name: "Accompagnement utilisation PA (Plateforme agréée) facturation électronique",
         tooltip: "Aide à la mise en œuvre de la facturation 2026",
         essentiel: true,
         confort: true,
@@ -1019,7 +1056,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: true,
       },
       {
-        name: "Assistance contrôle fiscal ou URSSAF à distance",
+        name: "Assistance à distance complète contrôle fiscal ou URSSAF (années traitées)",
         tooltip: "Prestation complète sur les années traitées",
         essentiel: true,
         confort: true,
@@ -1030,13 +1067,13 @@ export const comparisonCategories: ComparisonCategory[] = [
     ],
   },
   {
-    category: "Comptabilité & Bilan",
+    category: "Comptabilité",
     features: [
       {
-        name: "Saisie courante des pièces comptables",
+        name: "Saisie courante des écritures",
         tooltip: "Achats, ventes, relevés bancaires",
         essentiel: true,
-        confort: true,
+        confort: "Toutes écritures",
         independant: true,
         sci: true,
         sosCompta: "Retards",
@@ -1098,7 +1135,7 @@ export const comparisonCategories: ComparisonCategory[] = [
     ],
   },
   {
-    category: "Fiscalité & Déclarations",
+    category: "Fiscal",
     features: [
       {
         name: "CA12 TVA annuelle",
@@ -1119,7 +1156,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Cadrage annuel de TVA (régimes réels)",
+        name: "Cadrage annuel de TVA pour les régimes réels",
         tooltip: "Rapprochement TVA CA3 et balance",
         essentiel: true,
         confort: true,
@@ -1146,16 +1183,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Déclarations 2072 (IR) ou 2065 (IS) spécifiques SCI",
-        tooltip: "Répartition quotes-parts d'associés",
-        essentiel: false,
-        confort: false,
-        independant: false,
-        sci: true,
-        sosCompta: false,
-      },
-      {
-        name: "Audit de conformité & négociation administration",
+        name: "Audit de conformité fiscale & négociation avec l'administration",
         tooltip: "Régularisation des anomalies fiscales",
         essentiel: false,
         confort: false,
@@ -1166,7 +1194,7 @@ export const comparisonCategories: ComparisonCategory[] = [
     ],
   },
   {
-    category: "Volet Social & Juridique",
+    category: "Social & Juridique Associé",
     features: [
       {
         name: "Gestion SSI (ex-RSI)",
@@ -1187,7 +1215,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "PV approbation comptes annuels pour le Greffe du TC",
+        name: "PV approbation des comptes annuels pour le Greffe du TC",
         tooltip: "Procès-verbal d'assemblée générale",
         essentiel: false,
         confort: true,
@@ -1198,15 +1226,24 @@ export const comparisonCategories: ComparisonCategory[] = [
     ],
   },
   {
-    category: "CRM Facturation Commerciale",
+    category: "CRM",
     features: [
       {
-        name: "Fiches clients & Base articles",
-        tooltip: "Gestion centralisée du catalogue et clients",
+        name: "Fiches clients",
+        tooltip: "Gestion centralisée du fichier client",
         essentiel: true,
         confort: true,
         independant: true,
         sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Base articles / Base biens",
+        tooltip: "Catalogue articles ou biens immobiliers",
+        essentiel: "Articles",
+        confort: "Articles",
+        independant: "Articles",
+        sci: "Base biens",
         sosCompta: false,
       },
       {
@@ -1219,8 +1256,8 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Envoi des documents directement depuis l'interface",
-        tooltip: "Emailing natif des factures",
+        name: "Envoi des documents automatiquement depuis l'interface",
+        tooltip: "Emailing natif des devis et factures",
         essentiel: true,
         confort: true,
         independant: true,
@@ -1228,7 +1265,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Génération automatique des écritures de ventes",
+        name: "Génération des écritures de ventes",
         tooltip: "Passerelle directe vers la comptabilité",
         essentiel: true,
         confort: true,
@@ -1237,8 +1274,17 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Gestion des relances & Personnalisation",
-        tooltip: "Suivi des impayés et charte visuelle",
+        name: "Gestion des relances",
+        tooltip: "Suivi des impayés et relances clients",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Personnalisation des documents",
+        tooltip: "Charte visuelle et logo",
         essentiel: true,
         confort: true,
         independant: true,
@@ -1248,11 +1294,11 @@ export const comparisonCategories: ComparisonCategory[] = [
     ],
   },
   {
-    category: "Plateforme Agréée Native (PA 2026)",
+    category: "PA (Plateforme Agréée Native)",
     features: [
       {
-        name: "Facturation électronique conforme réforme 2026",
-        tooltip: "Conformité légale anticipée",
+        name: "Facturation électronique conforme (Réforme 2026)",
+        tooltip: "Conformité légale 2026 native",
         essentiel: true,
         confort: true,
         independant: true,
@@ -1260,7 +1306,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Réception des factures fournisseurs",
+        name: "Réception factures fournisseurs",
         tooltip: "Collecte et rapprochement",
         essentiel: true,
         confort: true,
@@ -1278,7 +1324,16 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "E-Reporting & Transmission Bercy (PPF)",
+        name: "E-Reporting",
+        tooltip: "Transmission des données de transactions",
+        essentiel: true,
+        confort: true,
+        independant: true,
+        sci: true,
+        sosCompta: false,
+      },
+      {
+        name: "Télétransmission sécurisée Bercy (PPF)",
         tooltip: "Flux obligatoires vers l'administration",
         essentiel: true,
         confort: true,
@@ -1287,7 +1342,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Archivage sécurisé à valeur probante",
+        name: "Archivage sécurisé",
         tooltip: "Conservation légale 10 ans",
         essentiel: true,
         confort: true,

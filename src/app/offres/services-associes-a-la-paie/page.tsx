@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { detailedFormulas } from "@/content/offers";
-import { FormulaDetailView } from "@/components/sections/formula-detail-view";
+import { ServicesAssociesPaieView } from "@/components/sections/services-associes-paie-view";
 
 export const metadata: Metadata = {
   title: "Services associés à la Paie | TOP-COMPTA.FR",
@@ -9,6 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesAssociesALaPaiePage() {
-  const formula = detailedFormulas["services-associes-a-la-paie"];
-  return <FormulaDetailView formula={formula} />;
+  return <ServicesAssociesPaieView />;
 }
