@@ -38,7 +38,6 @@ const getCategoryMeta = (title: string) => {
       gradient: "from-blue-500/10 via-cyan-500/5 to-transparent",
       badgeColor: "bg-blue-500/10 text-blue-700 border-blue-200",
       accent: "text-blue-600",
-      pillText: "Services & GED",
     };
   }
   if (t.includes("compta") || t.includes("saisie") || t.includes("rattrapage")) {
@@ -47,7 +46,6 @@ const getCategoryMeta = (title: string) => {
       gradient: "from-emerald-500/10 via-teal-500/5 to-transparent",
       badgeColor: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
       accent: "text-emerald-600",
-      pillText: "Comptabilité Complète",
     };
   }
   if (t.includes("fiscal") || t.includes("tva") || t.includes("impôt") || t.includes("déclaration")) {
@@ -56,7 +54,6 @@ const getCategoryMeta = (title: string) => {
       gradient: "from-indigo-500/10 via-purple-500/5 to-transparent",
       badgeColor: "bg-indigo-500/10 text-indigo-700 border-indigo-200",
       accent: "text-indigo-600",
-      pillText: "Fiscalité & Déclarations",
     };
   }
   if (t.includes("crm") || t.includes("vente") || t.includes("factur") || t.includes("commercial")) {
@@ -65,7 +62,6 @@ const getCategoryMeta = (title: string) => {
       gradient: "from-amber-500/10 via-orange-500/5 to-transparent",
       badgeColor: "bg-amber-500/10 text-amber-700 border-amber-200",
       accent: "text-amber-600",
-      pillText: "CRM & Ventes",
     };
   }
   if (t.includes("pa ") || t.includes("plateforme") || t.includes("agréée") || t.includes("native")) {
@@ -74,7 +70,6 @@ const getCategoryMeta = (title: string) => {
       gradient: "from-cyan-500/10 via-blue-500/5 to-transparent",
       badgeColor: "bg-cyan-500/10 text-cyan-700 border-cyan-200",
       accent: "text-cyan-600",
-      pillText: "PA Réforme 2026",
     };
   }
   if (t.includes("juridique") || t.includes("greffe") || t.includes("pv") || t.includes("formalit")) {
@@ -83,7 +78,6 @@ const getCategoryMeta = (title: string) => {
       gradient: "from-purple-500/10 via-violet-500/5 to-transparent",
       badgeColor: "bg-purple-500/10 text-purple-700 border-purple-200",
       accent: "text-purple-600",
-      pillText: "Juridique & Greffe",
     };
   }
   if (t.includes("social") || t.includes("paie") || t.includes("tns") || t.includes("rh") || t.includes("ssi")) {
@@ -92,7 +86,6 @@ const getCategoryMeta = (title: string) => {
       gradient: "from-rose-500/10 via-pink-500/5 to-transparent",
       badgeColor: "bg-rose-500/10 text-rose-700 border-rose-200",
       accent: "text-rose-600",
-      pillText: "Volet Social TNS",
     };
   }
   return {
@@ -100,7 +93,6 @@ const getCategoryMeta = (title: string) => {
     gradient: "from-secondary/10 via-secondary/5 to-transparent",
     badgeColor: "bg-secondary/10 text-secondary border-secondary/20",
     accent: "text-secondary",
-    pillText: "Prestation",
   };
 };
 
@@ -480,7 +472,6 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                           meta.badgeColor
                         )}
                       >
-                        {meta.pillText}
                       </span>
                     </div>
 

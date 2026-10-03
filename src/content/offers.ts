@@ -88,7 +88,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     pricePeriod: "/mois",
     description: "La gestion comptable de base pour démarrer sereinement.",
     summary:
-      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. La formule essentielle pour piloter votre activité en toute conformité.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/formule-essentiel",
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
@@ -200,7 +200,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Une offre complète pour déléguer toute votre comptabilité de manière fluide.",
     summary:
-      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Une formule tout inclus pour déléguer 100% de votre comptabilité, TVA mensuelle et formalités juridiques.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/formule-confort",
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
@@ -319,7 +319,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     pricePeriod: "/mois",
     description: "Spécifique pour les travailleurs indépendants TNS.",
     summary:
-      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Spécifique pour les indépendants TNS, intégrant la gestion SSI (ex-RSI) et CIPAV.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/formule-independant",
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
@@ -445,7 +445,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
     summary:
-      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/formule-sci",
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
@@ -559,7 +559,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Assistance ponctuelle urgente pour régulariser ou rattraper votre retard comptable.",
     summary:
-      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Une assistance ponctuelle pour régulariser ou rattraper votre retard comptable et vos exercices non déclarés.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/formule-sos-compta",
     ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
@@ -730,7 +730,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Accompagnement dédié sur mesure pour sécuriser vos relations de travail (contrats, ruptures, contentieux).",
     summary:
-      "Accompagnement dédié sur mesure pour sécuriser vos relations de travail. Consultants RH spécialisés basés en France.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/services-associes-a-la-paie",
     ctaText: "Demander un devis",
     deliverables: [
@@ -830,7 +830,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Faites évoluer la forme sociale, transférez le siège ou augmentez le capital en toute légalité.",
     summary:
-      "Faites évoluer la structure ou le capital de votre entreprise existante. Comprend les frais de JAL et Greffe du TC.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/transformations-societe",
     ctaText: "Choisir ce plan",
    
@@ -865,7 +865,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Clôturez rigoureusement votre société sans litige ultérieur : PV, bilan de liquidation et radiation.",
     summary:
-      "Fermez proprement votre structure en totale conformité légale. PV de cessation d'activité, bilan de liquidation et rapport de liquidation.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/cessation-et-liquidation",
     ctaText: "Choisir ce plan",
    
@@ -899,7 +899,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Votre logiciel de facturation avec Plateforme agréée native et télétransmission Bercy.",
     summary:
-      "Votre outil de facturation avec Plateforme agréée native. Découvrez l'ensemble des modules de facturation, suivi client et conformité facturation électronique 2026.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "/offres/crm-pa-native",
     ctaText: "Choisir ce plan",
    
@@ -945,7 +945,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     description:
       "Votre bilan annuel réalisé rapidement, simplement et en toute conformité légale.",
     summary:
-      "Votre bilan annuel réalisé rapidement, simplement et en toute conformité légale.",
+      "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
     href: "https://speedbilan.fr",
     ctaText: "VOIR PLUS",
     recommended: false,
