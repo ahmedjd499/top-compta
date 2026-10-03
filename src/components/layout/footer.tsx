@@ -22,19 +22,25 @@ export function Footer() {
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <span className="font-space-grotesk text-2xl font-bold tracking-tight text-on-primary">
-              TOP-COMPTA
+              {footerContent.companyName}
             </span>
           </div>
           <p className="text-sm text-on-primary-container leading-relaxed">
             {footerContent.description}
           </p>
           <div className="flex flex-col gap-2.5 pt-2">
-            <div className="inline-flex items-center gap-2 bg-surface-variant/20 px-3 py-1.5 rounded-lg text-on-primary text-xs font-semibold">
-              <ShieldCheck className="w-4 h-4 text-secondary-fixed shrink-0" />
-              <span>Plateforme Agréée (PA) &amp; GED sécurisée</span>
-            </div>
+            {footerContent.badges &&
+              footerContent.badges.map((badge, idx) => (
+                <div
+                  key={idx}
+                  className="inline-flex items-center gap-2 bg-surface-variant/20 px-3 py-1.5 rounded-lg text-on-primary text-xs font-semibold w-fit"
+                >
+                  <ShieldCheck className="w-4 h-4 text-secondary-fixed shrink-0" />
+                  <span>{badge}</span>
+                </div>
+              ))}
             <a
-              href={siteConfig.whatsappUrl}
+              href={footerContent.whatsappHref || siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-on-primary hover:text-secondary-fixed transition-colors text-xs font-semibold"
@@ -143,10 +149,10 @@ export function Footer() {
               <Phone className="w-4 h-4 text-secondary-fixed shrink-0 mt-1" />
               <div>
                 <a
-                  href={siteConfig.phoneHref}
+                  href={`tel:${(footerContent.phone || siteConfig.phone).replace(/\s+/g, "")}`}
                   className="text-on-primary font-bold hover:text-secondary-fixed transition-colors"
                 >
-                  {siteConfig.phone}
+                  {footerContent.phone || siteConfig.phone}
                 </a>
                 <div className="text-xs text-on-primary-container">
                   Du lundi au vendredi, 9h-18h
@@ -156,10 +162,10 @@ export function Footer() {
             <div className="flex items-center gap-2.5 text-on-primary-container">
               <Mail className="w-4 h-4 text-secondary-fixed shrink-0" />
               <a
-                href={siteConfig.emailHref}
+                href={`mailto:${footerContent.email || siteConfig.email}`}
                 className="hover:text-on-primary transition-colors"
               >
-                {siteConfig.email}
+                {footerContent.email || siteConfig.email}
               </a>
             </div>
             <div className="flex items-start gap-2.5 text-on-primary-container">
@@ -193,10 +199,7 @@ export function Footer() {
             >
               Politique de Confidentialité
             </Link>
-            <span className="inline-flex items-center gap-1 font-semibold text-tertiary-fixed">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Certifié Conforme e-Invoicing 2026</span>
-            </span>
+            
           </div>
         </div>
       </div>

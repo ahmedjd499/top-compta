@@ -15,6 +15,7 @@ export const quoteFormSchema = z.object({
     message: "Vous devez accepter l'utilisation de vos données pour être recontacté.",
   }),
   honeypot: z.string().optional(),
+  recaptchaToken: z.string().min(1, "Veuillez cocher la case « Je ne suis pas un robot »."),
 });
 
 export type QuoteFormData = z.infer<typeof quoteFormSchema>;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,13 +13,16 @@ import {
   CheckCircle2,
   AlertCircle,
   Loader2,
+  ShieldCheck,
 } from "lucide-react";
 import { quoteFormSchema, QuoteFormData } from "@/lib/schema";
 import { quoteReassurance } from "@/content/home";
 import { cn } from "@/lib/utils";
+import { ReCaptchaV2, ReCaptchaV2Ref } from "@/components/ui/recaptcha-v2";
 
 export function QuoteFormSection() {
   const shouldReduceMotion = useReducedMotion();
+  const recaptchaRef = useRef<ReCaptchaV2Ref>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -49,6 +52,7 @@ export function QuoteFormSection() {
         "Je souhaite recevoir des informations sur : Externalisation renforcée au quotidien.",
       rgpdConsent: true,
       honeypot: "",
+      recaptchaToken: "",
     },
   });
 
@@ -73,7 +77,10 @@ export function QuoteFormSection() {
           message: result.message,
         });
         reset();
+        recaptchaRef.current?.reset();
       } else {
+        recaptchaRef.current?.reset();
+        setValue("recaptchaToken", "");
         setSubmitStatus({
           type: "error",
           message:
@@ -82,6 +89,8 @@ export function QuoteFormSection() {
         });
       }
     } catch (err) {
+      recaptchaRef.current?.reset();
+      setValue("recaptchaToken", "");
       setSubmitStatus({
         type: "error",
         message:
@@ -503,6 +512,24 @@ export function QuoteFormSection() {
                     </span>
                   </div>
                 )}
+
+                {/* Google reCAPTCHA v2 */}
+                <div className="md:col-span-2 flex flex-col gap-2 pt-2">
+                  <ReCaptchaV2
+                    ref={recaptchaRef}
+                    onChange={(token) =>
+                      setValue("recaptchaToken", token || "", {
+                        shouldValidate: true,
+                      })
+                    }
+                  />
+                  {errors.recaptchaToken && (
+                    <span className="text-xs text-error flex items-center gap-1">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{errors.recaptchaToken.message}</span>
+                    </span>
+                  )}
+                </div>
 
                 {/* Submit Button */}
                 <div className="md:col-span-2 pt-2">

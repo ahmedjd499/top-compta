@@ -28,6 +28,48 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    // Verify Google reCAPTCHA v2 token
+    const recaptchaSecret =
+      process.env.RECAPTCHA_SECRET_KEY ||
+      "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; // Google official test secret
+
+    try {
+      const verifyRes = await fetch(
+        "https://www.google.com/recaptcha/api/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            secret: recaptchaSecret,
+            response: data.recaptchaToken,
+          }),
+        }
+      );
+      const verifyData = await verifyRes.json();
+
+      if (!verifyData.success) {
+        console.warn("Échec validation reCAPTCHA:", verifyData);
+        return NextResponse.json(
+          {
+            success: false,
+            message:
+              "La vérification de sécurité a échoué. Veuillez cocher à nouveau la case « Je ne suis pas un robot ».",
+          },
+          { status: 400 }
+        );
+      }
+    } catch (captchaErr) {
+      console.error("Erreur serveur reCAPTCHA:", captchaErr);
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Impossible de valider la sécurité du formulaire. Veuillez réessayer dans quelques instants.",
+        },
+        { status: 500 }
+      );
+    }
+
     // Forward to GED_WEBHOOK_URL if configured
     const webhookUrl = process.env.GED_WEBHOOK_URL;
     if (webhookUrl) {

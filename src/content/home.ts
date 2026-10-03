@@ -278,7 +278,6 @@ export const footerContent: FooterContent = {
     "Service d'externalisation administrative, de gestion documentaire et de suivi d'activité dédié aux indépendants, TPE et PME.",
   badges: [
     "Plateforme Agréée (PA) & GED sécurisée",
-    "Certifié Conforme e-Invoicing 2026",
   ],
   whatsappHref: "https://wa.me/33779335302",
   phone: "01 70 60 00 82",
