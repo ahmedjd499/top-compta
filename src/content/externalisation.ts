@@ -1,6 +1,12 @@
 export const externalisationContent = {
   hero: {
-    intro:
+    badge: "La question qui revient souvent",
+    title: "L'expertise-comptable est-elle obligatoire ?",
+    introLead: "À l'encontre de toutes les croyances et idées reçues,",
+    introStatement: "l'expertise-comptable n'est pas obligatoire en France.",
+    introCondition:
+      "Quelle que soit leur taille, structure ou régime fiscal, les entreprises peuvent déclarer elles-mêmes leurs résultats à l'Administration Fiscale, à condition de réunir trois éléments :",
+    fullIntro:
       "À l'encontre de toutes les croyances et idées reçues, l'expertise-comptable n'est pas obligatoire en France. Quelle que soit leur taille, structure ou régime fiscal, les entreprises peuvent déclarer elles-mêmes leurs résultats à l'Administration Fiscale, à condition de réunir trois éléments :",
   },
 
@@ -33,11 +39,13 @@ export const externalisationContent = {
   },
 
   alternative: {
+    badge: "L'engagement TOP-COMPTA.FR",
     title: "L'externalisation comptable une alternative crédible ?",
     text: "L'expert-comptable valide et atteste les comptes : il engage sa responsabilité formelle, mais jamais sa responsabilité sur le fond de la gestion de la société. Dans le cadre de notre prestation d'externalisation, nous formalisons et présentons les comptes dans le respect strict des règles et de la législation françaises. Notre encadrement est français, notre méthode a été mise à l'épreuve sur de nombreux contrôles fiscaux, et notre travail n'a jamais été remis en question. Seule différence : nous présentons toujours le projet de bilan à nos clients avant de télédéclarer leur liasse fiscale — ce sont eux qui, in fine, attestent et signent leurs comptes.",
   },
 
   theLaw: {
+    badge: "Ce qu'en disent les sources juridiques",
     title: "La Loi, noir sur blanc",
     intro:
       "Un florilège de sources — dont certaines émanent de cabinets d'experts-comptables eux-mêmes. Rien ne vous empêche non plus de vous rapprocher de votre Service des Impôts des Entreprises (SIE) pour confirmation.",

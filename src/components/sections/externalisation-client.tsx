@@ -10,31 +10,110 @@ import {
   Globe2,
   Quote,
   ArrowRight,
-  Scale,
   ShieldCheck,
+  AlertTriangle,
+  CheckCircle2,
+  Sparkles,
+  ArrowDown,
+  HelpCircle,
+  Scale,
 } from "lucide-react";
 import { externalisationContent } from "@/content/externalisation";
 
 export function ExternalisationClient() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-surface overflow-hidden">
-      {/* 1. Hero / Introduction */}
+      {/* 1. Hero / Section 1 : Problème ➔ Solution */}
       <section
-        className="relative overflow-hidden pt-16 pb-14 border-b border-outline-variant/20"
+        className="relative overflow-hidden pt-16 pb-16 lg:pt-20 lg:pb-20 border-b border-outline-variant/20"
         style={{
           background:
             "radial-gradient(circle at 85% 15%, rgba(55, 85, 195, 0.12), transparent 40%), radial-gradient(circle at 15% 85%, rgba(34, 183, 198, 0.10), transparent 40%), linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-container-low) 100%)",
         }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-6 border border-secondary/20 shadow-xs">
-            <Scale className="w-3.5 h-3.5" />
-            <span>Cadre Légal &amp; Réglementaire</span>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Header Title with exact pre-title */}
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4 border border-secondary/20 shadow-xs">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>{externalisationContent.hero.badge}</span>
+            </div>
+
+            <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface leading-tight">
+              {externalisationContent.hero.title}
+            </h1>
           </div>
 
-          <h1 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-on-surface leading-snug">
-            {externalisationContent.hero.intro}
-          </h1>
+          {/* Problem vs Solution Split Architecture */}
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-5xl mx-auto">
+            {/* The Problem / Idée Reçue */}
+            <div className="relative flex flex-col justify-between bg-surface-container-lowest rounded-3xl p-7 sm:p-9 border-2 border-amber-300/80 shadow-md">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
+                    <AlertTriangle className="w-3.5 h-3.5 text-amber-700" />
+                    <span>L&apos;Idée reçue / Le Problème</span>
+                  </span>
+                  <span className="text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200">
+                    Croyance erronée
+                  </span>
+                </div>
+
+                <h2 className="font-space-grotesk text-xl sm:text-2xl font-bold text-on-surface leading-snug">
+                  {externalisationContent.hero.introLead}
+                </h2>
+
+                <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed">
+                  Beaucoup d&apos;entreprises et d&apos;indépendants croient à tort qu&apos;un expert-comptable est imposé par la loi en France.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-outline-variant/20 flex items-center gap-2 text-xs font-semibold text-amber-800">
+                <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                <span>Aucune obligation légale n&apos;existe dans le Code général des impôts</span>
+              </div>
+            </div>
+
+            {/* Central Transition Indicator for desktop */}
+            <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-secondary text-white shadow-xl items-center justify-center border-4 border-surface">
+              <ArrowRight className="w-5 h-5" />
+            </div>
+
+            {/* Central Transition Indicator for mobile */}
+            <div className="flex lg:hidden justify-center -my-3 z-10">
+              <div className="w-10 h-10 rounded-full bg-secondary text-white shadow-md flex items-center justify-center border-2 border-surface">
+                <ArrowDown className="w-4 h-4" />
+              </div>
+            </div>
+
+            {/* The Solution / La Réalité Légale */}
+            <div className="relative flex flex-col justify-between bg-surface-container-lowest rounded-3xl p-7 sm:p-9 border-2 border-secondary shadow-xl ring-4 ring-secondary/5">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-white text-xs font-bold uppercase tracking-wider shadow-xs">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>La Solution / La Vérité Légale</span>
+                  </span>
+                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200 flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                    Réalité Légale
+                  </span>
+                </div>
+
+                <h2 className="font-space-grotesk text-xl sm:text-2xl font-extrabold text-secondary leading-snug">
+                  {externalisationContent.hero.introStatement}
+                </h2>
+
+                <p className="text-sm sm:text-base text-on-surface font-medium leading-relaxed">
+                  {externalisationContent.hero.introCondition}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-secondary/20 flex items-center justify-between text-xs font-bold text-secondary">
+                <span>3 éléments indispensables pour déclarer ↓</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -121,9 +200,9 @@ export function ExternalisationClient() {
       <section className="py-14 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 w-full">
         <div className="bg-primary-container text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-secondary-fixed text-xs font-bold uppercase tracking-wider mb-6 border border-white/15">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-secondary-fixed text-xs font-bold uppercase tracking-wider mb-6 border border-white/15">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Analyse &amp; Garanties</span>
+              <span>{externalisationContent.alternative.badge}</span>
             </div>
 
             <h2 className="font-space-grotesk text-2xl sm:text-3xl font-extrabold mb-6">
@@ -141,6 +220,11 @@ export function ExternalisationClient() {
       <section className="py-14 sm:py-18 bg-surface-container-low border-t border-outline-variant/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-3 border border-secondary/20">
+              <Scale className="w-3.5 h-3.5" />
+              <span>{externalisationContent.theLaw.badge}</span>
+            </div>
+
             <h2 className="font-space-grotesk text-2xl sm:text-3xl font-extrabold text-on-surface mb-4">
               {externalisationContent.theLaw.title}
             </h2>

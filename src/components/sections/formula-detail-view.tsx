@@ -651,6 +651,30 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
               </a>
             </div>
           </div>
+
+          {/* Compare Formulas Callout */}
+          <div className="rounded-2xl bg-surface-container-low border border-outline-variant/30 p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
+                <Layers className="w-5 h-5" />
+              </div>
+              <div>
+                <strong className="text-sm font-bold text-on-surface font-space-grotesk block">
+                  Vous hésitez entre plusieurs formules ?
+                </strong>
+                <span className="text-xs text-on-surface-variant">
+                  Consultez notre tableau comparatif pour évaluer les fonctionnalités et tarifs de chaque offre.
+                </span>
+              </div>
+            </div>
+            <Link
+              href="/offres/comparatif"
+              className="shrink-0 text-xs sm:text-sm font-bold text-secondary hover:underline inline-flex items-center gap-1.5"
+            >
+              <span>Voir le comparatif complet</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </section>
 
         {/* 3. CHECKOUT CONFIRMATION & PAYMENT PANEL (After Details) */}

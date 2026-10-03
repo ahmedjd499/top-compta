@@ -13,6 +13,7 @@ import {
   Sparkles,
   ShieldCheck,
   Zap,
+  Layers,
 } from "lucide-react";
 import {
   offresHeroContent,
@@ -22,7 +23,6 @@ import {
   offresFaqList,
   PricingTier,
 } from "@/content/offers";
-import { OffersComparisonTable } from "@/components/sections/offers-comparison-table";
 import { PayPalModal } from "@/components/ui/paypal-modal";
 import { siteConfig } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -60,13 +60,14 @@ export function OffresPageClient() {
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm">
-            <a
-              href="#comparatif"
+            <Link
+              href="/offres/comparatif"
               className="inline-flex items-center gap-1.5 font-bold text-secondary hover:underline"
             >
-              <span>Accéder directement au tableau comparatif</span>
+              <Layers className="w-4 h-4" />
+              <span>Consulter le tableau comparatif complet</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -307,10 +308,31 @@ export function OffresPageClient() {
           </div>
         </section>
 
-        {/* 4. Section: Tableau comparatif intégré */}
-        <section id="comparatif" className="py-14 sm:py-16 bg-surface-container-low border-y border-outline-variant/30">
+        {/* 4. Section: Accès au tableau comparatif complet */}
+        <section className="py-12 sm:py-14 bg-surface-container-low border-y border-outline-variant/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <OffersComparisonTable showTitle={true} />
+            <div className="rounded-3xl bg-primary-container text-on-primary p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm">
+                  <Layers className="w-6 h-6" />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-space-grotesk text-xl sm:text-2xl font-bold text-on-primary">
+                    Besoin d&apos;un comparatif point par point ?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-inverse-on-surface/90 max-w-xl leading-relaxed">
+                    Comparez toutes nos formules dans notre grille comparative complète : fonctionnalités, saisie comptable, bilans, déclarations fiscales et tarifs dégressifs.
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/offres/comparatif"
+                className="shrink-0 px-6 py-3.5 rounded-xl bg-secondary text-on-secondary hover:bg-on-secondary-container transition-all text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-md hover:shadow-lg w-full md:w-auto"
+              >
+                <span>Voir le tableau comparatif</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
