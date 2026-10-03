@@ -41,6 +41,7 @@ export const mainNavItems: NavItem[] = [
     title: "Notre Offre",
     href: "/offres",
     dropdown: [
+      { title: "Toutes Les Formules", href: "/offres" },
       { title: "Formule Essentiel", href: "/offres/formule-essentiel" },
       {
         title: "Formule Confort",
