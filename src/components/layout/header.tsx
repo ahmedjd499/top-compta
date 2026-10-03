@@ -27,9 +27,9 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 30);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -40,14 +40,8 @@ export function Header() {
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "bg-surface/95 backdrop-blur-xl shadow-md border-b border-outline-variant/30"
-            : "bg-surface"
-        )}
-      >
+      {/* Tier 1 & Tier 2: Scrollable Top Bars (scroll with document flow) */}
+      <div className="w-full relative z-40">
         {/* Tier 1: Urgency Legal Banner */}
         <div className="bg-primary-container text-on-primary text-xs py-2 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
@@ -120,6 +114,17 @@ export function Header() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Tier 3: Main Executive Navbar (Sticky) */}
+      <header
+        className={cn(
+          "sticky top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+          isScrolled
+            ? "bg-surface/95 backdrop-blur-xl shadow-md border-b border-outline-variant/30"
+            : "bg-surface border-b border-outline-variant/20"
+        )}
+      >
 
         {/* Tier 3: Main Executive Navbar */}
         <div className="h-16 sm:h-20 max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">

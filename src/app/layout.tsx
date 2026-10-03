@@ -106,7 +106,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-surface font-sans text-on-surface antialiased flex flex-col selection:bg-secondary-fixed selection:text-on-secondary-fixed">
         <ScrollProgress />
         <Header />
-        <main className="flex-1 w-full pt-[132px] sm:pt-[136px] lg:pt-[140px] pb-16 lg:pb-0">
+        <main className="flex-1 w-full pb-16 lg:pb-0">
           {children}
         </main>
         <Footer />

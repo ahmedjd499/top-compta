@@ -3,14 +3,13 @@ import {
   FinalCtaContent,
   FooterContent,
   HeroContent,
-  OfferPlan,
-  PartnerItem,
   ProblemSolutionCard,
   QuoteReassurance,
   StepItem,
   TestimonialContent,
   TrustpilotContent,
 } from "./types";
+import { monthlyOffers, OffresMonthlyPlan } from "./offers";
 
 export const heroContent: HeroContent = {
   badge: "Plateforme Agréée (PA) en natif • Certification 2026",
@@ -61,149 +60,14 @@ export const offersContent: {
   title: string;
   subtitle: string;
   fastActionNotice: string;
-  plans: OfferPlan[];
+  plans: OffresMonthlyPlan[];
 } = {
   badge: "Formules mensuelles au forfait",
   title: "Le bon niveau d'externalisation, sans prestation inutile.",
   subtitle: "Chaque formule pensée selon votre spécificité et besoins.",
   fastActionNotice:
     "Souscrire en 1 clic : Choisissez votre formule et réglez en toute sécurité avec PayPal.",
-  plans: [
-    {
-      id: "essentiel",
-      tag: "Pack Débutant",
-      name: "Formule Essentiel",
-      price: 124,
-      pricePeriod: "/mois",
-      description: "La gestion comptable de base pour démarrer sereinement.",
-      features: [
-        "Saisie courante & pointage régulier",
-        "Accès complet GED MyCompanyFiles",
-        "CRM & PA facturation électronique 2026",
-        "Assistance contrôle fiscal/URSSAF incluse",
-      ],
-      href: "/offres/formule-essentiel",
-      ctaText: "Choisir ce plan",
-      paypalButtonColor: "#003087",
-      pricingTiers: [
-        { durationMonths: 1, label: "1 mois", priceTotal: 124, monthlyEquivalent: 124 },
-        { durationMonths: 3, label: "3 mois", priceTotal: 355, monthlyEquivalent: 118.33, savings: "Soit 17€ d'économies", savingsAmount: 17 },
-        { durationMonths: 6, label: "6 mois", priceTotal: 685, monthlyEquivalent: 114.17, savings: "Soit 59€ d'économies", savingsAmount: 59 },
-        { durationMonths: 12, label: "1 an", priceTotal: 1310, monthlyEquivalent: 109.17, savings: "Soit 178€ d'économies", savingsAmount: 178, popular: true },
-      ],
-    },
-    {
-      id: "confort",
-      tag: "Délégation Totale",
-      name: "Formule Confort",
-      price: 184,
-      pricePeriod: "/mois",
-      description:
-        "Une offre complète pour déléguer toute votre comptabilité de manière fluide.",
-      features: [
-        "Saisie intégrale & TVA mensuelle/trimestrielle",
-        "PV approbation des comptes greffe TC inclus",
-        "GED Cloud + CRM + PA native",
-        "Assistance contrôle fiscal/URSSAF incluse",
-      ],
-      recommended: true,
-      href: "/offres/formule-confort",
-      ctaText: "Choisir ce plan",
-      paypalButtonColor: "#FFC439",
-      pricingTiers: [
-        { durationMonths: 1, label: "1 mois", priceTotal: 184, monthlyEquivalent: 184 },
-        { durationMonths: 3, label: "3 mois", priceTotal: 525, monthlyEquivalent: 175, savings: "Soit 27€ d'économies", savingsAmount: 27 },
-        { durationMonths: 6, label: "6 mois", priceTotal: 1008, monthlyEquivalent: 168, savings: "Soit 96€ d'économies", savingsAmount: 96 },
-        { durationMonths: 12, label: "1 an", priceTotal: 1826, monthlyEquivalent: 152.17, savings: "Soit 382€ d'économies", savingsAmount: 382, popular: true },
-      ],
-    },
-    {
-      id: "independant",
-      tag: "Freelances & TNS",
-      name: "Formule Indépendant",
-      price: 204,
-      pricePeriod: "/mois",
-      description: "Spécifique pour les travailleurs indépendants TNS.",
-      features: [
-        "Déclarations sociales SSI (ex-RSI) & CIPAV",
-        "PV approbation des comptes greffe TC",
-        "Espace mobile pour notes de frais",
-        "Assistance contrôle fiscal/URSSAF incluse",
-      ],
-      href: "/offres/formule-independant",
-      ctaText: "Choisir ce plan",
-      paypalButtonColor: "#003087",
-      pricingTiers: [
-        { durationMonths: 1, label: "1 mois", priceTotal: 204, monthlyEquivalent: 204 },
-        { durationMonths: 3, label: "3 mois", priceTotal: 585, monthlyEquivalent: 195, savings: "Soit 27€ d'économies", savingsAmount: 27 },
-        { durationMonths: 6, label: "6 mois", priceTotal: 1116, monthlyEquivalent: 186, savings: "Soit 108€ d'économies", savingsAmount: 108 },
-        { durationMonths: 12, label: "1 an", priceTotal: 2018, monthlyEquivalent: 168.17, savings: "Soit 430€ d'économies", savingsAmount: 430, popular: true },
-      ],
-    },
-    {
-      id: "sci",
-      tag: "Gestion Immobilière",
-      name: "Formule SCI",
-      price: 124,
-      pricePeriod: "/mois",
-      description:
-        "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
-      features: [
-        "Déclarations 2072 (IR) ou 2065 (IS)",
-        "Suivi et répartition comptes courants d'associés",
-        "Archivage baux et quittances sécurisé",
-        "Assistance contrôle fiscal/URSSAF incluse",
-      ],
-      href: "/offres/formule-sci",
-      ctaText: "Choisir ce plan",
-      paypalButtonColor: "#003087",
-      pricingTiers: [
-        { durationMonths: 1, label: "1 mois", priceTotal: 124, monthlyEquivalent: 124 },
-        { durationMonths: 3, label: "3 mois", priceTotal: 355, monthlyEquivalent: 118.33, savings: "Soit 17€ d'économies", savingsAmount: 17 },
-        { durationMonths: 6, label: "6 mois", priceTotal: 685, monthlyEquivalent: 114.17, savings: "Soit 59€ d'économies", savingsAmount: 59 },
-        { durationMonths: 12, label: "1 an", priceTotal: 1310, monthlyEquivalent: 109.17, savings: "Soit 178€ d'économies", savingsAmount: 178, popular: true },
-      ],
-    },
-    {
-      id: "sos-compta",
-      tag: "Rattrapage",
-      name: "Formule SOS Compta",
-      price: 990,
-      pricePeriod: " / an",
-      description:
-        "Une assistance ponctuelle pour régulariser ou rattraper votre retard comptable.",
-      features: [
-        "Rattrapage des exercices en retard",
-        "Reconstitution des livres comptables",
-        "Bilan de régularisation & télétransmission",
-        "Audit de conformité fiscale & négociation",
-      ],
-      href: "/offres/formule-sos-compta",
-      ctaText: "Choisir ce plan",
-      paypalButtonColor: "#003087",
-      pricingTiers: [
-        { durationMonths: 12, label: "1 an (Forfait)", priceTotal: 990, monthlyEquivalent: 82.5, savings: "Forfait Annuel Fixe", popular: true },
-      ],
-    },
-    {
-      id: "speed-bilan",
-      tag: "Bilan Express",
-      name: "Speed Bilan",
-      price: "Sur devis",
-      pricePeriod: "",
-      description:
-        "Votre bilan annuel réalisé rapidement, simplement et en toute fiabilité.",
-      features: [
-        "Bilan annuel rapide et fiable",
-        "Déclarations & liasse fiscale Bercy",
-        "Accompagnement par des professionnels",
-      ],
-      recommended: false,
-      href: "https://speedbilan.fr",
-      ctaText: "VOIR PLUS",
-      isExternal: true,
-    },
-  ],
+  plans: monthlyOffers,
 };
 
 export const trustpilotContent: TrustpilotContent = {

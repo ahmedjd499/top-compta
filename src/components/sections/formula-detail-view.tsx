@@ -174,7 +174,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
               </h1>
 
               <p className="text-sm sm:text-base text-inverse-on-surface font-medium leading-relaxed">
-                Découvrez l&apos;ensemble des modules de gestion, suivi comptable et fiscal. {formula.summary}
+                {formula.summary}
               </p>
             </div>
 

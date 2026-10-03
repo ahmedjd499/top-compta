@@ -97,7 +97,7 @@ export function QuoteFormSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Reassurance & Direct Contact Details (Left Column - Sticky until end of form) */}
-          <div className="lg:col-span-4 lg:sticky lg:top-36 self-start">
+          <div className="lg:col-span-4 lg:sticky lg:top-24 self-start">
             <motion.div
               initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}

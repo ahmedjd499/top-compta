@@ -56,29 +56,9 @@ export interface PartnerItem {
   iconName: string;
 }
 
-export interface OfferPlan {
-  id: string;
-  tag: string;
-  name: string;
-  price: number | string;
-  pricePeriod?: string;
-  description: string;
-  features?: string[];
-  pricingTiers?: {
-    durationMonths: number;
-    label: string;
-    priceTotal: number;
-    monthlyEquivalent: number;
-    savings?: string;
-    savingsAmount?: number;
-    popular?: boolean;
-  }[];
-  recommended?: boolean;
-  href: string;
-  ctaText?: string;
-  isExternal?: boolean;
-  paypalButtonColor?: string;
-}
+import type { OffresMonthlyPlan } from "./offers";
+
+export type OfferPlan = OffresMonthlyPlan;
 
 export interface TrustpilotContent {
   score: string;

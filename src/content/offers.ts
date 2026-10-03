@@ -9,12 +9,18 @@ export interface PricingTier {
 }
 
 export interface DetailedFormula {
+  id: string;
   slug: string;
   name: string;
   tag: string;
   price: number | string;
   period?: string;
+  pricePeriod?: string;
+  description: string;
   summary: string;
+  href: string;
+  ctaText: string;
+  ctaHref?: string;
   pricingTiers?: PricingTier[];
   deliverables: {
     title: string;
@@ -24,35 +30,11 @@ export interface DetailedFormula {
   reassurance?: string;
   phoneContact?: string;
   recommended?: boolean;
-  ctaText?: string;
-  ctaHref?: string;
   isExternal?: boolean;
 }
 
-export interface OffresMonthlyPlan {
-  id: string;
-  name: string;
-  tag: string;
-  price: number | string;
-  pricePeriod?: string;
-  description: string;
-  href: string;
-  ctaText: string;
-  pricingTiers?: PricingTier[];
-  recommended?: boolean;
-  isExternal?: boolean;
-}
-
-export interface OffresServiceCarte {
-  id: string;
-  name: string;
-  tag: string;
-  price: number | string;
-  pricePeriod?: string;
-  description: string;
-  href: string;
-  ctaText: string;
-}
+export type OffresMonthlyPlan = DetailedFormula;
+export type OffresServiceCarte = DetailedFormula;
 
 export interface OffresFaqItem {
   question: string;
@@ -95,226 +77,20 @@ export const offresHeroContent = {
   ],
 };
 
-export const monthlyOffers: OffresMonthlyPlan[] = [
-  {
-    id: "formule-essentiel",
-    name: "Formule Essentiel",
-    tag: "Pack Débutant",
-    price: 124,
-    pricePeriod: "/mois",
-    description: "La gestion comptable de base pour démarrer sereinement. Idéal créateurs & franchise en base de TVA.",
-    href: "/offres/formule-essentiel",
-    ctaText: "Choisir ce plan",
-    pricingTiers: [
-      {
-        durationMonths: 1,
-        label: "1 mois",
-        priceTotal: 124,
-        monthlyEquivalent: 124,
-      },
-      {
-        durationMonths: 3,
-        label: "3 mois",
-        priceTotal: 355,
-        monthlyEquivalent: 118.33,
-        savings: "Soit 17€ d'économies",
-        savingsAmount: 17,
-      },
-      {
-        durationMonths: 6,
-        label: "6 mois",
-        priceTotal: 685,
-        monthlyEquivalent: 114.17,
-        savings: "Soit 59€ d'économies",
-        savingsAmount: 59,
-      },
-      {
-        durationMonths: 12,
-        label: "1 an",
-        priceTotal: 1310,
-        monthlyEquivalent: 109.17,
-        savings: "Soit 178€ d'économies",
-        savingsAmount: 178,
-        popular: true,
-      },
-    ],
-  },
-  {
-    id: "formule-confort",
-    name: "Formule Confort",
-    tag: "Délégation Totale",
-    price: 184,
-    pricePeriod: "/mois",
-    description:
-      "Une offre complète pour déléguer toute votre comptabilité et vos déclarations avec sérénité.",
-    href: "/offres/formule-confort",
-    ctaText: "Choisir ce plan",
-    recommended: true,
-    pricingTiers: [
-      {
-        durationMonths: 1,
-        label: "1 mois",
-        priceTotal: 184,
-        monthlyEquivalent: 184,
-      },
-      {
-        durationMonths: 3,
-        label: "3 mois",
-        priceTotal: 525,
-        monthlyEquivalent: 175,
-        savings: "Soit 27€ d'économies",
-        savingsAmount: 27,
-      },
-      {
-        durationMonths: 6,
-        label: "6 mois",
-        priceTotal: 1008,
-        monthlyEquivalent: 168,
-        savings: "Soit 96€ d'économies",
-        savingsAmount: 96,
-      },
-      {
-        durationMonths: 12,
-        label: "1 an",
-        priceTotal: 1826,
-        monthlyEquivalent: 152.17,
-        savings: "Soit 382€ d'économies",
-        savingsAmount: 382,
-        popular: true,
-      },
-    ],
-  },
-  {
-    id: "formule-independant",
-    name: "Formule Indépendant",
-    tag: "Freelances & TNS",
-    price: 204,
-    pricePeriod: "/mois",
-    description: "Spécifique pour les travailleurs indépendants TNS, professions libérales et gérants majoritaires.",
-    href: "/offres/formule-independant",
-    ctaText: "Choisir ce plan",
-    pricingTiers: [
-      {
-        durationMonths: 1,
-        label: "1 mois",
-        priceTotal: 204,
-        monthlyEquivalent: 204,
-      },
-      {
-        durationMonths: 3,
-        label: "3 mois",
-        priceTotal: 585,
-        monthlyEquivalent: 195,
-        savings: "Soit 27€ d'économies",
-        savingsAmount: 27,
-      },
-      {
-        durationMonths: 6,
-        label: "6 mois",
-        priceTotal: 1116,
-        monthlyEquivalent: 186,
-        savings: "Soit 108€ d'économies",
-        savingsAmount: 108,
-      },
-      {
-        durationMonths: 12,
-        label: "1 an",
-        priceTotal: 2018,
-        monthlyEquivalent: 168.17,
-        savings: "Soit 430€ d'économies",
-        savingsAmount: 430,
-        popular: true,
-      },
-    ],
-  },
-  {
-    id: "formule-sci",
-    name: "Formule SCI",
-    tag: "Gestion Immobilière",
-    price: 124,
-    pricePeriod: "/mois",
-    description:
-      "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier (IR déclaration 2072 ou IS).",
-    href: "/offres/formule-sci",
-    ctaText: "Choisir ce plan",
-    pricingTiers: [
-      {
-        durationMonths: 1,
-        label: "1 mois",
-        priceTotal: 124,
-        monthlyEquivalent: 124,
-      },
-      {
-        durationMonths: 3,
-        label: "3 mois",
-        priceTotal: 355,
-        monthlyEquivalent: 118.33,
-        savings: "Soit 17€ d'économies",
-        savingsAmount: 17,
-      },
-      {
-        durationMonths: 6,
-        label: "6 mois",
-        priceTotal: 685,
-        monthlyEquivalent: 114.17,
-        savings: "Soit 59€ d'économies",
-        savingsAmount: 59,
-      },
-      {
-        durationMonths: 12,
-        label: "1 an",
-        priceTotal: 1310,
-        monthlyEquivalent: 109.17,
-        savings: "Soit 178€ d'économies",
-        savingsAmount: 178,
-        popular: true,
-      },
-    ],
-  },
-  {
-    id: "formule-sos-compta",
-    name: "Formule SOS Compta",
-    tag: "Rattrapage & Régularisation",
-    price: 990,
-    pricePeriod: " / an",
-    description:
-      "Assistance ponctuelle urgente pour régulariser ou rattraper vos exercices comptables en retard.",
-    href: "/offres/formule-sos-compta",
-    ctaText: "Choisir ce plan",
-    pricingTiers: [
-      {
-        durationMonths: 12,
-        label: "1 an (Forfait Annuel)",
-        priceTotal: 990,
-        monthlyEquivalent: 82.5,
-        savings: "Tarif Forfaitaire Annuel Garanti",
-        popular: true,
-      },
-    ],
-  },
-  {
-    id: "speed-bilan",
-    name: "Speed Bilan",
-    tag: "Bilan Express",
-    price: "Sur devis",
-    description:
-      "Votre bilan annuel réalisé rapidement, simplement et en toute conformité légale.",
-    href: "https://speedbilan.fr",
-    ctaText: "VOIR PLUS",
-    recommended: false,
-    isExternal: true,
-  },
-];
-
 export const detailedFormulas: Record<string, DetailedFormula> = {
   "formule-essentiel": {
+    id: "formule-essentiel",
     slug: "formule-essentiel",
     name: "Formule Essentiel",
     tag: "Pack Débutant",
     price: 124,
     period: "/mois",
+    pricePeriod: "/mois",
+    description: "La gestion comptable de base pour démarrer sereinement.",
     summary:
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. La formule essentielle pour piloter votre activité en toute conformité.",
+    href: "/offres/formule-essentiel",
+    ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
       "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
@@ -414,13 +190,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "formule-confort": {
+    id: "formule-confort",
     slug: "formule-confort",
     name: "Formule Confort",
     tag: "Délégation Totale",
     price: 184,
     period: "/mois",
+    pricePeriod: "/mois",
+    description:
+      "Une offre complète pour déléguer toute votre comptabilité de manière fluide.",
     summary:
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Une formule tout inclus pour déléguer 100% de votre comptabilité, TVA mensuelle et formalités juridiques.",
+    href: "/offres/formule-confort",
+    ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     recommended: true,
     reassurance:
@@ -528,13 +310,18 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "formule-independant": {
+    id: "formule-independant",
     slug: "formule-independant",
     name: "Formule Indépendant",
     tag: "Freelances & TNS",
     price: 204,
     period: "/mois",
+    pricePeriod: "/mois",
+    description: "Spécifique pour les travailleurs indépendants TNS.",
     summary:
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Spécifique pour les indépendants TNS, intégrant la gestion SSI (ex-RSI) et CIPAV.",
+    href: "/offres/formule-independant",
+    ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
       "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
@@ -648,13 +435,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "formule-sci": {
+    id: "formule-sci",
     slug: "formule-sci",
     name: "Formule SCI",
     tag: "Gestion Immobilière",
     price: 124,
     period: "/mois",
+    pricePeriod: "/mois",
+    description:
+      "Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
     summary:
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Dédiée à la gestion comptable et fiscale de votre patrimoine immobilier.",
+    href: "/offres/formule-sci",
+    ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
       "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
@@ -756,13 +549,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "formule-sos-compta": {
+    id: "formule-sos-compta",
     slug: "formule-sos-compta",
     name: "Formule SOS Compta",
     tag: "Rattrapage & Régularisation",
     price: 990,
     period: " / an",
+    pricePeriod: " / an",
+    description:
+      "Assistance ponctuelle urgente pour régulariser ou rattraper votre retard comptable.",
     summary:
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal. Une assistance ponctuelle pour régulariser ou rattraper votre retard comptable et vos exercices non déclarés.",
+    href: "/offres/formule-sos-compta",
+    ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
       "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
@@ -813,13 +612,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "service-en-social": {
+    id: "service-en-social",
     slug: "service-en-social",
     name: "La Paie",
     tag: "Social & Salariés",
     price: 159,
     period: "/mois",
+    pricePeriod: "/mois",
+    description:
+      "Gestion externalisée de vos salariés et de vos obligations d'employeur (bulletins, DSN, charges).",
     summary:
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
+    href: "/offres/service-en-social",
+    ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
       "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
@@ -915,13 +720,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "services-associes-a-la-paie": {
+    id: "services-associes-a-la-paie",
     slug: "services-associes-a-la-paie",
     name: "Services associés à la Paie",
     tag: "Conseil RH & Social",
     price: "À la carte",
     period: "",
+    pricePeriod: "",
+    description:
+      "Accompagnement dédié sur mesure pour sécuriser vos relations de travail (contrats, ruptures, contentieux).",
     summary:
       "Accompagnement dédié sur mesure pour sécuriser vos relations de travail. Consultants RH spécialisés basés en France.",
+    href: "/offres/services-associes-a-la-paie",
+    ctaText: "Demander un devis",
     deliverables: [
       {
         title: "Plan de Paie & Fiches de Paie",
@@ -959,13 +770,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "creation-societe": {
+    id: "creation-societe",
     slug: "creation-societe",
     name: "Création Société",
     tag: "Formalités Juridiques",
     price: 790,
     period: " au forfait",
+    pricePeriod: " au forfait",
+    description:
+      "De l'idée au Kbis, prise en charge intégrale de la rédaction des statuts, JAL et Greffe inclus.",
     summary:
       "Découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
+    href: "/offres/creation-societe",
+    ctaText: "Choisir ce plan",
     phoneContact: "01 70 60 00 82",
     reassurance:
       "Garantie & Assistance incluses : Nos prestations incluent une assistance à distance complète en cas de contrôle fiscal ou URSSAF. Vous n’êtes jamais seul face à l’Administration.",
@@ -1003,13 +820,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "transformations-societe": {
+    id: "transformations-societe",
     slug: "transformations-societe",
     name: "Transformations Société",
     tag: "Évolution Structurelle",
     price: 950,
     period: " au forfait",
+    pricePeriod: " au forfait",
+    description:
+      "Faites évoluer la forme sociale, transférez le siège ou augmentez le capital en toute légalité.",
     summary:
       "Faites évoluer la structure ou le capital de votre entreprise existante. Comprend les frais de JAL et Greffe du TC.",
+    href: "/offres/transformations-societe",
+    ctaText: "Choisir ce plan",
    
     deliverables: [
       {
@@ -1032,13 +855,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "cessation-et-liquidation": {
+    id: "cessation-et-liquidation",
     slug: "cessation-et-liquidation",
     name: "Cessation & Liquidation",
     tag: "Fermeture & Dissolution",
     price: 1150,
     period: " au forfait",
+    pricePeriod: " au forfait",
+    description:
+      "Clôturez rigoureusement votre société sans litige ultérieur : PV, bilan de liquidation et radiation.",
     summary:
       "Fermez proprement votre structure en totale conformité légale. PV de cessation d'activité, bilan de liquidation et rapport de liquidation.",
+    href: "/offres/cessation-et-liquidation",
+    ctaText: "Choisir ce plan",
    
     deliverables: [
       {
@@ -1060,13 +889,19 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     ],
   },
   "crm-pa-native": {
+    id: "crm-pa-native",
     slug: "crm-pa-native",
     name: "CRM + PA native",
     tag: "Facturation Électronique",
     price: 30,
     period: "/mois",
+    pricePeriod: "/mois",
+    description:
+      "Votre logiciel de facturation avec Plateforme agréée native et télétransmission Bercy.",
     summary:
       "Votre outil de facturation avec Plateforme agréée native. Découvrez l'ensemble des modules de facturation, suivi client et conformité facturation électronique 2026.",
+    href: "/offres/crm-pa-native",
+    ctaText: "Choisir ce plan",
    
     deliverables: [
       {
@@ -1099,7 +934,37 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       "Liaison directe avec vos outils comptables",
     ],
   },
+  "speed-bilan": {
+    id: "speed-bilan",
+    slug: "speed-bilan",
+    name: "Speed Bilan",
+    tag: "Bilan Express",
+    price: "Sur devis",
+    period: "",
+    pricePeriod: "",
+    description:
+      "Votre bilan annuel réalisé rapidement, simplement et en toute conformité légale.",
+    summary:
+      "Votre bilan annuel réalisé rapidement, simplement et en toute conformité légale.",
+    href: "https://speedbilan.fr",
+    ctaText: "VOIR PLUS",
+    recommended: false,
+    isExternal: true,
+    deliverables: [],
+    advantages: [],
+  },
 };
+
+export const allOffers = detailedFormulas;
+
+export const monthlyOffers: OffresMonthlyPlan[] = [
+  detailedFormulas["formule-essentiel"],
+  detailedFormulas["formule-confort"],
+  detailedFormulas["formule-independant"],
+  detailedFormulas["formule-sci"],
+  detailedFormulas["formule-sos-compta"],
+  detailedFormulas["speed-bilan"],
+];
 
 export const comparisonCategories: ComparisonCategory[] = [
   {
@@ -1504,72 +1369,12 @@ export const servicesALaCarteContent = {
   title: "Services à la carte & Formalités",
   subtitle: "Des prestations spécialisées au forfait pour vos démarches juridiques et RH.",
   services: [
-    {
-      id: "service-en-social",
-      name: "La Paie",
-      tag: "Social & Salariés",
-      price: 159,
-      pricePeriod: "/mois",
-      description:
-        "Gestion externalisée de vos salariés et de vos obligations d'employeur (bulletins, DSN, charges).",
-      href: "/offres/service-en-social",
-      ctaText: "Choisir ce plan",
-    },
-    {
-      id: "services-associes-a-la-paie",
-      name: "Services associés à la Paie",
-      tag: "Conseil RH & Social",
-      price: "À la carte",
-      pricePeriod: "",
-      description:
-        "Accompagnement dédié sur mesure pour sécuriser vos relations de travail (contrats, ruptures, contentieux).",
-      href: "/offres/services-associes-a-la-paie",
-      ctaText: "Demander un devis",
-    },
-    {
-      id: "creation-societe",
-      name: "Création Société",
-      tag: "Formalités Juridiques",
-      price: 790,
-      pricePeriod: " au forfait",
-      description:
-        "De l'idée au Kbis, prise en charge intégrale de la rédaction des statuts, JAL et Greffe inclus.",
-      href: "/offres/creation-societe",
-      ctaText: "Choisir ce plan",
-    },
-    {
-      id: "transformations-societe",
-      name: "Transformations Société",
-      tag: "Évolution Structurelle",
-      price: 950,
-      pricePeriod: " au forfait",
-      description:
-        "Faites évoluer la forme sociale, transférez le siège ou augmentez le capital en toute légalité.",
-      href: "/offres/transformations-societe",
-      ctaText: "Choisir ce plan",
-    },
-    {
-      id: "cessation-et-liquidation",
-      name: "Cessation & Liquidation",
-      tag: "Fermeture & Dissolution",
-      price: 1150,
-      pricePeriod: " au forfait",
-      description:
-        "Clôturez rigoureusement votre société sans litige ultérieur : PV, bilan de liquidation et radiation.",
-      href: "/offres/cessation-et-liquidation",
-      ctaText: "Choisir ce plan",
-    },
-    {
-      id: "crm-pa-native",
-      name: "CRM + PA native",
-      tag: "Facturation Électronique",
-      price: 30,
-      pricePeriod: "/mois",
-      description:
-        "Votre logiciel de facturation avec Plateforme agréée native et télétransmission Bercy.",
-      href: "/offres/crm-pa-native",
-      ctaText: "Choisir ce plan",
-    },
+    detailedFormulas["service-en-social"],
+    detailedFormulas["services-associes-a-la-paie"],
+    detailedFormulas["creation-societe"],
+    detailedFormulas["transformations-societe"],
+    detailedFormulas["cessation-et-liquidation"],
+    detailedFormulas["crm-pa-native"],
   ],
 };
 

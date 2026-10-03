@@ -67,6 +67,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+  @media (min-width: 640px) {
+    html {
+      scroll-padding-top: 5.5rem;
+    }
   }
   body {
     background-color: var(--color-background);
