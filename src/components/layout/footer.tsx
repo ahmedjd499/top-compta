@@ -168,10 +168,7 @@ export function Footer() {
                 {footerContent.email || siteConfig.email}
               </a>
             </div>
-            <div className="flex items-start gap-2.5 text-on-primary-container">
-              <Building className="w-4 h-4 text-secondary-fixed shrink-0 mt-1" />
-              <span>{footerContent.address}</span>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -188,17 +185,12 @@ export function Footer() {
               Mentions Légales
             </Link>
             <Link
-              href="/mentions-legales#cgv"
+              href="/cgv"
               className="hover:text-on-primary transition-colors"
             >
               Conditions Générales de Vente (CGV)
             </Link>
-            <Link
-              href="/mentions-legales"
-              className="hover:text-on-primary transition-colors"
-            >
-              Politique de Confidentialité
-            </Link>
+           
             
           </div>
         </div>

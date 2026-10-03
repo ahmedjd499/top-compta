@@ -208,10 +208,10 @@ export function Header() {
                 L&apos;externalisation comptable
               </Link>
               <Link
-                href="/mentions-legales#cgv"
+                href="/cgv"
                 className={cn(
                   "text-sm font-semibold transition-colors",
-                  pathname === "/mentions-legales"
+                  pathname === "/cgv"
                     ? "text-secondary font-bold underline underline-offset-8"
                     : "text-on-surface-variant hover:text-on-surface"
                 )}
@@ -328,6 +328,18 @@ export function Header() {
             )}
           >
             L&apos;externalisation comptable
+          </Link>
+          <Link
+            href="/cgv"
+            onClick={() => setMobileMenuOpen(false)}
+            className={cn(
+              "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors",
+              pathname === "/cgv"
+                ? "bg-surface-container text-secondary font-bold"
+                : "text-on-surface hover:bg-surface-container-low"
+            )}
+          >
+            Conditions Générales de Vente (CGV)
           </Link>
           <a
             href={siteConfig.clientPortalUrl}

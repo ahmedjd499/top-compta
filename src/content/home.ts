@@ -282,5 +282,6 @@ export const footerContent: FooterContent = {
   whatsappHref: "https://wa.me/33779335302",
   phone: "01 70 60 00 82",
   email: "info@top-compta.fr",
+  address: "Immeuble Amina, 15 Avenue Farhat Hached, Ariana – Tunis",
   copyright: "© 2026 TOP-COMPTA.FR. Tous droits réservés.",
 };

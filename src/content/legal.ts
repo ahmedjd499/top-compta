@@ -1,46 +1,72 @@
-export const legalContent = {
-  title: "Mentions Légales & Conditions Générales",
-  lastUpdated: "Mise à jour : Février 2026",
-  sections: [
-    {
-      title: "1. Éditeur du site",
-      content: [
-        "Le site www.top-compta.fr est édité par la société PEGASIO INTERNATIONAL, exerçant sous l'enseigne commerciale TOP-COMPTA.FR.",
-        "Siège social : France.",
-        "Téléphone : 01 70 60 00 82",
-        "Email : info@top-compta.fr",
-        "Directeur de la publication : Direction Générale TOP-COMPTA.",
-      ],
-    },
-    {
-      title: "2. Hébergement",
-      content: [
-        "Le site est hébergé sur des infrastructures cloud conformes aux normes européennes de protection des données (RGPD).",
-        "Espace GED opéré par MyCompanyFiles.",
-      ],
-    },
-    {
-      title: "3. Propriété intellectuelle",
-      content: [
-        "L'ensemble des éléments graphiques, textes, logotypes, icônes et structures du site www.top-compta.fr sont protégés par le droit d'auteur et les dispositions du Code de la Propriété Intellectuelle.",
-        "Toute reproduction ou diffusion totale ou partielle sans accord préalable express est strictement interdite.",
-      ],
-    },
-    {
-      title: "4. Données personnelles & RGPD",
-      content: [
-        "Les données recueillies par l'intermédiaire du formulaire de demande de devis sont destinées exclusivement à l'instruction de votre demande commerciale et à la prise de contact par nos équipes.",
-        "Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant en écrivant à info@top-compta.fr.",
-      ],
-    },
-    {
-      title: "5. Conditions Générales de Vente (CGV)",
-      id: "cgv",
-      content: [
-        "Nos prestations sont régies par la lettre de mission et le contrat de services conclu préalablement à tout démarrage d'intervention.",
-        "Les forfaits mensuels sont sans engagement de durée, résiliables avec préavis contractuel standard de 30 jours.",
-        "Les tarifs s'entendent hors taxes (HT) et sont facturés selon les modalités définies au devis validé.",
-      ],
-    },
-  ],
+export const mentionsLegalesContent = {
+  title: "Mentions légales TOP-COMPTA",
+
+  hosting: {
+    label: "Hébergement top-compta.fr, top-compta.com et top-compta.net :",
+    company: "IONOS SARL",
+    addressLines: [
+      "7, place de la Gare",
+      "BP 70109",
+      "57201 Sarreguemines Cedex",
+    ],
+    phone: "+33 9 70 80 89 11",
+    phoneHref: "tel:+33970808911",
+  },
+
+  operatingCompany: {
+    label: "Société exploitant et commercialisant le produit TOP-COMPTA.FR :",
+    name: "Groupe PEGASIO INTERNATIONAL",
+    addressLines: [
+      "Immeuble Amina",
+      "15 Avenue Farhat Hached",
+      "Ariana – Tunis – TUNISIE",
+    ],
+    phone: "+33 1 70 60 00 82",
+    phoneHref: "tel:+33170600082",
+    email: "info@top-compta.fr",
+    emailHref: "mailto:info@top-compta.fr",
+
+    legalRepresentativeLabel: "Représentant légal :",
+    legalRepresentative: "Mme Eya BEN HASSINE",
+
+    legalDirectorLabel: "Directeur juridique :",
+    legalDirector: "M. Miled THABET",
+
+    rcsLabel:
+      "Immatriculation au Registre du Commerce de Tunis sous le numéro :",
+    rcsNumber: "B2498402011",
+
+    companyType:
+      "Société à responsabilité limitée au capital de 20 000 Dinars – Société totalement exportatrice",
+
+    taxIdLabel: "Matricule Fiscal :",
+    taxId: "1199452 DAM 000",
+    taxDownloadText: "télécharger le brevet fiscal",
+    taxDownloadHref: "/assets/Attestation-fiscale-PI.pdf",
+
+    cnssLabel: "Affiliation à la Sécurité Sociale Tunisienne (CNSS) :",
+    cnssNumber: "347016-47",
+  },
+
+  auditor: {
+    label: "Commissaire aux Comptes désigné :",
+    name: "Sami SOLTANI",
+    publicationDownloadText: "télécharger la publication au Journal Officiel",
+    publicationDownloadHref: "/assets/JORT-CAC-171216.pdf",
+    addressLines: [
+      "42 Avenue Habib Bourguiba – 2ème étage",
+      "2080 ARIANA – TUNIS – TUNISIE",
+    ],
+    phone: "+216 95 88 86 26",
+    phoneHref: "tel:+21695888626",
+  },
+
+  contact: {
+    title:
+      "Vous pouvez également poser vos questions ou vos demandes d'informations par le biais de",
+    email: "info@top-compta.fr",
+    emailHref: "mailto:info@top-compta.fr",
+    contactButtonText: "Contactez-nous",
+    contactButtonHref: "/#contact",
+  },
 };

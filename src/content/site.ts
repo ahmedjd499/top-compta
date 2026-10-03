@@ -66,6 +66,6 @@ export const mainNavItems: NavItem[] = [
   },
   {
     title: "CGV",
-    href: "/mentions-legales#cgv",
+    href: "/cgv",
   },
 ];
