@@ -58,6 +58,13 @@ export function QuoteFormSection() {
 
   const selectedContactMode = watch("contactMode");
 
+  const handleCaptchaChange = React.useCallback(
+    (token: string | null) => {
+      setValue("recaptchaToken", token || "", { shouldValidate: true });
+    },
+    [setValue]
+  );
+
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
@@ -517,11 +524,7 @@ export function QuoteFormSection() {
                 <div className="md:col-span-2 flex flex-col gap-2 pt-2">
                   <ReCaptchaV2
                     ref={recaptchaRef}
-                    onChange={(token) =>
-                      setValue("recaptchaToken", token || "", {
-                        shouldValidate: true,
-                      })
-                    }
+                    onChange={handleCaptchaChange}
                   />
                   {errors.recaptchaToken && (
                     <span className="text-xs text-error flex items-center gap-1">

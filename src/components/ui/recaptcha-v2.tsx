@@ -42,6 +42,9 @@ export const ReCaptchaV2 = forwardRef<ReCaptchaV2Ref, ReCaptchaV2Props>(
   function ReCaptchaV2({ onChange, siteKey, theme = "light", className }, ref) {
     const containerRef = useRef<HTMLDivElement>(null);
     const widgetIdRef = useRef<number | null>(null);
+    const onChangeRef = useRef(onChange);
+    onChangeRef.current = onChange;
+
     const resolvedSiteKey =
       siteKey ||
       process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
@@ -60,7 +63,7 @@ export const ReCaptchaV2 = forwardRef<ReCaptchaV2Ref, ReCaptchaV2Props>(
             console.error("Erreur lors de la réinitialisation du reCAPTCHA:", e);
           }
         }
-        onChange(null);
+        onChangeRef.current(null);
       },
     }));
 
@@ -78,19 +81,23 @@ export const ReCaptchaV2 = forwardRef<ReCaptchaV2Ref, ReCaptchaV2Props>(
         }
 
         try {
-          // Clear any children before rendering to avoid duplicates
+          // Clear container and create a fresh child element
+          // This prevents "reCAPTCHA has already been rendered in this element" in React 18/19 StrictMode / Fast Refresh
           containerRef.current.innerHTML = "";
-          const id = window.grecaptcha.render(containerRef.current, {
+          const targetEl = document.createElement("div");
+          containerRef.current.appendChild(targetEl);
+
+          const id = window.grecaptcha.render(targetEl, {
             sitekey: resolvedSiteKey,
             theme,
             callback: (token: string) => {
-              if (isMounted) onChange(token);
+              if (isMounted) onChangeRef.current(token);
             },
             "expired-callback": () => {
-              if (isMounted) onChange(null);
+              if (isMounted) onChangeRef.current(null);
             },
             "error-callback": () => {
-              if (isMounted) onChange(null);
+              if (isMounted) onChangeRef.current(null);
             },
           });
           widgetIdRef.current = id;
@@ -118,19 +125,19 @@ export const ReCaptchaV2 = forwardRef<ReCaptchaV2Ref, ReCaptchaV2Props>(
           script.defer = true;
           document.head.appendChild(script);
         } else {
-          // Script already loading, attach to global or poll
+          // Script tag exists; attach to existing callback or poll
           const prevOnload = window.onRecaptchaLoaded;
           window.onRecaptchaLoaded = () => {
             if (prevOnload) prevOnload();
             if (isMounted) renderWidget();
           };
-          // Also set a fallback timer if it loaded before the hook attached
+
           const interval = setInterval(() => {
             if (window.grecaptcha?.render) {
               clearInterval(interval);
               if (isMounted) renderWidget();
             }
-          }, 200);
+          }, 150);
 
           return () => clearInterval(interval);
         }
@@ -138,9 +145,12 @@ export const ReCaptchaV2 = forwardRef<ReCaptchaV2Ref, ReCaptchaV2Props>(
 
       return () => {
         isMounted = false;
+        if (containerRef.current) {
+          containerRef.current.innerHTML = "";
+        }
         widgetIdRef.current = null;
       };
-    }, [resolvedSiteKey, theme, onChange]);
+    }, [resolvedSiteKey, theme]);
 
     return (
       <div className={className}>
