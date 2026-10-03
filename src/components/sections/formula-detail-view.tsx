@@ -30,69 +30,160 @@ interface FormulaDetailViewProps {
   formula: DetailedFormula;
 }
 
-const getCategoryMeta = (title: string) => {
+const FALLBACK_PALETTES = [
+  {
+    icon: Smartphone,
+    cardBg: "bg-gradient-to-br from-blue-50/90 via-sky-50/40 to-white",
+    cardBorder: "border-blue-200/80 hover:border-blue-400 shadow-blue-500/5",
+    gradient: "from-blue-500 via-sky-400 to-transparent",
+    badgeColor: "bg-blue-100 text-blue-700 border-blue-200",
+    accent: "text-blue-600",
+    checkColor: "text-blue-600",
+  },
+  {
+    icon: FileSpreadsheet,
+    cardBg: "bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white",
+    cardBorder: "border-emerald-200/80 hover:border-emerald-400 shadow-emerald-500/5",
+    gradient: "from-emerald-500 via-teal-400 to-transparent",
+    badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200",
+    accent: "text-emerald-600",
+    checkColor: "text-emerald-600",
+  },
+  {
+    icon: Landmark,
+    cardBg: "bg-gradient-to-br from-indigo-50/90 via-slate-50/40 to-white",
+    cardBorder: "border-indigo-200/80 hover:border-indigo-400 shadow-indigo-500/5",
+    gradient: "from-indigo-500 via-purple-400 to-transparent",
+    badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
+    accent: "text-indigo-600",
+    checkColor: "text-indigo-600",
+  },
+  {
+    icon: Receipt,
+    cardBg: "bg-gradient-to-br from-amber-50/90 via-orange-50/30 to-white",
+    cardBorder: "border-amber-200/80 hover:border-amber-400 shadow-amber-500/5",
+    gradient: "from-amber-500 via-orange-400 to-transparent",
+    badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
+    accent: "text-amber-600",
+    checkColor: "text-amber-600",
+  },
+  {
+    icon: ShieldCheck,
+    cardBg: "bg-gradient-to-br from-cyan-50/90 via-blue-50/30 to-white",
+    cardBorder: "border-cyan-200/80 hover:border-cyan-400 shadow-cyan-500/5",
+    gradient: "from-cyan-500 via-blue-400 to-transparent",
+    badgeColor: "bg-cyan-100 text-cyan-700 border-cyan-200",
+    accent: "text-cyan-600",
+    checkColor: "text-cyan-600",
+  },
+  {
+    icon: Scale,
+    cardBg: "bg-gradient-to-br from-purple-50/90 via-violet-50/30 to-white",
+    cardBorder: "border-purple-200/80 hover:border-purple-400 shadow-purple-500/5",
+    gradient: "from-purple-500 via-violet-400 to-transparent",
+    badgeColor: "bg-purple-100 text-purple-700 border-purple-200",
+    accent: "text-purple-600",
+    checkColor: "text-purple-600",
+  },
+  {
+    icon: Users,
+    cardBg: "bg-gradient-to-br from-rose-50/90 via-pink-50/30 to-white",
+    cardBorder: "border-rose-200/80 hover:border-rose-400 shadow-rose-500/5",
+    gradient: "from-rose-500 via-pink-400 to-transparent",
+    badgeColor: "bg-rose-100 text-rose-700 border-rose-200",
+    accent: "text-rose-600",
+    checkColor: "text-rose-600",
+  },
+];
+
+const getCategoryMeta = (title: string, index = 0) => {
   const t = title.toLowerCase();
   if (t.includes("service") || t.includes("outil")) {
     return {
       icon: Smartphone,
-      gradient: "from-blue-500/10 via-cyan-500/5 to-transparent",
-      badgeColor: "bg-blue-500/10 text-blue-700 border-blue-200",
+      cardBg: "bg-gradient-to-br from-blue-50/90 via-sky-50/40 to-white",
+      cardBorder: "border-blue-200/80 hover:border-blue-400 shadow-blue-500/5",
+      gradient: "from-blue-500 via-sky-400 to-transparent",
+      badgeColor: "bg-blue-100 text-blue-700 border-blue-200",
       accent: "text-blue-600",
+      checkColor: "text-blue-600",
     };
   }
   if (t.includes("compta") || t.includes("saisie") || t.includes("rattrapage")) {
     return {
       icon: FileSpreadsheet,
-      gradient: "from-emerald-500/10 via-teal-500/5 to-transparent",
-      badgeColor: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
+      cardBg: "bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white",
+      cardBorder: "border-emerald-200/80 hover:border-emerald-400 shadow-emerald-500/5",
+      gradient: "from-emerald-500 via-teal-400 to-transparent",
+      badgeColor: "bg-emerald-100 text-emerald-700 border-emerald-200",
       accent: "text-emerald-600",
+      checkColor: "text-emerald-600",
     };
   }
   if (t.includes("fiscal") || t.includes("tva") || t.includes("impôt") || t.includes("déclaration")) {
     return {
       icon: Landmark,
-      gradient: "from-indigo-500/10 via-purple-500/5 to-transparent",
-      badgeColor: "bg-indigo-500/10 text-indigo-700 border-indigo-200",
+      cardBg: "bg-gradient-to-br from-indigo-50/90 via-slate-50/40 to-white",
+      cardBorder: "border-indigo-200/80 hover:border-indigo-400 shadow-indigo-500/5",
+      gradient: "from-indigo-500 via-purple-400 to-transparent",
+      badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
       accent: "text-indigo-600",
+      checkColor: "text-indigo-600",
     };
   }
   if (t.includes("crm") || t.includes("vente") || t.includes("factur") || t.includes("commercial")) {
     return {
       icon: Receipt,
-      gradient: "from-amber-500/10 via-orange-500/5 to-transparent",
-      badgeColor: "bg-amber-500/10 text-amber-700 border-amber-200",
+      cardBg: "bg-gradient-to-br from-amber-50/90 via-orange-50/30 to-white",
+      cardBorder: "border-amber-200/80 hover:border-amber-400 shadow-amber-500/5",
+      gradient: "from-amber-500 via-orange-400 to-transparent",
+      badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
       accent: "text-amber-600",
+      checkColor: "text-amber-600",
     };
   }
   if (t.includes("pa ") || t.includes("plateforme") || t.includes("agréée") || t.includes("native")) {
     return {
       icon: ShieldCheck,
-      gradient: "from-cyan-500/10 via-blue-500/5 to-transparent",
-      badgeColor: "bg-cyan-500/10 text-cyan-700 border-cyan-200",
+      cardBg: "bg-gradient-to-br from-cyan-50/90 via-blue-50/30 to-white",
+      cardBorder: "border-cyan-200/80 hover:border-cyan-400 shadow-cyan-500/5",
+      gradient: "from-cyan-500 via-blue-400 to-transparent",
+      badgeColor: "bg-cyan-100 text-cyan-700 border-cyan-200",
       accent: "text-cyan-600",
+      checkColor: "text-cyan-600",
     };
   }
   if (t.includes("juridique") || t.includes("greffe") || t.includes("pv") || t.includes("formalit")) {
     return {
       icon: Scale,
-      gradient: "from-purple-500/10 via-violet-500/5 to-transparent",
-      badgeColor: "bg-purple-500/10 text-purple-700 border-purple-200",
+      cardBg: "bg-gradient-to-br from-purple-50/90 via-violet-50/30 to-white",
+      cardBorder: "border-purple-200/80 hover:border-purple-400 shadow-purple-500/5",
+      gradient: "from-purple-500 via-violet-400 to-transparent",
+      badgeColor: "bg-purple-100 text-purple-700 border-purple-200",
       accent: "text-purple-600",
+      checkColor: "text-purple-600",
     };
   }
-  if (t.includes("social") || t.includes("paie") || t.includes("tns") || t.includes("rh") || t.includes("ssi")) {
+  if (t.includes("social") || t.includes("paie") || t.includes("tns") || t.includes("rh") || t.includes("ssi") || t.includes("contrat")) {
     return {
       icon: Users,
-      gradient: "from-rose-500/10 via-pink-500/5 to-transparent",
-      badgeColor: "bg-rose-500/10 text-rose-700 border-rose-200",
+      cardBg: "bg-gradient-to-br from-rose-50/90 via-pink-50/30 to-white",
+      cardBorder: "border-rose-200/80 hover:border-rose-400 shadow-rose-500/5",
+      gradient: "from-rose-500 via-pink-400 to-transparent",
+      badgeColor: "bg-rose-100 text-rose-700 border-rose-200",
       accent: "text-rose-600",
+      checkColor: "text-rose-600",
     };
   }
+  const fallback = FALLBACK_PALETTES[index % FALLBACK_PALETTES.length];
   return {
-    icon: Layers,
-    gradient: "from-secondary/10 via-secondary/5 to-transparent",
-    badgeColor: "bg-secondary/10 text-secondary border-secondary/20",
-    accent: "text-secondary",
+    icon: fallback.icon,
+    cardBg: fallback.cardBg,
+    cardBorder: fallback.cardBorder,
+    gradient: fallback.gradient,
+    badgeColor: fallback.badgeColor,
+    accent: fallback.accent,
+    checkColor: fallback.checkColor,
   };
 };
 
@@ -386,45 +477,22 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>Assistance contrôle fiscal ou URSSAF incluse • Sans engagement • Paiement 100% sécurisé via SSL</span>
             </div>
-            <a
-              href="#details-section"
-              className="font-bold text-white hover:underline flex items-center gap-1"
-            >
-              <span>Découvrir le détail des prestations ci-dessous</span>
-              <ArrowRight className="w-3 h-3" />
-            </a>
+          
           </div>
         </motion.div>
 
         {/* 2. THE DETAILS SECTION (All Modules & Prestations) */}
         <section id="details-section" className="flex flex-col gap-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-2">
                 <Layers className="w-3.5 h-3.5" />
                 <span>Modules &amp; Prestations Incluses</span>
               </div>
-              <h2 className="font-space-grotesk text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">
-                Découvrez l&apos;ensemble des modules de gestion, suivi comptable et fiscal
-              </h2>
-              <p className="text-xs sm:text-sm text-on-surface-variant mt-1 max-w-xl">
-                Toutes les prestations ci-dessous sont incluses sans surcoût dans votre formule {formula.name}.
-              </p>
-            </div>
-
-            <Link
-              href="/offres/comparatif"
-              className="text-xs sm:text-sm font-bold text-secondary hover:underline inline-flex items-center gap-1.5 self-start sm:self-auto shrink-0 px-3 py-1.5 rounded-xl bg-surface-container-low border border-outline-variant/30"
-            >
-              <Layers className="w-3.5 h-3.5" />
-              <span>Consulter le comparatif interactif</span>
-            </Link>
-          </div>
+            
 
           {/* Cards Grid: Rich, Distinctive, Highly Stylized Module Deliverables */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {formula.deliverables.map((deliv, index) => {
-              const meta = getCategoryMeta(deliv.title);
+              const meta = getCategoryMeta(deliv.title, index);
               const Icon = meta.icon;
 
               return (
@@ -434,7 +502,11 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, delay: 0.05 + index * 0.04 }}
                   whileHover={shouldReduceMotion ? undefined : { y: -4 }}
-                  className="group relative bg-surface-container-lowest rounded-3xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 border border-outline-variant/30 flex flex-col justify-between overflow-hidden"
+                  className={cn(
+                    "group relative rounded-3xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 border flex flex-col justify-between overflow-hidden",
+                    meta.cardBg,
+                    meta.cardBorder
+                  )}
                 >
                   {/* Subtle top accent bar */}
                   <div
@@ -466,13 +538,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                         </div>
                       </div>
 
-                      <span
-                        className={cn(
-                          "text-[10px] font-bold px-2 py-0.5 rounded-full border whitespace-nowrap",
-                          meta.badgeColor
-                        )}
-                      >
-                      </span>
+                      
                     </div>
 
                     <div className="h-px bg-outline-variant/20 mb-4" />
@@ -481,7 +547,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                     <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-on-surface/90">
                       {deliv.items.map((item, itemIdx) => (
                         <li key={itemIdx} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                          <CheckCircle2 className={cn("w-4 h-4 shrink-0 mt-0.5", meta.checkColor)} />
                           <span className="leading-snug font-medium text-on-surface/90">
                             {item}
                           </span>
@@ -490,13 +556,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                     </ul>
                   </div>
 
-                  <div className="mt-6 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-[11px] text-on-surface-variant">
-                    <span className="inline-flex items-center gap-1 font-semibold text-secondary">
-                      <Check className="w-3.5 h-3.5" />
-                      Inclus dans la formule
-                    </span>
-                    <span>100% conforme</span>
-                  </div>
+                  
                 </motion.div>
               );
             })}
@@ -571,10 +631,6 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                     <span>{activeTier.savings}</span>
                   </div>
                 )}
-
-                <p className="text-xs text-on-surface-variant mt-1">
-                  Sans engagement • Résiliation libre avec préavis de 30 jours • Prise en charge immédiate de vos pièces comptables.
-                </p>
               </div>
 
               {/* Checkout Buttons */}
@@ -600,24 +656,6 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
           </section>
         )}
 
-        {/* 4. Advantages & Commitments */}
-        <div className="bg-surface-container-low rounded-3xl p-6 sm:p-8 border border-outline-variant/30 flex flex-col gap-5">
-          <div className="flex items-center gap-2 text-secondary font-bold text-base font-space-grotesk">
-            <ShieldCheck className="w-5 h-5 text-secondary" />
-            <span>Les engagements TOP-COMPTA.FR pour {formula.name}</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {formula.advantages.map((adv, i) => (
-              <div
-                key={i}
-                className="p-5 rounded-2xl bg-surface-container-lowest shadow-xs text-xs sm:text-sm text-on-surface font-semibold border border-outline-variant/20 flex items-start gap-3"
-              >
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="leading-relaxed">{adv}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* PayPal Subscription Modal */}

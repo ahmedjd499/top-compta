@@ -26,7 +26,6 @@ export interface DetailedFormula {
     title: string;
     items: string[];
   }[];
-  advantages: string[];
   reassurance?: string;
   phoneContact?: string;
   recommended?: boolean;
@@ -57,7 +56,7 @@ export interface ComparisonCategory {
 }
 
 export const offresHeroContent = {
-  title: "Choisissez le niveau d’accompagnement",
+  title: "Choisissez le niveau d'accompagnement",
   titleHighlight: "qui vous correspond le mieux.",
   subtitle:
     "De la tenue comptable aux formalités administratives, découvrez l'ensemble des modules de gestion, suivi comptable et fiscal.",
@@ -130,17 +129,17 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     
     deliverables: [
       {
-        title: "Services & Outils Connectés",
+        title: "Services",
         items: [
           "Application smartphone disponible sur Play Store ou Apple Store",
           "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
-          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Assistance téléphonique & WhatsApp dédiée ",
           "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
           "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Comptabilité Complète",
+        title: "Comptabilité",
         items: [
           "Saisie courante",
           "Situations trimestrielles",
@@ -151,7 +150,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Fiscalité & Déclarations",
+        title: "Fiscal",
         items: [
           "CA12 TVA annuelle",
           "Cadrage annuel de TVA pour les régimes réels",
@@ -161,12 +160,14 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "CRM Commercial & Facturation",
+        title: "CRM",
         items: [
-          "Fiches clients & Base articles",
-          "Devis et factures automatiques",
+          "Fiches clients",
+          "Base articles",
+          "Devis",
+          "Factures automatiques",
           "Envoi des documents automatiquement depuis l'interface",
-          "Génération automatique des écritures de ventes",
+          "Génération des écritures de ventes",
           "Gestion des relances",
           "Personnalisation des documents",
         ],
@@ -174,20 +175,16 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       {
         title: "PA (Plateforme Agréée Native)",
         items: [
-          "Facturation électronique 100% conforme à la réforme 2026",
+          "Facturation électronique conforme",
           "Réception factures fournisseurs",
-          "Flux de banque et caisse intégrés",
-          "E-Reporting vers l'administration fiscale",
-          "Transmission directe Bercy (PPF)",
-          "Archivage sécurisé à valeur probante",
+          "Flux de banque et caisse",
+          "E-Reporting vers",
+          "Transmission Bercy",
+          "Archivage sécurisé",
         ],
       },
     ],
-    advantages: [
-      "Tarifs dégressifs clairs avec jusqu'à 178€ d'économies",
-      "Assistance contrôle fiscal ou URSSAF incluse",
-      "Interface tout-en-un avec GED et PA intégrée nativement",
-    ],
+   
   },
   "formule-confort": {
     id: "formule-confort",
@@ -243,17 +240,17 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
    
     deliverables: [
       {
-        title: "Services & Outils Connectés",
+        title: "Services",
         items: [
           "Application smartphone disponible sur Play Store ou Apple Store",
           "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
-          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Assistance téléphonique & WhatsApp dédiée ",
           "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
           "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Comptabilité Complète",
+        title: "Comptabilité" ,
         items: [
           "Saisie courante de toutes les écritures",
           "Situations trimestrielles",
@@ -264,7 +261,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Fiscalité Complète & Mensuelle",
+        title: "Fiscal",
         items: [
           "TVA mensuelles ou trimestrielles",
           "Cadrage annuel de TVA pour les régimes réels",
@@ -274,17 +271,18 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Juridique Associé Inclus",
+        title: "Juridique Associé",
         items: [
           "PV approbation des comptes annuels pour le Greffe du TC",
-          "Dépôt officiel des comptes auprès du tribunal de commerce",
         ],
       },
       {
-        title: "CRM Commercial & Facturation",
+        title: "CRM",
         items: [
-          "Fiches clients & Base articles",
-          "Devis et factures automatiques",
+          "Fiches clients ",
+          "Base articles",
+          "Devis ",
+          "Factures automatiques",
           "Envoi des documents automatiquement depuis l'interface",
           "Génération automatique des écritures de ventes",
           "Gestion des relances",
@@ -294,20 +292,16 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       {
         title: "PA (Plateforme Agréée Native)",
         items: [
-          "Facturation électronique 100% conforme à la réforme 2026",
+          "Facturation électronique",
           "Réception factures fournisseurs",
-          "Flux de banque et caisse intégrés",
-          "E-Reporting vers l'administration fiscale",
-          "Transmission directe Bercy (PPF)",
-          "Archivage sécurisé à valeur probante",
+          "Flux de banque et caisse",
+          "E-Reporting",
+          "Transmission Bercy",
+          "Archivage sécurisé",
         ],
       },
     ],
-    advantages: [
-      "Jusqu'à 382€ d'économies sur la formule annuelle",
-      "PV d'approbation des comptes greffe inclus",
-      "TVA mensuelle ou trimestrielle prise en charge",
-    ],
+   
   },
   "formule-independant": {
     id: "formule-independant",
@@ -361,17 +355,17 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
   
     deliverables: [
       {
-        title: "Services & Outils Connectés",
+        title: "Services",
         items: [
           "Application smartphone disponible sur Play Store ou Apple Store",
           "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
-          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Assistance téléphonique & WhatsApp dédiée ",
           "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
           "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Comptabilité Complète",
+        title: "Comptabilité" ,
         items: [
           "Saisie courante",
           "Situations trimestrielles",
@@ -382,7 +376,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Fiscalité Dédiée TNS",
+        title: "Fiscal",
         items: [
           "CA12 TVA annuelle",
           "Cadrage annuel de TVA pour les régimes réels",
@@ -392,24 +386,25 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Volet Social & Déclarations TNS",
+        title: "Social",
         items: [
           "Gestion SSI (ex-RSI)",
           "Gestion CIPAV (professions libérales)",
-          "Optimisation des cotisations sociales et régularisations",
         ],
       },
       {
-        title: "Juridique Associé Inclus",
+        title: "Juridique Associé",
         items: [
           "PV approbation des comptes annuels pour le Greffe du TC",
         ],
       },
       {
-        title: "CRM Commercial & Facturation",
+        title: "CRM",
         items: [
-          "Fiches clients & Base articles",
-          "Devis et factures automatiques",
+          "Fiches clients ",
+          "Base articles",
+          "Devis ",
+          "Factures automatiques",
           "Envoi des documents automatiquement depuis l'interface",
           "Génération automatique des écritures de ventes",
           "Gestion des relances",
@@ -419,20 +414,16 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       {
         title: "PA (Plateforme Agréée Native)",
         items: [
-          "Facturation électronique 100% conforme à la réforme 2026",
+          "Facturation électronique conforme",
           "Réception factures fournisseurs",
-          "Flux de banque et caisse intégrés",
-          "E-Reporting vers l'administration fiscale",
-          "Transmission directe Bercy (PPF)",
-          "Archivage sécurisé à valeur probante",
+          "Flux de banque et caisse",
+          "E-Reporting",
+          "Transmission Bercy",
+          "Archivage sécurisé",
         ],
       },
     ],
-    advantages: [
-      "Jusqu'à 430€ d'économies en paiement annuel",
-      "Prise en charge intégrale SSI / CIPAV / URSSAF",
-      "Zéro risque d'erreur ou pénalité déclarative",
-    ],
+  
   },
   "formule-sci": {
     id: "formule-sci",
@@ -487,46 +478,47 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
    
     deliverables: [
       {
-        title: "Services & Outils Connectés",
+        title: "Services",
         items: [
           "Application smartphone disponible sur Play Store ou Apple Store",
           "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
-          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Assistance téléphonique & WhatsApp dédiée ",
           "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
           "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Comptabilité Spécifique SCI",
+        title: "Comptabilité",
         items: [
-          "Saisie courante et suivi des flux",
+          "Saisie courante",
           "Situations trimestrielles",
           "Reportings et Tableaux de bord mensuels",
           "Bilan de fin d'exercice",
           "Télétransmission de la liasse fiscale",
           "Plaquette des comptes pour le Greffe du TC",
-          "Suivi et répartition des comptes courants d'associés",
         ],
       },
       {
-        title: "Fiscalité Immobilière",
+        title: "Fiscal",
         items: [
-          "Déclarations 2072 (IR) ou 2065 (IS) complètes",
-          "CA12 TVA annuelle (si option TVA immobilière)",
+          
+          "CA12 TVA annuelle",
           "Cadrage annuel de TVA pour les régimes réels",
           "DAS2",
           "CVAE",
-          "Relevé de solde IS (pour SCI à l'IS)",
+          "Relevé de solde IS",
         ],
       },
       {
-        title: "CRM & Gestion Locative",
+        title: "CRM",
         items: [
-          "Fiches locataires & Base biens",
-          "Appels de loyers et quittances automatisés",
+          "Fiches clients ",
+           "Base biens",
+           "Devis",
+           "Factures automatiques",
           "Envoi des documents automatiquement depuis l'interface",
-          "Génération automatique des écritures comptables",
-          "Gestion des relances impayés",
+          "Génération des écritures de ventes",
+          "Gestion des relances",
           "Personnalisation des documents",
         ],
       },
@@ -534,19 +526,15 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         title: "PA (Plateforme Agréée Native)",
         items: [
           "Facturation électronique conforme",
-          "Réception factures fournisseurs de travaux",
-          "Flux de banque et caisse intégrés",
+          "Réception factures fournisseurs",
+          "Flux de banque et caisse",
           "E-Reporting",
           "Transmission Bercy",
-          "Archivage sécurisé des baux et factures",
+          "Archivage sécurisé",
         ],
       },
     ],
-    advantages: [
-      "Formule de gestion immobilière à 124,00 € / mois",
-      "Économisez jusqu'à 178€ sur le paiement annuel",
-      "Archivage sécurisé de tous les baux et justificatifs",
-    ],
+    
   },
   "formule-sos-compta": {
     id: "formule-sos-compta",
@@ -578,17 +566,17 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
    
     deliverables: [
       {
-        title: "Services & Outils Inclus",
+        title: "Services",
         items: [
           "Application smartphone disponible sur Play Store ou Apple Store",
           "Interface de gestion en ligne sécurisée (GED, Outils gestion, CRM, PA native), tout au même endroit",
-          "Assistance téléphonique & WhatsApp dédiée (01 70 60 00 82)",
+          "Assistance téléphonique & WhatsApp dédiée ",
           "Accompagnement utilisation PA (Plateforme agréée) pour la facturation électronique",
           "Assistance à distance complète en cas de contrôle fiscal ou URSSAF (uniquement sur les années traitées)",
         ],
       },
       {
-        title: "Comptabilité de Rattrapage",
+        title: "Comptabilité",
         items: [
           "Rattrapage des exercices en retard",
           "Reconstitution des livres comptables",
@@ -597,7 +585,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Fiscalité & Régularisation",
+        title: "Fiscal",
         items: [
           "Audit de conformité fiscale",
           "Correction des anomalies de déclaration",
@@ -605,11 +593,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-    advantages: [
-      "Forfait annuel transparent à 990,00 €",
-      "Sérénité totale face aux mises en demeure",
-      "Mise en conformité rapide et irréprochable",
-    ],
+  
   },
   "service-en-social": {
     id: "service-en-social",
@@ -713,11 +697,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-    advantages: [
-      "Jusqu'à 382€ d'économies en paiement annuel",
-      "Gestion complète de la paie et déclarations sociales",
-      "Assistance contrôle fiscal ou URSSAF incluse",
-    ],
+  
   },
   "services-associes-a-la-paie": {
     id: "services-associes-a-la-paie",
@@ -762,11 +742,6 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
           "Avenants et relecture de contrats de travail",
         ],
       },
-    ],
-    advantages: [
-      "Consultants RH spécialisés basés en France",
-      "Sécurité juridique face aux contentieux",
-      "Tarifs transparents à l'acte",
     ],
   },
   "creation-societe": {
@@ -813,11 +788,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
     ],
-    advantages: [
-      "Forfait création complet à 790,00 €",
-      "Frais de JAL et Greffe du Tribunal de Commerce inclus",
-      "Accompagnement personnalisé de l'idée au Kbis",
-    ],
+   
   },
   "transformations-societe": {
     id: "transformations-societe",
@@ -838,21 +809,18 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
       {
         title: "Actes & Formalités de Transformation",
         items: [
-          "Définition des options juridiques, fiscales et sociales",
+          "Définition des options juridiques, fiscales et sociales (statut du dirigeant)",
           "Mise à jour des statuts",
           "Liste des souscripteurs d'actions (SAS et SASU)",
           "Texte insertion Journal Annonces Légales",
-          "PV de modification et document de cession des parts",
+          "PV de modification",
+          "Document de cession des parts",
           "Attestation de dépôt d'actes",
-          "Frais de JAL et Greffe du TC inclus",
+          "Comprend les frais de JAL et Greffe du TC",
         ],
       },
     ],
-    advantages: [
-      "Prise en charge intégrale des formalités administratives",
-      "Respect des délais légaux pour la validité des actes",
-      "Frais de Greffe et annonce légale inclus",
-    ],
+  
   },
   "cessation-et-liquidation": {
     id: "cessation-et-liquidation",
@@ -871,22 +839,20 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
    
     deliverables: [
       {
-        title: "Formalités de Dissolution & Liquidation",
+        title: "Cessation d'Activité et Liquidation de Société",
         items: [
           "Texte insertion Journal Annonces Légales",
-          "Formulaire M2 (dissolution) et M4 (radiation)",
+          "Formulaire M2",
+          "Formulaire M4",
           "PV de cessation d'activité",
           "Bilan de liquidation",
-          "PV de liquidation et quitus au liquidateur",
+          "PV de liquidation",
           "Rapport de liquidation",
+          "Ne comprend pas les frais d'enregistrement du boni et PV de liquidation à la Recette des impots",
         ],
       },
     ],
-    advantages: [
-      "Clôture juridique rigoureuse sans risque de contentieux",
-      "Radiation officielle auprès du RCS",
-      "Accompagnement par une équipe spécialisée",
-    ],
+   
   },
   "crm-pa-native": {
     id: "crm-pa-native",
@@ -905,34 +871,31 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
    
     deliverables: [
       {
-        title: "Module CRM Facturation",
+        title: "CRM ",
         items: [
-          "Fiches clients et base articles",
-          "Émission de devis et bons de commande",
-          "Factures automatiques et récurrentes",
+          "Fiches clients ",
+          "base articles",
+          "Devis",
+          "Factures automatiques",
           "Envoi des documents automatiquement depuis l'interface",
-          "Génération automatique des écritures de ventes",
-          "Gestion des relances d'impayés",
-          "Personnalisation de vos documents à votre image",
+          "Génération des écritures de ventes",
+          "Gestion des relances",
+          "Personnalisation de documents",
         ],
       },
       {
-        title: "Module Plateforme Agréée (PA)",
+        title: "PA (Plateforme Agréée Native)",
         items: [
-          "Facturation électronique 100% conforme à la réforme 2026",
-          "Réception et rapprochement des factures fournisseurs",
-          "Gestion des flux bancaires et flux de caisse",
-          "E-Reporting vers l'administration fiscale",
-          "Télétransmission sécurisée Bercy (PPF)",
-          "Archivage sécurisé à valeur probante",
+          "Facturation électronique conforme",
+          "Réception factures fournisseurs en électronique ",
+          "Flux banque caisse",
+          "E-Reporting",
+          "Télétransmission sécurisée Bercy",
+          "Archivage sécurisé",
         ],
       },
     ],
-    advantages: [
-      "Conformité légale 2026 garantie sans frais cachés",
-      "Plateforme française certifiée",
-      "Liaison directe avec vos outils comptables",
-    ],
+ 
   },
   "speed-bilan": {
     id: "speed-bilan",
@@ -951,7 +914,6 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     recommended: false,
     isExternal: true,
     deliverables: [],
-    advantages: [],
   },
 };
 
@@ -1039,7 +1001,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: true,
       },
       {
-        name: "Assistance téléphonique & WhatsApp (01 70 60 00 82)",
+        name: "Assistance téléphonique & WhatsApp ",
         tooltip: "Interlocuteur dédié",
         essentiel: true,
         confort: true,
@@ -1307,7 +1269,7 @@ export const comparisonCategories: ComparisonCategory[] = [
         sosCompta: false,
       },
       {
-        name: "Flux de banque et caisse intégrés",
+        name: "Flux de banque et caisse",
         tooltip: "Synchronisation bancaire automatique",
         essentiel: true,
         confort: true,
