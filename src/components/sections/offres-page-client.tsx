@@ -297,7 +297,7 @@ export function OffresPageClient() {
                           )}
                         >
                           <Lock className="w-3.5 h-3.5" />
-                          <span>Régler {displayPrice} € via PayPal</span>
+                          <span>Payer {displayPrice} € via PayPal</span>
                         </button>
                       )}
                     </div>

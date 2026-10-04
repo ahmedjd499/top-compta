@@ -43,8 +43,8 @@ export function PayPalModal({
   const activeLabel = activeTier
     ? activeTier.label
     : initialDurationMonths > 1
-    ? `${initialDurationMonths} mois`
-    : "1 mois";
+      ? `${initialDurationMonths} mois`
+      : "1 mois";
 
   if (!isOpen) return null;
 
@@ -131,7 +131,7 @@ export function PayPalModal({
           <div className="flex items-baseline justify-between">
             <div>
               <span className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">
-                Montant à régler ({activeLabel})
+                Montant à Payer ({activeLabel})
               </span>
               <p className="text-[11px] text-on-surface-variant">
                 Montant total HT calculé automatiquement

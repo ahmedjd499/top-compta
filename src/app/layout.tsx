@@ -5,6 +5,7 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { Footer } from "@/components/layout/footer";
 import { MobileNavBar } from "@/components/layout/mobile-nav-bar";
 import { FloatingCallButton } from "@/components/ui/floating-call-button";
+import { ChatWidget } from "@/components/chat/chat-widget";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -112,6 +113,7 @@ export default function RootLayout({
         <Footer />
         <MobileNavBar />
         <FloatingCallButton />
+        <ChatWidget />
       </body>
     </html>
   );

@@ -456,7 +456,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                     className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                   >
                     <Lock className="w-4 h-4 text-[#003087]" />
-                    <span>Régler {activePriceTotal} € via PayPal</span>
+                    <span>Payer {activePriceTotal} € via PayPal</span>
                   </button>
 
                   <a
@@ -497,7 +497,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                       className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                     >
                       <Lock className="w-4 h-4 text-[#003087]" />
-                      <span>Régler {formula.price} € via PayPal</span>
+                      <span>Payer {formula.price} € via PayPal</span>
                     </button>
                   ) : (
                     <Link
@@ -715,7 +715,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                   className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-extrabold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
                   <Lock className="w-4 h-4 text-[#003087]" />
-                  <span>Régler {activePriceTotal} € via PayPal</span>
+                  <span>Payer {activePriceTotal} € via PayPal</span>
                 </button>
 
                 <Link

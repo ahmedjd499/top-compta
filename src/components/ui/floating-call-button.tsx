@@ -12,7 +12,7 @@ export function FloatingCallButton() {
 
   return (
     <div
-      className="fixed bottom-20 right-4 sm:bottom-22 sm:right-6 lg:bottom-8 lg:right-8 z-50 flex items-center"
+      className="fixed bottom-34 right-4 sm:bottom-38 sm:right-6 lg:bottom-24 lg:right-8 z-40 flex items-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

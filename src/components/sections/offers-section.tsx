@@ -68,7 +68,7 @@ export function OffersSection() {
           </div>
         </div>
 
-    
+
 
         {/* Quick Fast-Action Reassurance Strip */}
         <motion.div
@@ -93,7 +93,7 @@ export function OffersSection() {
           </div>
         </motion.div>
 
-            {/* Degressive Duration Toggle Selector (1, 3, 6, 12 mois) */}
+        {/* Degressive Duration Toggle Selector (1, 3, 6, 12 mois) */}
         <div className="mb-10 flex flex-col items-center justify-center gap-3">
           <span className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
             Tarifs dégressifs ! Choisissez votre période :
@@ -166,13 +166,13 @@ export function OffersSection() {
                   shouldReduceMotion
                     ? undefined
                     : {
-                        y: -4,
-                        transition: {
-                          type: "spring",
-                          stiffness: 350,
-                          damping: 22,
-                        },
-                      }
+                      y: -4,
+                      transition: {
+                        type: "spring",
+                        stiffness: 350,
+                        damping: 22,
+                      },
+                    }
                 }
                 className={cn(
                   "bg-surface-container-lowest rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative border group",
@@ -302,7 +302,7 @@ export function OffersSection() {
                       )}
                     >
                       <Lock className="w-3.5 h-3.5" />
-                      <span>Régler {displayPrice}€ via PayPal</span>
+                      <span>Payer {displayPrice}€ via PayPal</span>
                     </motion.button>
                   )}
                 </div>
