@@ -23,6 +23,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [offersDropdownOpen, setOffersDropdownOpen] = useState(false);
+  const [mobileOffersOpen, setMobileOffersOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -293,18 +294,89 @@ export function Header() {
           >
             Accueil
           </Link>
-          <Link
-            href="/offres"
-            onClick={() => setMobileMenuOpen(false)}
-            className={cn(
-              "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors",
-              pathname.startsWith("/offres")
-                ? "bg-surface-container text-secondary font-bold"
-                : "text-on-surface hover:bg-surface-container-low"
+          {/* Mobile Dropdown / Accordion: Notre Offre */}
+          <div className="flex flex-col">
+            <button
+              type="button"
+              onClick={() => setMobileOffersOpen((prev) => !prev)}
+              className={cn(
+                "w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors cursor-pointer text-left",
+                pathname.startsWith("/offres")
+                  ? "bg-surface-container text-secondary font-bold"
+                  : "text-on-surface hover:bg-surface-container-low"
+              )}
+              aria-expanded={mobileOffersOpen}
+            >
+              <span>Notre Offre (Formules &amp; Tarifs)</span>
+              <ChevronDown
+                className={cn(
+                  "w-4 h-4 transition-transform duration-200 text-on-surface-variant",
+                  mobileOffersOpen && "rotate-180 text-secondary"
+                )}
+              />
+            </button>
+
+            {mobileOffersOpen && (
+              <div className="pl-3 pr-1 py-1 mt-1 flex flex-col gap-1 border-l-2 border-secondary/30 ml-4 animate-in slide-in-from-top-1 fade-in duration-150">
+                {mainNavItems[0].dropdown?.map((item) => {
+                  const isExternal = item.href.startsWith("http");
+                  const isActive = pathname === item.href;
+                  return isExternal ? (
+                    <a
+                      key={item.title}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-3 py-2 rounded-lg text-xs font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors flex items-center justify-between"
+                    >
+                      <span>{item.title}</span>
+                      {item.badge && (
+                        <span className="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-1.5 py-0.5 rounded">
+                          {item.badge}
+                        </span>
+                      )}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={cn(
+                        "px-3 py-2 rounded-lg text-xs font-medium transition-colors flex items-center justify-between",
+                        isActive
+                          ? "bg-surface-container text-secondary font-bold"
+                          : "text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface"
+                      )}
+                    >
+                      <span>{item.title}</span>
+                      {item.badge && (
+                        <span className="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-1.5 py-0.5 rounded">
+                          {item.badge}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
+
+                <div className="h-px bg-outline-variant/20 my-1" />
+
+                <Link
+                  href="/offres/comparatif"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "px-3 py-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-between",
+                    pathname === "/offres/comparatif"
+                      ? "bg-secondary text-on-secondary"
+                      : "text-secondary hover:bg-secondary/10"
+                  )}
+                >
+                  <span>Comparez nos formules</span>
+                  <span>→</span>
+                </Link>
+              </div>
             )}
-          >
-            Notre Offre (Formules &amp; Tarifs)
-          </Link>
+          </div>
           <Link
             href="/notre-adn"
             onClick={() => setMobileMenuOpen(false)}
@@ -361,7 +433,7 @@ export function Header() {
               className="w-full h-11 rounded-lg bg-secondary text-on-secondary flex items-center justify-center gap-2 font-bold text-sm shadow-sm"
             >
               <FileText className="w-4 h-4" />
-              <span>Devis Gratuit Express</span>
+              <span>Demander un devis</span>
             </Link>
             <a
               href={siteConfig.phoneHref}

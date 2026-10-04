@@ -141,28 +141,28 @@ export const problemSolutionContent: {
       description:
         "Factures, relevés et justificatifs sont regroupés dans un espace unique, organisé par dossier et par période.",
       icon: "folder_open",
-      accentBg: "bg-secondary-fixed",
+      accentBg: "bg-blue-100 text-secondary border border-blue-200/60",
     },
     {
       title: "Des tâches qui prennent du retard",
       description:
         "Les opérations courantes sont planifiées, traitées et suivies avec une vision claire des éléments reçus ou manquants.",
       icon: "schedule",
-      accentBg: "bg-tertiary-fixed",
+      accentBg: "bg-amber-100 text-amber-700 border border-amber-200/60",
     },
     {
       title: "Un pilotage sans repères",
       description:
         "Les données disponibles sont synthétisées dans des reportings et tableaux de bord adaptés à la formule retenue.",
       icon: "query_stats",
-      accentBg: "bg-surface-container-highest",
+      accentBg: "bg-emerald-100 text-emerald-700 border border-emerald-200/60",
     },
     {
       title: "Des échanges difficiles à retrouver",
       description:
         "Les demandes et documents restent rattachés au dossier afin de limiter les relances inutiles et les pertes d'information.",
       icon: "mark_chat_unread",
-      accentBg: "bg-secondary-fixed",
+      accentBg: "bg-purple-100 text-purple-700 border border-purple-200/60",
     },
   ],
 };

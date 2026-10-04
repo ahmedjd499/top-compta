@@ -24,18 +24,26 @@ export function ProblemSolutionSection() {
   const getCardIcon = (iconName: string) => {
     switch (iconName) {
       case "folder_open":
-        return <FolderOpen className="w-5 h-5 text-on-secondary-fixed" />;
+        return <FolderOpen className="w-5 h-5 text-secondary" />;
       case "schedule":
-        return <Clock className="w-5 h-5 text-on-tertiary-fixed" />;
+        return <Clock className="w-5 h-5 text-amber-700" />;
       case "query_stats":
-        return <LineChart className="w-5 h-5 text-secondary" />;
+        return <LineChart className="w-5 h-5 text-emerald-700" />;
       default:
-        return <MessageSquareWarning className="w-5 h-5 text-on-secondary-fixed" />;
+        return <MessageSquareWarning className="w-5 h-5 text-purple-700" />;
     }
   };
 
+  const cardAccents = [
+    "bg-blue-100 text-secondary border border-blue-200/60",
+    "bg-amber-100 text-amber-700 border border-amber-200/60",
+    "bg-emerald-100 text-emerald-700 border border-emerald-200/60",
+    "bg-purple-100 text-purple-700 border border-purple-200/60",
+  ];
+
   const cardsWithMetadata = problemSolutionContent.cards.map((card, idx) => ({
     ...card,
+    accentBg: cardAccents[idx % cardAccents.length],
     number: `0${idx + 1}`,
     quadrant: idx === 0 ? "top-left" : idx === 1 ? "top-right" : idx === 2 ? "bottom-right" : "bottom-left",
     stepName:

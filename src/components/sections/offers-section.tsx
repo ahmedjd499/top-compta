@@ -311,15 +311,24 @@ export function OffersSection() {
           })}
         </motion.div>
 
-        {/* Bottom Comparison Callout */}
-        <div className="mt-12 text-center">
+        {/* Bottom Callout & Links */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <Link
+            href="/offres"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-secondary text-on-secondary hover:bg-on-secondary-container font-bold text-sm shadow-sm transition-all group"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Voir toutes nos offres</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+
           <Link
             href="/offres/comparatif"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-secondary hover:bg-surface-container font-bold text-sm shadow-xs transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-secondary hover:bg-surface-container font-bold text-sm shadow-xs transition-all group"
           >
             <Layers className="w-4 h-4" />
-            <span>Consulter le grand tableau comparatif de toutes nos formules</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>Consulter le grand tableau comparatif</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
