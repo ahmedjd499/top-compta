@@ -12,7 +12,6 @@ import {
 import { monthlyOffers, OffresMonthlyPlan } from "./offers";
 
 export const heroContent: HeroContent = {
-  badge: "Plateforme Agréée (PA) en natif",
   title: "Préparez vos flux à la facturation électronique.",
   description:
     "TOP-COMPTA.FR vous aide à structurer la collecte des pièces, organiser les circuits de traitement et préparer vos outils internes. TOP-COMPTA.FR propose une PA (Plateforme agréée) en natif via son CRM inclus dans ses services. Le parcours GED > Gestion > CRM > PA est unifié et fluide.",
@@ -24,11 +23,7 @@ export const heroContent: HeroContent = {
     text: "Connexion GED Client",
     href: "https://customer.mycompanyfiles.fr/auth/login",
   },
-  indicators: [
-    "GED",
-    "Facturation Électronique",
-    "Plateforme Agréée",
-  ],
+ 
   milestones: [
     {
       day: "1er",
@@ -59,15 +54,12 @@ export const offersContent: {
   badge: string;
   title: string;
   subtitle: string;
-  fastActionNotice: string;
   plans: OffresMonthlyPlan[];
 } = {
   badge: "Formules au forfait & Tarifs dégressifs",
   title: "Le bon niveau d'externalisation, sans prestation inutile.",
   subtitle: "Chaque formule pensée selon votre spécificité et besoins.",
-  fastActionNotice:
-    "Souscrire en 1 clic : Choisissez votre formule et réglez en toute sécurité avec PayPal.",
-  plans: monthlyOffers,
+ plans: monthlyOffers,
 };
 
 export const trustpilotContent: TrustpilotContent = {
@@ -132,7 +124,7 @@ export const problemSolutionContent: {
   cards: ProblemSolutionCard[];
 } = {
   badge: "Méthode & Clarté",
-  title: "Moins de tâches dispersées. Plus de visibilité.",
+  title: "Moins de dispersion. Plus de visibilité.",
   description:
     "Quand les documents arrivent par plusieurs canaux et que les échéances se cumulent, le suivi devient vite chronophage. TOP-COMPTA.FR remet de l'ordre dans les flux et prend en charge les opérations définies avec votre entreprise.",
   cards: [

@@ -7,7 +7,6 @@ import {
   X,
   Send,
   RotateCcw,
-  Sparkles,
   Phone,
   ArrowUpRight,
   Copy,
@@ -506,7 +505,6 @@ export function ChatWidget() {
               {!hasInteracted && messages.filter((m) => m.role === "user").length === 0 && (
                 <div className="pt-2">
                   <p className="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-2 flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-secondary" />
                     Suggestions rapides
                   </p>
                   <div className="grid grid-cols-1 gap-1.5">

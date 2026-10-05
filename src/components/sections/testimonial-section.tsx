@@ -90,8 +90,7 @@ export function TestimonialSection() {
             <motion.div
               whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
               transition={{ type: "spring", stiffness: 350, damping: 20 }}
-              className="text-xs text-bleu-clair bg-bleu-clair/10 px-3.5 py-1.5 rounded-lg max-w-fit font-semibold border border-bleu-clair/20"
-            >
+              className="text-xs text-bleu-clair  px-3.5 py-1.5 rounded-lg max-w-fit font-semibold">
               {testimonialContent.companies}
             </motion.div>
           </div>

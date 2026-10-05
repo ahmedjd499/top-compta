@@ -27,7 +27,6 @@ export interface NavItem {
 }
 
 export interface HeroContent {
-  badge: string;
   title: string;
   description: string;
   partnerCta: {
@@ -38,7 +37,6 @@ export interface HeroContent {
     text: string;
     href: string;
   };
-  indicators: string[];
   milestones: {
     day: string;
     month: string;

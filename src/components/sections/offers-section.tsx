@@ -69,30 +69,6 @@ export function OffersSection() {
         </div>
 
 
-
-        {/* Quick Fast-Action Reassurance Strip */}
-        <motion.div
-          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0">
-              <Zap className="w-4 h-4 text-secondary" />
-            </div>
-            <span className="text-xs sm:text-sm text-on-surface font-medium">
-              {offersContent.fastActionNotice}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs font-semibold text-secondary">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Assistance contrôle fiscal/URSSAF incluse sur toutes les formules</span>
-          </div>
-        </motion.div>
-
         {/* Degressive Duration Toggle Selector (1, 3, 6, 12 mois) */}
         <div className="mb-10 flex flex-col items-center justify-center gap-3">
           <span className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">

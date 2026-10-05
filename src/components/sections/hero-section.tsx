@@ -6,14 +6,7 @@ import {
   useReducedMotion,
   type Variants,
 } from "motion/react";
-import {
-  ShieldCheck,
-  ExternalLink,
-  Inbox,
-  Send,
-  Lock,
-  Sparkles,
-} from "lucide-react";
+
 import { heroContent } from "@/content/home";
 
 export function HeroSection() {
@@ -64,15 +57,7 @@ export function HeroSection() {
               viewport={{ once: true, amount: 0.2 }}
               className="lg:col-span-7 flex flex-col gap-6"
             >
-              {/* Clean Badge in Bleu Pétrole */}
-              <motion.div
-                variants={itemVariants}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f3b5c]/10 text-[#0f3b5c] text-xs font-bold uppercase tracking-wider w-fit border border-[#0f3b5c]/20 backdrop-blur-xs shadow-2xs"
-              >
-                <ShieldCheck className="w-4 h-4 text-[#0f3b5c] shrink-0" />
-                <span>{heroContent.badge}</span>
-              </motion.div>
-
+             
               <motion.h1
                 variants={itemVariants}
                 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0a253a] leading-tight"
@@ -107,9 +92,7 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0f3b5c] text-white hover:bg-[#22437f] text-sm font-bold shadow-xl transition-all cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-[#facc15]" />
                   <span>{heroContent.partnerCta.text}</span>
-                  <ExternalLink className="w-4 h-4 ml-0.5 opacity-80" />
                 </motion.a>
 
                 <motion.a
@@ -128,31 +111,11 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/95 text-[#0f3b5c] hover:bg-white text-sm font-bold transition-all shadow-md border border-[#0f3b5c]/15 cursor-pointer"
                 >
-                  <Lock className="w-4 h-4 text-[#22437f]" />
                   <span>{heroContent.clientCta.text}</span>
                 </motion.a>
               </motion.div>
 
-              {/* Integrated pipeline indicators */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-wrap items-center gap-4 pt-4 text-[#0f3b5c] text-xs font-bold border-t border-[#0f3b5c]/20"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#0f3b5c]" />
-                  {heroContent.indicators[0]}
-                </span>
-
-                <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#0f3b5c]" />
-                  {heroContent.indicators[1]}
-                </span>
-
-                <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#0f3b5c]" />
-                  {heroContent.indicators[2]}
-                </span>
-              </motion.div>
+             
             </motion.div>
 
             {/* Right Column: 2 Centered High-Contrast Milestone Cards */}
@@ -192,7 +155,6 @@ export function HeroSection() {
                 </div>
 
                 <div className="inline-flex items-center justify-center gap-1.5 text-[#b45309] text-xs font-bold uppercase tracking-wider mb-2">
-                  <Inbox className="w-4 h-4 text-[#b45309]" />
                   <span>{heroContent.milestones[0].tag}</span>
                 </div>
 
@@ -240,7 +202,6 @@ export function HeroSection() {
                 </div>
 
                 <div className="inline-flex items-center justify-center gap-1.5 text-[#b45309] text-xs font-bold uppercase tracking-wider mb-2">
-                  <Send className="w-4 h-4 text-[#b45309]" />
                   <span>{heroContent.milestones[1].tag}</span>
                 </div>
 

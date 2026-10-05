@@ -90,29 +90,17 @@ export function ProblemSolutionSection() {
       <div className="absolute top-1/4 right-10 w-[450px] h-[450px] bg-jaune-vif/10 rounded-full blur-3xl pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        {/* Section Header (Centered) */}
+        {/* Épured Minimal Header Badge (Desktop & Tablet) */}
         <motion.div
-          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 flex flex-col items-center gap-4"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden lg:flex justify-center mb-6"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-extrabold uppercase tracking-wider shadow-md border border-jaune-citron">
-            <Sparkles className="w-3.5 h-3.5 text-jaune-moutarde" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full  text-jaune-vif text-xs font-extrabold uppercase tracking-wider ">
             <span>{problemSolutionContent.badge}</span>
           </div>
-
-          <h2
-            id="problem-solution-heading"
-            className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold tracking-tight leading-tight"
-          >
-            {problemSolutionContent.title}
-          </h2>
-
-          <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed max-w-2xl">
-            {problemSolutionContent.description}
-          </p>
         </motion.div>
 
         {/* ========================================================================= */}
@@ -267,7 +255,7 @@ export function ProblemSolutionSection() {
             </svg>
           </div>
 
-          {/* Central Hub Disc */}
+          {/* Central Hub Disc with Integrated Title */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
             <motion.div
               initial={shouldReduceMotion ? undefined : { scale: 0.85, opacity: 0 }}
@@ -280,34 +268,25 @@ export function ProblemSolutionSection() {
               <div className="absolute -inset-3 rounded-full bg-jaune-vif/20 blur-xl group-hover:bg-jaune-vif/35 transition-all duration-500" />
 
               {/* Rotating outer ring accent */}
-              <div className="w-56 h-56 rounded-full border-2 border-jaune-vif/40 p-2.5 bg-[#0e2440]/90 backdrop-blur-md flex items-center justify-center shadow-2xl transition-transform duration-700 group-hover:scale-105">
+              <div className="w-60 h-60 rounded-full border-2 border-jaune-vif/40 p-2.5 bg-[#0e2440]/90 backdrop-blur-md flex items-center justify-center shadow-2xl transition-transform duration-700 group-hover:scale-105">
                 {/* Core Hub Body */}
                 <div className="w-full h-full rounded-full bg-[#071322] border border-bleu-clair/40 p-4 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
                   {/* Subtle radial sheen */}
                   <div className="absolute inset-0 bg-radial from-jaune-vif/10 via-transparent to-transparent pointer-events-none" />
 
-                  {/* Hub Icon badge */}
-                  <div className="w-10 h-10 rounded-full bg-jaune-vif flex items-center justify-center text-[#0b1c30] mb-2 border border-jaune-citron shadow-md">
-                    <Workflow className="w-5 h-5 text-[#0b1c30]" />
+                  {/* Integrated Title as Central Focal Point */}
+                  <h2
+                    id="problem-solution-heading"
+                    className="font-space-grotesk text-[13px] sm:text-sm font-extrabold text-white leading-tight mt-1 max-w-[170px]"
+                  >
+                    {problemSolutionContent.title}
+                  </h2>
+                   
+                  {/* Directional Subtle Flow Hint */}
+                  <div className="mt-2 pt-2  text-[11px] font-bold text-jaune-vif border-t-2 border-jaune-vif">
+                    4 problèmes Résolu par <br /> TOP-COMPTA
                   </div>
 
-                  <span className="font-space-grotesk text-xs uppercase tracking-widest font-extrabold">
-                    <span className="text-jaune-vif">TOP-</span>
-                    <span className="text-white font-black">COMPTA</span>
-                  </span>
-
-                  <span className="font-space-grotesk text-sm font-bold text-white leading-tight mt-0.5">
-                    Hub Unifié
-                  </span>
-
-                  <div className="mt-1.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-bleu text-[10px] font-bold text-blue-100 border border-bleu-clair/30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>PA • GED • CRM</span>
-                  </div>
-
-                  <span className="text-[10px] text-blue-200/80 mt-1 font-medium">
-                    Flux continu 360°
-                  </span>
                 </div>
               </div>
             </motion.div>
@@ -374,27 +353,31 @@ export function ProblemSolutionSection() {
         {/* MOBILE & TABLET RESPONSIVE CIRCULAR TIMELINE (< lg)                      */}
         {/* ========================================================================= */}
         <div className="lg:hidden flex flex-col gap-8">
-          {/* Mobile Central Hub Badge */}
+          {/* Mobile Central Hub Badge with Integrated Title */}
           <motion.div
-            initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex items-center justify-center"
           >
-            <div className="w-full max-w-sm rounded-2xl bg-[#0f243e] border border-jaune-vif/50 p-5 shadow-lg flex items-center gap-4 relative overflow-hidden">
-              <div className="w-12 h-12 rounded-full bg-jaune-vif text-[#0b1c30] border border-jaune-citron flex items-center justify-center shrink-0 shadow-md">
-                <Workflow className="w-6 h-6 text-[#0b1c30]" />
+            <div className="w-full max-w-sm rounded-2xl p-5  relative overflow-hidden flex flex-col items-center text-center">
+              <div className="absolute inset-0 bg-radial from-jaune-vif/10 via-transparent to-transparent pointer-events-none" />
+
+              {/* Minimal Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1  text-jaune-vif text-[11px] font-bold uppercase tracking-wider mb-2.5">
+                <span>{problemSolutionContent.badge}</span>
               </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-space-grotesk font-bold text-sm text-white">
-                    Hub Unifié <span className="text-jaune-vif">TOP-COMPTA</span>
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                </div>
-                <p className="text-xs text-blue-200/80 mt-0.5">
-                  Synchronisation continue • PA, GED & CRM
-                </p>
+
+              {/* Integrated Section Title */}
+              <h2
+                id="problem-solution-heading-mobile"
+                className="font-space-grotesk font-extrabold text-base sm:text-lg text-white leading-tight"
+              >
+                {problemSolutionContent.title}
+              </h2>
+
+              <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5  text-[11px] font-semibold text-blue-100">
+              4 problèmes Résolu par  TOP-COMPTA  
               </div>
             </div>
           </motion.div>
@@ -539,11 +522,7 @@ function OrbitalCard({
         {card.description}
       </p>
 
-      {/* Directional Subtle Flow Hint */}
-      <div className="pt-1 flex items-center gap-1.5 text-[11px] font-bold text-jaune-vif group-hover:text-jaune-citron transition-colors">
-        <span>Résolu par TOP-COMPTA</span>
-        <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
-      </div>
+
     </motion.div>
   );
 }
