@@ -22,7 +22,7 @@ export function Footer() {
         {/* Col 1: Identity & WhatsApp */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
-            <Logo isLink={true} variant="footer" />
+            <Logo isLink={true}/>
           </div>
           <p className="text-sm text-on-primary-container leading-relaxed">
             {footerContent.description}
