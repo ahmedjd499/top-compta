@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/content/site";
 import { footerContent } from "@/content/home";
+import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
   return (
@@ -21,9 +22,7 @@ export function Footer() {
         {/* Col 1: Identity & WhatsApp */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
-            <span className="font-space-grotesk text-2xl font-bold tracking-tight text-on-primary">
-              {footerContent.companyName}
-            </span>
+            <Logo isLink={true} variant="footer" />
           </div>
           <p className="text-sm text-on-primary-container leading-relaxed">
             {footerContent.description}

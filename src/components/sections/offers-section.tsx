@@ -47,9 +47,9 @@ export function OffersSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-high text-secondary text-xs font-bold mb-3 uppercase tracking-wider">
+            <span className="text-secondary text-xs sm:text-sm font-bold uppercase tracking-widest block mb-2">
               {offersContent.badge}
-            </div>
+            </span>
             <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold tracking-tight">
               {offersContent.title}
             </h2>
@@ -189,28 +189,26 @@ export function OffersSection() {
                   </div>
                 )}
 
-                <div className="flex flex-col gap-3.5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-1">
-                        {plan.tag}
-                      </span>
-                      <h3 className="font-space-grotesk text-xl font-bold text-on-surface group-hover:text-secondary transition-colors">
-                        {plan.name}
-                      </h3>
-                      <div className="mt-2 h-0.5 w-8 rounded-full bg-secondary/70"></div>
-                    </div>
+                <div className="flex flex-col items-center text-center gap-3.5">
+                  <div className="flex flex-col items-center text-center">
+                    <span className="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-1">
+                      {plan.tag}
+                    </span>
+                    <h3 className="font-space-grotesk text-xl font-bold text-on-surface group-hover:text-secondary transition-colors text-center">
+                      {plan.name}
+                    </h3>
+                    <div className="mt-2 h-0.5 w-8 rounded-full bg-secondary/70 mx-auto"></div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-on-surface-variant min-h-[44px] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-on-surface-variant min-h-[44px] leading-relaxed text-center">
                     {plan.description}
                   </p>
 
-                  <div className="my-1 h-px bg-outline-variant/20" />
+                  <div className="my-1 h-px w-full bg-outline-variant/20" />
 
-                  {/* Price Block */}
-                  <div className="min-h-[64px] flex flex-col justify-center">
-                    <div className="flex items-baseline gap-1.5">
+                  {/* Price Block Centered */}
+                  <div className="min-h-[64px] flex flex-col items-center justify-center text-center">
+                    <div className="flex items-baseline justify-center gap-1.5">
                       {isNumericPrice ? (
                         <>
                           <span
@@ -238,7 +236,7 @@ export function OffersSection() {
                     </div>
 
                     {activeTier && activeTier.durationMonths > 1 && (
-                      <div className="flex items-center gap-2 mt-1">
+                      <div className="flex items-center justify-center gap-2 mt-1">
                         <span className="text-xs text-on-surface-variant">
                           Soit {activeTier.monthlyEquivalent.toFixed(2)} €/mois HT
                         </span>
@@ -250,8 +248,6 @@ export function OffersSection() {
                       </div>
                     )}
                   </div>
-
-
                 </div>
 
                 {/* Bottom Actions */}

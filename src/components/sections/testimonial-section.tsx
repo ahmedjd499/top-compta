@@ -11,8 +11,8 @@ export function TestimonialSection() {
   return (
     <section className="w-full py-16 lg:py-24 bg-surface">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10 flex flex-col items-center gap-3">
-          <span className="px-4 py-1.5 rounded-full bg-surface-container-highest text-secondary text-xs font-bold tracking-wider uppercase">
+        <div className="text-center mb-10 flex flex-col items-center">
+          <span className="text-secondary text-xs sm:text-sm font-bold tracking-widest uppercase mb-2">
             {testimonialContent.badge}
           </span>
           <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold tracking-tight">

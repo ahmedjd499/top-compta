@@ -190,30 +190,28 @@ export function OffresPageClient() {
                       </div>
                     )}
 
-                    <div>
-                      <div className="flex min-h-[64px] items-start justify-between gap-4">
-                        <div>
-                          <span className="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-1">
-                            {plan.tag}
-                          </span>
-                          <h3 className="text-xl font-bold tracking-tight text-on-surface">
-                            {plan.name}
-                          </h3>
-                          <div className="mt-2.5 h-0.5 w-8 rounded-full bg-secondary/70"></div>
-                        </div>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="flex min-h-[64px] flex-col items-center text-center">
+                        <span className="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-1">
+                          {plan.tag}
+                        </span>
+                        <h3 className="text-xl font-bold tracking-tight text-on-surface text-center">
+                          {plan.name}
+                        </h3>
+                        <div className="mt-2.5 h-0.5 w-8 rounded-full bg-secondary/70 mx-auto"></div>
                       </div>
 
-                      <div className="mt-2 min-h-[56px]">
-                        <p className="text-sm leading-6 text-on-surface-variant">
+                      <div className="mt-2 min-h-[56px] text-center">
+                        <p className="text-sm leading-6 text-on-surface-variant text-center">
                           {plan.description}
                         </p>
                       </div>
 
-                      <div className="my-4 h-px bg-outline-variant/20"></div>
+                      <div className="my-4 h-px w-full bg-outline-variant/20"></div>
 
-                      {/* Price Display */}
-                      <div className="min-h-[60px] flex flex-col justify-center">
-                        <div className="flex items-baseline gap-1.5">
+                      {/* Price Display Centered */}
+                      <div className="min-h-[60px] flex flex-col items-center justify-center text-center">
+                        <div className="flex items-baseline justify-center gap-1.5">
                           {isNumericPrice ? (
                             <>
                               <span className="font-space-grotesk text-4xl font-extrabold tracking-tight text-on-surface">
@@ -231,7 +229,7 @@ export function OffresPageClient() {
                         </div>
 
                         {activeTier && activeTier.durationMonths > 1 && (
-                          <div className="flex items-center gap-2 mt-1">
+                          <div className="flex items-center justify-center gap-2 mt-1">
                             <span className="text-xs text-on-surface-variant font-medium">
                               Soit {activeTier.monthlyEquivalent.toFixed(2)} €/mois HT
                             </span>

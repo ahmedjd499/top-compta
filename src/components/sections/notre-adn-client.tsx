@@ -181,7 +181,7 @@ export function NotreAdnClient() {
               « {adnContent.hero.quote.text} »
             </blockquote>
 
-            <div className="inline-block px-4 py-1 rounded-full bg-surface-container text-xs sm:text-sm font-bold text-secondary uppercase tracking-wider">
+            <div className="inline-block text-xs sm:text-sm font-bold text-secondary uppercase tracking-wider">
               {adnContent.hero.quote.author}
             </div>
           </motion.div>
@@ -374,7 +374,7 @@ export function NotreAdnClient() {
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-4 py-1.5 rounded-full bg-surface-container text-secondary text-xs font-bold uppercase tracking-wider mb-4 border border-secondary/10"
+            className="text-secondary text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 block"
           >
             {adnContent.principles.badge}
           </motion.span>
@@ -457,7 +457,7 @@ export function NotreAdnClient() {
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-4 py-1.5 rounded-full bg-surface-container text-secondary text-xs font-bold uppercase tracking-wider mb-4 border border-secondary/10"
+            className="text-secondary text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 block"
           >
             {adnContent.strengths.badge}
           </motion.span>

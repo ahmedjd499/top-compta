@@ -15,6 +15,10 @@ import {
   Bot,
   User,
   ExternalLink,
+  Briefcase,
+  CircleDollarSign,
+  Rocket,
+  FileText,
 } from "lucide-react";
 import { siteConfig } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -28,22 +32,22 @@ interface Message {
 
 const QUICK_SUGGESTIONS = [
   {
-    icon: "💼",
+    icon: Briefcase,
     label: "Quelle formule pour mon entreprise ?",
     prompt: "Quelle est la meilleure formule comptable pour mon entreprise entre Essentiel, Confort et Indépendant ?",
   },
   {
-    icon: "💰",
+    icon: CircleDollarSign,
     label: "Quels sont vos tarifs ?",
     prompt: "Quels sont vos tarifs mensuels et que comprennent vos formules ?",
   },
   {
-    icon: "🚀",
+    icon: Rocket,
     label: "Créer une société (SASU / SARL)",
     prompt: "Comment m'accompagnez-vous pour créer ma société (SASU, SARL, SCI) et obtenir mon Kbis ?",
   },
   {
-    icon: "📑",
+    icon: FileText,
     label: "Facturation électronique 2026",
     prompt: "Comment TOP-COMPTA m'aide pour l'obligation de facturation électronique de septembre 2026 ?",
   },
@@ -124,7 +128,7 @@ const getInitialMessages = (): Message[] => [
     id: "welcome-1",
     role: "assistant",
     content:
-      "Bonjour ! Je suis l'assistant IA de **TOP-COMPTA.FR** 👋\n\nComment puis-je vous aider ? Choisissez une question fréquente ci-dessous ou posez-moi directement votre question !",
+      "Bonjour ! Je suis l'assistant de **TOP-COMPTA.FR**.\n\nComment puis-je vous aider ? Choisissez une question fréquente ci-dessous ou posez-moi directement votre question !",
     timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
   },
 ];
@@ -513,7 +517,7 @@ export function ChatWidget() {
                         onClick={() => handleSubmit(sug.prompt)}
                         className="text-left px-3 py-2 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-secondary/50 hover:bg-surface-container-low text-xs text-on-surface transition-all flex items-center gap-2 group cursor-pointer"
                       >
-                        <span className="text-sm shrink-0">{sug.icon}</span>
+                        <sug.icon className="w-4 h-4 text-secondary shrink-0" />
                         <span className="flex-1 font-medium group-hover:text-secondary transition-colors">
                           {sug.label}
                         </span>

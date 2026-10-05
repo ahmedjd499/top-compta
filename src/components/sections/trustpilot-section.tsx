@@ -178,18 +178,19 @@ export function TrustpilotSection() {
                         },
                       }
                 }
-                className="bg-surface-container-lowest rounded-2xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 border border-outline-variant/30 hover:border-secondary/40 flex flex-col justify-between group"
+                className="bg-surface-container-lowest rounded-2xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 border border-outline-variant/30 hover:border-secondary/40 flex flex-col items-center text-center justify-between group"
               >
-                <div className="flex flex-col gap-2">
-                  <span className="text-secondary text-4xl font-space-grotesk leading-none select-none group-hover:scale-110 transition-transform origin-left">
+                <div className="flex flex-col items-center text-center gap-2">
+                  <span className="text-secondary text-4xl font-space-grotesk leading-none select-none group-hover:scale-110 transition-transform">
                     &ldquo;
                   </span>
-                  <p className="text-sm sm:text-base text-on-surface font-medium leading-relaxed">
+                  <p className="text-sm sm:text-base text-on-surface font-medium leading-relaxed text-center">
                     {review.quote}
                   </p>
                 </div>
-                <div className="pt-6 flex items-center justify-between text-xs text-on-surface-variant border-t border-outline-variant/20 mt-4">
+                <div className="pt-6 w-full flex items-center justify-center gap-2 text-xs text-on-surface-variant border-t border-outline-variant/20 mt-4">
                   <span>{review.authorRole}</span>
+                  <span>•</span>
                   <div className="flex items-center gap-1 text-[#00b67a] font-bold">
                     <Star className="w-3.5 h-3.5 fill-current" />
                     <span>{review.platform}</span>

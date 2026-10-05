@@ -3,8 +3,6 @@
 import React, { useRef } from "react";
 import {
   motion,
-  useScroll,
-  useTransform,
   useReducedMotion,
   type Variants,
 } from "motion/react";
@@ -49,12 +47,13 @@ export function HeroSection() {
     <section
       ref={containerRef}
       id="facturation-electronique"
-      className="relative w-full py-12 lg:py-20 bg-surface-container-low overflow-hidden"
+      className="relative w-full py-8 sm:py-12 lg:py-16 bg-surface overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/5">
-          {/* Luminous sovereign ambient glow - hardware accelerated static gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(0,102,153,0.3),transparent_55%),radial-gradient(circle_at_20%_90%,rgba(217,119,6,0.18),transparent_50%)] pointer-events-none" />
+        {/* Captivating Yellow / Amber Hero Container */}
+        <div className="bg-gradient-to-br from-[#F59E0B] via-[#FBBF24] to-[#F59E0B] text-slate-950 rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-amber-300/60">
+          {/* Subtle warm luminous overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_60%),radial-gradient(circle_at_80%_80%,rgba(217,119,6,0.25),transparent_60%)] pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Key Messaging with Staggered Entrance */}
@@ -65,39 +64,25 @@ export function HeroSection() {
               viewport={{ once: true, amount: 0.2 }}
               className="lg:col-span-7 flex flex-col gap-6"
             >
-              {/* Shimmering Badge */}
+              {/* Clean Badge without AI grey background */}
               <motion.div
                 variants={itemVariants}
-                className="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low/10 text-tertiary-fixed text-xs font-semibold w-fit backdrop-blur-md border border-white/10 overflow-hidden group shadow-xs"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/10 text-slate-950 text-xs font-bold uppercase tracking-wider w-fit border border-slate-950/15 backdrop-blur-xs shadow-2xs"
               >
-                <motion.div
-                  animate={
-                    shouldReduceMotion
-                      ? undefined
-                      : { x: ["-100%", "200%"] }
-                  }
-                  transition={{
-                    duration: 3.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    repeatDelay: 2,
-                  }}
-                  className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                />
-                <ShieldCheck className="w-4 h-4 text-tertiary-fixed shrink-0" />
-                <span className="relative z-10">{heroContent.badge}</span>
+                <ShieldCheck className="w-4 h-4 text-slate-950 shrink-0" />
+                <span>{heroContent.badge}</span>
               </motion.div>
 
               <motion.h1
                 variants={itemVariants}
-                className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-on-primary leading-tight"
+                className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950 leading-tight"
               >
                 {heroContent.title}
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
-                className="text-base sm:text-lg text-inverse-on-surface/90 max-w-2xl leading-relaxed"
+                className="text-base sm:text-lg text-slate-900/90 max-w-2xl leading-relaxed font-medium"
               >
                 {heroContent.description}
               </motion.p>
@@ -112,7 +97,7 @@ export function HeroSection() {
                       ? undefined
                       : {
                         scale: 1.03,
-                        boxShadow: "0 12px 24px -6px rgba(217, 119, 6, 0.4)",
+                        boxShadow: "0 12px 24px -6px rgba(15, 23, 42, 0.4)",
                       }
                   }
                   whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
@@ -120,9 +105,9 @@ export function HeroSection() {
                   href={heroContent.partnerCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed text-sm font-bold shadow-lg hover:brightness-110 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-950 text-white hover:bg-slate-900 text-sm font-bold shadow-xl transition-all cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-on-tertiary-fixed" />
+                  <Sparkles className="w-4 h-4 text-amber-400" />
                   <span>{heroContent.partnerCta.text}</span>
                   <ExternalLink className="w-4 h-4 ml-0.5 opacity-80" />
                 </motion.a>
@@ -133,7 +118,7 @@ export function HeroSection() {
                       ? undefined
                       : {
                         scale: 1.03,
-                        backgroundColor: "rgba(255, 255, 255, 0.15)",
+                        backgroundColor: "rgba(255, 255, 255, 1)",
                       }
                   }
                   whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
@@ -141,121 +126,36 @@ export function HeroSection() {
                   href={heroContent.clientCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface-variant/20 text-on-primary text-sm font-semibold transition-all backdrop-blur-sm border border-white/10 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/90 text-slate-950 hover:bg-white text-sm font-bold transition-all shadow-md border border-slate-950/10 cursor-pointer"
                 >
-                  <Lock className="w-4 h-4 text-secondary-fixed" />
+                  <Lock className="w-4 h-4 text-slate-950" />
                   <span>{heroContent.clientCta.text}</span>
                 </motion.a>
               </motion.div>
 
-              {/* Integrated pipeline indicators with vivid pulsing glow */}
+              {/* Integrated pipeline indicators */}
               <motion.div
                 variants={itemVariants}
-                className="flex flex-wrap items-center gap-4 pt-4 text-inverse-on-surface/80 text-xs font-medium border-t border-white/10"
+                className="flex flex-wrap items-center gap-4 pt-4 text-slate-950/85 text-xs font-bold border-t border-slate-950/15"
               >
                 <span className="flex items-center gap-2">
-                  <span className="relative flex h-2.5 w-2.5 items-center justify-center">
-                    <motion.span
-                      animate={
-                        shouldReduceMotion
-                          ? undefined
-                          : { scale: [1, 2.2, 2.2], opacity: [0.9, 0, 0] }
-                      }
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                      }}
-                      className="absolute h-full w-full rounded-full bg-secondary-fixed"
-                    />
-                    <motion.span
-                      animate={
-                        shouldReduceMotion
-                          ? undefined
-                          : { scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }
-                      }
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                      className="relative h-2 w-2 rounded-full bg-secondary-fixed shadow-[0_0_8px_rgba(221,225,255,0.9)]"
-                    />
-                  </span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-slate-950" />
                   {heroContent.indicators[0]}
                 </span>
 
                 <span className="flex items-center gap-2">
-                  <span className="relative flex h-2.5 w-2.5 items-center justify-center">
-                    <motion.span
-                      animate={
-                        shouldReduceMotion
-                          ? undefined
-                          : { scale: [1, 2.2, 2.2], opacity: [0.9, 0, 0] }
-                      }
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                        delay: 0.7,
-                      }}
-                      className="absolute h-full w-full rounded-full bg-tertiary-fixed"
-                    />
-                    <motion.span
-                      animate={
-                        shouldReduceMotion
-                          ? undefined
-                          : { scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }
-                      }
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 0.7,
-                      }}
-                      className="relative h-2 w-2 rounded-full bg-tertiary-fixed shadow-[0_0_8px_rgba(255,220,195,0.9)]"
-                    />
-                  </span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-slate-950" />
                   {heroContent.indicators[1]}
                 </span>
 
                 <span className="flex items-center gap-2">
-                  <span className="relative flex h-2.5 w-2.5 items-center justify-center">
-                    <motion.span
-                      animate={
-                        shouldReduceMotion
-                          ? undefined
-                          : { scale: [1, 2.2, 2.2], opacity: [0.9, 0, 0] }
-                      }
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                        delay: 1.4,
-                      }}
-                      className="absolute h-full w-full rounded-full bg-emerald-400"
-                    />
-                    <motion.span
-                      animate={
-                        shouldReduceMotion
-                          ? undefined
-                          : { scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }
-                      }
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 1.4,
-                      }}
-                      className="relative h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]"
-                    />
-                  </span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-slate-950" />
                   {heroContent.indicators[2]}
                 </span>
               </motion.div>
             </motion.div>
 
-            {/* Right Column: 2 Interactive High-Tech Milestone Cards */}
+            {/* Right Column: 2 Centered High-Contrast Milestone Cards */}
             <div className="lg:col-span-5 flex flex-col gap-5">
               {/* Milestone 1: 2026 */}
               <motion.div
@@ -273,42 +173,36 @@ export function HeroSection() {
                     : {
                       scale: 1.02,
                       y: -3,
-                      boxShadow: "0 20px 30px -10px rgba(55, 85, 195, 0.3)",
+                      boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.15)",
                     }
                 }
-                className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md transition-colors hover:bg-surface-container-lowest/15 cursor-default relative group overflow-hidden"
+                className="bg-white rounded-2xl p-6 shadow-xl border border-amber-200/80 transition-all hover:shadow-2xl cursor-default relative group flex flex-col items-center text-center"
               >
-                <div className="flex items-start gap-4">
-                  <motion.div
-                    whileHover={
-                      shouldReduceMotion ? undefined : { rotate: [0, -3, 3, 0] }
-                    }
-                    transition={{ duration: 0.4 }}
-                    className="flex flex-col items-center justify-center shrink-0 w-20 h-20 rounded-xl bg-secondary text-on-secondary p-2 text-center shadow-inner"
-                  >
-                    <span className="font-space-grotesk text-xs uppercase font-bold leading-none">
-                      {heroContent.milestones[0].day}
-                    </span>
-                    <span className="text-xs leading-tight mt-1 opacity-90">
-                      {heroContent.milestones[0].month}
-                    </span>
-                    <span className="font-space-grotesk text-lg font-bold leading-none mt-1">
-                      {heroContent.milestones[0].year}
-                    </span>
-                  </motion.div>
-                  <div className="flex flex-col gap-1">
-                    <div className="inline-flex items-center gap-1.5 text-tertiary-fixed text-xs font-bold uppercase tracking-wider">
-                      <Inbox className="w-4 h-4" />
-                      <span>{heroContent.milestones[0].tag}</span>
-                    </div>
-                    <h3 className="font-space-grotesk text-base text-on-primary font-bold leading-snug">
-                      {heroContent.milestones[0].title}
-                    </h3>
-                    <p className="text-xs text-inverse-on-surface/85 leading-relaxed">
-                      {heroContent.milestones[0].description}
-                    </p>
-                  </div>
+                {/* Date Pill Centered */}
+                <div className="flex flex-col items-center justify-center w-24 h-20 rounded-xl bg-slate-950 text-white p-2 text-center shadow-md mb-3">
+                  <span className="font-space-grotesk text-xs uppercase font-bold leading-none text-amber-400">
+                    {heroContent.milestones[0].day}
+                  </span>
+                  <span className="text-xs leading-tight mt-1 opacity-90 text-white">
+                    {heroContent.milestones[0].month}
+                  </span>
+                  <span className="font-space-grotesk text-xl font-extrabold leading-none mt-1 text-white">
+                    {heroContent.milestones[0].year}
+                  </span>
                 </div>
+
+                <div className="inline-flex items-center justify-center gap-1.5 text-amber-800 text-xs font-bold uppercase tracking-wider mb-2">
+                  <Inbox className="w-4 h-4 text-amber-700" />
+                  <span>{heroContent.milestones[0].tag}</span>
+                </div>
+
+                <h3 className="font-space-grotesk text-lg text-slate-950 font-bold leading-snug mb-2 text-center">
+                  {heroContent.milestones[0].title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed text-center">
+                  {heroContent.milestones[0].description}
+                </p>
               </motion.div>
 
               {/* Milestone 2: 2027 */}
@@ -327,42 +221,36 @@ export function HeroSection() {
                     : {
                       scale: 1.02,
                       y: -3,
-                      boxShadow: "0 20px 30px -10px rgba(15, 23, 42, 0.5)",
+                      boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.15)",
                     }
                 }
-                className="bg-surface-container-lowest/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/15 shadow-md transition-colors hover:bg-surface-container-lowest/15 cursor-default relative group overflow-hidden"
+                className="bg-white rounded-2xl p-6 shadow-xl border border-amber-200/80 transition-all hover:shadow-2xl cursor-default relative group flex flex-col items-center text-center"
               >
-                <div className="flex items-start gap-4">
-                  <motion.div
-                    whileHover={
-                      shouldReduceMotion ? undefined : { rotate: [0, -3, 3, 0] }
-                    }
-                    transition={{ duration: 0.4 }}
-                    className="flex flex-col items-center justify-center shrink-0 w-20 h-20 rounded-xl bg-primary-container border border-tertiary-fixed/30 text-tertiary-fixed p-2 text-center shadow-inner"
-                  >
-                    <span className="font-space-grotesk text-xs uppercase font-bold leading-none">
-                      {heroContent.milestones[1].day}
-                    </span>
-                    <span className="text-xs leading-tight mt-1 opacity-90">
-                      {heroContent.milestones[1].month}
-                    </span>
-                    <span className="font-space-grotesk text-lg font-bold leading-none mt-1">
-                      {heroContent.milestones[1].year}
-                    </span>
-                  </motion.div>
-                  <div className="flex flex-col gap-1">
-                    <div className="inline-flex items-center gap-1.5 text-secondary-fixed text-xs font-bold uppercase tracking-wider">
-                      <Send className="w-4 h-4" />
-                      <span>{heroContent.milestones[1].tag}</span>
-                    </div>
-                    <h3 className="font-space-grotesk text-base text-on-primary font-bold leading-snug">
-                      {heroContent.milestones[1].title}
-                    </h3>
-                    <p className="text-xs text-inverse-on-surface/85 leading-relaxed">
-                      {heroContent.milestones[1].description}
-                    </p>
-                  </div>
+                {/* Date Pill Centered */}
+                <div className="flex flex-col items-center justify-center w-24 h-20 rounded-xl bg-slate-950 text-white p-2 text-center shadow-md mb-3">
+                  <span className="font-space-grotesk text-xs uppercase font-bold leading-none text-amber-400">
+                    {heroContent.milestones[1].day}
+                  </span>
+                  <span className="text-xs leading-tight mt-1 opacity-90 text-white">
+                    {heroContent.milestones[1].month}
+                  </span>
+                  <span className="font-space-grotesk text-xl font-extrabold leading-none mt-1 text-white">
+                    {heroContent.milestones[1].year}
+                  </span>
                 </div>
+
+                <div className="inline-flex items-center justify-center gap-1.5 text-amber-800 text-xs font-bold uppercase tracking-wider mb-2">
+                  <Send className="w-4 h-4 text-amber-700" />
+                  <span>{heroContent.milestones[1].tag}</span>
+                </div>
+
+                <h3 className="font-space-grotesk text-lg text-slate-950 font-bold leading-snug mb-2 text-center">
+                  {heroContent.milestones[1].title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed text-center">
+                  {heroContent.milestones[1].description}
+                </p>
               </motion.div>
             </div>
           </div>
