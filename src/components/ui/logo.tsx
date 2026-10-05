@@ -13,7 +13,7 @@ export function Logo({ className, isLink = true}: LogoProps) {
   const content = (
     <div className={cn("flex items-center select-none", className)}>
       <Image
-        src="/assets/logo.png"
+        src="/logo.png"
         alt="TOP-COMPTA"
         width={230}
         height={41}
