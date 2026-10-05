@@ -489,7 +489,7 @@ export function ServicesAssociesPaieView() {
             </div>
             <div>
               <h4 className="font-space-grotesk text-base sm:text-lg font-bold text-on-surface">
-                Besoin d&apos;un conseil RH sur-mesure ou d&apos;un acte non listé ?
+                Besoin d&apos;un RH sur-mesure ou d&apos;un acte non listé ?
               </h4>
               <p className="text-xs sm:text-sm text-on-surface-variant mt-0.5">
                 Nos juristes et consultants en droit social basés en France vous répondent sans délai.

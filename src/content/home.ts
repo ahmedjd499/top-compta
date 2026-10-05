@@ -110,7 +110,7 @@ export const trustpilotContent: TrustpilotContent = {
 
 export const testimonialContent: TestimonialContent = {
   badge: "TÉMOIGNAGE CLIENT",
-  title: "Confiance, conseil et suivi sur le long terme",
+  title: "Confiance et suivi sur le long terme",
   quoteParagraphs: [
     "Depuis une dizaine d'année nous avons eu la chance d'être suivi par une équipe à l'écoute, réactive et disponible, et ce jusqu'à la liquidation de nos sociétés.",
     "Années après années et tout au long de la vie de notre entreprise, la direction ainsi que ses collaborateurs ont donné de précieux conseils, toujours à taille humaine et adaptés à tous niveaux quel qu'il soit.",

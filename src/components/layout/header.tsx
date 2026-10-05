@@ -446,7 +446,7 @@ export function Header() {
         </nav>
 
         <div className="p-4 bg-surface-container-lowest border-t border-outline-variant/20">
-          <p className="text-xs font-bold text-on-surface">Cabinet Conseil &amp; Gestion</p>
+          <p className="text-xs font-bold text-on-surface">Externalisation Comptable </p>
           <p className="text-xs text-on-surface-variant">France entière • Depuis 2011</p>
         </div>
       </aside>

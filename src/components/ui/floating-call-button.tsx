@@ -28,7 +28,7 @@ export function FloatingCallButton() {
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs font-medium text-on-surface-variant">
-              Besoin d&apos;un conseil ?
+              Besoin d&apos;un expert ?
             </span>
             <span className="text-xs font-bold text-secondary font-space-grotesk">
               {siteConfig.phone}

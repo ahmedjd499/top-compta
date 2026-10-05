@@ -17,7 +17,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.top-compta.fr"),
   title: {
-    default: "TOP-COMPTA.FR | Externalisation Comptable & Conseil depuis 2011",
+    default: "TOP-COMPTA.FR | Externalisation Comptable  depuis 2011",
     template: "%s | TOP-COMPTA.FR",
   },
   description:
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://www.top-compta.fr",
     siteName: "TOP-COMPTA.FR",
-    title: "TOP-COMPTA.FR | Externalisation Comptable & Conseil",
+    title: "TOP-COMPTA.FR | Externalisation Comptable",
     description:
       "Gestion comptable et administrative de confiance. gestion documentaire GED, facturation électronique 2026/2027 et accompagnement sur mesure sans engagement.",
   },

@@ -311,7 +311,7 @@ export function OffersComparisonTable({ showTitle = true }: OffersComparisonTabl
           href="/#contact"
           className="shrink-0 px-4 py-2 rounded-xl bg-secondary text-on-secondary text-xs font-bold hover:bg-on-secondary-container transition-colors shadow-xs"
         >
-          Demander conseil à un expert
+          Demander un expert
         </Link>
       </div>
 

@@ -703,7 +703,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
     id: "services-associes-a-la-paie",
     slug: "services-associes-a-la-paie",
     name: "Services associés à la Paie",
-    tag: "Conseil RH & Social",
+    tag: "RH & Social",
     price: "À la carte",
     period: "",
     pricePeriod: "",
@@ -725,7 +725,7 @@ export const detailedFormulas: Record<string, DetailedFormula> = {
         ],
       },
       {
-        title: "Veille Sociale & Conseil RH",
+        title: "Veille Sociale & RH",
         items: [
           "Réponses à 20 problématiques et questions en 24h",
           "Accès téléphonique au consultant social en France",
