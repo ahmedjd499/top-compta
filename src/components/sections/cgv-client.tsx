@@ -7,14 +7,8 @@ import {
   Download,
   ExternalLink,
   Printer,
-  ShieldCheck,
-  CheckCircle2,
-  Clock,
-  Lock,
   ArrowRight,
-  Sparkles,
   Phone,
-  FileCheck,
 } from "lucide-react";
 import { siteConfig } from "@/content/site";
 
@@ -29,20 +23,13 @@ export function CgvClient() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-surface overflow-hidden">
       {/* 1. Hero Section */}
-      <section
-        className="relative overflow-hidden pt-16 pb-12 border-b border-bleu/20 bg-gradient-to-b from-blue-50/80 via-amber-50/40 to-surface"
-      >
-        {/* Ambient decorative glowing auras */}
-        <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-bleu/12 rounded-full blur-3xl pointer-events-none -z-10" />
-        <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-jaune-vif/15 rounded-full blur-3xl pointer-events-none -z-10" />
-
+      <section className="relative pt-16 pb-12 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider mb-4 border border-jaune-moutarde/30 shadow-xs">
-                <FileCheck className="w-3.5 h-3.5 text-jaune-moutarde" />
-                <span>Document Contractuel Officiel</span>
-              </div>
+              <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-3 block">
+                Document Contractuel Officiel
+              </span>
 
               <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-bleu-petrole mb-3">
                 Conditions Générales de Vente <span className="text-bleu">(CGV)</span>

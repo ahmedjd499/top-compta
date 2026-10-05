@@ -12,6 +12,7 @@ import {
   Phone,
   ShieldCheck,
   Layers,
+  FileText,
 } from "lucide-react";
 import {
   offresHeroContent,
@@ -36,35 +37,34 @@ export function OffresPageClient() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-surface">
       {/* 1. Page Hero */}
-      <section
-        className="relative overflow-hidden pt-16 pb-12 border-b border-outline-variant/20"
-        style={{
-          background:
-            "radial-gradient(circle at 85% 12%, rgba(36, 87, 255, 0.12), transparent 34%), radial-gradient(circle at 68% 76%, rgba(34, 183, 198, 0.10), transparent 32%), linear-gradient(180deg, var(--surface) 0%, var(--surface-container-low) 100%)",
-        }}
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4">
-            Formules Comptables &amp; Tarifs Dégressifs
-          </div>
-          <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface mb-4 leading-tight">
-            {offresHeroContent.title} <br className="hidden sm:inline" />
+      <section className="py-12 sm:py-16 border-b border-outline-variant/15 bg-surface">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface leading-tight">
+            {offresHeroContent.title}{" "}
             <span className="text-secondary">
               {offresHeroContent.titleHighlight}
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+
+          <p className="mt-4 text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
             {offresHeroContent.subtitle}
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link
+              href="/#contact"
+              className="h-11 sm:h-12 inline-flex items-center justify-center gap-2 px-6 rounded-xl bg-bleu text-white font-bold text-sm sm:text-base shadow-sm hover:bg-bleu-petrole hover:shadow-md transition-all active:scale-[0.98]"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Demander un devis</span>
+            </Link>
+
             <Link
               href="/offres/comparatif"
-              className="inline-flex items-center gap-1.5 font-bold text-secondary hover:underline"
+              className="h-11 sm:h-12 inline-flex items-center justify-center gap-1.5 px-5 rounded-xl border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-semibold text-sm sm:text-base hover:border-bleu/40 transition-all"
             >
-              <Layers className="w-4 h-4" />
-              <span>Consulter le tableau comparatif complet</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Consulter le comparatif</span>
+              <ArrowRight className="w-4 h-4 text-on-surface-variant" />
             </Link>
           </div>
         </div>
@@ -484,6 +484,15 @@ export function OffresPageClient() {
               <Phone className="w-4 h-4" />
               <span>01 70 60 00 82</span>
             </a>
+
+            <a
+              href={siteConfig.phoneHref}
+              className="px-5 py-3 rounded-xl bg-jaune-vif text-on-black font-bold text-sm hover:bg-jaune-vif-hover     transition-colors shrink-0 flex items-center gap-2 shadow-sm"
+            >
+              <FileText  className="w-4 h-4" />
+              <span>Demander un devis</span>
+            </a>
+
           </div>
         </section>
 

@@ -24,8 +24,6 @@ import {
   ShieldCheck,
   BarChart3,
   Users,
-  Briefcase,
-  Sparkles,
 } from "lucide-react";
 import { adnContent } from "@/content/adn";
 import { cn } from "@/lib/utils";
@@ -131,15 +129,14 @@ export function NotreAdnClient() {
 
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           {/* Badge */}
-          <motion.div
-            initial={shouldReduceMotion ? undefined : { opacity: 0, y: -15 }}
+          <motion.span
+            initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider mb-6 border border-jaune-moutarde/30 shadow-xs"
+            className="text-xs font-bold uppercase tracking-wider text-bleu mb-3"
           >
-            <Sparkles className="w-3.5 h-3.5 text-jaune-moutarde" />
-            <span>{adnContent.hero.badge}</span>
-          </motion.div>
+            {adnContent.hero.badge}
+          </motion.span>
 
           {/* Heading */}
           <motion.h1
@@ -218,9 +215,9 @@ export function NotreAdnClient() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="bg-[#0f243e] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border-2 border-bleu/40 flex flex-col items-center text-center relative"
             >
-              <div className="w-14 h-14 rounded-2xl bg-jaune-vif flex items-center justify-center text-[#0b1c30] mb-5 shadow-md border border-jaune-citron">
-                <Briefcase className="w-7 h-7" />
-              </div>
+              <span className="text-xs font-bold uppercase tracking-wider text-jaune-vif mb-3">
+                {adnContent.engagement.badge}
+              </span>
 
               <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-2">
                 {adnContent.engagement.title}
@@ -336,14 +333,9 @@ export function NotreAdnClient() {
             className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-bleu/30 shadow-lg flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-2xl bg-bleu text-white shadow-md">
-                  <Users className="w-6 h-6" />
-                </div>
-                <h3 className="font-space-grotesk text-xl sm:text-2xl font-bold text-bleu-petrole">
-                  {adnContent.managementAndNetwork.network.title}
-                </h3>
-              </div>
+              <h3 className="font-space-grotesk text-xl sm:text-2xl font-bold text-bleu-petrole mb-6">
+                {adnContent.managementAndNetwork.network.title}
+              </h3>
 
               <ul className="flex flex-col gap-3.5 mb-6">
                 {adnContent.managementAndNetwork.network.items.map((item, idx) => (
@@ -370,13 +362,13 @@ export function NotreAdnClient() {
       </section>
 
       {/* 4. PRINCIPLES / VALEURS FONDAMENTALES (3x2 Grid) */}
-      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-amber-50/30 via-blue-50/20 to-white border-y border-bleu/15">
+      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-background">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <motion.span
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-4 py-1.5 rounded-full bg-bleu text-white text-xs font-bold uppercase tracking-wider mb-3 shadow-xs"
+            className="text-xs font-bold uppercase tracking-wider text-bleu mb-3"
           >
             {adnContent.principles.badge}
           </motion.span>
@@ -468,13 +460,13 @@ export function NotreAdnClient() {
       </section>
 
       {/* 5. STRENGTHS / NOS ATOUTS MAJEURS (4x2 Grid) */}
-      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-white via-blue-50/30 to-amber-50/20">
+      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-background">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <motion.span
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-extrabold uppercase tracking-wider mb-3 shadow-xs border border-jaune-moutarde/30"
+            className="text-xs font-bold uppercase tracking-wider text-bleu mb-3"
           >
             {adnContent.strengths.badge}
           </motion.span>

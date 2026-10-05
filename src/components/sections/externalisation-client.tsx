@@ -10,13 +10,10 @@ import {
   Globe2,
   Quote,
   ArrowRight,
-  ShieldCheck,
   AlertTriangle,
   CheckCircle2,
   Sparkles,
   ArrowDown,
-  HelpCircle,
-  Scale,
 } from "lucide-react";
 import { externalisationContent } from "@/content/externalisation";
 import { cn } from "@/lib/utils";
@@ -25,20 +22,13 @@ export function ExternalisationClient() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-surface overflow-hidden">
       {/* 1. Hero / Section 1 : Problème ➔ Solution */}
-      <section
-        className="relative overflow-hidden pt-16 pb-16 lg:pt-20 lg:pb-20 border-b border-bleu/20 bg-gradient-to-b from-blue-50/70 via-amber-50/30 to-surface"
-      >
-        {/* Ambient decorative glowing auras */}
-        <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-bleu/12 rounded-full blur-3xl pointer-events-none -z-10" />
-        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-jaune-vif/15 rounded-full blur-3xl pointer-events-none -z-10" />
-
+      <section className="relative pt-16 pb-16 lg:pt-20 lg:pb-20 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Header Title with exact pre-title */}
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider mb-4 border border-jaune-moutarde/30 shadow-xs">
-              <HelpCircle className="w-3.5 h-3.5 text-jaune-moutarde" />
-              <span>{externalisationContent.hero.badge}</span>
-            </div>
+            <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-3 block">
+              {externalisationContent.hero.badge}
+            </span>
 
             <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-bleu-petrole leading-tight">
               {externalisationContent.hero.title}
@@ -171,7 +161,7 @@ export function ExternalisationClient() {
       </section>
 
       {/* 3. Et si l'entreprise fait appel à un prestataire externe ? */}
-      <section className="py-14 sm:py-16 bg-gradient-to-b from-blue-50/40 via-amber-50/20 to-slate-50 border-y border-bleu/15">
+      <section className="py-14 sm:py-16 bg-surface">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="font-space-grotesk text-2xl sm:text-3xl font-extrabold text-bleu-petrole mb-4">
@@ -224,10 +214,9 @@ export function ExternalisationClient() {
       <section className="py-14 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 w-full">
         <div className="bg-gradient-to-br from-bleu via-[#1a386b] to-bleu-petrole text-white rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-jaune-vif/50 relative overflow-hidden">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-extrabold uppercase tracking-wider mb-6 border border-jaune-citron shadow-md">
-              <ShieldCheck className="w-3.5 h-3.5 text-jaune-moutarde" />
-              <span>{externalisationContent.alternative.badge}</span>
-            </div>
+            <span className="text-xs font-bold uppercase tracking-wider text-jaune-vif mb-3 block">
+              {externalisationContent.alternative.badge}
+            </span>
 
             <h2 className="font-space-grotesk text-2xl sm:text-3xl font-extrabold mb-6 text-white">
               {externalisationContent.alternative.title}
@@ -241,13 +230,12 @@ export function ExternalisationClient() {
       </section>
 
       {/* 5. La Loi, noir sur blanc */}
-      <section className="py-14 sm:py-18 bg-gradient-to-b from-slate-50 via-blue-50/30 to-amber-50/20 border-t border-bleu/15">
+      <section className="py-14 sm:py-18 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-bleu text-white text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
-              <Scale className="w-3.5 h-3.5 text-jaune-citron" />
-              <span>{externalisationContent.theLaw.badge}</span>
-            </div>
+            <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-3 block">
+              {externalisationContent.theLaw.badge}
+            </span>
 
             <h2 className="font-space-grotesk text-2xl sm:text-3xl font-extrabold text-bleu-petrole mb-4">
               {externalisationContent.theLaw.title}
