@@ -8,12 +8,8 @@ import {
   FolderUp,
   TrendingUp,
   RotateCw,
-  Sparkles,
   ArrowRight,
   ArrowLeft,
-  Play,
-  Pause,
-  CheckCircle2,
 } from "lucide-react";
 import { stepsContent } from "@/content/home";
 import { cn } from "@/lib/utils";
@@ -90,61 +86,18 @@ export function StepsSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] bg-bleu-turquoise/5 rounded-full blur-3xl pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 lg:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm border border-jaune-moutarde/30">
-            <Sparkles className="w-3.5 h-3.5 text-jaune-moutarde" />
-            <span>{stepsContent.badge}</span>
+        {/* Épured Minimal Header Badge (Desktop & Tablet) */}
+        <motion.div
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden md:flex justify-center mb-6"
+        >
+          <div className="inline-flex items-center gap-2 px-4 mb-6 py-1.5 rounded-full text-bleu text-xs font-extrabold uppercase tracking-wider ">
+            {stepsContent.badge}
           </div>
-
-          <h2
-            id="steps-section-heading"
-            className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-bleu-petrole font-extrabold tracking-tight leading-tight mb-4"
-          >
-            {stepsContent.title}
-          </h2>
-
-          <p className="text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed">
-            {stepsContent.description}
-          </p>
-
-          {/* Interactive Step Navigator Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8 p-1.5 rounded-full bg-white/95 border border-bleu/20 shadow-md">
-            {stepsWithPortions.map((item, idx) => (
-              <button
-                key={item.stepNumber}
-                type="button"
-                onClick={() => {
-                  setActiveStep(idx);
-                  setIsAutoPlaying(false);
-                }}
-                className={cn(
-                  "px-3.5 py-1.5 rounded-full text-xs font-semibold font-space-grotesk transition-all duration-300 flex items-center gap-1.5",
-                  currentDisplayedIndex === idx
-                    ? "bg-bleu text-white shadow-md scale-102"
-                    : "text-bleu-petrole hover:text-bleu hover:bg-blue-50/80"
-                )}
-              >
-                <span>{item.shortLabel}</span>
-              </button>
-            ))}
-
-            {/* Play / Pause Toggle Button */}
-            <button
-              type="button"
-              onClick={() => setIsAutoPlaying((prev) => !prev)}
-              aria-label={isAutoPlaying ? "Mettre en pause le cycle" : "Démarrer le cycle"}
-              className="p-1.5 rounded-full bg-jaune-vif/20 text-[#0b1c30] hover:bg-jaune-vif hover:text-[#0b1c30] transition-colors ml-1"
-              title={isAutoPlaying ? "Pause" : "Lecture automatique"}
-            >
-              {isAutoPlaying ? (
-                <Pause className="w-3.5 h-3.5" />
-              ) : (
-                <Play className="w-3.5 h-3.5" />
-              )}
-            </button>
-          </div>
-        </div>
+        </motion.div>
 
         {/* ========================================================================= */}
         {/* DESKTOP & TABLET: THE 4 CIRCLE PORTIONS (md & above)                     */}
@@ -207,30 +160,42 @@ export function StepsSection() {
               </div>
             </div>
 
-            {/* Compact, Non-Obstructive Center Pivot Disc */}
+            {/* Central Hub Disc with Integrated Title */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
               <motion.div
                 initial={shouldReduceMotion ? undefined : { scale: 0.85, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-2 border-bleu shadow-xl flex flex-col items-center justify-center text-center p-1.5 relative overflow-hidden"
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="w-48 h-48 sm:w-52 sm:h-52 rounded-full border-2 border-bleu/30 p-2 bg-white/95 backdrop-blur-md flex items-center justify-center shadow-2xl relative"
               >
+                {/* Outer subtle glow */}
+                <div className="absolute -inset-2 rounded-full bg-bleu/10 blur-md pointer-events-none" />
+
                 {/* Spinning decorative ring with bleu/jaune dashes */}
-                <div className="absolute inset-0 rounded-full border border-dashed border-jaune-vif/60 animate-[spin_25s_linear_infinite]" />
+                <div className="absolute inset-1 rounded-full border border-dashed border-jaune-vif/60 animate-[spin_35s_linear_infinite] pointer-events-none" />
 
-                <RotateCw
-                  className={cn(
-                    "w-3.5 h-3.5 text-bleu mb-0.5",
-                    !shouldReduceMotion && "animate-[spin_20s_linear_infinite]"
-                  )}
-                />
+                {/* Core Hub Body */}
+                <div className="w-full h-full rounded-full bg-gradient-to-b from-blue-50/90 via-white to-amber-50/40 border border-bleu/15 p-3 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
+                  <div className="absolute inset-0 bg-radial from-bleu/10 via-transparent to-transparent pointer-events-none" />
 
-                <span className="font-space-grotesk text-[10px] font-extrabold text-bleu uppercase tracking-wider leading-none">
-                  0{currentDisplayedIndex + 1} / 04
-                </span>
+                  {/* Step counter */}
+                  <span className="text-[10px] font-bold text-bleu uppercase tracking-widest font-space-grotesk mb-1">
+                    0{currentDisplayedIndex + 1} / 04
+                  </span>
 
-                <span className="text-[8px] bg-jaune-vif text-[#0b1c30] font-bold px-1.5 py-0.2 rounded-full mt-0.5">
-                  Flux 360°
-                </span>
+                  {/* Integrated Title as Central Focal Point */}
+                  <h2
+                    id="steps-section-heading"
+                    className="font-space-grotesk text-[12px] sm:text-[13px] font-extrabold text-bleu-petrole leading-tight mt-1 max-w-[150px]"
+                  >
+                    {stepsContent.title}
+                  </h2>
+
+                  {/* Directional Subtle Flow Hint */}
+                  <div className="mt-2 pt-2 text-[11px] font-bold text-bleu border-t-2 border-bleu">
+                    4 étapes clés <br /> TOP-COMPTA
+                  </div>
+                </div>
               </motion.div>
             </div>
 
@@ -303,6 +268,35 @@ export function StepsSection() {
         {/* MOBILE RESPONSIVE ADAPTATION (< md)                                      */}
         {/* ========================================================================= */}
         <div className="md:hidden flex flex-col gap-6">
+          {/* Mobile Central Hub Badge with Integrated Title */}
+          <motion.div
+            initial={shouldReduceMotion ? undefined : { opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center"
+          >
+            <div className="w-full max-w-sm rounded-2xl p-5 relative overflow-hidden flex flex-col items-center text-center">
+              <div className="absolute inset-0 bg-radial from-bleu/10 via-transparent to-transparent pointer-events-none" />
+
+              {/* Minimal Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 text-bleu text-[11px] font-bold uppercase tracking-wider mb-2.5">
+                <span>{stepsContent.badge}</span>
+              </div>
+
+              {/* Integrated Section Title */}
+              <h2
+                id="steps-section-heading-mobile"
+                className="font-space-grotesk font-extrabold text-base sm:text-lg text-bleu-petrole leading-tight"
+              >
+                {stepsContent.title}
+              </h2>
+
+              <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[11px] font-semibold text-bleu">
+                4 étapes clés TOP-COMPTA
+              </div>
+            </div>
+          </motion.div>
+
           {/* Mini Interactive Circle Dial */}
           <div className="flex flex-col items-center">
             <div className="relative w-56 h-56 p-2">
@@ -507,22 +501,22 @@ function CenteredQuadrantCard({
   // Inner padding pulls the content closer toward the center of the circle.
   const quadrantStyles = {
     "top-left": {
-      container: "rounded-tl-full rounded-tr-2xl rounded-bl-2xl rounded-br-[28px]",
+      container: "rounded-tl-full rounded-tr-2xl rounded-bl-2xl rounded-br-[65px] sm:rounded-br-[75px]",
       innerOffset: "pt-8 pl-8 sm:pt-10 sm:pl-10 pr-4 pb-4 sm:pr-5 sm:pb-5",
       hoverTranslate: shouldReduceMotion ? {} : { x: -5, y: -5 },
     },
     "top-right": {
-      container: "rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-[28px]",
+      container: "rounded-tr-full rounded-tl-2xl rounded-br-2xl rounded-bl-[65px] sm:rounded-bl-[75px]",
       innerOffset: "pt-8 pr-8 sm:pt-10 sm:pr-10 pl-4 pb-4 sm:pl-5 sm:pb-5",
       hoverTranslate: shouldReduceMotion ? {} : { x: 5, y: -5 },
     },
     "bottom-right": {
-      container: "rounded-br-full rounded-tr-2xl rounded-bl-2xl rounded-tl-[28px]",
+      container: "rounded-br-full rounded-tr-2xl rounded-bl-2xl rounded-tl-[65px] sm:rounded-tl-[75px]",
       innerOffset: "pb-8 pr-8 sm:pb-10 sm:pr-10 pl-4 pt-4 sm:pl-5 sm:pt-5",
       hoverTranslate: shouldReduceMotion ? {} : { x: 5, y: 5 },
     },
     "bottom-left": {
-      container: "rounded-bl-full rounded-tl-2xl rounded-br-2xl rounded-tr-[28px]",
+      container: "rounded-bl-full rounded-tl-2xl rounded-br-2xl rounded-tr-[65px] sm:rounded-tr-[75px]",
       innerOffset: "pb-8 pl-8 sm:pb-10 sm:pl-10 pr-4 pt-4 sm:pr-5 sm:pt-5",
       hoverTranslate: shouldReduceMotion ? {} : { x: -5, y: 5 },
     },
@@ -596,20 +590,7 @@ function CenteredQuadrantCard({
           {step.description}
         </p>
 
-        {/* Direction hint */}
-        <div
-          className={cn(
-            "flex items-center gap-1 text-[10px] font-bold mt-1 transition-opacity",
-            isActive
-              ? isOdd
-                ? "text-bleu opacity-100"
-                : "text-jaune-moutarde opacity-100"
-              : "text-bleu/60 opacity-0 group-hover:opacity-100"
-          )}
-        >
-          <span>Étape {step.stepNumber}</span>
-          <ArrowRight className="w-3 h-3" />
-        </div>
+
       </div>
     </motion.div>
   );

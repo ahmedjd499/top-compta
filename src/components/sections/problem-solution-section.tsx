@@ -50,10 +50,10 @@ export function ProblemSolutionSection() {
       idx === 0
         ? "1. Centralisation"
         : idx === 1
-        ? "2. Planification"
-        : idx === 2
-        ? "3. Visibilité"
-        : "4. Traçabilité",
+          ? "2. Planification"
+          : idx === 2
+            ? "3. Visibilité"
+            : "4. Traçabilité",
   }));
 
   const containerVariants: Variants = {
@@ -281,10 +281,10 @@ export function ProblemSolutionSection() {
                   >
                     {problemSolutionContent.title}
                   </h2>
-                   
+
                   {/* Directional Subtle Flow Hint */}
                   <div className="mt-2 pt-2  text-[11px] font-bold text-jaune-vif border-t-2 border-jaune-vif">
-                    4 problèmes Résolu par <br /> TOP-COMPTA
+                    Quatre poblèmes Résolu par <br /> TOP-COMPTA
                   </div>
 
                 </div>
@@ -377,7 +377,7 @@ export function ProblemSolutionSection() {
               </h2>
 
               <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5  text-[11px] font-semibold text-blue-100">
-              4 problèmes Résolu par  TOP-COMPTA  
+                Quatre poblèmes Résolu par  TOP-COMPTA
               </div>
             </div>
           </motion.div>
@@ -471,10 +471,10 @@ function OrbitalCard({
         shouldReduceMotion
           ? undefined
           : {
-              scale: 1.025,
-              y: -4,
-              transition: { type: "spring", stiffness: 380, damping: 22 },
-            }
+            scale: 1.025,
+            y: -4,
+            transition: { type: "spring", stiffness: 380, damping: 22 },
+          }
       }
       className={cn(
         "relative bg-[#0f243e]/95 backdrop-blur-md rounded-2xl p-6 shadow-xl transition-all duration-300 border cursor-default flex flex-col gap-3 group",
