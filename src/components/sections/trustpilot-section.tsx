@@ -72,7 +72,7 @@ export function TrustpilotSection() {
           >
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-6 h-6 text-secondary-fixed" />
+                <ShieldCheck className="w-6 h-6 text-jaune-citron" />
                 <span className="font-space-grotesk text-lg font-bold tracking-tight">
                   Trustpilot
                 </span>
@@ -145,7 +145,7 @@ export function TrustpilotSection() {
                 href={trustpilotContent.trustpilotUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-bright text-xs sm:text-sm font-bold transition-all inline-flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                className="w-full py-3 px-4 rounded-xl bg-surface-container-lowest text-bleu hover:text-bleu-petrole hover:bg-surface-bright text-xs sm:text-sm font-bold transition-all inline-flex items-center justify-center gap-2 shadow-sm cursor-pointer border border-outline-variant/30 hover:border-bleu/40"
               >
                 <span>Consulter tous les avis</span>
                 <ExternalLink className="w-4 h-4" />
@@ -178,10 +178,10 @@ export function TrustpilotSection() {
                         },
                       }
                 }
-                className="bg-surface-container-lowest rounded-2xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 border border-outline-variant/30 hover:border-secondary/40 flex flex-col items-center text-center justify-between group"
+                className="bg-surface-container-lowest rounded-2xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 border border-outline-variant/30 hover:border-bleu/40 flex flex-col items-center text-center justify-between group"
               >
                 <div className="flex flex-col items-center text-center gap-2">
-                  <span className="text-secondary text-4xl font-space-grotesk leading-none select-none group-hover:scale-110 transition-transform">
+                  <span className="text-bleu/40 text-4xl font-space-grotesk leading-none select-none group-hover:scale-110 group-hover:text-bleu transition-all">
                     &ldquo;
                   </span>
                   <p className="text-sm sm:text-base text-on-surface font-medium leading-relaxed text-center">

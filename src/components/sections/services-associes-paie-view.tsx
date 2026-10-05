@@ -244,8 +244,8 @@ export function ServicesAssociesPaieView() {
           {/* Card 2: La Fiche de Paie (LE PLUS POPULAIRE) */}
           <div className="rounded-3xl bg-surface-container-lowest border-2 border-secondary p-6 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
             {/* Best Offer Top Ribbon */}
-            <div className="absolute top-0 left-0 right-0 bg-[#FFC439] text-[#111111] text-[10px] font-extrabold uppercase tracking-wider py-1 text-center flex items-center justify-center gap-1">
-              <Star className="w-3 h-3 fill-current" />
+            <div className="absolute top-0 left-0 right-0 bg-jaune-vif text-[#0b1c30] text-[10px] font-extrabold uppercase tracking-wider py-1 text-center flex items-center justify-center gap-1 border-b border-jaune-moutarde/25">
+              <Star className="w-3 h-3 fill-current text-jaune-moutarde" />
               <span>LE PLUS POPULAIRE</span>
             </div>
 
@@ -262,7 +262,7 @@ export function ServicesAssociesPaieView() {
 
               {/* Title & Icon */}
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-[#FFC439]/20 text-[#003087]">
+                <div className="p-2.5 rounded-xl bg-jaune-vif/20 text-bleu">
                   <FileSpreadsheet className="w-5 h-5" />
                 </div>
                 <h3 className="font-space-grotesk text-xl font-bold text-on-surface">
@@ -308,9 +308,9 @@ export function ServicesAssociesPaieView() {
                     amount: 30,
                   })
                 }
-                className="w-full py-2.5 px-4 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] transition-colors font-bold text-xs flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-xl bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover transition-colors font-bold text-xs flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
               >
-                <Lock className="w-3.5 h-3.5 text-[#003087]" />
+                <Lock className="w-3.5 h-3.5 text-bleu" />
                 <span>Souscrire (30 € / mois)</span>
               </button>
             </div>

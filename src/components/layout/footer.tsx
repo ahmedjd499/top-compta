@@ -34,7 +34,7 @@ export function Footer() {
                   key={idx}
                   className="inline-flex items-center gap-2 bg-surface-variant/20 px-3 py-1.5 rounded-lg text-on-primary text-xs font-semibold w-fit"
                 >
-                  <ShieldCheck className="w-4 h-4 text-secondary-fixed shrink-0" />
+                  <ShieldCheck className="w-4 h-4 text-jaune-citron shrink-0" />
                   <span>{badge}</span>
                 </div>
               ))}
@@ -42,7 +42,7 @@ export function Footer() {
               href={footerContent.whatsappHref || siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-on-primary hover:text-secondary-fixed transition-colors text-xs font-semibold"
+              className="inline-flex items-center gap-2 text-on-primary hover:text-jaune-vif transition-colors text-xs font-semibold"
             >
               <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0" />
               <span>Support WhatsApp direct ({siteConfig.whatsappPhoneText})</span>
@@ -107,7 +107,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-on-primary-container hover:text-on-primary transition-colors"
             >
-              <FolderLock className="w-4 h-4 text-secondary-fixed shrink-0" />
+              <FolderLock className="w-4 h-4 text-bleu-turquoise shrink-0" />
               <span>GED Sécurisée (MyCompanyFiles)</span>
             </a>
             <a
@@ -116,14 +116,14 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-on-primary-container hover:text-on-primary transition-colors"
             >
-              <RefreshCw className="w-4 h-4 text-secondary-fixed shrink-0" />
+              <RefreshCw className="w-4 h-4 text-bleu-clair shrink-0" />
               <span>CRM &amp; PA Habile Solutions</span>
             </a>
             <Link
               href="/#offres"
               className="inline-flex items-center gap-2 text-on-primary-container hover:text-on-primary transition-colors"
             >
-              <CreditCard className="w-4 h-4 text-secondary-fixed shrink-0" />
+              <CreditCard className="w-4 h-4 text-jaune-vif shrink-0" />
               <span>Paiement sécurisé PayPal</span>
             </Link>
             <a
@@ -132,7 +132,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-on-primary-container hover:text-on-primary transition-colors"
             >
-              <Handshake className="w-4 h-4 text-secondary-fixed shrink-0" />
+              <Handshake className="w-4 h-4 text-jaune-citron shrink-0" />
               <span>Réseau de partenaires agréés</span>
             </a>
           </div>
@@ -145,11 +145,11 @@ export function Footer() {
           </span>
           <div className="flex flex-col gap-3 text-sm">
             <div className="flex items-start gap-2.5 text-on-primary-container">
-              <Phone className="w-4 h-4 text-secondary-fixed shrink-0 mt-1" />
+              <Phone className="w-4 h-4 text-bleu-clair shrink-0 mt-1" />
               <div>
                 <a
                   href={`tel:${(footerContent.phone || siteConfig.phone).replace(/\s+/g, "")}`}
-                  className="text-on-primary font-bold hover:text-secondary-fixed transition-colors"
+                  className="text-on-primary font-bold hover:text-jaune-vif transition-colors"
                 >
                   {footerContent.phone || siteConfig.phone}
                 </a>
@@ -159,7 +159,7 @@ export function Footer() {
               </div>
             </div>
             <div className="flex items-center gap-2.5 text-on-primary-container">
-              <Mail className="w-4 h-4 text-secondary-fixed shrink-0" />
+              <Mail className="w-4 h-4 text-bleu-clair shrink-0" />
               <a
                 href={`mailto:${footerContent.email || siteConfig.email}`}
                 className="hover:text-on-primary transition-colors"

@@ -1,6 +1,17 @@
 ---
 name: Sovereign Fiduciary & Fintech
 colors:
+  # Palette Officielle Logo TOP-COMPTA & Nuances
+  bleu: '#22437f'
+  bleu-clair: '#60a5fa'
+  bleu-petrole: '#0f3b5c'
+  bleu-turquoise: '#0891b2'
+  jaune-vif: '#e7b821'
+  jaune-moutarde: '#b45309'
+  jaune-citron: '#facc15'
+  jaune-clair: '#fef9c3'
+
+  # Surfaces & Canvas
   surface: '#f8f9ff'
   surface-dim: '#cbdbf5'
   surface-bright: '#f8f9ff'
@@ -16,19 +27,25 @@ colors:
   outline: '#76777d'
   outline-variant: '#c6c6cd'
   surface-tint: '#565e74'
-  primary: '#000000'
+  surface-variant: '#d3e4fe'
+  background: '#f8f9ff'
+  on-background: '#0b1c30'
+
+  # Rôles Sémantiques
+  primary: '#22437f'
+  primary-sovereign: '#0b1c30'
   on-primary: '#ffffff'
-  primary-container: '#131b2e'
-  on-primary-container: '#7c839b'
+  primary-container: '#0f2b54'
+  on-primary-container: '#dce9ff'
   inverse-primary: '#bec6e0'
-  secondary: '#3755c3'
+  secondary: '#2558a3'
   on-secondary: '#ffffff'
-  secondary-container: '#708cfd'
-  on-secondary-container: '#00217a'
-  tertiary: '#000000'
-  on-tertiary: '#ffffff'
-  tertiary-container: '#2f1500'
-  on-tertiary-container: '#c76c00'
+  secondary-container: '#dbeafe'
+  on-secondary-container: '#173bab'
+  tertiary: '#e7b821'
+  on-tertiary: '#0b1c30'
+  tertiary-container: '#fffbeb'
+  on-tertiary-container: '#92400e'
   error: '#ba1a1a'
   on-error: '#ffffff'
   error-container: '#ffdad6'
@@ -41,13 +58,10 @@ colors:
   secondary-fixed-dim: '#b8c4ff'
   on-secondary-fixed: '#001453'
   on-secondary-fixed-variant: '#173bab'
-  tertiary-fixed: '#ffdcc3'
-  tertiary-fixed-dim: '#ffb77d'
-  on-tertiary-fixed: '#2f1500'
-  on-tertiary-fixed-variant: '#6e3900'
-  background: '#f8f9ff'
-  on-background: '#0b1c30'
-  surface-variant: '#d3e4fe'
+  tertiary-fixed: '#fef3c7'
+  tertiary-fixed-dim: '#fde68a'
+  on-tertiary-fixed: '#78350f'
+  on-tertiary-fixed-variant: '#92400e'
 typography:
   display-hero:
     fontFamily: Space Grotesk
@@ -155,15 +169,24 @@ The aesthetic marries **Corporate / Modern** precision with **Refined Glassmorph
 - **Prestige & Value:** Warm gilded amber and champagne bronze accents lift the interface above conventional utilitarian software, signaling bespoke executive attention.
 - **Clarity & Serenity:** Airy slate surfaces, crisp architectural lines, and micro-deliberate typographic contrast remove the cognitive friction and anxiety typically linked to accounting and tax deadlines.
 
-## Colors
-The color architecture rests on a tripartite balance: deep institutional navies for structure and anchor points, vivid royal blue for interactive velocity, and warm golden amber for high-value highlights, badges, and trust indicators.
+## Colors & Palette Nuancée
+Le système chromatique est directement extrait de l'emblème historique du logo **TOP-COMPTA** (le Jaune doré solaire et le Bleu royal d'autorité), décliné en une double gamme harmonieuse de 4 nuances complémentaires, optimisées pour le contraste et la hiérarchie visuelle.
 
-### Functional Roles
-- **Primary Sovereign (`#0F172A` / `#1E293B`):** Governs major structural anchors, dark executive hero panels, dense footer frameworks, and primary body headlines.
-- **Interactive Cobalt (`#1E40AF`):** Drives standard conversion actions, link states, active navigation tabs, and system focus rings.
-- **Prestige Gold & Bronze (`#D97706`, `#F59E0B`, `#B45309`):** Reserved for "Formule Recommandée" badges, trust markers, rating callouts, and key CTA accents.
-- **Fiduciary Emerald (`#059669`):** Reserved strictly for validation, electronic invoicing compliance badges, audit checkmarks, and secure SSL confirmations.
-- **Backgrounds & Canvases (`#FFFFFF`, `#F8FAFC`, `#F1F5F9`):** Pristine, high-legibility surfaces that maintain breathing room across complex tax and pricing schedules.
+### 1. La Famille des Bleus (Confiance, Rigueur Fiducière & Modernité)
+- **Bleu Corporate (`#22437f`) :** La teinte exacte du logo. Utilisée pour les ancrages de marque, la typographie d'autorité, les boutons d'action majeurs et les badges institutionnels.
+- **Bleu Pétrole (`#0f3b5c`) :** Nuance profonde, fiducière et statutaire. Idéale pour les conteneurs premium, headers nocturnes, footers et contrastes exécutifs.
+- **Bleu Clair (`#60a5fa`, soft `#dbeafe`, givré `#eff6ff`) :** Nuance aérée et lumineuse. Utilisée pour les fonds de cartes, les survols, les badges secondaires et la respiration des interfaces.
+- **Bleu Turquoise (`#0891b2` / `#06b6d4`) :** Nuance technologique vive. Symbolise la GED cloud, la facturation électronique, l'automatisation et les flux bancaires directs.
+
+### 2. La Famille des Jaunes (Énergie, Valeur & Statut)
+- **Jaune Vif (`#e7b821` / `#f59e0b`) :** L'éclat doré solaire du logo "TOP". Utilisé pour capter le regard, les conteneurs de conversion hero, les boutons de paiement direct et les points focaux.
+- **Jaune Moutarde (`#b45309` / `#d97706`) :** Nuance ambrée chaleureuse à haut contraste (5.02:1 sur blanc). Réservée aux textes d'alerte statutaires, aux étiquettes "Recommandé" et aux bordures d'accentuation.
+- **Jaune Citron (`#facc15` / `#fef08a`) :** Nuance fraîche et lumineuse. Utilisée pour les étoiles de notation Trustpilot, les étincelles d'innovation et les micro-indicateurs d'état.
+- **Jaune Clair (`#fef9c3` / `#fffbeb`) :** Nuance crème ivoire délicate. Idéale pour les fonds de surbrillance doux, les bannières d'information sans agresser l'œil et les cartes réconfortantes.
+
+### 3. Surfaces & Neutres
+- **Backgrounds & Canvases (`#ffffff`, `#f8f9ff`, `#e5eeff`) :** Surfaces nettes à subtil reflet bleuté maintenant une lisibilité totale et un grand confort de lecture.
+- **Contraste Typographique (`#0b1c30` / `#45464d`) :** Lisibilité maximale pour l'ensemble des chiffres et mentions légales.
 
 ## Typography
 The pairing combines **Space Grotesk** for primary and section headers with **Plus Jakarta Sans** for running body copy, interface forms, and data labels. 

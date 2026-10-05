@@ -45,14 +45,14 @@ export function FaqSection() {
                 className={cn(
                   "bg-surface-container-lowest rounded-2xl shadow-xs border transition-all duration-300 overflow-hidden",
                   isOpen
-                    ? "border-secondary/40 ring-2 ring-secondary/10 shadow-sm"
-                    : "border-outline-variant/30 hover:border-secondary/30"
+                    ? "border-bleu/40 ring-2 ring-bleu/10 shadow-sm"
+                    : "border-outline-variant/30 hover:border-bleu/30"
                 )}
               >
                 <button
                   type="button"
                   onClick={() => toggleItem(index)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-space-grotesk text-base sm:text-lg font-bold text-on-surface hover:text-secondary transition-colors cursor-pointer"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-space-grotesk text-base sm:text-lg font-bold text-on-surface hover:text-bleu transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span className="leading-snug">{item.question}</span>
@@ -60,9 +60,9 @@ export function FaqSection() {
                     animate={{
                       rotate: isOpen ? 45 : 0,
                       backgroundColor: isOpen
-                        ? "var(--color-secondary)"
+                        ? "var(--color-bleu)"
                         : "var(--color-surface-container)",
-                      color: isOpen ? "#ffffff" : "var(--color-secondary)",
+                      color: isOpen ? "#ffffff" : "var(--color-bleu)",
                     }}
                     transition={{ type: "spring", stiffness: 400, damping: 24 }}
                     className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors"
@@ -86,7 +86,7 @@ export function FaqSection() {
                         animate={{ y: 0 }}
                         exit={{ y: -8 }}
                         transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="px-5 sm:px-6 pb-6 pt-0 text-xs sm:text-sm text-on-surface-variant leading-relaxed border-l-2 border-secondary ml-5 sm:ml-6 my-1"
+                        className="px-5 sm:px-6 pb-6 pt-0 text-xs sm:text-sm text-on-surface-variant leading-relaxed border-l-2 border-bleu ml-5 sm:ml-6 my-1"
                       >
                         <div className="pl-3">{item.answer}</div>
                       </motion.div>

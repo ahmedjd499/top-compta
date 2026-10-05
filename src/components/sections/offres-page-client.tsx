@@ -184,8 +184,8 @@ export function OffresPageClient() {
                     )}
                   >
                     {isFeatured && (
-                      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[#FFC439] text-[#111111] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] shadow-sm flex items-center gap-1">
-                        <Star className="w-3.5 h-3.5 fill-current" />
+                      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-jaune-vif text-[#0b1c30] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] shadow-sm flex items-center gap-1 border border-jaune-moutarde/25">
+                        <Star className="w-3.5 h-3.5 fill-current text-jaune-moutarde" />
                         <span>Recommandé</span>
                       </div>
                     )}
@@ -290,8 +290,8 @@ export function OffresPageClient() {
                           className={cn(
                             "w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer",
                             isFeatured
-                              ? "bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A]"
-                              : "bg-[#003087] text-white hover:bg-[#00215c]"
+                              ? "bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover"
+                              : "bg-bleu text-white hover:bg-bleu-hover"
                           )}
                         >
                           <Lock className="w-3.5 h-3.5" />
@@ -352,7 +352,7 @@ export function OffresPageClient() {
                       key={idx}
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white/10 border border-white/20 text-white"
                     >
-                      <CheckCircle className="w-4 h-4 text-[#ffd700] shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-jaune-citron shrink-0" />
                       <span>{badge}</span>
                     </span>
                   ))}

@@ -50,10 +50,10 @@ export function HeroSection() {
       className="relative w-full py-8 sm:py-12 lg:py-16 bg-surface overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Captivating Yellow / Amber Hero Container */}
-        <div className="bg-gradient-to-br from-[#F59E0B] via-[#FBBF24] to-[#F59E0B] text-slate-950 rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-amber-300/60">
+        {/* Captivating Yellow / Amber Hero Container harmonized with logo */}
+        <div className="bg-gradient-to-br from-[#e7b821] via-[#facc15] to-[#f59e0b] text-[#0b1c30] rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-amber-200/60">
           {/* Subtle warm luminous overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_60%),radial-gradient(circle_at_80%_80%,rgba(217,119,6,0.25),transparent_60%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.4),transparent_60%),radial-gradient(circle_at_80%_80%,rgba(180,83,9,0.2),transparent_60%)] pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Key Messaging with Staggered Entrance */}
@@ -64,25 +64,25 @@ export function HeroSection() {
               viewport={{ once: true, amount: 0.2 }}
               className="lg:col-span-7 flex flex-col gap-6"
             >
-              {/* Clean Badge without AI grey background */}
+              {/* Clean Badge in Bleu Pétrole */}
               <motion.div
                 variants={itemVariants}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/10 text-slate-950 text-xs font-bold uppercase tracking-wider w-fit border border-slate-950/15 backdrop-blur-xs shadow-2xs"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f3b5c]/10 text-[#0f3b5c] text-xs font-bold uppercase tracking-wider w-fit border border-[#0f3b5c]/20 backdrop-blur-xs shadow-2xs"
               >
-                <ShieldCheck className="w-4 h-4 text-slate-950 shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-[#0f3b5c] shrink-0" />
                 <span>{heroContent.badge}</span>
               </motion.div>
 
               <motion.h1
                 variants={itemVariants}
-                className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950 leading-tight"
+                className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0a253a] leading-tight"
               >
                 {heroContent.title}
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
-                className="text-base sm:text-lg text-slate-900/90 max-w-2xl leading-relaxed font-medium"
+                className="text-base sm:text-lg text-[#0f3b5c]/95 max-w-2xl leading-relaxed font-medium"
               >
                 {heroContent.description}
               </motion.p>
@@ -97,7 +97,7 @@ export function HeroSection() {
                       ? undefined
                       : {
                         scale: 1.03,
-                        boxShadow: "0 12px 24px -6px rgba(15, 23, 42, 0.4)",
+                        boxShadow: "0 12px 24px -6px rgba(15, 59, 92, 0.4)",
                       }
                   }
                   whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
@@ -105,9 +105,9 @@ export function HeroSection() {
                   href={heroContent.partnerCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-950 text-white hover:bg-slate-900 text-sm font-bold shadow-xl transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0f3b5c] text-white hover:bg-[#22437f] text-sm font-bold shadow-xl transition-all cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-amber-400" />
+                  <Sparkles className="w-4 h-4 text-[#facc15]" />
                   <span>{heroContent.partnerCta.text}</span>
                   <ExternalLink className="w-4 h-4 ml-0.5 opacity-80" />
                 </motion.a>
@@ -126,9 +126,9 @@ export function HeroSection() {
                   href={heroContent.clientCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/90 text-slate-950 hover:bg-white text-sm font-bold transition-all shadow-md border border-slate-950/10 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/95 text-[#0f3b5c] hover:bg-white text-sm font-bold transition-all shadow-md border border-[#0f3b5c]/15 cursor-pointer"
                 >
-                  <Lock className="w-4 h-4 text-slate-950" />
+                  <Lock className="w-4 h-4 text-[#22437f]" />
                   <span>{heroContent.clientCta.text}</span>
                 </motion.a>
               </motion.div>
@@ -136,20 +136,20 @@ export function HeroSection() {
               {/* Integrated pipeline indicators */}
               <motion.div
                 variants={itemVariants}
-                className="flex flex-wrap items-center gap-4 pt-4 text-slate-950/85 text-xs font-bold border-t border-slate-950/15"
+                className="flex flex-wrap items-center gap-4 pt-4 text-[#0f3b5c] text-xs font-bold border-t border-[#0f3b5c]/20"
               >
                 <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-slate-950" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0f3b5c]" />
                   {heroContent.indicators[0]}
                 </span>
 
                 <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-slate-950" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0f3b5c]" />
                   {heroContent.indicators[1]}
                 </span>
 
                 <span className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-slate-950" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0f3b5c]" />
                   {heroContent.indicators[2]}
                 </span>
               </motion.div>
@@ -173,14 +173,14 @@ export function HeroSection() {
                     : {
                       scale: 1.02,
                       y: -3,
-                      boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.15)",
+                      boxShadow: "0 20px 30px -10px rgba(15, 59, 92, 0.15)",
                     }
                 }
                 className="bg-white rounded-2xl p-6 shadow-xl border border-amber-200/80 transition-all hover:shadow-2xl cursor-default relative group flex flex-col items-center text-center"
               >
-                {/* Date Pill Centered */}
-                <div className="flex flex-col items-center justify-center w-24 h-20 rounded-xl bg-slate-950 text-white p-2 text-center shadow-md mb-3">
-                  <span className="font-space-grotesk text-xs uppercase font-bold leading-none text-amber-400">
+                {/* Date Pill in Bleu Pétrole with Jaune Vif Day */}
+                <div className="flex flex-col items-center justify-center w-24 h-20 rounded-xl bg-[#0f3b5c] text-white p-2 text-center shadow-md mb-3">
+                  <span className="font-space-grotesk text-xs uppercase font-bold leading-none text-[#e7b821]">
                     {heroContent.milestones[0].day}
                   </span>
                   <span className="text-xs leading-tight mt-1 opacity-90 text-white">
@@ -191,12 +191,12 @@ export function HeroSection() {
                   </span>
                 </div>
 
-                <div className="inline-flex items-center justify-center gap-1.5 text-amber-800 text-xs font-bold uppercase tracking-wider mb-2">
-                  <Inbox className="w-4 h-4 text-amber-700" />
+                <div className="inline-flex items-center justify-center gap-1.5 text-[#b45309] text-xs font-bold uppercase tracking-wider mb-2">
+                  <Inbox className="w-4 h-4 text-[#b45309]" />
                   <span>{heroContent.milestones[0].tag}</span>
                 </div>
 
-                <h3 className="font-space-grotesk text-lg text-slate-950 font-bold leading-snug mb-2 text-center">
+                <h3 className="font-space-grotesk text-lg text-[#0a253a] font-bold leading-snug mb-2 text-center">
                   {heroContent.milestones[0].title}
                 </h3>
 
@@ -221,14 +221,14 @@ export function HeroSection() {
                     : {
                       scale: 1.02,
                       y: -3,
-                      boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.15)",
+                      boxShadow: "0 20px 30px -10px rgba(15, 59, 92, 0.15)",
                     }
                 }
                 className="bg-white rounded-2xl p-6 shadow-xl border border-amber-200/80 transition-all hover:shadow-2xl cursor-default relative group flex flex-col items-center text-center"
               >
-                {/* Date Pill Centered */}
-                <div className="flex flex-col items-center justify-center w-24 h-20 rounded-xl bg-slate-950 text-white p-2 text-center shadow-md mb-3">
-                  <span className="font-space-grotesk text-xs uppercase font-bold leading-none text-amber-400">
+                {/* Date Pill in Bleu Pétrole with Jaune Vif Day */}
+                <div className="flex flex-col items-center justify-center w-24 h-20 rounded-xl bg-[#0f3b5c] text-white p-2 text-center shadow-md mb-3">
+                  <span className="font-space-grotesk text-xs uppercase font-bold leading-none text-[#e7b821]">
                     {heroContent.milestones[1].day}
                   </span>
                   <span className="text-xs leading-tight mt-1 opacity-90 text-white">
@@ -239,12 +239,12 @@ export function HeroSection() {
                   </span>
                 </div>
 
-                <div className="inline-flex items-center justify-center gap-1.5 text-amber-800 text-xs font-bold uppercase tracking-wider mb-2">
-                  <Send className="w-4 h-4 text-amber-700" />
+                <div className="inline-flex items-center justify-center gap-1.5 text-[#b45309] text-xs font-bold uppercase tracking-wider mb-2">
+                  <Send className="w-4 h-4 text-[#b45309]" />
                   <span>{heroContent.milestones[1].tag}</span>
                 </div>
 
-                <h3 className="font-space-grotesk text-lg text-slate-950 font-bold leading-snug mb-2 text-center">
+                <h3 className="font-space-grotesk text-lg text-[#0a253a] font-bold leading-snug mb-2 text-center">
                   {heroContent.milestones[1].title}
                 </h3>
 

@@ -97,8 +97,8 @@ export function ProblemSolutionSection() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 flex flex-col items-center gap-4"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high border border-secondary/20 text-secondary text-xs font-bold uppercase tracking-wider shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high border border-bleu/20 text-bleu text-xs font-bold uppercase tracking-wider shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-jaune-moutarde" />
             <span>{problemSolutionContent.badge}</span>
           </div>
 
@@ -145,7 +145,7 @@ export function ProblemSolutionSection() {
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeDasharray="6 8"
-                className="opacity-60 text-secondary/40"
+                className="opacity-60 text-bleu/40"
               />
 
               {/* Inner Focus Ring */}
@@ -165,14 +165,14 @@ export function ProblemSolutionSection() {
                     cx="310"
                     cy="310"
                     r="220"
-                    stroke="#3755c3"
+                    stroke="#22437f"
                     strokeWidth="2.5"
                     strokeDasharray="25 180"
                     strokeLinecap="round"
-                    className="opacity-70"
+                    className="opacity-80"
                   />
-                  <circle cx="310" cy="90" r="4.5" fill="#3755c3" />
-                  <circle cx="310" cy="530" r="4" fill="#708cfd" />
+                  <circle cx="310" cy="90" r="4.5" fill="#22437f" />
+                  <circle cx="310" cy="530" r="4" fill="#0891b2" />
                 </g>
               )}
 
@@ -183,7 +183,7 @@ export function ProblemSolutionSection() {
                 y1="200"
                 x2="100"
                 y2="100"
-                stroke={hoveredCard === 0 ? "#3755c3" : "currentColor"}
+                stroke={hoveredCard === 0 ? "#22437f" : "currentColor"}
                 strokeWidth={hoveredCard === 0 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 0 ? "none" : "3 3"}
                 className={cn(
@@ -197,7 +197,7 @@ export function ProblemSolutionSection() {
                 y1="200"
                 x2="520"
                 y2="100"
-                stroke={hoveredCard === 1 ? "#3755c3" : "currentColor"}
+                stroke={hoveredCard === 1 ? "#22437f" : "currentColor"}
                 strokeWidth={hoveredCard === 1 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 1 ? "none" : "3 3"}
                 className={cn(
@@ -211,7 +211,7 @@ export function ProblemSolutionSection() {
                 y1="420"
                 x2="520"
                 y2="520"
-                stroke={hoveredCard === 2 ? "#3755c3" : "currentColor"}
+                stroke={hoveredCard === 2 ? "#22437f" : "currentColor"}
                 strokeWidth={hoveredCard === 2 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 2 ? "none" : "3 3"}
                 className={cn(
@@ -225,7 +225,7 @@ export function ProblemSolutionSection() {
                 y1="420"
                 x2="100"
                 y2="520"
-                stroke={hoveredCard === 3 ? "#3755c3" : "currentColor"}
+                stroke={hoveredCard === 3 ? "#22437f" : "currentColor"}
                 strokeWidth={hoveredCard === 3 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 3 ? "none" : "3 3"}
                 className={cn(
@@ -239,28 +239,28 @@ export function ProblemSolutionSection() {
                 cx="154"
                 cy="154"
                 r={hoveredCard === 0 ? "7" : "5"}
-                fill={hoveredCard === 0 ? "#3755c3" : "#708cfd"}
+                fill={hoveredCard === 0 ? "#e7b821" : "#22437f"}
                 className="transition-all duration-300"
               />
               <circle
                 cx="466"
                 cy="154"
                 r={hoveredCard === 1 ? "7" : "5"}
-                fill={hoveredCard === 1 ? "#3755c3" : "#708cfd"}
+                fill={hoveredCard === 1 ? "#e7b821" : "#22437f"}
                 className="transition-all duration-300"
               />
               <circle
                 cx="466"
                 cy="466"
                 r={hoveredCard === 2 ? "7" : "5"}
-                fill={hoveredCard === 2 ? "#3755c3" : "#708cfd"}
+                fill={hoveredCard === 2 ? "#e7b821" : "#22437f"}
                 className="transition-all duration-300"
               />
               <circle
                 cx="154"
                 cy="466"
                 r={hoveredCard === 3 ? "7" : "5"}
-                fill={hoveredCard === 3 ? "#3755c3" : "#708cfd"}
+                fill={hoveredCard === 3 ? "#e7b821" : "#22437f"}
                 className="transition-all duration-300"
               />
             </svg>
@@ -276,22 +276,23 @@ export function ProblemSolutionSection() {
               className="relative group cursor-pointer"
             >
               {/* Outer decorative breathing ring */}
-              <div className="absolute -inset-3 rounded-full bg-secondary/10 blur-md group-hover:bg-secondary/20 transition-all duration-500" />
+              <div className="absolute -inset-3 rounded-full bg-bleu/10 blur-md group-hover:bg-bleu/20 transition-all duration-500" />
 
               {/* Rotating outer ring accent */}
-              <div className="w-56 h-56 rounded-full border border-secondary/30 p-2.5 bg-surface-container-low/70 backdrop-blur-md flex items-center justify-center shadow-lg transition-transform duration-700 group-hover:scale-105">
+              <div className="w-56 h-56 rounded-full border border-bleu/30 p-2.5 bg-surface-container-low/70 backdrop-blur-md flex items-center justify-center shadow-lg transition-transform duration-700 group-hover:scale-105">
                 {/* Core Hub Body */}
                 <div className="w-full h-full rounded-full bg-surface-container-lowest border border-outline-variant/40 p-4 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
                   {/* Subtle radial sheen */}
-                  <div className="absolute inset-0 bg-radial from-secondary/10 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-radial from-bleu/10 via-transparent to-transparent pointer-events-none" />
 
                   {/* Hub Icon badge */}
-                  <div className="w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center text-secondary mb-2 border border-secondary/20 shadow-2xs">
-                    <Workflow className="w-5 h-5 text-secondary" />
+                  <div className="w-10 h-10 rounded-full bg-bleu/15 flex items-center justify-center text-bleu mb-2 border border-bleu/20 shadow-2xs">
+                    <Workflow className="w-5 h-5 text-bleu" />
                   </div>
 
-                  <span className="font-space-grotesk text-xs uppercase tracking-widest font-bold text-secondary">
-                    TOP-COMPTA
+                  <span className="font-space-grotesk text-xs uppercase tracking-widest font-extrabold">
+                    <span className="text-jaune-moutarde">TOP-</span>
+                    <span className="text-bleu">COMPTA</span>
                   </span>
 
                   <span className="font-space-grotesk text-sm font-bold text-on-surface leading-tight mt-0.5">

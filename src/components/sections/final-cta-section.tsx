@@ -19,8 +19,8 @@ export function FinalCtaSection() {
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden border border-white/5"
         >
-          {/* Luminous ambient floating gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(0,102,153,0.3),transparent_65%)] pointer-events-none" />
+          {/* Luminous ambient floating gradient with Bleu Turquoise & Jaune Vif */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(8,145,178,0.3),transparent_65%),radial-gradient(circle_at_15%_80%,rgba(231,184,33,0.18),transparent_65%)] pointer-events-none" />
 
           <div className="flex flex-col gap-3 max-w-2xl text-center lg:text-left relative z-10">
             <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl font-bold text-on-primary tracking-tight">
@@ -39,9 +39,9 @@ export function FinalCtaSection() {
             >
               <Link
                 href={finalCtaContent.quoteButtonHref}
-                className="px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed hover:brightness-110 text-xs sm:text-sm font-bold shadow-lg transition-all flex items-center gap-2"
+                className="px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover text-xs sm:text-sm font-bold shadow-lg transition-all flex items-center gap-2 border border-jaune-moutarde/30"
               >
-                <FileText className="w-4 h-4" />
+                <FileText className="w-4 h-4 text-[#0b1c30]" />
                 <span>{finalCtaContent.quoteButtonText}</span>
               </Link>
             </motion.div>
@@ -55,7 +55,7 @@ export function FinalCtaSection() {
                 href={finalCtaContent.callButtonHref}
                 className="px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl bg-surface-variant/20 hover:bg-surface-variant/30 text-on-primary text-xs sm:text-sm font-bold transition-all flex items-center gap-2 backdrop-blur-sm border border-white/10"
               >
-                <Phone className="w-4 h-4 text-secondary-fixed" />
+                <Phone className="w-4 h-4 text-jaune-citron" />
                 <span>{finalCtaContent.callButtonText}</span>
               </a>
             </motion.div>

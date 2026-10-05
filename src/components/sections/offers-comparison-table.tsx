@@ -152,8 +152,8 @@ export function OffersComparisonTable({ showTitle = true }: OffersComparisonTabl
                     )}
                   >
                     {col.recommended && (
-                      <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FFC439] text-[#111111] text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                        <Star className="w-3 h-3 fill-current" />
+                      <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-jaune-vif text-[#0b1c30] text-[10px] font-bold uppercase tracking-wider mb-1.5 border border-jaune-moutarde/25">
+                        <Star className="w-3 h-3 fill-current text-jaune-moutarde" />
                         <span>Recommandé</span>
                       </div>
                     )}
@@ -193,8 +193,8 @@ export function OffersComparisonTable({ showTitle = true }: OffersComparisonTabl
                         className={cn(
                           "w-full py-1.5 px-2 rounded-lg text-[11px] font-bold flex items-center justify-center gap-1 shadow-xs cursor-pointer transition-all",
                           col.recommended
-                            ? "bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A]"
-                            : "bg-[#003087] text-white hover:bg-[#00215c]"
+                            ? "bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover"
+                            : "bg-bleu text-white hover:bg-bleu-hover"
                         )}
                       >
                         <Lock className="w-3 h-3" />

@@ -122,7 +122,7 @@ export function QuoteFormSection() {
               className="w-full bg-primary-container text-on-primary rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between"
             >
               <div className="flex flex-col gap-6">
-                <span className="px-3 py-1 rounded-md bg-secondary text-on-secondary text-xs font-bold uppercase tracking-wider w-fit">
+                <span className="px-3 py-1 rounded-md bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider w-fit border border-jaune-moutarde/30">
                   {quoteReassurance.badge}
                 </span>
 
@@ -137,9 +137,9 @@ export function QuoteFormSection() {
                 <div className="flex flex-col gap-5 pt-6 border-t border-surface-variant/20">
                   <a
                     href={`tel:${quoteReassurance.phoneRaw}`}
-                    className="flex items-start gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
+                    className="flex items-start gap-3 text-on-primary hover:text-jaune-vif transition-colors"
                   >
-                    <Phone className="w-5 h-5 text-secondary-fixed shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-bleu-clair shrink-0 mt-0.5" />
                     <div>
                       <div className="font-space-grotesk text-base font-bold">
                         {quoteReassurance.phone}
@@ -152,9 +152,9 @@ export function QuoteFormSection() {
 
                   <a
                     href={`mailto:${quoteReassurance.email}`}
-                    className="flex items-center gap-3 text-on-primary hover:text-secondary-fixed transition-colors"
+                    className="flex items-center gap-3 text-on-primary hover:text-jaune-vif transition-colors"
                   >
-                    <Mail className="w-5 h-5 text-secondary-fixed shrink-0" />
+                    <Mail className="w-5 h-5 text-bleu-clair shrink-0" />
                     <div>
                       <div className="font-space-grotesk text-sm sm:text-base font-bold">
                         {quoteReassurance.email}
@@ -539,7 +539,7 @@ export function QuoteFormSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-secondary text-on-secondary hover:bg-on-secondary-container transition-all text-sm font-bold shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 active:scale-[0.97]"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-bleu text-white hover:bg-bleu-petrole transition-all text-sm font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 active:scale-[0.97]"
                   >
                     {isSubmitting ? (
                       <>

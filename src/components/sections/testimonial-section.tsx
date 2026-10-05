@@ -12,7 +12,7 @@ export function TestimonialSection() {
     <section className="w-full py-16 lg:py-24 bg-surface">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 flex flex-col items-center">
-          <span className="text-secondary text-xs sm:text-sm font-bold tracking-widest uppercase mb-2">
+          <span className="text-bleu text-xs sm:text-sm font-bold tracking-widest uppercase mb-2">
             {testimonialContent.badge}
           </span>
           <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold tracking-tight">
@@ -26,13 +26,13 @@ export function TestimonialSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/5"
+          className="bg-primary-container text-on-primary rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden border border-white/10"
         >
-          {/* Subtle static ambient light gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(0,102,153,0.25),transparent_65%)] pointer-events-none" />
+          {/* Subtle static ambient light gradient with Turquoise and Gold */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(8,145,178,0.25),transparent_65%),radial-gradient(circle_at_15%_85%,rgba(231,184,33,0.12),transparent_60%)] pointer-events-none" />
 
-          {/* Staggered Pop Stars */}
-          <div className="flex items-center gap-1.5 text-tertiary-fixed mb-4 sm:mb-6 relative z-10">
+          {/* Staggered Pop Stars in Jaune Vif */}
+          <div className="flex items-center gap-1.5 text-jaune-vif mb-4 sm:mb-6 relative z-10">
             {[1, 2, 3, 4, 5].map((star, i) => (
               <motion.div
                 key={star}
@@ -45,7 +45,7 @@ export function TestimonialSection() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <Star className="w-5 h-5 fill-current drop-shadow-xs" />
+                <Star className="w-5 h-5 fill-current drop-shadow-xs text-jaune-vif" />
               </motion.div>
             ))}
           </div>
@@ -57,7 +57,7 @@ export function TestimonialSection() {
                 : { y: [0, -4, 0] }
             }
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="font-space-grotesk text-tertiary-fixed/30 text-5xl sm:text-6xl leading-none mb-2 select-none"
+            className="font-space-grotesk text-jaune-vif/25 text-5xl sm:text-6xl leading-none mb-2 select-none"
           >
             &ldquo;
           </motion.div>
@@ -90,7 +90,7 @@ export function TestimonialSection() {
             <motion.div
               whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
               transition={{ type: "spring", stiffness: 350, damping: 20 }}
-              className="text-xs text-secondary-fixed bg-surface-variant/20 px-3.5 py-1.5 rounded-lg max-w-fit font-medium border border-white/5"
+              className="text-xs text-bleu-clair bg-bleu-clair/10 px-3.5 py-1.5 rounded-lg max-w-fit font-semibold border border-bleu-clair/20"
             >
               {testimonialContent.companies}
             </motion.div>

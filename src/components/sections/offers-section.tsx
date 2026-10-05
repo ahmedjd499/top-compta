@@ -115,8 +115,8 @@ export function OffersSection() {
                   className={cn(
                     "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5",
                     isSelected
-                      ? "bg-secondary text-on-secondary shadow-md scale-100"
-                      : "text-on-surface hover:text-secondary hover:bg-surface-container-high"
+                      ? "bg-bleu text-white shadow-md scale-100"
+                      : "text-on-surface hover:text-bleu hover:bg-surface-container-high"
                   )}
                   aria-pressed={isSelected}
                 >
@@ -126,7 +126,7 @@ export function OffersSection() {
                       className={cn(
                         "text-[10px] px-1.5 py-0.5 rounded-full font-bold",
                         isSelected
-                          ? "bg-on-secondary text-secondary"
+                          ? "bg-jaune-vif text-[#0b1c30]"
                           : "bg-emerald-100 text-emerald-800"
                       )}
                     >
@@ -177,27 +177,27 @@ export function OffersSection() {
                 className={cn(
                   "bg-surface-container-lowest rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative border group",
                   isFeatured
-                    ? "border-secondary/60 shadow-lg ring-2 ring-secondary/20 lg:-translate-y-1"
+                    ? "border-bleu shadow-lg ring-2 ring-bleu/20 lg:-translate-y-1"
                     : "border-outline-variant/30"
                 )}
               >
                 {/* Featured Badge */}
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#FFC439] text-[#111111] text-xs px-3.5 py-1 rounded-full shadow-md font-bold tracking-wider uppercase flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 fill-current" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-jaune-vif text-[#0b1c30] text-xs px-3.5 py-1 rounded-full shadow-md font-bold tracking-wider uppercase flex items-center gap-1 border border-jaune-moutarde/25">
+                    <Star className="w-3.5 h-3.5 fill-current text-jaune-moutarde" />
                     <span>Recommandé</span>
                   </div>
                 )}
 
                 <div className="flex flex-col items-center text-center gap-3.5">
                   <div className="flex flex-col items-center text-center">
-                    <span className="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-1">
+                    <span className="text-[11px] font-bold text-bleu uppercase tracking-wider block mb-1">
                       {plan.tag}
                     </span>
-                    <h3 className="font-space-grotesk text-xl font-bold text-on-surface group-hover:text-secondary transition-colors text-center">
+                    <h3 className="font-space-grotesk text-xl font-bold text-on-surface group-hover:text-bleu transition-colors text-center">
                       {plan.name}
                     </h3>
-                    <div className="mt-2 h-0.5 w-8 rounded-full bg-secondary/70 mx-auto"></div>
+                    <div className={cn("mt-2 h-0.5 w-8 rounded-full mx-auto", isFeatured ? "bg-jaune-vif" : "bg-bleu/60")}></div>
                   </div>
 
                   <p className="text-xs sm:text-sm text-on-surface-variant min-h-[44px] leading-relaxed text-center">
@@ -214,7 +214,7 @@ export function OffersSection() {
                           <span
                             className={cn(
                               "font-space-grotesk text-4xl font-extrabold tracking-tight",
-                              isFeatured ? "text-secondary" : "text-on-surface"
+                              isFeatured ? "text-bleu" : "text-on-surface"
                             )}
                           >
                             {displayPrice} €
@@ -269,7 +269,7 @@ export function OffersSection() {
                         className={cn(
                           "w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold text-center inline-flex items-center justify-center gap-1.5 transition-colors cursor-pointer",
                           isFeatured
-                            ? "bg-secondary text-on-secondary hover:bg-on-secondary-container shadow-md"
+                            ? "bg-bleu text-white hover:bg-bleu-petrole shadow-md"
                             : "bg-surface-container text-on-surface hover:bg-surface-container-high"
                         )}
                       >
@@ -293,8 +293,8 @@ export function OffersSection() {
                       className={cn(
                         "w-full py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer",
                         isFeatured
-                          ? "bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A]"
-                          : "bg-[#003087] text-white hover:bg-[#00215c]"
+                          ? "bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover shadow-sm"
+                          : "bg-bleu text-white hover:bg-bleu-hover shadow-xs"
                       )}
                     >
                       <Lock className="w-3.5 h-3.5" />
@@ -311,18 +311,18 @@ export function OffersSection() {
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <Link
             href="/offres"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-secondary text-on-secondary hover:bg-on-secondary-container font-bold text-sm shadow-sm transition-all group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-bleu text-white hover:bg-bleu-petrole font-bold text-sm shadow-sm transition-all group"
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-4 h-4 text-jaune-citron" />
             <span>Voir toutes nos offres</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link
             href="/offres/comparatif"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-secondary hover:bg-surface-container font-bold text-sm shadow-xs transition-all group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-bleu hover:text-bleu-petrole hover:bg-surface-container font-bold text-sm shadow-xs transition-all group"
           >
-            <Layers className="w-4 h-4" />
+            <Layers className="w-4 h-4 text-bleu" />
             <span>Consulter le grand tableau comparatif</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

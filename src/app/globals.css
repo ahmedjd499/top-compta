@@ -1,6 +1,65 @@
 @import "tailwindcss";
 
 @theme {
+  /* ======================================================== */
+  /* NUANCES OFFICIELLES DU LOGO TOP-COMPTA                   */
+  /* ======================================================== */
+
+  /* --- PALETTE 1 : LES BLEUS (Logo & Nuances) --- */
+  /* Bleu corporate officiel du logo : confiance & autorité */
+  --color-bleu: #22437f;
+  --color-bleu-hover: #1b3666;
+  --color-bleu-active: #142a50;
+
+  /* Bleu clair : cartes aérées, respiration, reflets & badges légers */
+  --color-bleu-clair: #60a5fa;
+  --color-bleu-clair-hover: #3b82f6;
+  --color-bleu-clair-soft: #dbeafe;
+  --color-bleu-clair-ice: #eff6ff;
+
+  /* Bleu pétrole : profondeur institutionnelle, fiducière & sérieux */
+  --color-bleu-petrole: #0f3b5c;
+  --color-bleu-petrole-dark: #0a253a;
+  --color-bleu-petrole-light: #164e63;
+  --color-bleu-petrole-soft: #ecfeff;
+
+  /* Bleu turquoise : innovation fintech, GED, facturation électronique */
+  --color-bleu-turquoise: #0891b2;
+  --color-bleu-turquoise-bright: #06b6d4;
+  --color-bleu-turquoise-soft: #cffafe;
+  --color-bleu-turquoise-ice: #f0fdfa;
+
+  /* --- PALETTE 2 : LES JAUNES (Logo & Nuances) --- */
+  /* Jaune vif : jaune doré solaire emblématique du logo TOP */
+  --color-jaune-vif: #e7b821;
+  --color-jaune-vif-hover: #d4a515;
+  --color-jaune-vif-glow: #f59e0b;
+
+  /* Jaune moutarde : chaleur, autorité, badges d'expertise & contraste élevé */
+  --color-jaune-moutarde: #b45309;
+  --color-jaune-moutarde-dark: #92400e;
+  --color-jaune-moutarde-light: #d97706;
+
+  /* Jaune citron : fraîcheur visuelle, étincelles d'innovation & alertes positives */
+  --color-jaune-citron: #facc15;
+  --color-jaune-citron-light: #fef08a;
+
+  /* Jaune clair : fonds d'annonces statutaires, encadrés doux & cartes réconfortantes */
+  --color-jaune-clair: #fef9c3;
+  --color-jaune-clair-soft: #fffbeb;
+  --color-jaune-clair-pale: #fefce8;
+
+  /* --- ALIASES ANGLOPHONES / BRAND --- */
+  --color-brand-blue: #22437f;
+  --color-brand-blue-light: #60a5fa;
+  --color-brand-blue-petrol: #0f3b5c;
+  --color-brand-blue-turquoise: #0891b2;
+  --color-brand-yellow: #e7b821;
+  --color-brand-yellow-mustard: #b45309;
+  --color-brand-yellow-lemon: #facc15;
+  --color-brand-yellow-light: #fef9c3;
+
+  /* --- SURFACES ET CANVAS --- */
   --color-surface: #f8f9ff;
   --color-surface-dim: #cbdbf5;
   --color-surface-bright: #f8f9ff;
@@ -16,39 +75,47 @@
   --color-outline: #76777d;
   --color-outline-variant: #c6c6cd;
   --color-surface-tint: #565e74;
-  --color-primary: #000000;
-  --color-primary-sovereign: #0f172a;
+  --color-surface-variant: #d3e4fe;
+  --color-background: #f8f9ff;
+  --color-on-background: #0b1c30;
+
+  /* --- RÔLES SÉMANTIQUES ALIGNÉS SUR LE LOGO --- */
+  --color-primary: #22437f;
+  --color-primary-sovereign: #0b1c30;
   --color-on-primary: #ffffff;
-  --color-primary-container: #131b2e;
-  --color-on-primary-container: #7c839b;
+  --color-primary-container: #0f2b54;
+  --color-on-primary-container: #dce9ff;
   --color-inverse-primary: #bec6e0;
-  --color-secondary: #3755c3;
+
+  --color-secondary: #2558a3;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #708cfd;
-  --color-on-secondary-container: #00217a;
-  --color-tertiary: #000000;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #2f1500;
-  --color-on-tertiary-container: #c76c00;
+  --color-secondary-container: #dbeafe;
+  --color-on-secondary-container: #173bab;
+
+  --color-tertiary: #e7b821;
+  --color-on-tertiary: #0b1c30;
+  --color-tertiary-container: #fffbeb;
+  --color-on-tertiary-container: #92400e;
+
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
+
   --color-primary-fixed: #dae2fd;
   --color-primary-fixed-dim: #bec6e0;
   --color-on-primary-fixed: #131b2e;
   --color-on-primary-fixed-variant: #3f465c;
+
   --color-secondary-fixed: #dde1ff;
   --color-secondary-fixed-dim: #b8c4ff;
   --color-on-secondary-fixed: #001453;
   --color-on-secondary-fixed-variant: #173bab;
-  --color-tertiary-fixed: #ffdcc3;
-  --color-tertiary-fixed-dim: #ffb77d;
-  --color-on-tertiary-fixed: #2f1500;
-  --color-on-tertiary-fixed-variant: #6e3900;
-  --color-background: #f8f9ff;
-  --color-on-background: #0b1c30;
-  --color-surface-variant: #d3e4fe;
+
+  --color-tertiary-fixed: #fef3c7;
+  --color-tertiary-fixed-dim: #fde68a;
+  --color-on-tertiary-fixed: #78350f;
+  --color-on-tertiary-fixed-variant: #92400e;
 
   --font-space-grotesk: "Space Grotesk", system-ui, -apple-system, sans-serif;
   --font-plus-jakarta: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;

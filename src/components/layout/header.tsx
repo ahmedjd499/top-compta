@@ -43,45 +43,45 @@ export function Header() {
     <>
       {/* Tier 1 & Tier 2: Scrollable Top Bars (scroll with document flow) */}
       <div className="w-full relative z-40">
-        {/* Tier 1: Urgency Legal Banner */}
-        <div className="bg-primary-container text-on-primary text-xs py-2 px-4 sm:px-6">
+        {/* Tier 1: Urgency Legal Banner (Jaune) */}
+        <div className="bg-jaune-vif text-[#0b1c30] text-xs py-2 px-4 sm:px-6 border-b border-jaune-moutarde/20 shadow-xs">
           <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4 text-tertiary-fixed shrink-0" />
-              <span className="font-semibold text-tertiary-fixed uppercase tracking-wider text-xs">
+              <AlertTriangle className="w-4 h-4 text-[#b45309] shrink-0" />
+              <span className="font-extrabold text-[#b45309] uppercase tracking-wider text-xs">
                 {topBannerContent.tag}
               </span>
-              <span className="line-clamp-1">{topBannerContent.message}</span>
+              <span className="line-clamp-1 font-medium text-[#0b1c30]">{topBannerContent.message}</span>
             </div>
             <Link
               href={topBannerContent.linkHref}
-              className="inline-flex items-center gap-1 text-xs font-semibold text-tertiary-fixed hover:text-on-primary transition-colors underline underline-offset-2 shrink-0"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#0b1c30] hover:text-[#b45309] transition-colors underline underline-offset-2 shrink-0"
             >
               {topBannerContent.linkText}
             </Link>
           </div>
         </div>
 
-        {/* Tier 2: Utility Strip (Desktop/Tablet) */}
-        <div className="bg-surface-container-low text-on-surface-variant text-xs py-1.5 px-4 sm:px-6 hidden sm:block border-b border-outline-variant/20">
+        {/* Tier 2: Utility Strip (Bleu) */}
+        <div className="bg-bleu text-white text-xs py-1.5 px-4 sm:px-6 hidden sm:block border-b border-bleu-hover/40 shadow-xs">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-6">
               <a
                 href={siteConfig.phoneHref}
-                className="inline-flex items-center gap-1.5 font-bold text-on-surface hover:text-secondary transition-colors"
+                className="inline-flex items-center gap-1.5 font-bold text-white hover:text-jaune-vif transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-secondary" />
+                <Phone className="w-3.5 h-3.5 text-jaune-vif" />
                 <span>{headerContactInfo.phone}</span>
               </a>
               <a
                 href={siteConfig.emailHref}
-                className="inline-flex items-center gap-1.5 hover:text-on-surface transition-colors"
+                className="inline-flex items-center gap-1.5 text-white/90 hover:text-white transition-colors"
               >
-                <Mail className="w-3.5 h-3.5" />
+                <Mail className="w-3.5 h-3.5 text-white/80" />
                 <span>{headerContactInfo.email}</span>
               </a>
-              <span className="inline-flex items-center gap-1.5 text-on-surface-variant">
-                <span className="w-2 h-2 rounded-full bg-secondary"></span>
+              <span className="inline-flex items-center gap-1.5 text-white/85">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span>{headerContactInfo.schedule}</span>
               </span>
             </div>
@@ -90,26 +90,26 @@ export function Header() {
                 href={siteConfig.trustpilotUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-on-surface font-semibold hover:text-secondary transition-colors"
+                className="flex items-center gap-1 text-white font-semibold hover:text-jaune-vif transition-colors"
               >
-                <div className="flex items-center text-amber-500">
+                <div className="flex items-center text-jaune-vif">
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <div className="relative w-3.5 h-3.5">
                     {/* Background unfilled star */}
-                    <Star className="w-3.5 h-3.5 text-amber-500/25 fill-amber-500/20" />
+                    <Star className="w-3.5 h-3.5 text-white/30 fill-white/20" />
                     {/* 60% filled overlay star for 4.6/5 rating */}
                     <div className="absolute inset-0 w-[60%] overflow-hidden">
-                      <Star className="w-3.5 h-3.5 fill-current text-amber-500 min-w-[14px]" />
+                      <Star className="w-3.5 h-3.5 fill-current text-jaune-vif min-w-[14px]" />
                     </div>
                   </div>
                 </div>
                 <span>{headerContactInfo.trustpilotScore}</span>
               </a>
-              <span className="text-outline-variant">|</span>
-              <span className="text-on-surface-variant font-medium">
+              <span className="text-white/30">|</span>
+              <span className="text-white/85 font-medium">
                 {headerContactInfo.certifications}
               </span>
             </div>
@@ -226,7 +226,7 @@ export function Header() {
           <div className="flex items-center gap-2.5 sm:gap-3">
             <Link
               href="/#contact"
-              className="h-9 sm:h-10 inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 rounded-lg bg-secondary text-on-secondary hover:bg-on-secondary-container text-xs sm:text-sm font-bold shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all"
+              className="h-9 sm:h-10 inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 rounded-lg bg-bleu text-white hover:bg-bleu-petrole text-xs sm:text-sm font-bold shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all"
             >
               <FileText className="w-4 h-4" />
               <span>Demander un devis</span>
@@ -236,9 +236,9 @@ export function Header() {
               href={siteConfig.clientPortalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex h-9 sm:h-10 items-center justify-center gap-1.5 px-4 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs sm:text-sm font-semibold shadow-xs border border-outline-variant/30 hover:border-secondary/40 transition-colors"
+              className="hidden sm:inline-flex h-9 sm:h-10 items-center justify-center gap-1.5 px-4 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs sm:text-sm font-semibold shadow-xs border border-outline-variant/30 hover:border-bleu/40 transition-colors"
             >
-              <User className="w-3.5 h-3.5 text-secondary" />
+              <User className="w-3.5 h-3.5 text-bleu" />
               <span>Espace Client</span>
             </a>
 

@@ -245,8 +245,8 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                   {formula.tag}
                 </span>
                 {formula.recommended && (
-                  <span className="px-3 py-1 rounded-full bg-[#FFC439] text-[#111111] text-xs font-bold uppercase tracking-wider flex items-center gap-1 shadow-xs">
-                    <Sparkles className="w-3.5 h-3.5 fill-current" />
+                  <span className="px-3 py-1 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider flex items-center gap-1 shadow-xs border border-jaune-moutarde/25">
+                    <Sparkles className="w-3.5 h-3.5 fill-current text-jaune-moutarde" />
                     Recommandé
                   </span>
                 )}
@@ -281,7 +281,7 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
             <div className="flex flex-col gap-5 relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#ffd700]" />
+                  <Sparkles className="w-4 h-4 text-jaune-citron" />
                   <strong className="text-sm sm:text-base font-bold text-white font-space-grotesk">
                     Tarifs dégressifs ! Maîtrisez votre budget !
                   </strong>
@@ -453,9 +453,9 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                   <button
                     type="button"
                     onClick={() => setPaypalOpen(true)}
-                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                   >
-                    <Lock className="w-4 h-4 text-[#003087]" />
+                    <Lock className="w-4 h-4 text-bleu" />
                     <span>Payer {activePriceTotal} € via PayPal</span>
                   </button>
 
@@ -494,9 +494,9 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                     <button
                       type="button"
                       onClick={() => setPaypalOpen(true)}
-                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                     >
-                      <Lock className="w-4 h-4 text-[#003087]" />
+                      <Lock className="w-4 h-4 text-bleu" />
                       <span>Payer {formula.price} € via PayPal</span>
                     </button>
                   ) : (
@@ -712,9 +712,9 @@ export function FormulaDetailView({ formula }: FormulaDetailViewProps) {
                 <button
                   type="button"
                   onClick={() => setPaypalOpen(true)}
-                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#FFC439] text-[#111111] hover:bg-[#F4B41A] font-extrabold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
+                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-jaune-vif text-[#0b1c30] hover:bg-jaune-vif-hover font-extrabold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
-                  <Lock className="w-4 h-4 text-[#003087]" />
+                  <Lock className="w-4 h-4 text-bleu" />
                   <span>Payer {activePriceTotal} € via PayPal</span>
                 </button>
 

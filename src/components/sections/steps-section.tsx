@@ -35,13 +35,13 @@ export function StepsSection() {
   const getStepIcon = (index: number) => {
     switch (index) {
       case 0:
-        return <ClipboardList className="w-5 h-5 text-secondary" />;
+        return <ClipboardList className="w-5 h-5 text-bleu" />;
       case 1:
-        return <FileCheck className="w-5 h-5 text-secondary" />;
+        return <FileCheck className="w-5 h-5 text-bleu-petrole" />;
       case 2:
-        return <FolderUp className="w-5 h-5 text-secondary" />;
+        return <FolderUp className="w-5 h-5 text-bleu-turquoise" />;
       default:
-        return <TrendingUp className="w-5 h-5 text-secondary" />;
+        return <TrendingUp className="w-5 h-5 text-jaune-moutarde" />;
     }
   };
 
@@ -176,31 +176,31 @@ export function StepsSection() {
                       cx="380"
                       cy="380"
                       r="365"
-                      stroke="#3755c3"
+                      stroke="#22437f"
                       strokeWidth="2.5"
                       strokeDasharray="40 240"
                       strokeLinecap="round"
                       className="opacity-80"
                     />
-                    <circle cx="380" cy="15" r="5" fill="#3755c3" />
-                    <circle cx="745" cy="380" r="4.5" fill="#708cfd" />
-                    <circle cx="380" cy="745" r="4.5" fill="#3755c3" />
-                    <circle cx="15" cy="380" r="4.5" fill="#708cfd" />
+                    <circle cx="380" cy="15" r="5" fill="#22437f" />
+                    <circle cx="745" cy="380" r="4.5" fill="#0891b2" />
+                    <circle cx="380" cy="745" r="4.5" fill="#e7b821" />
+                    <circle cx="15" cy="380" r="4.5" fill="#60a5fa" />
                   </g>
                 )}
               </svg>
 
               {/* Directional Flow Arrows at 4 cardinal axes */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-secondary/40 flex items-center justify-center shadow-xs text-secondary">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
-              <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-secondary/40 flex items-center justify-center shadow-xs text-secondary">
+              <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
                 <ArrowRight className="w-3.5 h-3.5 rotate-90" />
               </div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-secondary/40 flex items-center justify-center shadow-xs text-secondary">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
                 <ArrowRight className="w-3.5 h-3.5 rotate-180" />
               </div>
-              <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-secondary/40 flex items-center justify-center shadow-xs text-secondary">
+              <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
                 <ArrowRight className="w-3.5 h-3.5 -rotate-90" />
               </div>
             </div>
@@ -210,19 +210,19 @@ export function StepsSection() {
               <motion.div
                 initial={shouldReduceMotion ? undefined : { scale: 0.85, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-container-lowest border-2 border-secondary/40 shadow-xl flex flex-col items-center justify-center text-center p-1.5 relative overflow-hidden"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-container-lowest border-2 border-bleu/40 shadow-xl flex flex-col items-center justify-center text-center p-1.5 relative overflow-hidden"
               >
                 {/* Subtle spinning halo ring */}
-                <div className="absolute inset-0 rounded-full border border-dashed border-secondary/30 animate-[spin_25s_linear_infinite]" />
+                <div className="absolute inset-0 rounded-full border border-dashed border-bleu/30 animate-[spin_25s_linear_infinite]" />
 
                 <RotateCw
                   className={cn(
-                    "w-3.5 h-3.5 text-secondary mb-0.5",
+                    "w-3.5 h-3.5 text-bleu mb-0.5",
                     !shouldReduceMotion && "animate-[spin_20s_linear_infinite]"
                   )}
                 />
 
-                <span className="font-space-grotesk text-[9px] font-bold text-secondary uppercase tracking-wider leading-none">
+                <span className="font-space-grotesk text-[9px] font-bold text-bleu uppercase tracking-wider leading-none">
                   0{currentDisplayedIndex + 1} / 04
                 </span>
 
@@ -538,8 +538,8 @@ function CenteredQuadrantCard({
         quadrantStyles.container,
         quadrantStyles.innerOffset,
         isActive
-          ? "bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-surface-container border-secondary ring-2 ring-secondary/25 shadow-xl z-10 scale-[1.015]"
-          : "bg-surface-container-lowest/95 border-outline-variant/30 hover:border-secondary/50 hover:shadow-md"
+          ? "bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-surface-container border-bleu ring-2 ring-bleu/25 shadow-xl z-10 scale-[1.015]"
+          : "bg-surface-container-lowest/95 border-outline-variant/30 hover:border-bleu/50 hover:shadow-md"
       )}
     >
       {/* Centered Content Column */}
@@ -550,8 +550,8 @@ function CenteredQuadrantCard({
             className={cn(
               "w-7 h-7 sm:w-8 sm:h-8 rounded-full font-space-grotesk text-xs font-bold flex items-center justify-center transition-all border",
               isActive
-                ? "bg-secondary text-on-secondary border-secondary shadow-xs scale-105"
-                : "bg-surface-container text-secondary border-secondary/25"
+                ? "bg-bleu text-white border-bleu shadow-xs scale-105"
+                : "bg-surface-container text-bleu border-bleu/25"
             )}
           >
             {step.formattedNumber}
@@ -560,7 +560,7 @@ function CenteredQuadrantCard({
           <div
             className={cn(
               "w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center transition-transform",
-              isActive ? "bg-secondary/15" : "bg-surface-container"
+              isActive ? "bg-bleu/15" : "bg-surface-container"
             )}
           >
             {icon}
@@ -571,7 +571,7 @@ function CenteredQuadrantCard({
         <h3
           className={cn(
             "font-space-grotesk text-sm sm:text-base font-bold transition-colors leading-snug",
-            isActive ? "text-secondary" : "text-on-surface"
+            isActive ? "text-bleu" : "text-on-surface"
           )}
         >
           {step.title}
