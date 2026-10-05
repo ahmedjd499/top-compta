@@ -82,22 +82,24 @@ export function StepsSection() {
   return (
     <section
       aria-labelledby="steps-section-heading"
-      className="w-full py-16 lg:py-24 bg-surface relative overflow-hidden"
+      className="w-full py-16 lg:py-24 bg-gradient-to-b from-blue-50/70 via-amber-50/30 to-slate-50 border-y border-bleu/15 relative overflow-hidden"
     >
-      {/* Background ambient circular glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] bg-secondary/5 rounded-full blur-3xl pointer-events-none -z-0" />
+      {/* Background ambient circular glow - bleu and jaune brand accents */}
+      <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-bleu/10 rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-jaune-vif/15 rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] bg-bleu-turquoise/5 rounded-full blur-3xl pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 lg:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container text-secondary text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs border border-secondary/20">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm border border-jaune-moutarde/30">
+            <Sparkles className="w-3.5 h-3.5 text-jaune-moutarde" />
             <span>{stepsContent.badge}</span>
           </div>
 
           <h2
             id="steps-section-heading"
-            className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold tracking-tight leading-tight mb-4"
+            className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-bleu-petrole font-extrabold tracking-tight leading-tight mb-4"
           >
             {stepsContent.title}
           </h2>
@@ -107,7 +109,7 @@ export function StepsSection() {
           </p>
 
           {/* Interactive Step Navigator Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8 p-1.5 rounded-full bg-surface-container-low border border-outline-variant/30 shadow-xs">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8 p-1.5 rounded-full bg-white/95 border border-bleu/20 shadow-md">
             {stepsWithPortions.map((item, idx) => (
               <button
                 key={item.stepNumber}
@@ -119,8 +121,8 @@ export function StepsSection() {
                 className={cn(
                   "px-3.5 py-1.5 rounded-full text-xs font-semibold font-space-grotesk transition-all duration-300 flex items-center gap-1.5",
                   currentDisplayedIndex === idx
-                    ? "bg-secondary text-on-secondary shadow-xs scale-102"
-                    : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container"
+                    ? "bg-bleu text-white shadow-md scale-102"
+                    : "text-bleu-petrole hover:text-bleu hover:bg-blue-50/80"
                 )}
               >
                 <span>{item.shortLabel}</span>
@@ -132,7 +134,7 @@ export function StepsSection() {
               type="button"
               onClick={() => setIsAutoPlaying((prev) => !prev)}
               aria-label={isAutoPlaying ? "Mettre en pause le cycle" : "Démarrer le cycle"}
-              className="p-1.5 rounded-full text-secondary hover:bg-surface-container transition-colors ml-1"
+              className="p-1.5 rounded-full bg-jaune-vif/20 text-[#0b1c30] hover:bg-jaune-vif hover:text-[#0b1c30] transition-colors ml-1"
               title={isAutoPlaying ? "Pause" : "Lecture automatique"}
             >
               {isAutoPlaying ? (
@@ -191,16 +193,16 @@ export function StepsSection() {
               </svg>
 
               {/* Directional Flow Arrows at 4 cardinal axes */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-bleu text-white border-2 border-white flex items-center justify-center shadow-md">
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
-              <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
+              <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-jaune-vif text-[#0b1c30] border-2 border-white flex items-center justify-center shadow-md">
                 <ArrowRight className="w-3.5 h-3.5 rotate-90" />
               </div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-7 h-7 rounded-full bg-bleu text-white border-2 border-white flex items-center justify-center shadow-md">
                 <ArrowRight className="w-3.5 h-3.5 rotate-180" />
               </div>
-              <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-surface-container-lowest border border-bleu/40 flex items-center justify-center shadow-xs text-bleu">
+              <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-jaune-vif text-[#0b1c30] border-2 border-white flex items-center justify-center shadow-md">
                 <ArrowRight className="w-3.5 h-3.5 -rotate-90" />
               </div>
             </div>
@@ -210,10 +212,10 @@ export function StepsSection() {
               <motion.div
                 initial={shouldReduceMotion ? undefined : { scale: 0.85, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-container-lowest border-2 border-bleu/40 shadow-xl flex flex-col items-center justify-center text-center p-1.5 relative overflow-hidden"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-2 border-bleu shadow-xl flex flex-col items-center justify-center text-center p-1.5 relative overflow-hidden"
               >
-                {/* Subtle spinning halo ring */}
-                <div className="absolute inset-0 rounded-full border border-dashed border-bleu/30 animate-[spin_25s_linear_infinite]" />
+                {/* Spinning decorative ring with bleu/jaune dashes */}
+                <div className="absolute inset-0 rounded-full border border-dashed border-jaune-vif/60 animate-[spin_25s_linear_infinite]" />
 
                 <RotateCw
                   className={cn(
@@ -222,12 +224,12 @@ export function StepsSection() {
                   )}
                 />
 
-                <span className="font-space-grotesk text-[9px] font-bold text-bleu uppercase tracking-wider leading-none">
+                <span className="font-space-grotesk text-[10px] font-extrabold text-bleu uppercase tracking-wider leading-none">
                   0{currentDisplayedIndex + 1} / 04
                 </span>
 
-                <span className="text-[7px] text-on-surface-variant font-medium mt-0.5">
-                  360°
+                <span className="text-[8px] bg-jaune-vif text-[#0b1c30] font-bold px-1.5 py-0.2 rounded-full mt-0.5">
+                  Flux 360°
                 </span>
               </motion.div>
             </div>
@@ -328,8 +330,8 @@ export function StepsSection() {
                   className={cn(
                     "rounded-tl-full rounded-tr-md rounded-bl-md rounded-br-[20px] p-2.5 flex items-start justify-start transition-all border",
                     activeStep === 0
-                      ? "bg-secondary text-on-secondary border-secondary shadow-md scale-102"
-                      : "bg-surface-container-lowest border-outline-variant/30 text-on-surface"
+                      ? "bg-bleu text-white border-bleu shadow-md scale-102"
+                      : "bg-white border-bleu/20 text-bleu-petrole"
                   )}
                 >
                   <span className="text-xs font-bold font-space-grotesk">01</span>
@@ -345,8 +347,8 @@ export function StepsSection() {
                   className={cn(
                     "rounded-tr-full rounded-tl-md rounded-br-md rounded-bl-[20px] p-2.5 flex items-start justify-end transition-all border",
                     activeStep === 1
-                      ? "bg-secondary text-on-secondary border-secondary shadow-md scale-102"
-                      : "bg-surface-container-lowest border-outline-variant/30 text-on-surface"
+                      ? "bg-jaune-vif text-[#0b1c30] border-jaune-citron shadow-md scale-102 font-extrabold"
+                      : "bg-white border-bleu/20 text-bleu-petrole"
                   )}
                 >
                   <span className="text-xs font-bold font-space-grotesk">02</span>
@@ -362,8 +364,8 @@ export function StepsSection() {
                   className={cn(
                     "rounded-bl-full rounded-tl-md rounded-br-md rounded-tr-[20px] p-2.5 flex items-end justify-start transition-all border",
                     activeStep === 3
-                      ? "bg-secondary text-on-secondary border-secondary shadow-md scale-102"
-                      : "bg-surface-container-lowest border-outline-variant/30 text-on-surface"
+                      ? "bg-jaune-vif text-[#0b1c30] border-jaune-citron shadow-md scale-102 font-extrabold"
+                      : "bg-white border-bleu/20 text-bleu-petrole"
                   )}
                 >
                   <span className="text-xs font-bold font-space-grotesk">04</span>
@@ -379,8 +381,8 @@ export function StepsSection() {
                   className={cn(
                     "rounded-br-full rounded-tr-md rounded-bl-md rounded-tl-[20px] p-2.5 flex items-end justify-end transition-all border",
                     activeStep === 2
-                      ? "bg-secondary text-on-secondary border-secondary shadow-md scale-102"
-                      : "bg-surface-container-lowest border-outline-variant/30 text-on-surface"
+                      ? "bg-bleu text-white border-bleu shadow-md scale-102"
+                      : "bg-white border-bleu/20 text-bleu-petrole"
                   )}
                 >
                   <span className="text-xs font-bold font-space-grotesk">03</span>
@@ -397,17 +399,17 @@ export function StepsSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.25 }}
-              className="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-secondary/40 flex flex-col gap-3.5 text-center items-center"
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-bleu/30 flex flex-col gap-3.5 text-center items-center"
             >
-              <div className="w-11 h-11 rounded-full bg-secondary/15 flex items-center justify-center text-secondary border border-secondary/25">
+              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-bleu border border-bleu/30 shadow-xs">
                 {getStepIcon(activeStep)}
               </div>
 
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-secondary">
+                <span className="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-jaune-vif text-[#0b1c30] inline-block mb-1 border border-jaune-moutarde/30">
                   Étape {stepsWithPortions[activeStep].formattedNumber}
                 </span>
-                <h3 className="font-space-grotesk text-lg font-bold text-on-surface mt-1">
+                <h3 className="font-space-grotesk text-lg font-bold text-bleu-petrole mt-1">
                   {stepsWithPortions[activeStep].title}
                 </h3>
               </div>
@@ -417,14 +419,14 @@ export function StepsSection() {
               </p>
 
               {/* Navigation Controls */}
-              <div className="flex items-center justify-between w-full pt-3 border-t border-outline-variant/20 mt-1">
+              <div className="flex items-center justify-between w-full pt-3 border-t border-bleu/15 mt-1">
                 <button
                   type="button"
                   onClick={() => {
                     prevStep();
                     setIsAutoPlaying(false);
                   }}
-                  className="text-xs font-semibold text-secondary hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-bleu hover:underline flex items-center gap-1"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   Précédent
@@ -441,10 +443,10 @@ export function StepsSection() {
                       }}
                       aria-label={`Étape ${i + 1}`}
                       className={cn(
-                        "w-2.5 h-2.5 rounded-full transition-all",
+                        "h-2 rounded-full transition-all",
                         activeStep === i
-                          ? "bg-secondary w-5"
-                          : "bg-surface-container-highest"
+                          ? "bg-bleu w-6"
+                          : "bg-bleu/20 w-2"
                       )}
                     />
                   ))}
@@ -526,6 +528,8 @@ function CenteredQuadrantCard({
     },
   }[position];
 
+  const isOdd = step.stepNumber % 2 === 1;
+
   return (
     <motion.div
       onClick={onClick}
@@ -538,8 +542,10 @@ function CenteredQuadrantCard({
         quadrantStyles.container,
         quadrantStyles.innerOffset,
         isActive
-          ? "bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-surface-container border-bleu ring-2 ring-bleu/25 shadow-xl z-10 scale-[1.015]"
-          : "bg-surface-container-lowest/95 border-outline-variant/30 hover:border-bleu/50 hover:shadow-md"
+          ? isOdd
+            ? "bg-gradient-to-br from-white via-blue-50/80 to-blue-100/40 border-2 border-bleu ring-4 ring-bleu/20 shadow-2xl z-10 scale-[1.015]"
+            : "bg-gradient-to-br from-white via-amber-50/80 to-yellow-100/40 border-2 border-jaune-vif ring-4 ring-jaune-vif/25 shadow-2xl z-10 scale-[1.015]"
+          : "bg-white/95 border-bleu/15 hover:border-bleu/50 hover:shadow-lg"
       )}
     >
       {/* Centered Content Column */}
@@ -550,8 +556,12 @@ function CenteredQuadrantCard({
             className={cn(
               "w-7 h-7 sm:w-8 sm:h-8 rounded-full font-space-grotesk text-xs font-bold flex items-center justify-center transition-all border",
               isActive
-                ? "bg-bleu text-white border-bleu shadow-xs scale-105"
-                : "bg-surface-container text-bleu border-bleu/25"
+                ? isOdd
+                  ? "bg-bleu text-white border-bleu shadow-xs scale-105"
+                  : "bg-jaune-vif text-[#0b1c30] border-jaune-citron shadow-xs scale-105 font-black"
+                : isOdd
+                ? "bg-blue-50 text-bleu border-bleu/25"
+                : "bg-amber-50 text-jaune-moutarde border-jaune-moutarde/30"
             )}
           >
             {step.formattedNumber}
@@ -560,7 +570,7 @@ function CenteredQuadrantCard({
           <div
             className={cn(
               "w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center transition-transform",
-              isActive ? "bg-bleu/15" : "bg-surface-container"
+              isActive ? (isOdd ? "bg-bleu/15" : "bg-jaune-vif/20") : "bg-surface-container"
             )}
           >
             {icon}
@@ -571,7 +581,11 @@ function CenteredQuadrantCard({
         <h3
           className={cn(
             "font-space-grotesk text-sm sm:text-base font-bold transition-colors leading-snug",
-            isActive ? "text-bleu" : "text-on-surface"
+            isActive
+              ? isOdd
+                ? "text-bleu font-extrabold"
+                : "text-jaune-moutarde font-extrabold"
+              : "text-bleu-petrole"
           )}
         >
           {step.title}
@@ -585,8 +599,12 @@ function CenteredQuadrantCard({
         {/* Direction hint */}
         <div
           className={cn(
-            "flex items-center gap-1 text-[10px] font-semibold mt-1 transition-opacity",
-            isActive ? "text-secondary opacity-100" : "text-secondary/60 opacity-0 group-hover:opacity-100"
+            "flex items-center gap-1 text-[10px] font-bold mt-1 transition-opacity",
+            isActive
+              ? isOdd
+                ? "text-bleu opacity-100"
+                : "text-jaune-moutarde opacity-100"
+              : "text-bleu/60 opacity-0 group-hover:opacity-100"
           )}
         >
           <span>Étape {step.stepNumber}</span>

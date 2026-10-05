@@ -24,21 +24,21 @@ export function ProblemSolutionSection() {
   const getCardIcon = (iconName: string) => {
     switch (iconName) {
       case "folder_open":
-        return <FolderOpen className="w-5 h-5 text-secondary" />;
+        return <FolderOpen className="w-5 h-5 text-bleu-clair" />;
       case "schedule":
-        return <Clock className="w-5 h-5 text-amber-700" />;
+        return <Clock className="w-5 h-5 text-jaune-vif" />;
       case "query_stats":
-        return <LineChart className="w-5 h-5 text-emerald-700" />;
+        return <LineChart className="w-5 h-5 text-cyan-300" />;
       default:
-        return <MessageSquareWarning className="w-5 h-5 text-purple-700" />;
+        return <MessageSquareWarning className="w-5 h-5 text-yellow-300" />;
     }
   };
 
   const cardAccents = [
-    "bg-blue-100 text-secondary border border-blue-200/60",
-    "bg-amber-100 text-amber-700 border border-amber-200/60",
-    "bg-emerald-100 text-emerald-700 border border-emerald-200/60",
-    "bg-purple-100 text-purple-700 border border-purple-200/60",
+    "bg-bleu/30 text-bleu-clair border border-bleu-clair/30",
+    "bg-jaune-vif/20 text-jaune-vif border border-jaune-vif/40",
+    "bg-bleu-turquoise/25 text-cyan-300 border border-bleu-turquoise/40",
+    "bg-jaune-vif/20 text-yellow-300 border border-jaune-vif/40",
   ];
 
   const cardsWithMetadata = problemSolutionContent.cards.map((card, idx) => ({
@@ -83,10 +83,11 @@ export function ProblemSolutionSection() {
   return (
     <section
       aria-labelledby="problem-solution-heading"
-      className="w-full py-16 lg:py-24 bg-surface-container-low border-y border-outline-variant/20 relative overflow-hidden"
+      className="w-full py-16 lg:py-24 bg-gradient-to-b from-[#0b1c30] via-[#0d2847] to-[#0b1c30] border-y border-bleu/40 relative overflow-hidden"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-secondary/5 rounded-full blur-3xl pointer-events-none -z-0" />
+      {/* Background ambient lighting - bleu & jaune glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-bleu/20 rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute top-1/4 right-10 w-[450px] h-[450px] bg-jaune-vif/10 rounded-full blur-3xl pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header (Centered) */}
@@ -97,19 +98,19 @@ export function ProblemSolutionSection() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 flex flex-col items-center gap-4"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high border border-bleu/20 text-bleu text-xs font-bold uppercase tracking-wider shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-extrabold uppercase tracking-wider shadow-md border border-jaune-citron">
             <Sparkles className="w-3.5 h-3.5 text-jaune-moutarde" />
             <span>{problemSolutionContent.badge}</span>
           </div>
 
           <h2
             id="problem-solution-heading"
-            className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold tracking-tight leading-tight"
+            className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold tracking-tight leading-tight"
           >
             {problemSolutionContent.title}
           </h2>
 
-          <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed max-w-2xl">
             {problemSolutionContent.description}
           </p>
         </motion.div>
@@ -160,19 +161,19 @@ export function ProblemSolutionSection() {
 
               {/* Rotating Dashed Orbit Ring */}
               {!shouldReduceMotion && (
-                <g className="animate-[spin_60s_linear_infinite] origin-[310px_310px]">
+                <g className="animate-[spin_50s_linear_infinite] origin-[310px_310px]">
                   <circle
                     cx="310"
                     cy="310"
                     r="220"
-                    stroke="#22437f"
+                    stroke="#e7b821"
                     strokeWidth="2.5"
-                    strokeDasharray="25 180"
+                    strokeDasharray="30 180"
                     strokeLinecap="round"
-                    className="opacity-80"
+                    className="opacity-90"
                   />
-                  <circle cx="310" cy="90" r="4.5" fill="#22437f" />
-                  <circle cx="310" cy="530" r="4" fill="#0891b2" />
+                  <circle cx="310" cy="90" r="5" fill="#e7b821" />
+                  <circle cx="310" cy="530" r="4.5" fill="#60a5fa" />
                 </g>
               )}
 
@@ -183,12 +184,12 @@ export function ProblemSolutionSection() {
                 y1="200"
                 x2="100"
                 y2="100"
-                stroke={hoveredCard === 0 ? "#22437f" : "currentColor"}
+                stroke={hoveredCard === 0 ? "#e7b821" : "#60a5fa"}
                 strokeWidth={hoveredCard === 0 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 0 ? "none" : "3 3"}
                 className={cn(
                   "transition-all duration-300",
-                  hoveredCard === 0 ? "opacity-100" : "opacity-30"
+                  hoveredCard === 0 ? "opacity-100" : "opacity-40"
                 )}
               />
               {/* Top-Right Beam (Idx 1) */}
@@ -197,12 +198,12 @@ export function ProblemSolutionSection() {
                 y1="200"
                 x2="520"
                 y2="100"
-                stroke={hoveredCard === 1 ? "#22437f" : "currentColor"}
+                stroke={hoveredCard === 1 ? "#e7b821" : "#60a5fa"}
                 strokeWidth={hoveredCard === 1 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 1 ? "none" : "3 3"}
                 className={cn(
                   "transition-all duration-300",
-                  hoveredCard === 1 ? "opacity-100" : "opacity-30"
+                  hoveredCard === 1 ? "opacity-100" : "opacity-40"
                 )}
               />
               {/* Bottom-Right Beam (Idx 2) */}
@@ -211,12 +212,12 @@ export function ProblemSolutionSection() {
                 y1="420"
                 x2="520"
                 y2="520"
-                stroke={hoveredCard === 2 ? "#22437f" : "currentColor"}
+                stroke={hoveredCard === 2 ? "#e7b821" : "#60a5fa"}
                 strokeWidth={hoveredCard === 2 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 2 ? "none" : "3 3"}
                 className={cn(
                   "transition-all duration-300",
-                  hoveredCard === 2 ? "opacity-100" : "opacity-30"
+                  hoveredCard === 2 ? "opacity-100" : "opacity-40"
                 )}
               />
               {/* Bottom-Left Beam (Idx 3) */}
@@ -225,12 +226,12 @@ export function ProblemSolutionSection() {
                 y1="420"
                 x2="100"
                 y2="520"
-                stroke={hoveredCard === 3 ? "#22437f" : "currentColor"}
+                stroke={hoveredCard === 3 ? "#e7b821" : "#60a5fa"}
                 strokeWidth={hoveredCard === 3 ? "2.5" : "1.5"}
                 strokeDasharray={hoveredCard === 3 ? "none" : "3 3"}
                 className={cn(
                   "transition-all duration-300",
-                  hoveredCard === 3 ? "opacity-100" : "opacity-30"
+                  hoveredCard === 3 ? "opacity-100" : "opacity-40"
                 )}
               />
 
@@ -239,28 +240,28 @@ export function ProblemSolutionSection() {
                 cx="154"
                 cy="154"
                 r={hoveredCard === 0 ? "7" : "5"}
-                fill={hoveredCard === 0 ? "#e7b821" : "#22437f"}
+                fill={hoveredCard === 0 ? "#e7b821" : "#60a5fa"}
                 className="transition-all duration-300"
               />
               <circle
                 cx="466"
                 cy="154"
                 r={hoveredCard === 1 ? "7" : "5"}
-                fill={hoveredCard === 1 ? "#e7b821" : "#22437f"}
+                fill={hoveredCard === 1 ? "#e7b821" : "#60a5fa"}
                 className="transition-all duration-300"
               />
               <circle
                 cx="466"
                 cy="466"
                 r={hoveredCard === 2 ? "7" : "5"}
-                fill={hoveredCard === 2 ? "#e7b821" : "#22437f"}
+                fill={hoveredCard === 2 ? "#e7b821" : "#60a5fa"}
                 className="transition-all duration-300"
               />
               <circle
                 cx="154"
                 cy="466"
                 r={hoveredCard === 3 ? "7" : "5"}
-                fill={hoveredCard === 3 ? "#e7b821" : "#22437f"}
+                fill={hoveredCard === 3 ? "#e7b821" : "#60a5fa"}
                 className="transition-all duration-300"
               />
             </svg>
@@ -276,35 +277,35 @@ export function ProblemSolutionSection() {
               className="relative group cursor-pointer"
             >
               {/* Outer decorative breathing ring */}
-              <div className="absolute -inset-3 rounded-full bg-bleu/10 blur-md group-hover:bg-bleu/20 transition-all duration-500" />
+              <div className="absolute -inset-3 rounded-full bg-jaune-vif/20 blur-xl group-hover:bg-jaune-vif/35 transition-all duration-500" />
 
               {/* Rotating outer ring accent */}
-              <div className="w-56 h-56 rounded-full border border-bleu/30 p-2.5 bg-surface-container-low/70 backdrop-blur-md flex items-center justify-center shadow-lg transition-transform duration-700 group-hover:scale-105">
+              <div className="w-56 h-56 rounded-full border-2 border-jaune-vif/40 p-2.5 bg-[#0e2440]/90 backdrop-blur-md flex items-center justify-center shadow-2xl transition-transform duration-700 group-hover:scale-105">
                 {/* Core Hub Body */}
-                <div className="w-full h-full rounded-full bg-surface-container-lowest border border-outline-variant/40 p-4 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
+                <div className="w-full h-full rounded-full bg-[#071322] border border-bleu-clair/40 p-4 flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
                   {/* Subtle radial sheen */}
-                  <div className="absolute inset-0 bg-radial from-bleu/10 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-radial from-jaune-vif/10 via-transparent to-transparent pointer-events-none" />
 
                   {/* Hub Icon badge */}
-                  <div className="w-10 h-10 rounded-full bg-bleu/15 flex items-center justify-center text-bleu mb-2 border border-bleu/20 shadow-2xs">
-                    <Workflow className="w-5 h-5 text-bleu" />
+                  <div className="w-10 h-10 rounded-full bg-jaune-vif flex items-center justify-center text-[#0b1c30] mb-2 border border-jaune-citron shadow-md">
+                    <Workflow className="w-5 h-5 text-[#0b1c30]" />
                   </div>
 
                   <span className="font-space-grotesk text-xs uppercase tracking-widest font-extrabold">
-                    <span className="text-jaune-moutarde">TOP-</span>
-                    <span className="text-bleu">COMPTA</span>
+                    <span className="text-jaune-vif">TOP-</span>
+                    <span className="text-white font-black">COMPTA</span>
                   </span>
 
-                  <span className="font-space-grotesk text-sm font-bold text-on-surface leading-tight mt-0.5">
+                  <span className="font-space-grotesk text-sm font-bold text-white leading-tight mt-0.5">
                     Hub Unifié
                   </span>
 
-                  <div className="mt-1.5 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-[10px] font-semibold text-on-surface-variant">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <div className="mt-1.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-bleu text-[10px] font-bold text-blue-100 border border-bleu-clair/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <span>PA • GED • CRM</span>
                   </div>
 
-                  <span className="text-[10px] text-on-surface-variant/80 mt-1">
+                  <span className="text-[10px] text-blue-200/80 mt-1 font-medium">
                     Flux continu 360°
                   </span>
                 </div>
@@ -380,18 +381,18 @@ export function ProblemSolutionSection() {
             viewport={{ once: true }}
             className="flex items-center justify-center"
           >
-            <div className="w-full max-w-sm rounded-2xl bg-surface-container-lowest border border-secondary/30 p-5 shadow-sm flex items-center gap-4 relative overflow-hidden">
-              <div className="w-12 h-12 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center shrink-0">
-                <Workflow className="w-6 h-6 text-secondary" />
+            <div className="w-full max-w-sm rounded-2xl bg-[#0f243e] border border-jaune-vif/50 p-5 shadow-lg flex items-center gap-4 relative overflow-hidden">
+              <div className="w-12 h-12 rounded-full bg-jaune-vif text-[#0b1c30] border border-jaune-citron flex items-center justify-center shrink-0 shadow-md">
+                <Workflow className="w-6 h-6 text-[#0b1c30]" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-space-grotesk font-bold text-sm text-on-surface">
-                    Hub Unifié TOP-COMPTA
+                  <span className="font-space-grotesk font-bold text-sm text-white">
+                    Hub Unifié <span className="text-jaune-vif">TOP-COMPTA</span>
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 </div>
-                <p className="text-xs text-on-surface-variant mt-0.5">
+                <p className="text-xs text-blue-200/80 mt-0.5">
                   Synchronisation continue • PA, GED & CRM
                 </p>
               </div>
@@ -404,17 +405,17 @@ export function ProblemSolutionSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
-            className="relative flex flex-col gap-5 sm:gap-6 pl-6 sm:pl-8 border-l-2 border-dashed border-secondary/30 ml-3 sm:ml-4"
+            className="relative flex flex-col gap-5 sm:gap-6 pl-6 sm:pl-8 border-l-2 border-dashed border-jaune-vif/50 ml-3 sm:ml-4"
           >
-            {cardsWithMetadata.map((card, idx) => (
+            {cardsWithMetadata.map((card) => (
               <motion.div
                 key={card.title}
                 variants={itemVariants}
-                className="relative bg-surface-container-lowest rounded-2xl p-5 sm:p-6 shadow-xs border border-outline-variant/30 hover:border-secondary/50 transition-all flex flex-col gap-3 group"
+                className="relative bg-[#0f243e]/95 rounded-2xl p-5 sm:p-6 shadow-md border border-bleu/40 hover:border-jaune-vif transition-all flex flex-col gap-3 group"
               >
                 {/* Connecting Circular Node Badge on the left spine */}
-                <div className="absolute -left-[37px] sm:-left-[45px] top-6 w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-secondary flex items-center justify-center shadow-xs">
-                  <span className="text-xs font-bold text-secondary font-space-grotesk">
+                <div className="absolute -left-[37px] sm:-left-[45px] top-6 w-8 h-8 rounded-full bg-bleu border-2 border-jaune-vif flex items-center justify-center shadow-md">
+                  <span className="text-xs font-extrabold text-jaune-vif font-space-grotesk">
                     {card.number}
                   </span>
                 </div>
@@ -428,16 +429,16 @@ export function ProblemSolutionSection() {
                   >
                     {getCardIcon(card.icon)}
                   </div>
-                  <span className="text-xs font-semibold text-secondary uppercase tracking-wider">
+                  <span className="text-xs font-bold text-jaune-vif uppercase tracking-wider">
                     {card.stepName}
                   </span>
                 </div>
 
-                <h3 className="font-space-grotesk text-base font-bold text-on-surface group-hover:text-secondary transition-colors">
+                <h3 className="font-space-grotesk text-base font-bold text-white group-hover:text-jaune-vif transition-colors">
                   {card.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                <p className="text-xs sm:text-sm text-blue-100/80 leading-relaxed">
                   {card.description}
                 </p>
               </motion.div>
@@ -473,7 +474,6 @@ function OrbitalCard({
   onHover,
   onLeave,
   getIcon,
-  alignment,
   shouldReduceMotion,
 }: OrbitalCardProps) {
   return (
@@ -494,10 +494,10 @@ function OrbitalCard({
             }
       }
       className={cn(
-        "relative bg-surface-container-lowest/95 backdrop-blur-md rounded-2xl p-6 shadow-xs transition-all duration-300 border cursor-default flex flex-col gap-3 group",
+        "relative bg-[#0f243e]/95 backdrop-blur-md rounded-2xl p-6 shadow-xl transition-all duration-300 border cursor-default flex flex-col gap-3 group",
         isHovered
-          ? "border-secondary/60 shadow-xl ring-2 ring-secondary/15"
-          : "border-outline-variant/30 hover:border-secondary/40 hover:shadow-md"
+          ? "border-jaune-vif shadow-2xl ring-2 ring-jaune-vif/30 scale-102"
+          : "border-bleu/40 hover:border-jaune-vif/60 hover:shadow-lg"
       )}
     >
       {/* Top Header Row with Icon & Circular Step Badge */}
@@ -511,7 +511,7 @@ function OrbitalCard({
           >
             {getIcon(card.icon)}
           </div>
-          <span className="text-xs font-semibold text-secondary uppercase tracking-wider font-space-grotesk">
+          <span className="text-xs font-bold text-jaune-vif uppercase tracking-wider font-space-grotesk">
             {card.stepName}
           </span>
         </div>
@@ -521,8 +521,8 @@ function OrbitalCard({
           className={cn(
             "w-7 h-7 rounded-full text-xs font-bold font-space-grotesk flex items-center justify-center transition-colors border",
             isHovered
-              ? "bg-secondary text-on-secondary border-secondary"
-              : "bg-surface-container text-on-surface-variant border-outline-variant/40"
+              ? "bg-jaune-vif text-[#0b1c30] border-jaune-citron font-extrabold"
+              : "bg-bleu text-white border-bleu-clair/40 font-bold"
           )}
         >
           {card.number}
@@ -530,17 +530,17 @@ function OrbitalCard({
       </div>
 
       {/* Title */}
-      <h3 className="font-space-grotesk text-base font-bold text-on-surface group-hover:text-secondary transition-colors">
+      <h3 className="font-space-grotesk text-base font-bold text-white group-hover:text-jaune-vif transition-colors">
         {card.title}
       </h3>
 
       {/* Description */}
-      <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+      <p className="text-xs sm:text-sm text-blue-100/80 leading-relaxed">
         {card.description}
       </p>
 
       {/* Directional Subtle Flow Hint */}
-      <div className="pt-1 flex items-center gap-1.5 text-[11px] font-medium text-secondary/70 group-hover:text-secondary transition-colors">
+      <div className="pt-1 flex items-center gap-1.5 text-[11px] font-bold text-jaune-vif group-hover:text-jaune-citron transition-colors">
         <span>Résolu par TOP-COMPTA</span>
         <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
       </div>

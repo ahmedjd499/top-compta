@@ -30,22 +30,22 @@ export function CgvClient() {
     <div className="w-full min-h-screen flex flex-col bg-surface overflow-hidden">
       {/* 1. Hero Section */}
       <section
-        className="relative overflow-hidden pt-16 pb-12 border-b border-outline-variant/20"
-        style={{
-          background:
-            "radial-gradient(circle at 80% 20%, rgba(55, 85, 195, 0.12), transparent 40%), radial-gradient(circle at 20% 80%, rgba(34, 183, 198, 0.10), transparent 40%), linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-container-low) 100%)",
-        }}
+        className="relative overflow-hidden pt-16 pb-12 border-b border-bleu/20 bg-gradient-to-b from-blue-50/80 via-amber-50/40 to-surface"
       >
+        {/* Ambient decorative glowing auras */}
+        <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-bleu/12 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-jaune-vif/15 rounded-full blur-3xl pointer-events-none -z-10" />
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4 border border-secondary/20 shadow-xs">
-                <FileCheck className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider mb-4 border border-jaune-moutarde/30 shadow-xs">
+                <FileCheck className="w-3.5 h-3.5 text-jaune-moutarde" />
                 <span>Document Contractuel Officiel</span>
               </div>
 
-              <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface mb-3">
-                Conditions Générales de Vente <span className="text-secondary">(CGV)</span>
+              <h1 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-bleu-petrole mb-3">
+                Conditions Générales de Vente <span className="text-bleu">(CGV)</span>
               </h1>
 
               <p className="text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed">
@@ -59,7 +59,7 @@ export function CgvClient() {
               <a
                 href={pdfUrl}
                 download="Conditions_Contractuelles_TOP_COMPTA.pdf"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-secondary text-white font-bold text-xs sm:text-sm shadow-md hover:bg-on-secondary-container hover:-translate-y-0.5 active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-bleu text-white font-bold text-xs sm:text-sm shadow-md hover:bg-bleu-petrole hover:-translate-y-0.5 active:scale-[0.98] transition-all"
               >
                 <Download className="w-4 h-4" />
                 <span>Télécharger le PDF</span>
@@ -69,19 +69,19 @@ export function CgvClient() {
                 href={pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-semibold text-xs sm:text-sm border border-outline-variant/40 hover:border-secondary hover:bg-surface-container transition-all shadow-xs"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-jaune-vif text-[#0b1c30] font-bold text-xs sm:text-sm border border-jaune-moutarde/30 hover:bg-jaune-citron transition-all shadow-xs"
               >
-                <ExternalLink className="w-4 h-4 text-secondary" />
+                <ExternalLink className="w-4 h-4 text-jaune-moutarde" />
                 <span>Ouvrir en plein écran</span>
               </a>
 
               <button
                 type="button"
                 onClick={handlePrint}
-                className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-medium text-xs sm:text-sm border border-outline-variant/40 hover:bg-surface-container transition-all shadow-xs"
+                className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-white text-bleu font-bold text-xs sm:text-sm border border-bleu/30 hover:bg-blue-50 transition-all shadow-xs"
                 title="Imprimer les CGV"
               >
-                <Printer className="w-4 h-4" />
+                <Printer className="w-4 h-4 text-bleu" />
                 <span>Imprimer</span>
               </button>
             </div>
@@ -92,26 +92,26 @@ export function CgvClient() {
       {/* 2. PDF Viewer Container */}
       <section className="py-8 sm:py-12 max-w-6xl mx-auto px-4 sm:px-6 w-full">
         {/* Document Bar */}
-        <div className="flex items-center justify-between bg-surface-container-lowest px-5 py-3.5 rounded-t-2xl border-t border-x border-outline-variant/30 text-xs text-on-surface-variant font-medium">
+        <div className="flex items-center justify-between bg-gradient-to-r from-bleu via-[#1a386b] to-bleu px-5 py-3.5 rounded-t-2xl border-t border-x border-bleu/40 text-xs text-blue-100 font-medium shadow-sm">
           <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-secondary" />
-            <span className="font-semibold text-on-surface">
+            <FileText className="w-4 h-4 text-jaune-vif" />
+            <span className="font-bold text-white">
               Condtions contractuelles.pdf
             </span>
-            <span className="hidden sm:inline text-on-surface-variant/60">
+            <span className="hidden sm:inline text-blue-200/70">
               • Version contractuelle en vigueur
             </span>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-[11px] bg-secondary/10 text-secondary font-bold px-2 py-0.5 rounded">
+            <span className="text-[11px] bg-jaune-vif text-[#0b1c30] font-black px-2.5 py-0.5 rounded shadow-xs">
               Document certifié
             </span>
             <a
               href={pdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary font-semibold hover:underline inline-flex items-center gap-1"
+              className="text-blue-100 hover:text-white font-bold underline inline-flex items-center gap-1"
             >
               <span>Nouvel onglet</span>
               <ExternalLink className="w-3 h-3" />
@@ -120,7 +120,7 @@ export function CgvClient() {
         </div>
 
         {/* Embedded PDF iframe */}
-        <div className="w-full bg-white rounded-b-2xl border border-outline-variant/30 shadow-2xl overflow-hidden relative min-h-[650px] lg:min-h-[850px]">
+        <div className="w-full bg-white rounded-b-2xl border-2 border-bleu/30 shadow-2xl overflow-hidden relative min-h-[650px] lg:min-h-[850px]">
           {!iframeError ? (
             <iframe
               src={`${pdfUrl}#toolbar=1&navpanes=0&scrollbar=1`}
@@ -130,8 +130,8 @@ export function CgvClient() {
             />
           ) : (
             <div className="p-12 text-center flex flex-col items-center justify-center min-h-[400px]">
-              <FileText className="w-16 h-16 text-secondary mb-4" />
-              <h3 className="font-space-grotesk text-xl font-bold text-on-surface mb-2">
+              <FileText className="w-16 h-16 text-bleu mb-4" />
+              <h3 className="font-space-grotesk text-xl font-bold text-bleu-petrole mb-2">
                 Visualisation directe du PDF
               </h3>
               <p className="text-sm text-on-surface-variant max-w-md mb-6 leading-relaxed">
@@ -141,7 +141,7 @@ export function CgvClient() {
               <a
                 href={pdfUrl}
                 download
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-white font-bold text-sm shadow-md"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-bleu text-white font-bold text-sm shadow-md hover:bg-bleu-petrole"
               >
                 <Download className="w-4 h-4" />
                 <span>Télécharger le document PDF</span>
@@ -151,13 +151,13 @@ export function CgvClient() {
         </div>
 
         {/* Mobile quick reminder */}
-        <div className="mt-4 sm:hidden bg-surface-container-low p-4 rounded-xl text-center text-xs text-on-surface-variant border border-outline-variant/20">
+        <div className="mt-4 sm:hidden bg-blue-50/80 p-4 rounded-xl text-center text-xs text-bleu-petrole border border-bleu/20">
           Pour une lecture optimale sur smartphone, vous pouvez{" "}
           <a
             href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-secondary font-bold underline"
+            className="text-bleu font-bold underline"
           >
             ouvrir le document en plein écran
           </a>
@@ -165,33 +165,36 @@ export function CgvClient() {
         </div>
       </section>
 
-  
-
       {/* 3. Bottom CTA */}
       <section className="py-12 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="font-space-grotesk text-xl sm:text-2xl font-bold text-on-surface mb-3">
-          Une question sur les conditions contractuelles ?
-        </h2>
-        <p className="text-sm text-on-surface-variant max-w-xl mx-auto mb-6">
-          Nos conseillers sont disponibles pour vous détailler les modalités d&apos;intervention et établir un devis personnalisé.
-        </p>
+        <div className="bg-gradient-to-br from-bleu via-[#1a386b] to-bleu-petrole text-white rounded-3xl p-8 sm:p-12 border-2 border-jaune-vif/50 shadow-2xl relative overflow-hidden">
+          {/* Ambient glow in CTA */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(231,184,33,0.15),transparent_70%)] pointer-events-none" />
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-white font-bold text-sm shadow-md hover:bg-on-secondary-container transition-all"
-          >
-            <span>Demander un devis sans engagement</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <h2 className="font-space-grotesk text-2xl sm:text-3xl font-extrabold text-white mb-3 relative z-10">
+            Une question sur les conditions contractuelles ?
+          </h2>
+          <p className="text-sm text-blue-100 max-w-xl mx-auto mb-6 relative z-10">
+            Nos conseillers sont disponibles pour vous détailler les modalités d&apos;intervention et établir un devis personnalisé.
+          </p>
 
-          <a
-            href={siteConfig.phoneHref}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-semibold text-sm border border-outline-variant/40 hover:border-secondary transition-all"
-          >
-            <Phone className="w-4 h-4 text-secondary" />
-            <span>{siteConfig.phone}</span>
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-4 relative z-10">
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-jaune-vif text-[#0b1c30] font-black text-sm shadow-xl border border-jaune-citron hover:bg-jaune-citron transition-all"
+            >
+              <span>Demander un devis sans engagement</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <a
+              href={siteConfig.phoneHref}
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-white/10 text-white font-bold text-sm border-2 border-white/40 hover:bg-white hover:text-bleu backdrop-blur-md transition-all"
+            >
+              <Phone className="w-4 h-4 text-jaune-vif" />
+              <span>{siteConfig.phone}</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>

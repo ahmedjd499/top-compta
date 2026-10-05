@@ -28,6 +28,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { adnContent } from "@/content/adn";
+import { cn } from "@/lib/utils";
 
 export function NotreAdnClient() {
   const shouldReduceMotion = useReducedMotion();
@@ -123,9 +124,10 @@ export function NotreAdnClient() {
   return (
     <div className="w-full bg-background flex flex-col items-center overflow-x-hidden">
       {/* 1. HERO SECTION */}
-      <section className="w-full pt-16 pb-12 sm:pt-24 sm:pb-16 px-4 sm:px-6 relative">
-        {/* Subtle background decorative aura */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none -z-10" />
+      <section className="w-full pt-16 pb-12 sm:pt-24 sm:pb-16 px-4 sm:px-6 relative bg-gradient-to-b from-blue-50/70 via-amber-50/30 to-background border-b border-bleu/15 overflow-hidden">
+        {/* Decorative ambient auras - bleu and jaune */}
+        <div className="absolute top-10 left-1/4 -translate-x-1/2 w-96 h-96 bg-bleu/12 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute top-1/4 right-1/4 translate-x-1/2 w-96 h-96 bg-jaune-vif/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           {/* Badge */}
@@ -133,9 +135,9 @@ export function NotreAdnClient() {
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container text-secondary text-xs font-bold uppercase tracking-wider mb-6 border border-secondary/10 shadow-2xs"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-bold uppercase tracking-wider mb-6 border border-jaune-moutarde/30 shadow-xs"
           >
-            <Sparkles className="w-3.5 h-3.5 text-secondary" />
+            <Sparkles className="w-3.5 h-3.5 text-jaune-moutarde" />
             <span>{adnContent.hero.badge}</span>
           </motion.div>
 
@@ -144,7 +146,7 @@ export function NotreAdnClient() {
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight leading-tight mb-8"
+            className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-bleu-petrole tracking-tight leading-tight mb-8"
           >
             {adnContent.hero.title}
           </motion.h1>
@@ -167,21 +169,21 @@ export function NotreAdnClient() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             whileHover={shouldReduceMotion ? undefined : { y: -4, transition: { duration: 0.25 } }}
-            className="mt-12 sm:mt-16 w-full max-w-3xl bg-surface-container-lowest rounded-3xl p-8 sm:p-12 shadow-xl border border-outline-variant/30 text-center relative overflow-hidden group"
+            className="mt-12 sm:mt-16 w-full max-w-3xl bg-white rounded-3xl p-8 sm:p-12 shadow-xl border-2 border-bleu/20 text-center relative overflow-hidden group"
           >
-            {/* Top decorative gradient border */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-secondary/40 via-secondary to-secondary/40" />
+            {/* Top decorative gradient border in brand bleu & jaune */}
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-bleu via-jaune-vif to-bleu" />
 
             {/* Glowing quote icon */}
-            <div className="w-14 h-14 rounded-2xl bg-surface-container mx-auto mb-6 flex items-center justify-center text-secondary shadow-inner group-hover:scale-110 group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 mx-auto mb-6 flex items-center justify-center text-bleu shadow-inner group-hover:scale-110 group-hover:bg-jaune-vif group-hover:text-[#0b1c30] transition-all duration-300 border border-bleu/20">
               <Quote className="w-7 h-7 rotate-180" />
             </div>
 
-            <blockquote className="font-space-grotesk italic text-base sm:text-xl text-on-surface font-medium leading-relaxed mb-6">
+            <blockquote className="font-space-grotesk italic text-base sm:text-xl text-bleu-petrole font-semibold leading-relaxed mb-6">
               « {adnContent.hero.quote.text} »
             </blockquote>
 
-            <div className="inline-block text-xs sm:text-sm font-bold text-secondary uppercase tracking-wider">
+            <div className="inline-block text-xs sm:text-sm font-extrabold text-bleu uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full border border-bleu/25">
               {adnContent.hero.quote.author}
             </div>
           </motion.div>
@@ -203,9 +205,9 @@ export function NotreAdnClient() {
 
         {/* Dark body with cards */}
         <div className="w-full bg-[#0b1c30] py-10 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
-          {/* Subtle ambient light reflections */}
-          <div className="absolute top-0 right-10 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-10 w-96 h-96 bg-primary-fixed-dim/10 rounded-full blur-3xl pointer-events-none" />
+          {/* Subtle ambient light reflections - bleu and jaune */}
+          <div className="absolute top-0 right-10 w-96 h-96 bg-bleu/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-10 w-96 h-96 bg-jaune-vif/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-4xl mx-auto flex flex-col gap-8 relative z-10">
             {/* Outsourcing Card */}
@@ -214,21 +216,21 @@ export function NotreAdnClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-surface-container-lowest rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-white/10 flex flex-col items-center text-center relative"
+              className="bg-[#0f243e] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border-2 border-bleu/40 flex flex-col items-center text-center relative"
             >
-              <div className="w-14 h-14 rounded-2xl bg-surface-container flex items-center justify-center text-secondary mb-5 shadow-xs">
+              <div className="w-14 h-14 rounded-2xl bg-jaune-vif flex items-center justify-center text-[#0b1c30] mb-5 shadow-md border border-jaune-citron">
                 <Briefcase className="w-7 h-7" />
               </div>
 
-              <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl font-extrabold text-on-surface mb-2">
+              <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-2">
                 {adnContent.engagement.title}
               </h2>
 
-              <p className="text-sm sm:text-base font-semibold text-secondary mb-4">
+              <p className="text-sm sm:text-base font-bold text-jaune-vif mb-4">
                 {adnContent.engagement.subtitle}
               </p>
 
-              <p className="text-sm sm:text-base text-on-surface-variant max-w-2xl mb-8 sm:mb-10 leading-relaxed">
+              <p className="text-sm sm:text-base text-blue-100/90 max-w-2xl mb-8 sm:mb-10 leading-relaxed">
                 {adnContent.engagement.intro}
               </p>
 
@@ -239,17 +241,17 @@ export function NotreAdnClient() {
                     key={idx}
                     whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.01 }}
                     transition={{ duration: 0.2 }}
-                    className="flex items-start gap-3.5 p-5 rounded-2xl bg-surface-container-low/70 border border-outline-variant/30 hover:border-secondary/30 hover:shadow-md transition-all duration-200"
+                    className="flex items-start gap-3.5 p-5 rounded-2xl bg-[#081729] border border-bleu/30 hover:border-jaune-vif hover:shadow-lg transition-all duration-200"
                   >
-                    <div className="p-2.5 rounded-xl bg-surface-container-lowest shadow-2xs mt-0.5 shrink-0 text-secondary">
+                    <div className="p-2.5 rounded-xl bg-bleu/30 shadow-2xs mt-0.5 shrink-0 text-bleu-clair border border-bleu-clair/30">
                       {getPillarIcon(pillar.icon)}
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-space-grotesk font-bold text-sm sm:text-base text-on-surface leading-tight">
+                      <span className="font-space-grotesk font-bold text-sm sm:text-base text-white leading-tight">
                         {pillar.title}
                       </span>
                       {pillar.description && (
-                        <span className="text-xs sm:text-sm text-on-surface-variant mt-1.5 leading-snug">
+                        <span className="text-xs sm:text-sm text-blue-100/80 mt-1.5 leading-snug">
                           {pillar.description}
                         </span>
                       )}
@@ -266,12 +268,12 @@ export function NotreAdnClient() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
-              className="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/10 text-center flex flex-col items-center gap-2"
+              className="bg-gradient-to-r from-bleu via-[#1a386b] to-bleu rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-jaune-vif text-center flex flex-col items-center gap-2"
             >
-              <h3 className="font-space-grotesk text-lg sm:text-xl font-bold text-on-surface">
+              <h3 className="font-space-grotesk text-lg sm:text-xl font-extrabold text-white">
                 {adnContent.engagement.highlight}
               </h3>
-              <p className="text-sm sm:text-base text-secondary font-medium">
+              <p className="text-base sm:text-lg text-jaune-vif font-black">
                 {adnContent.engagement.motto}
               </p>
             </motion.div>
@@ -291,7 +293,7 @@ export function NotreAdnClient() {
       </section>
 
       {/* 3. MANAGEMENT & NETWORK SECTION (Two Columns) */}
-      <section className="w-full py-12 sm:py-20 px-4 sm:px-6">
+      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-background via-blue-50/40 to-amber-50/20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Left Column: Boostez la gestion */}
           <motion.div
@@ -301,10 +303,10 @@ export function NotreAdnClient() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col justify-center"
           >
-            <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl font-extrabold text-on-surface tracking-tight mb-2">
+            <h2 className="font-space-grotesk text-2xl sm:text-3xl lg:text-4xl font-extrabold text-bleu-petrole tracking-tight mb-2">
               {adnContent.managementAndNetwork.boost.title}
             </h2>
-            <p className="text-sm sm:text-base font-semibold text-secondary mb-8">
+            <p className="text-sm sm:text-base font-bold text-jaune-moutarde mb-8">
               {adnContent.managementAndNetwork.boost.subtitle}
             </p>
 
@@ -314,9 +316,9 @@ export function NotreAdnClient() {
                   key={idx}
                   whileHover={shouldReduceMotion ? undefined : { x: 4 }}
                   transition={{ duration: 0.2 }}
-                  className="flex items-start gap-3 p-2 rounded-xl hover:bg-surface-container-low transition-colors"
+                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/80 transition-colors"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-bleu shrink-0 mt-0.5" />
                   <span className="text-sm sm:text-base text-on-surface font-medium leading-snug">
                     {item}
                   </span>
@@ -331,14 +333,14 @@ export function NotreAdnClient() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-surface-container-low/80 rounded-3xl p-6 sm:p-8 lg:p-10 border border-outline-variant/40 shadow-sm flex flex-col justify-between"
+            className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-bleu/30 shadow-lg flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-2xl bg-surface-container text-secondary shadow-2xs">
+                <div className="p-3 rounded-2xl bg-bleu text-white shadow-md">
                   <Users className="w-6 h-6" />
                 </div>
-                <h3 className="font-space-grotesk text-xl sm:text-2xl font-bold text-on-surface">
+                <h3 className="font-space-grotesk text-xl sm:text-2xl font-bold text-bleu-petrole">
                   {adnContent.managementAndNetwork.network.title}
                 </h3>
               </div>
@@ -351,14 +353,14 @@ export function NotreAdnClient() {
                     transition={{ duration: 0.2 }}
                     className="flex items-start gap-3 text-xs sm:text-sm text-on-surface"
                   >
-                    <span className="w-2 h-2 rounded-full bg-secondary shrink-0 mt-1.5" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-jaune-vif shrink-0 mt-1 border border-jaune-citron" />
                     <span className="leading-relaxed">{item}</span>
                   </motion.li>
                 ))}
               </ul>
             </div>
 
-            <div className="border-t border-outline-variant/40 pt-5 mt-2">
+            <div className="border-t border-bleu/20 pt-5 mt-2">
               <p className="text-xs sm:text-sm text-on-surface-variant italic leading-relaxed">
                 {adnContent.managementAndNetwork.network.closing}
               </p>
@@ -368,13 +370,13 @@ export function NotreAdnClient() {
       </section>
 
       {/* 4. PRINCIPLES / VALEURS FONDAMENTALES (3x2 Grid) */}
-      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-surface-container-low/40">
+      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-amber-50/30 via-blue-50/20 to-white border-y border-bleu/15">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <motion.span
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-secondary text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 block"
+            className="px-4 py-1.5 rounded-full bg-bleu text-white text-xs font-bold uppercase tracking-wider mb-3 shadow-xs"
           >
             {adnContent.principles.badge}
           </motion.span>
@@ -383,7 +385,7 @@ export function NotreAdnClient() {
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight text-center mb-3"
+            className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-bleu-petrole tracking-tight text-center mb-3"
           >
             {adnContent.principles.title}
           </motion.h2>
@@ -406,6 +408,7 @@ export function NotreAdnClient() {
           >
             {adnContent.principles.items.map((item, idx) => {
               const isHovered = hoveredPrinciple === item.id;
+              const isEven = idx % 2 === 1;
               return (
                 <motion.div
                   key={item.id}
@@ -413,30 +416,44 @@ export function NotreAdnClient() {
                   onMouseEnter={() => setHoveredPrinciple(item.id)}
                   onMouseLeave={() => setHoveredPrinciple(null)}
                   whileHover={shouldReduceMotion ? undefined : { y: -6, transition: { duration: 0.25 } }}
-                  className="bg-surface-container-lowest rounded-3xl p-6 sm:p-8 border border-outline-variant/30 shadow-xs hover:shadow-xl hover:border-secondary/40 transition-all duration-300 flex flex-col items-center text-center relative group overflow-hidden"
+                  className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-bleu/15 shadow-sm hover:shadow-xl hover:border-bleu transition-all duration-300 flex flex-col items-center text-center relative group overflow-hidden"
                 >
-                  {/* Subtle top indicator bar on hover */}
+                  {/* Alternating top indicator bar */}
                   <div
-                    className={`absolute top-0 left-0 right-0 h-1 transition-all duration-300 ${
-                      isHovered ? "bg-secondary opacity-100" : "opacity-0"
-                    }`}
+                    className={cn(
+                      "absolute top-0 left-0 right-0 h-1.5 transition-all duration-300",
+                      isEven ? "bg-jaune-vif" : "bg-bleu"
+                    )}
                   />
 
                   {/* Watermark Index */}
-                  <span className="absolute top-4 right-5 text-2xl font-black font-space-grotesk text-outline-variant/25 select-none">
+                  <span className={cn(
+                    "absolute top-4 right-5 text-2xl font-black font-space-grotesk select-none",
+                    isEven ? "text-jaune-moutarde/25" : "text-bleu/15"
+                  )}>
                     0{idx + 1}
                   </span>
 
                   {/* Animated Icon Circle */}
                   <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 shadow-2xs ${
-                      isHovered ? "bg-secondary shadow-md scale-110" : "bg-surface-container"
-                    }`}
+                    className={cn(
+                      "w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 shadow-2xs border",
+                      isEven
+                        ? isHovered
+                          ? "bg-jaune-vif text-[#0b1c30] border-jaune-citron shadow-md scale-110"
+                          : "bg-amber-50 text-jaune-moutarde border-jaune-moutarde/30"
+                        : isHovered
+                        ? "bg-bleu text-white border-bleu shadow-md scale-110"
+                        : "bg-blue-50 text-bleu border-bleu/20"
+                    )}
                   >
                     {getPrincipleIcon(item.id, isHovered)}
                   </div>
 
-                  <h3 className="font-space-grotesk font-bold text-lg text-on-surface mb-3 leading-snug group-hover:text-secondary transition-colors">
+                  <h3 className={cn(
+                    "font-space-grotesk font-bold text-lg text-on-surface mb-3 leading-snug transition-colors",
+                    isEven ? "group-hover:text-jaune-moutarde" : "group-hover:text-bleu"
+                  )}>
                     {item.title}
                   </h3>
 
@@ -451,13 +468,13 @@ export function NotreAdnClient() {
       </section>
 
       {/* 5. STRENGTHS / NOS ATOUTS MAJEURS (4x2 Grid) */}
-      <section className="w-full py-12 sm:py-20 px-4 sm:px-6">
+      <section className="w-full py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-white via-blue-50/30 to-amber-50/20">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <motion.span
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-secondary text-xs sm:text-sm font-bold uppercase tracking-widest mb-3 block"
+            className="px-4 py-1.5 rounded-full bg-jaune-vif text-[#0b1c30] text-xs font-extrabold uppercase tracking-wider mb-3 shadow-xs border border-jaune-moutarde/30"
           >
             {adnContent.strengths.badge}
           </motion.span>
@@ -466,7 +483,7 @@ export function NotreAdnClient() {
             initial={shouldReduceMotion ? undefined : { opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight text-center mb-3"
+            className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-bleu-petrole tracking-tight text-center mb-3"
           >
             {adnContent.strengths.title}
           </motion.h2>
@@ -489,6 +506,7 @@ export function NotreAdnClient() {
           >
             {adnContent.strengths.items.map((item, idx) => {
               const isHovered = hoveredStrength === item.id;
+              const isEven = idx % 2 === 1;
               return (
                 <motion.div
                   key={item.id}
@@ -496,30 +514,41 @@ export function NotreAdnClient() {
                   onMouseEnter={() => setHoveredStrength(item.id)}
                   onMouseLeave={() => setHoveredStrength(null)}
                   whileHover={shouldReduceMotion ? undefined : { y: -5, transition: { duration: 0.25 } }}
-                  className="bg-surface-container-lowest rounded-3xl p-6 border border-outline-variant/30 shadow-xs hover:shadow-xl hover:border-secondary/40 transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden"
+                  className="bg-white rounded-3xl p-6 border-2 border-bleu/15 shadow-sm hover:shadow-xl hover:border-bleu transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden"
                 >
-                  {/* Subtle top indicator bar */}
+                  {/* Top indicator bar */}
                   <div
-                    className={`absolute top-0 left-0 right-0 h-1 transition-all duration-300 ${
-                      isHovered ? "bg-secondary opacity-100" : "opacity-0"
-                    }`}
+                    className={cn(
+                      "absolute top-0 left-0 right-0 h-1 transition-all duration-300",
+                      isEven ? "bg-jaune-vif" : "bg-bleu"
+                    )}
                   />
 
                   {/* Watermark Index */}
-                  <span className="absolute top-3 right-4 text-xs font-bold text-outline-variant/40">
+                  <span className="absolute top-3 right-4 text-xs font-extrabold text-bleu/30">
                     0{idx + 1}
                   </span>
 
                   {/* Animated Icon Circle */}
                   <div
-                    className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 shadow-2xs ${
-                      isHovered ? "bg-secondary shadow-md scale-110" : "bg-surface-container"
-                    }`}
+                    className={cn(
+                      "w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 shadow-2xs border",
+                      isEven
+                        ? isHovered
+                          ? "bg-jaune-vif text-[#0b1c30] border-jaune-citron shadow-md scale-110"
+                          : "bg-amber-50 text-jaune-moutarde border-jaune-moutarde/30"
+                        : isHovered
+                        ? "bg-bleu text-white border-bleu shadow-md scale-110"
+                        : "bg-blue-50 text-bleu border-bleu/20"
+                    )}
                   >
                     {getStrengthIcon(item.id, isHovered)}
                   </div>
 
-                  <h3 className="font-space-grotesk font-bold text-base text-on-surface mb-2 leading-snug group-hover:text-secondary transition-colors">
+                  <h3 className={cn(
+                    "font-space-grotesk font-bold text-base text-on-surface mb-2 leading-snug transition-colors",
+                    isEven ? "group-hover:text-jaune-moutarde" : "group-hover:text-bleu"
+                  )}>
                     {item.title}
                   </h3>
 
@@ -540,16 +569,16 @@ export function NotreAdnClient() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 bg-gradient-to-b from-surface-container-low to-surface-container-lowest rounded-3xl p-8 sm:p-14 border border-outline-variant/40 shadow-xl relative overflow-hidden"
+          className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 bg-gradient-to-br from-bleu via-[#1a386b] to-bleu-petrole text-white rounded-3xl p-8 sm:p-14 border-2 border-jaune-vif/50 shadow-2xl relative overflow-hidden"
         >
           {/* Ambient glow in CTA */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(55,85,195,0.08),transparent_70%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(231,184,33,0.15),transparent_70%)] pointer-events-none" />
 
-          <h2 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight relative z-10">
+          <h2 className="font-space-grotesk text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight relative z-10">
             {adnContent.cta.title}
           </h2>
 
-          <p className="text-sm sm:text-base text-on-surface-variant max-w-xl leading-relaxed relative z-10">
+          <p className="text-sm sm:text-base text-blue-100 max-w-xl leading-relaxed relative z-10">
             {adnContent.cta.subtitle}
           </p>
 
@@ -561,7 +590,7 @@ export function NotreAdnClient() {
             >
               <Link
                 href={adnContent.cta.primaryButtonHref}
-                className="px-8 py-4 rounded-xl bg-primary text-on-primary hover:brightness-110 font-bold text-sm shadow-lg transition-all flex items-center gap-2"
+                className="px-8 py-4 rounded-xl bg-jaune-vif text-[#0b1c30] hover:bg-jaune-citron font-extrabold text-sm shadow-xl border border-jaune-citron transition-all flex items-center gap-2"
               >
                 <span>{adnContent.cta.primaryButtonText}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -575,7 +604,7 @@ export function NotreAdnClient() {
             >
               <Link
                 href={adnContent.cta.secondaryButtonHref}
-                className="px-8 py-4 rounded-xl border-2 border-outline-variant hover:border-secondary hover:text-secondary text-on-surface font-bold text-sm transition-all"
+                className="px-8 py-4 rounded-xl border-2 border-white/40 hover:bg-white hover:text-bleu text-white font-bold text-sm transition-all backdrop-blur-md"
               >
                 {adnContent.cta.secondaryButtonText}
               </Link>
