@@ -289,7 +289,6 @@ export function OffersSection() {
             href="/offres"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-bleu text-white hover:bg-bleu-petrole font-bold text-sm shadow-sm transition-all group"
           >
-            <Sparkles className="w-4 h-4 text-jaune-citron" />
             <span>Voir toutes nos offres</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -298,7 +297,6 @@ export function OffersSection() {
             href="/offres/comparatif"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-bleu hover:text-bleu-petrole hover:bg-surface-container font-bold text-sm shadow-xs transition-all group"
           >
-            <Layers className="w-4 h-4 text-bleu" />
             <span>Consulter le grand tableau comparatif</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

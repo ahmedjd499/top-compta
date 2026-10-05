@@ -10,9 +10,7 @@ import {
   ChevronDown,
   Lock,
   Phone,
-  Sparkles,
   ShieldCheck,
-  Zap,
   Layers,
 } from "lucide-react";
 import {
@@ -117,7 +115,6 @@ export function OffresPageClient() {
             {/* Checkable / Toggle Duration Choices (1, 3, 6, 12 mois) */}
             <div className="mb-10 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-on-surface font-semibold">
-                <Sparkles className="w-4 h-4 text-secondary" />
                 <span>Choisissez votre période pour visualiser les tarifs dégressifs :</span>
               </div>
 
